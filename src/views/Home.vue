@@ -150,6 +150,7 @@ h2 {
   transform: translateX(-50%);
   position: relative;
   font-size: 2em;
+  font-weight: 300;
 }
 #features {
   padding: 40px;
