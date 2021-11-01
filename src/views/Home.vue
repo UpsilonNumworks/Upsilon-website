@@ -1,26 +1,27 @@
 <template>
   <div class="home">
     <div id="logos">
-      <div id="logos-bg"></div>
-      <svg
-        id="upsi-fork"
-        width="85.845mm"
-        height="539.56mm"
-        version="1.1"
-        viewBox="0 0 85.845 539.56"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g transform="translate(-13.267 188.99)">
-          <path
-            d="m92.498-182.04v192.63c0 12.972-6.9202 24.958-18.154 31.444-11.234 6.4858-25.074 6.4858-36.308-1e-6 -11.234-6.4858-18.154-18.472-18.154-31.444v-192.97"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-            stroke-width="15"
-            style="paint-order: stroke fill markers"
-          />
-          <path d="m56.154 46.899v303.67" stroke-width="15" />
-        </g>
-      </svg>
+      <div id="logos-bg">
+        <svg
+          id="upsi-fork"
+          width="85.845mm"
+          height="539.56mm"
+          version="1.1"
+          viewBox="0 0 85.845 539.56"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(-13.267 188.99)">
+            <path
+              d="m92.498-182.04v192.63c0 12.972-6.9202 24.958-18.154 31.444-11.234 6.4858-25.074 6.4858-36.308-1e-6 -11.234-6.4858-18.154-18.472-18.154-31.444v-192.97"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+              stroke-width="15"
+              style="paint-order: stroke fill markers"
+            />
+            <path d="m56.154 46.899v303.67" stroke-width="15" />
+          </g>
+        </svg>
+      </div>
       <div id="text-bg"></div>
       <svg
         width="635.25"
@@ -54,15 +55,23 @@
       </svg>
       <div id="slogan">When Epsiloff and Omegout</div>
     </div>
+    <div id="content-bg">
+      <div id="content">
+        <h1>Features</h1>
+        <div class="features">
+          <Feature title="Latex" content="Latex support" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Feature from '@/components/Feature.vue'
 
 export default {
   name: 'Home',
-  components: {},
+  components: { Feature },
   mounted () {
     const updateSize = () => {
       document.getElementById(
@@ -80,6 +89,33 @@ export default {
 }
 </script>
 <style>
+h1,
+h2 {
+  font-family: 'Righteous';
+}
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+h2 {
+  font-size: 2em;
+}
+#content-bg {
+  position: absolute;
+  top: 100vh;
+  background: #5e81ac;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+#content {
+  max-width: 1800px;
+  flex: 1;
+  padding: 40px;
+  padding-top: 10px;
+  background: #ffffff30;
+  border-radius: 40px 40px 0 0;
+}
 #logos > #slogan {
   top: 51%;
   transform: translateX(-50%);
@@ -88,7 +124,7 @@ export default {
   animation: appear-from-left 0.8s;
   font-family: monospace;
 }
-#logos > #upsi-fork {
+#logos > #logos-bg > #upsi-fork {
   stroke: #7ea2ce;
   fill: none;
   animation: appear-from-top-fork 0.6s;
@@ -101,7 +137,8 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   top: 40%;
 }
-#logos > * {
+#logos > *,
+#logos-bg > * {
   position: absolute;
   top: 0;
   left: 50%;
@@ -112,6 +149,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 #logos-bg {
   background: #5e81ac;
