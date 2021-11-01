@@ -3,10 +3,11 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,5 +27,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+body {
+  overflow-x: hidden;
 }
 </style>

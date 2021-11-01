@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="85.844986mm"
+   height="539.55975mm"
+   viewBox="0 0 85.844986 539.55975"
+   version="1.1"
+   id="svg8898"
+   inkscape:version="1.1 (1:1.1+202105261518+ce6663b3b7)"
+   sodipodi:docname="upsilon_fork.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8900"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="39.504345"
+     inkscape:cy="961.52085"
+     inkscape:window-width="2560"
+     inkscape:window-height="1411"
+     inkscape:window-x="1080"
+     inkscape:window-y="324"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs8895" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.267139,188.99357)">
+    <path
+       id="path8981"
+       style="fill:none;stroke:#000000;stroke-width:13.2292;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 92.497524,-182.04363 V 10.588882 c 0,12.971561 -6.920246,24.957777 -18.153948,31.443557 -11.233701,6.48578 -25.074191,6.48578 -36.307892,-10e-7 C 26.801984,35.546658 19.881739,23.560442 19.881739,10.588882 V -182.37897"
+       sodipodi:nodetypes="csscsc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:18.9623;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 56.154449,46.898652 V 350.56621"
+       id="path10031" />
+  </g>
+</svg>
