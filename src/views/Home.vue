@@ -57,9 +57,40 @@
     </div>
     <div id="content-bg">
       <div id="content">
-        <h1>Features</h1>
-        <div class="features">
-          <Feature title="Latex" content="Latex support" />
+        <p id="description">
+          Upsilon is a fork of omega which is much better Lorem ipsum, dolor sit
+          amet consectetur adipisicing elit. Impedit aperiam dignissimos nisi
+          esse sit tempora laboriosam, fugiat nulla unde culpa eligendi.
+          Suscipit dolores harum, expedita labore itaque doloremque, vel,
+          reiciendis aut impedit eveniet debitis. Veniam, dignissimos iusto
+          rerum molestiae est, expedita facilis aut delectus repellendus
+          necessitatibus iste perferendis quibusdam fuga.
+        </p>
+        <div id="features">
+          <Feature title="Reader">
+            A reader app with support for LaTeX special characters
+          </Feature>
+          <Feature title="External apps" content=""
+            >Install community apps on the fly with External. Also includes
+            KhiCAS and various emulators.
+          </Feature>
+          <Feature title="Symbolic computation">
+            Symbolic computation was removed from Epsilon in version 11.2.
+            Upsilon reintroduces that feature.
+          </Feature>
+          <Feature title="Theme engine">
+            A reader app with support for LaTeX special characters
+          </Feature>
+          <Feature title="Periodic table">
+            Inspired by the TI83PCE's periodic table app, Omega's periodic table
+            is clean and simple to use.
+          </Feature>
+          <Feature title="RPN">
+            Omega supports using Reverse Polish Notation to do calculations.
+          </Feature>
+          <Feature title="Now available on the Nintendo 3DS">
+            Omega is available and fully usable on the Nintendo 3DS.
+          </Feature>
         </div>
       </div>
     </div>
@@ -111,10 +142,23 @@ h2 {
 #content {
   max-width: 1800px;
   flex: 1;
+}
+#content #description {
+  max-width: 1000px;
+  text-align: justify;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  font-size: 2em;
+}
+#features {
   padding: 40px;
-  padding-top: 10px;
   background: #ffffff30;
   border-radius: 40px 40px 0 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 #logos > #slogan {
   top: 51%;
