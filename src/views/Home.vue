@@ -58,38 +58,29 @@
     <div id="content-bg">
       <div id="content">
         <p id="description">
-          Upsilon is a fork of omega which is much better Lorem ipsum, dolor sit
-          amet consectetur adipisicing elit. Impedit aperiam dignissimos nisi
-          esse sit tempora laboriosam, fugiat nulla unde culpa eligendi.
-          Suscipit dolores harum, expedita labore itaque doloremque, vel,
-          reiciendis aut impedit eveniet debitis. Veniam, dignissimos iusto
-          rerum molestiae est, expedita facilis aut delectus repellendus
-          necessitatibus iste perferendis quibusdam fuga.
+          {{ t('home.description') }}
         </p>
         <div id="features">
-          <Feature title="Reader">
-            A reader app with support for LaTeX special characters
+          <Feature :title="t('features.reader.name')">
+            {{ t('features.reader.description') }}
           </Feature>
-          <Feature title="External apps" content=""
-            >Install community apps on the fly with External. Also includes
-            KhiCAS and various emulators.
+          <Feature :title="t('features.external.name')">
+            {{ t('features.external.description') }}
           </Feature>
-          <Feature title="Symbolic computation">
-            Symbolic computation was removed from Epsilon in version 11.2.
-            Upsilon reintroduces that feature.
+          <Feature :title="t('features.symbolic.name')">
+            {{ t('features.symbolic.description') }}
           </Feature>
-          <Feature title="Theme engine">
-            A reader app with support for LaTeX special characters
+          <Feature :title="t('features.themes.name')">
+            {{ t('features.themes.description') }}
           </Feature>
-          <Feature title="Periodic table">
-            Inspired by the TI83PCE's periodic table app, Omega's periodic table
-            is clean and simple to use.
+          <Feature :title="t('features.periodic.name')">
+            {{ t('features.periodic.description') }}
           </Feature>
-          <Feature title="RPN">
-            Omega supports using Reverse Polish Notation to do calculations.
+          <Feature :title="t('features.rpn.name')">
+            {{ t('features.rpn.description') }}
           </Feature>
-          <Feature title="Now available on the Nintendo 3DS">
-            Omega is available and fully usable on the Nintendo 3DS.
+          <Feature :title="t('features.3ds.name')">
+            {{ t('features.3ds.description') }}
           </Feature>
         </div>
       </div>
@@ -99,9 +90,18 @@
 
 <script>
 import Feature from '@/components/Feature.vue'
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Home',
+  setup () {
+    const { t } = useI18n({
+      inheritLocale: true,
+      useScope: 'global'
+    })
+    return { t }
+  },
   components: { Feature },
   mounted () {
     const updateSize = () => {
@@ -117,7 +117,7 @@ export default {
     window.addEventListener('resize', updateSize)
     updateSize()
   }
-}
+})
 </script>
 <style>
 h1,

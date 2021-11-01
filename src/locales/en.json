@@ -1,0 +1,36 @@
+{
+  "message": "hello i18n !!",
+  "home": {
+    "description": "Upsilon is a fork of Omega"
+  },
+  "features": {
+    "reader": {
+      "name": "Reader",
+      "description": "A reader app with support for LaTeX special characters"
+    },
+    "external": {
+      "name": "External apps",
+      "description": "Install community apps on the fly with External. Also includes KhiCAS and various emulators."
+    },
+    "symbolic": {
+      "name": "Symbolic calculation",
+      "description": "Symbolic computation was removed from Epsilon in version 11.2. Upsilon reintroduces that feature."
+    },
+    "themes": {
+      "name": "Themes engine",
+      "description": "Support for different themes"
+    },
+    "periodic": {
+      "name": "Periodic table",
+      "description": "Inspired by the TI83PCE's periodic table app, Omega's periodic table is clean and simple to use."
+    },
+    "rpn": {
+      "name": "RPN",
+      "description": "Omega supports using Reverse Polish Notation to do calculations."
+    },
+    "3ds": {
+      "name": "3DS simulator",
+      "description": "Omega is available and fully usable on the Nintendo 3DS."
+    }
+  }
+}
