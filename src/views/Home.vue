@@ -105,6 +105,7 @@ export default {
   position: absolute;
   top: 0;
   left: 50%;
+  z-index: -10;
 }
 #logos-bg,
 #text-bg {
@@ -114,10 +115,16 @@ export default {
 }
 #logos-bg {
   background: #5e81ac;
-  background-image: url();
+  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r2.png');
+  transition: background-image 1s;
+  background-size: cover;
 }
 #text-bg {
   background: linear-gradient(0, #5e81ac, #5e81ac00);
+}
+#logos {
+  pointer-events: none;
+  user-select: none;
 }
 @keyframes appear-from-top-fork {
   0% {
