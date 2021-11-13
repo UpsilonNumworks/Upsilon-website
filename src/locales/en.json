@@ -18,7 +18,8 @@
     },
     "themes": {
       "name": "Themes engine",
-      "description": "Support for different themes"
+      "description": "Customize the look of your calculator with one of the following themes",
+      "andmanymore": "Or one of the community made themes"
     },
     "periodic": {
       "name": "Periodic table",
@@ -26,11 +27,11 @@
     },
     "rpn": {
       "name": "RPN",
-      "description": "Omega supports using Reverse Polish Notation to do calculations."
+      "description": "Upsilon supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations."
     },
     "3ds": {
       "name": "3DS simulator",
-      "description": "Omega is available and fully usable on the Nintendo 3DS."
+      "description": "Upsilon is available and fully usable on the Nintendo 3DS."
     }
   }
 }
