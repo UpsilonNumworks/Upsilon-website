@@ -72,6 +72,19 @@
           </Feature>
           <Feature :title="t('features.themes.name')">
             {{ t('features.themes.description') }}
+            <ul>
+              <li>Upsilon light</li>
+              <li>Omega light</li>
+              <li>Omega dark</li>
+              <li>Epsilon light</li>
+              <li>Epsilon dark</li>
+            </ul>
+            <a
+              href="https://github.com/Omega-Numworks-Prod/Omega-custom-theme-Listing"
+              target="_blank"
+            >
+              {{ t('features.themes.andmanymore') }}
+            </a>
           </Feature>
           <Feature :title="t('features.periodic.name')">
             {{ t('features.periodic.description') }}
@@ -120,6 +133,13 @@ export default defineComponent({
 })
 </script>
 <style>
+a {
+  color: var(--complementary);
+  font-weight: bold;
+}
+a:visited {
+  color: var(--complementary);
+}
 h1,
 h2 {
   font-family: 'Righteous';
@@ -134,7 +154,7 @@ h2 {
 #content-bg {
   position: absolute;
   top: 100vh;
-  background: #5e81ac;
+  background-color: var(--upsilon-2);
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -170,7 +190,7 @@ h2 {
   font-family: monospace;
 }
 #logos > #logos-bg > #upsi-fork {
-  stroke: #7ea2ce;
+  stroke: var(--upsilon-1);
   fill: none;
   animation: appear-from-top-fork 0.6s;
   top: -120%;
@@ -197,13 +217,13 @@ h2 {
   overflow: hidden;
 }
 #logos-bg {
-  background: #5e81ac;
+  background: var(--upsilon-2);
   background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r2.png');
   transition: background-image 1s;
   background-size: cover;
 }
 #text-bg {
-  background: linear-gradient(0, #5e81ac, #5e81ac00);
+  background: linear-gradient(0, var(--upsilon-2), #00000000);
 }
 #logos {
   pointer-events: none;
