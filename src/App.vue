@@ -10,6 +10,12 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+  --upsilon-1: #7ea2ce;
+  --upsilon-2: #5e81ac;
+  --complementary: #7ecc70;
+}
 #app {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,8 +24,8 @@
 }
 
 #nav {
-  background: #7ea2ce;
-  border-bottom: solid #5e81ac 3pt;
+  background: var(--upsilon-1);
+  border-bottom: solid var(--upsilon-2) 3pt;
   font-family: 'Righteous';
   font-size: 1.5em;
   display: flex;
@@ -40,5 +46,6 @@ body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
+  background: var(--upsilon-2);
 }
 </style>
