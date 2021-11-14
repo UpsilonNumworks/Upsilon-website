@@ -14,12 +14,12 @@
   "features": {
     "reader": {
       "name": "Liseuse",
-      "description": "Une application liseuse avec un support pour les caractères speciaux du LaTeX",
+      "description": "Une application liseuse avec un support pour les caractères speciaux du format LaTeX",
       "docLink": "En savoir plus"
     },
     "external": {
       "name": "Applications Externes",
-      "description": "Installez des applications commuautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
+      "description": "Installez des applications communautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
       "installNow": "Installez-en maintenant"
     },
     "symbolic": {
@@ -28,12 +28,12 @@
     },
     "themes": {
       "name": "Moteur de thèmes",
-      "description": "Customizez l'apparence de votre calculatrice avec l'un des themes suivants",
+      "description": "Personnalisez l'apparence de votre calculatrice avec l'un des themes suivants",
       "andmanymore": "Ou l'un des thèmes créés par la communauté"
     },
     "periodic": {
       "name": "Tableau périodique",
-      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Upsilon est propre et simple à utiliser."
+      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Upsilon est clair et simple d'utilisation."
     },
     "rpn": {
       "name": "RPN",
