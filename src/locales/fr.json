@@ -37,7 +37,8 @@
     },
     "rpn": {
       "name": "RPN",
-      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathematiques."
+      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathematiques.",
+      "docLink": "En savoir plus"
     },
     "3ds": {
       "name": "Simulateur 3DS",
@@ -56,6 +57,41 @@
       "simplearrow": "Simple flèches",
       "greekcapitalletter": "Lettres capitales greques",
       "greeksmallletter": "Lettres minuscules greques"
+    },
+    "rpn": {
+      "the": "La",
+      "rpn": "Notation Polonaise Inverse",
+      "definition": {
+        "p1": "est une autre façon d'écrire des caluls mathematiques. Il a été inventé par le mathématicien polonais Jan Łukasiewicz en 1924.",
+        "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile, les opérateurs sont placés en haut de la pile, tandi que les resultats des caluls sont également renvoyés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathematiques plus faciles à comprendre et à manipuler."
+      },
+      "h2": "Introduction rapide à l'application RPN de Upsilon",
+      "introduction": {
+        "p1": "Quand vous voulez faire un calcul dans l'application RPN de Upsilon, vous devez commancer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyez l'oppérateur approprié également par ordre d'apparition.",
+        "examples": {
+          "1": {
+            "title": "Pour obtenir le resultat de 245*6598 :",
+            "li1": "Tapez 245 et appuyez sur OK",
+            "li2": "Tapez 6598 et appuyez sur OK",
+            "li3": "Appuyez une fois sur le bouton multiplication"
+          },
+          "2": {
+            "title": "Pour obtenir le resultat de (65*98)/78 :",
+            "li1": "Tapez 65 et appuyez sur OK",
+            "li2": "Tapez 98 et appuyez sur OK",
+            "li3": "Tapez 78 et appuyez sur OK",
+            "li4": "Appuyez une fois sur le bouton multiplication",
+            "li5": "Appuyez une fois sur le bouton division"
+          },
+          "examples": "Examples"
+        },
+        "p2": "You can change the position of a term in the stack by using the parenthesis button, which will move it up or down.",
+        "p2": "Vous pouvez changer la position d'un therme dans la pile en utilisant les boutons parentheses, ce qui le déplacera vers le haut ou le bas."
+      },
+      "note": {
+        "title": "Note :",
+        "content": " Tout au long de l'histoire d'Oméga, un bug a rendu l'application RPN dificile a utiliser en toute sécurité sur la calculatrice. Cependant, merci à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et je peut désormais utiliser l'application RPN en toute sécurité."
+      }
     }
   }
 }
