@@ -1,0 +1,59 @@
+{
+  "message": "hello i18n !!",
+  "home": {
+    "name": "Accueil",
+    "description": "Upsilon est un fork d'Oméga"
+  },
+  "installer": {
+    "name": "Installer",
+    "title": "Installer Upsilon"
+  },
+  "github": {
+    "name": "Github"
+  },
+  "features": {
+    "reader": {
+      "name": "Liseuse",
+      "description": "Une application liseuse avec un support pour les caractères speciaux du LaTeX",
+      "docLink": "En savoir plus"
+    },
+    "external": {
+      "name": "Applications Externes",
+      "description": "Installez des applications commuautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
+      "installNow": "Installez-en maintenant"
+    },
+    "symbolic": {
+      "name": "Calcul symbolique",
+      "description": "Le calcul symbolique a été retiré d'Epsilon à la version 11.2. Upsilon réintroduit cette fonctionnalité."
+    },
+    "themes": {
+      "name": "Moteur de thèmes",
+      "description": "Customizez l'apparence de votre calculatrice avec l'un des themes suivants",
+      "andmanymore": "Ou l'un des thèmes créés par la communauté"
+    },
+    "periodic": {
+      "name": "Tableau périodique",
+      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Upsilon est propre et simple à utiliser."
+    },
+    "rpn": {
+      "name": "RPN",
+      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathematiques."
+    },
+    "3ds": {
+      "name": "Simulateur 3DS",
+      "description": "Upsilon est disponible et entièrement utilisable sur Nintendo 3DS."
+    }
+  },
+  "latex": {
+    "reference": "Reference LaTeX",
+    "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
+    "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
+    "command": "Commande",
+    "output": "Sortie",
+    "mathsymbols": "Symboles Mathematiques",
+    "doublearrow": "Doubles flèches",
+    "simplearrow": "Simple flèches",
+    "greekcapitalletter": "Lettres capitales greques",
+    "greeksmallletter": "Lettres minuscules greques"
+  }
+}

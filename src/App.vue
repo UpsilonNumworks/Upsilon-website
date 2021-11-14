@@ -1,11 +1,26 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/install">Install</router-link>
-    <a target="_blank" href="https://github.com/Lauryy06/Upsilon">Github</a>
+    <router-link to="/">{{ t('home.name') }}</router-link>
+    <router-link to="/install">{{ t('installer.name') }}</router-link>
+    <a target="_blank" href="https://github.com/Lauryy06/Upsilon">{{ t('github.name') }}</a>
   </div>
   <router-view />
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
+export default defineComponent({
+  name: '',
+  setup () {
+    const { t } = useI18n({
+      inheritLocale: true,
+      useScope: 'global'
+    })
+    return { t }
+  }
+})
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');

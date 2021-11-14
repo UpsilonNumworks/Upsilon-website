@@ -1,19 +1,19 @@
 <template>
   <div class="doc-wrapper">
     <div class="doc">
-      <h2>{{ t('latex.reference') }}</h2>
+      <h2>{{ t('doc.latex.reference') }}</h2>
       <p>
-        {{ t('latex.description') }}
+        {{ t('doc.latex.description') }}
       </p>
       <p>
-        {{ t('latex.symbolslisted') }}
+        {{ t('doc.latex.symbolslisted') }}
       </p>
       <div id="latex-tables">
         <table>
           <thead>
             <tr>
-              <th>Command</th>
-              <th>Output</th>
+              <th>{{ t('doc.latex.command') }}</th>
+              <th>{{ t('doc.latex.output') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -28,12 +28,12 @@
           </tbody>
         </table>
         <div class="latex-table">
-          <p>Math Symbols</p>
+          <p>{{ t('doc.latex.mathsymbols') }}</p>
           <table>
             <thead>
               <tr>
-                <th>Command</th>
-                <th>Output</th>
+                <th>{{ t('doc.latex.command') }}</th>
+                <th>{{ t('doc.latex.output') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -89,12 +89,12 @@
           </table>
         </div>
         <div class="latex-table">
-          <p>Double arrows</p>
+          <p>{{ t('doc.latex.doublearrow') }}</p>
           <table>
             <thead>
               <tr>
-                <th>Command</th>
-                <th>Output</th>
+                <th>{{ t('doc.latex.command') }}</th>
+                <th>{{ t('doc.latex.output') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -118,12 +118,12 @@
           </table>
         </div>
         <div class="latex-table">
-          <p>Simple arrows</p>
+          <p>{{ t('doc.latex.simplearrow') }}</p>
           <table>
             <thead>
               <tr>
-                <th>Command</th>
-                <th>Output</th>
+                <th>{{ t('doc.latex.command') }}</th>
+                <th>{{ t('doc.latex.output') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -155,12 +155,12 @@
           </table>
         </div>
         <div class="latex-table">
-          <p>Greek capital letters</p>
+          <p>{{ t('doc.latex.greekcapitalletter') }}</p>
           <table>
             <thead>
               <tr>
-                <th>Command</th>
-                <th>Output</th>
+                <th>{{ t('doc.latex.command') }}</th>
+                <th>{{ t('doc.latex.output') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -264,12 +264,12 @@
           </table>
         </div>
         <div class="latex-table">
-          <p>Greek small letters</p>
+          <p>{{ t('doc.latex.greeksmallletter') }}</p>
           <table>
             <thead>
               <tr>
-                <th>Command</th>
-                <th>Output</th>
+                <th>{{ t('doc.latex.command') }}</th>
+                <th>{{ t('doc.latex.output') }}</th>
               </tr>
             </thead>
             <tbody>
