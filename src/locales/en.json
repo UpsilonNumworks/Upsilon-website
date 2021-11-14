@@ -5,7 +5,8 @@
     "description": "Upsilon is a fork of Omega"
   },
   "installer": {
-    "title": "Installer Upsilon"
+    "name": "Install",
+    "title": "Install Upsilon"
   },
   "github": {
     "name": "Github"

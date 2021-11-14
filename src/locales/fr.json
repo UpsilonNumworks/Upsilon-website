@@ -44,16 +44,18 @@
       "description": "Upsilon est disponible et entièrement utilisable sur Nintendo 3DS."
     }
   },
-  "latex": {
-    "reference": "Reference LaTeX",
-    "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
-    "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
-    "command": "Commande",
-    "output": "Sortie",
-    "mathsymbols": "Symboles Mathematiques",
-    "doublearrow": "Doubles flèches",
-    "simplearrow": "Simple flèches",
-    "greekcapitalletter": "Lettres capitales greques",
-    "greeksmallletter": "Lettres minuscules greques"
+  "doc": {
+    "latex": {
+      "reference": "Reference LaTeX",
+      "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
+      "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
+      "command": "Commande",
+      "output": "Sortie",
+      "mathsymbols": "Symboles Mathematiques",
+      "doublearrow": "Doubles flèches",
+      "simplearrow": "Simple flèches",
+      "greekcapitalletter": "Lettres capitales greques",
+      "greeksmallletter": "Lettres minuscules greques"
+    }
   }
 }
