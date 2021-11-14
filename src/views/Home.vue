@@ -214,7 +214,7 @@ h2 {
 }
 #features {
   transition: padding 0.1s;
-  background: #ffffff30;
+  background: var(--transparent-fg-1);
   border-radius: 40px 40px 0 0;
   display: grid;
   justify-content: space-between;
@@ -223,7 +223,7 @@ h2 {
 #logos > #slogan {
   top: 51%;
   transform: translateX(-50%);
-  color: white;
+  color: var(--foreground);
   font-size: 3vh;
   animation: appear-from-left 0.8s;
   font-family: monospace;
@@ -237,7 +237,7 @@ h2 {
 }
 #logos > #upsi-logo {
   animation: appear-from-top-logo 0.7s;
-  fill: white;
+  fill: var(--foreground);
   transform: translateX(-50%) translateY(-50%);
   top: 40%;
 }
@@ -257,9 +257,14 @@ h2 {
 }
 #logos-bg {
   background: var(--upsilon-2);
-  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r2.png');
-  transition: background-image 1s;
+  transition: background-image 0.5s;
   background-size: cover;
+}
+.light #logos-bg {
+  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r2.png');
+}
+.dark #logos-bg {
+  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r3.png');
 }
 #text-bg {
   background: linear-gradient(0, var(--upsilon-2), #00000000);

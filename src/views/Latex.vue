@@ -1,6 +1,6 @@
 <template>
   <div class="doc-wrapper">
-    <div class="doc">
+    <div id="latex-doc" class="doc">
       <h2>{{ t('doc.latex.reference') }}</h2>
       <p>
         {{ t('doc.latex.description') }}
@@ -389,6 +389,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+#latex-doc {
+  max-width: 1500px;
+}
 #latex-tables {
   display: flex;
   flex-wrap: wrap;
@@ -396,8 +399,8 @@ export default defineComponent({
 }
 .latex-table {
   margin: 30px;
-  background: #ffffff20;
-  border: solid lightgrey 2pt;
+  background: var(--transparent-fg-1); /*#ffffff20*/
+  border: solid var(--foreground-2) 2pt; /*lightgrey*/
   border-radius: 15px;
   padding: 15px;
 }

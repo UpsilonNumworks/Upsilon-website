@@ -41,7 +41,7 @@ export default {
 }
 
 .feature {
-  background: #00000030;
+  background: var(--transparent-fg-1);
   transition: margin, padding, border-radius 0.1s;
 }
 

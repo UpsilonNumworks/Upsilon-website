@@ -61,9 +61,9 @@ p {
 }
 blockquote {
   font-family: 'EB Garamond', serif;
-  background: #ffffff20;
+  background: var(--transparent-fg-1);
   padding: 20px;
-  border-left: solid lightgrey 6pt;
+  border-left: solid var(--foreground-2) 6pt;
   border-radius: 15px;
 }
 blockquote > p {
