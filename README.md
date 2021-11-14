@@ -6,9 +6,12 @@ Anyone is welcome to contribute or request features/report bugs!
 
 -   Add images to feature cards
 -   Change Upsilon description
--   Make installer
--   Translate
--   Reader + LaTeX description/manual
+-   Installer
+-   Better Light mode
+-   Simulator
+-   Proper switch
+-   Better styling for LaTeX page
+-   Other feature cards
 
 ## Project setup
 
