@@ -51,7 +51,7 @@
       "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
       "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
       "command": "Commande",
-      "output": "Sortie",
+      "output": "Résultat",
       "mathsymbols": "Symboles mathématiques",
       "doublearrow": "Doubles flèches",
       "simplearrow": "Simple flèches",
