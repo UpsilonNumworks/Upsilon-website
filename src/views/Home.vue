@@ -129,9 +129,10 @@ export default defineComponent({
       ).style.transform = `translateX(-50%) scale(${window.innerHeight / 500})`
       document.getElementById(
         'upsi-logo'
-      ).style.transform = `translateX(-50%) translateY(-50%) scale(${
-        window.innerHeight / 1000
-      })`
+      ).style.transform = `translateX(-50%) translateY(-50%) scale(${Math.min(
+        window.innerHeight / 1000,
+        window.innerWidth / 800
+      )})`
     }
     window.addEventListener('resize', updateSize)
     updateSize()
