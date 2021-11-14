@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Latex from '../views/Latex.vue'
+import Installer from '../views/Installer.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/latex',
     name: 'Latex',
     component: Latex
+  },
+  {
+    path: '/install',
+    name: 'Install',
+    component: Installer
   }
 ]
 
