@@ -1,7 +1,14 @@
 {
   "message": "hello i18n !!",
   "home": {
+    "name": "Home",
     "description": "Upsilon is a fork of Omega"
+  },
+  "installer": {
+    "title": "Installer Upsilon"
+  },
+  "github": {
+    "name": "Github"
   },
   "features": {
     "reader": {
@@ -39,6 +46,13 @@
   "latex": {
     "reference": "LaTeX Reference",
     "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
-    "symbolslisted": "All the symbols you can use are listed here :"
+    "symbolslisted": "All the symbols you can use are listed here :",
+    "command": "Command",
+    "output": "Output",
+    "mathsymbols": "Math Symbols",
+    "doublearrow": "Double arrows",
+    "simplearrow": "Simple arrows",
+    "greekcapitalletter": "Greek capital letters",
+    "greeksmallletter": "Greek small letters"
   }
 }
