@@ -63,7 +63,7 @@
       "rpn": "Notation Polonaise Inverse",
       "definition": {
         "p1": "est une autre façon d'écrire des calculs mathématiques. Il a été inventé par le mathématicien polonais Jan Łukasiewicz en 1924.",
-        "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile. Les opérateurs, les résulats et les opérateurs sont tous placés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
+        "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile. Les opérateurs et les résulats sont tous placés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
       },
       "h2": "Introduction rapide à l'application RPN d'Upsilon",
       "introduction": {
