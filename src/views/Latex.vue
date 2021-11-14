@@ -4,12 +4,9 @@
 
     <p>
       {{ t('latex.description') }}
-      In the reader app, you can read a txt file. You can also read a txt file
-      with LaTeX expression inside of it.
     </p>
     <p>
       {{ t('latex.symbolslisted') }}
-      All the symbols you can use are listed here :
     </p>
     <table>
       <thead>

@@ -35,5 +35,10 @@
       "name": "3DS simulator",
       "description": "Upsilon is available and fully usable on the Nintendo 3DS."
     }
+  },
+  "latex": {
+    "reference": "LaTeX Reference",
+    "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
+    "symbolslisted": "All the symbols you can use are listed here :"
   }
 }
