@@ -9,5 +9,8 @@ module.exports = {
       compositionOnly: false,
       fullInstall: true
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+        ? '/repository-name/'
+        : '/'
 }
