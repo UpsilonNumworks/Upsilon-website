@@ -37,7 +37,8 @@
     },
     "rpn": {
       "name": "RPN",
-      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathematiques."
+      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathématiques.",
+      "docLink": "En savoir plus"
     },
     "3ds": {
       "name": "Simulateur 3DS",
@@ -51,11 +52,45 @@
       "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
       "command": "Commande",
       "output": "Sortie",
-      "mathsymbols": "Symboles Mathematiques",
+      "mathsymbols": "Symboles mathématiques",
       "doublearrow": "Doubles flèches",
       "simplearrow": "Simple flèches",
       "greekcapitalletter": "Lettres capitales greques",
       "greeksmallletter": "Lettres minuscules greques"
+    },
+    "rpn": {
+      "the": "La",
+      "rpn": "Notation Polonaise Inverse",
+      "definition": {
+        "p1": "est une autre façon d'écrire des calculs mathématiques. Il a été inventé par le mathématicien polonais Jan Łukasiewicz en 1924.",
+        "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile, les opérateurs sont placés en haut de la pile, tandis que les résultats des calculs sont également renvoyés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
+      },
+      "h2": "Introduction rapide à l'application RPN d'Upsilon",
+      "introduction": {
+        "p1": "Quand vous voulez faire un calcul dans l'application RPN d'Upsilon, vous devez commencer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyer sur l'opérateur approprié également par ordre d'apparition.",
+        "examples": {
+          "1": {
+            "title": "Pour obtenir le résultat de 245*6598 :",
+            "li1": "Tapez 245 et appuyez sur OK",
+            "li2": "Tapez 6598 et appuyez sur OK",
+            "li3": "Appuyez une fois sur le bouton multiplication"
+          },
+          "2": {
+            "title": "Pour obtenir le résultat de (65*98)/78 :",
+            "li1": "Tapez 65 et appuyez sur OK",
+            "li2": "Tapez 98 et appuyez sur OK",
+            "li3": "Tapez 78 et appuyez sur OK",
+            "li4": "Appuyez une fois sur le bouton multiplication",
+            "li5": "Appuyez une fois sur le bouton division"
+          },
+          "examples": "Exemples"
+        },
+        "p2": "Vous pouvez changer la position d'un terme dans la pile en utilisant les boutons parenthèses, ce qui le déplacera vers le haut ou le bas."
+      },
+      "note": {
+        "title": "Note :",
+        "content": " Tout au long de l'histoire d'Oméga, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, merci à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et je peux désormais utiliser l'application RPN en toute sécurité."
+      }
     }
   }
 }
