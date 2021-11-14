@@ -11,8 +11,8 @@
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -26,12 +26,12 @@
         </tr>
       </tbody>
     </table>
-    <p>Math Symbols</p>
+    <p>{{ t('latex.mathsymbols') }}</p>
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -85,12 +85,12 @@
         </tr>
       </tbody>
     </table>
-    <p>Double arrows</p>
+    <p>{{ t('latex.doublearrow') }}</p>
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -112,12 +112,12 @@
         </tr>
       </tbody>
     </table>
-    <p>Simple arrows</p>
+    <p>{{ t('latex.simplearrow') }}</p>
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -147,12 +147,12 @@
         </tr>
       </tbody>
     </table>
-    <p>Greek capital letters</p>
+    <p>{{ t('latex.greekcapitalletter') }}</p>
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -254,12 +254,12 @@
         </tr>
       </tbody>
     </table>
-    <p>Greek small letters</p>
+    <p>{{ t('latex.greeksmallletter') }}</p>
     <table>
       <thead>
         <tr>
-          <th>Command</th>
-          <th>Output</th>
+          <th>{{ t('latex.command') }}</th>
+          <th>{{ t('latex.output') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -368,7 +368,7 @@ export default defineComponent({
   setup () {
     const { t } = useI18n({
       inheritLocale: true,
-      useScope: 'local'
+      useScope: 'global'
     })
     return { t }
   }
