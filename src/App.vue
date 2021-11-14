@@ -10,6 +10,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
 
 @media screen and (max-width: 500px) {
   #nav a {
@@ -22,6 +23,24 @@
     font-size: 1em;
     margin: 30px;
   }
+}
+.doc-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.doc {
+  background: #ffffff10;
+  max-width: 1000px;
+  border-radius: 30px 30px 0 0;
+  padding: 30px;
+  padding-top: 0;
+}
+a[target='_blank']::after {
+  content: ' \f35d';
+  font-size: 0.9em;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
 }
 :root {
   --upsilon-1: #7ea2ce;

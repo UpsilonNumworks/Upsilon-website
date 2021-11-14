@@ -11,7 +11,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/latex',
+    path: '/doc/latex',
     name: 'Latex',
     component: Latex
   },
@@ -21,7 +21,7 @@ const routes = [
     component: Installer
   },
   {
-    path: '/rpn',
+    path: '/doc/rpn',
     name: 'RPN',
     component: RPN
   }

@@ -29,7 +29,8 @@
     },
     "rpn": {
       "name": "RPN",
-      "description": "Upsilon supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations."
+      "description": "Upsilon supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations.",
+      "docLink": "Learn more"
     },
     "3ds": {
       "name": "3DS simulator",
@@ -40,5 +41,41 @@
     "reference": "LaTeX Reference",
     "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
     "symbolslisted": "All the symbols you can use are listed here :"
+  },
+  "doc": {
+    "rpn": {
+      "the": "The",
+      "rpn": "Reverse Polish Notation",
+      "definition": {
+        "p1": "is another way of writing mathematical calculations. It was invented by the polish mathematician Jan Łukasiewicz in 1924.",
+        "p2": "This notation provides several advantages : RPN calculators are based on the use of a stack, the operands are placed on top of the stack, while the results of the calculations are also returned on top of the stack. Although this might be disconcerting at first, one quickly realizes that it helps make mathematical expressions easier to understand and manipulate."
+      },
+      "h2": "Quick introduction to the RPN app on Upsilon",
+      "introduction": {
+        "p1": "When you want to do a calculation in the RPN app on Upsilon, you must start by writing all the numbers that will be involved in your expression in order of appearance. Then you press the appropriate operand also in order of apparition.",
+        "examples": {
+          "1": {
+            "title": "To obtain the result of 245*6598 :",
+            "li1": "Write 245 and press OK",
+            "li2": "Write 6598 and press OK",
+            "li3": "Press once the multiplication button"
+          },
+          "2": {
+            "title": "To obtain the result of (65*98)/78 :",
+            "li1": "Write 65 and press OK",
+            "li2": "Write 98 and press OK",
+            "li3": "Write 78 and press OK",
+            "li4": "Press once the multiplication button",
+            "li5": "Press once the division button"
+          },
+          "examples": "Examples"
+        },
+        "p2": "You can change the position of a term in the stack by using the parenthesis button, which will move it up or down."
+      },
+      "note": {
+        "content": " throughout the whole Omega history, a bug made the RPN app hard to safely use on the calculator, however, thanks to RedGlow, dl11 and Overengined, the bug was fixed, and i is now totally safe to use the RPN app.",
+        "title": "Note:"
+      }
+    }
   }
 }

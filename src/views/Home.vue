@@ -63,7 +63,7 @@
         <div id="features">
           <Feature :title="t('features.reader.name')">
             {{ t('features.reader.description') }}
-            <router-link to="/latex">{{
+            <router-link to="/doc/latex">{{
               t('features.reader.docLink')
             }}</router-link>
           </Feature>
@@ -97,6 +97,9 @@
           </Feature>
           <Feature :title="t('features.rpn.name')">
             {{ t('features.rpn.description') }}
+            <router-link to="/doc/rpn">{{
+              t('features.rpn.docLink')
+            }}</router-link>
           </Feature>
           <Feature :title="t('features.3ds.name')">
             {{ t('features.3ds.description') }}
@@ -165,11 +168,7 @@ export default defineComponent({
     padding: 30px;
   }
 }
-a[target='_blank']::after {
-  content: ' \f35d';
-  font-size: 0.9em;
-  font-family: 'Font Awesome 5 Free';
-}
+
 .feature-content > a {
   display: block;
   margin: 5px;
