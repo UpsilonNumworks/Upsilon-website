@@ -10,7 +10,5 @@ module.exports = {
       fullInstall: true
     }
   },
-  publicPath: process.env.NODE_ENV === 'production'
-        ? '/repository-name/'
-        : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/Upsilon-website/' : '/'
 }
