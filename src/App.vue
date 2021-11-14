@@ -48,19 +48,20 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
 
-:root {
-  --upsilon-1: #7ea2ce;
-}
 .light {
-  --upsilon-2: #95b7e7;
+  --upsilon-1: #accef8;
+
+  --upsilon-2: white;
   --foreground: black;
-  --transparent-fg-1: #00000010;
+  --transparent-fg-1: #00000005;
   --transparent-fg-2: #00000020;
   --transparent-bg-3: #00000030;
   --foreground-2: #303030;
-  --complementary: #7ecc70;
+  --complementary: #3265a3;
 }
 .dark {
+  --upsilon-1: #7ea2ce;
+
   --upsilon-2: #0c1624;
   --foreground: #ffffff;
   --transparent-fg-1: #ffffff10;
@@ -108,7 +109,7 @@ a[target='_blank']::after {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
-#app {
+body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -125,7 +126,7 @@ a[target='_blank']::after {
 }
 
 #nav a {
-  font-weight: bold;
+  font-weight: 400;
   color: var(--foreground);
   text-decoration: none;
   display: block;

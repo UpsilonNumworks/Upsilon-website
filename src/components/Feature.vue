@@ -43,6 +43,7 @@ export default {
 .feature {
   background: var(--transparent-fg-1);
   transition: margin, padding, border-radius 0.1s;
+  border: solid var(--foreground-2) 2pt;
 }
 
 .feature > h2 {

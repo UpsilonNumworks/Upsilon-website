@@ -261,7 +261,7 @@ h2 {
   background-size: cover;
 }
 .light #logos-bg {
-  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r2.png');
+  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r4.png');
 }
 .dark #logos-bg {
   background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r3.png');
