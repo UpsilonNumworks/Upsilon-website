@@ -63,9 +63,15 @@
         <div id="features">
           <Feature :title="t('features.reader.name')">
             {{ t('features.reader.description') }}
+            <router-link to="/latex">{{
+              t('features.reader.docLink')
+            }}</router-link>
           </Feature>
           <Feature :title="t('features.external.name')">
             {{ t('features.external.description') }}
+            <a href="https://external.getomega.dev/" target="_blank">{{
+              t('features.external.installNow')
+            }}</a>
           </Feature>
           <Feature :title="t('features.symbolic.name')">
             {{ t('features.symbolic.description') }}
@@ -133,6 +139,40 @@ export default defineComponent({
 })
 </script>
 <style>
+@media screen and (min-width: 1500px) {
+  #features {
+    grid-template-columns: auto auto auto;
+  }
+}
+@media screen and (max-width: 1500px) and (min-width: 700px) {
+  #features {
+    grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  #features {
+    grid-template-columns: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  #features {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 500px) {
+  #features {
+    padding: 30px;
+  }
+}
+a[target='_blank']::after {
+  content: ' \f35d';
+  font-size: 0.9em;
+  font-family: 'Font Awesome 5 Free';
+}
+.feature-content > a {
+  display: block;
+  margin: 5px;
+}
 a {
   color: var(--complementary);
   font-weight: bold;
@@ -173,11 +213,10 @@ h2 {
   font-weight: 300;
 }
 #features {
-  padding: 40px;
+  transition: padding 0.1s;
   background: #ffffff30;
   border-radius: 40px 40px 0 0;
   display: grid;
-  grid-template-columns: auto auto auto;
   justify-content: space-between;
   flex-wrap: wrap;
 }

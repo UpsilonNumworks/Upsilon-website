@@ -6,11 +6,13 @@
   "features": {
     "reader": {
       "name": "Reader",
-      "description": "A reader app with support for LaTeX special characters"
+      "description": "A reader app with support for LaTeX special characters",
+      "docLink": "Learn more"
     },
     "external": {
       "name": "External apps",
-      "description": "Install community apps on the fly with External. Also includes KhiCAS and various emulators."
+      "description": "Install community apps on the fly with External. Also includes KhiCAS and various emulators.",
+      "installNow": "Install some now"
     },
     "symbolic": {
       "name": "Symbolic calculation",
