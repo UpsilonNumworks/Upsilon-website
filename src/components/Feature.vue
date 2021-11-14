@@ -19,12 +19,35 @@ export default {
 </script>
 
 <style>
+@media screen and (min-width: 500px) {
+  .feature {
+    margin: 15px;
+    padding: 30px;
+    border-radius: 15px;
+  }
+  .feature-content {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 500px) {
+  .feature {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 25px;
+  }
+  .feature-content {
+    font-size: 1em;
+  }
+}
+
 .feature {
   background: #00000030;
-  margin: 15px;
-  border-radius: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  transition: margin, padding, border-radius 0.1s;
+}
+
+.feature > h2 {
+  font-size: 1.6em;
+  margin: 5px;
+  margin-top: 0;
 }
 </style>

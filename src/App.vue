@@ -11,6 +11,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+@media screen and (max-width: 500px) {
+  #nav a {
+    font-size: 0.8em;
+    margin: 20px;
+  }
+}
+@media screen and (min-width: 500px) {
+  #nav a {
+    font-size: 1em;
+    margin: 30px;
+  }
+}
 :root {
   --upsilon-1: #7ea2ce;
   --upsilon-2: #5e81ac;
@@ -36,7 +48,7 @@
   color: white;
   text-decoration: none;
   display: block;
-  margin: 30px;
+  transition: margin, font-size 0.1s;
 }
 
 #nav a.router-link-exact-active {
