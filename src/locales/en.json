@@ -93,5 +93,33 @@
         "title": "Note:"
       }
     }
+  },
+  "releases": {
+    "name": "Releases",
+    "version": "Release",
+    "new": "NEW",
+    "update": "UPD",
+    "dev": "Developing",
+    "versions": {
+      "1-0": {
+        "KandinskyEnhancements": "Python: Kandinsky Enhancements (drawcircle, fillcircle, fillpolygon, getpalette)",
+        "Ulab": "Python: Added Ulab in N110 (SciPy, NumPy)",
+        "PythonBattery": "Python: Added a way to get the battery level (level, voltage and charging status)",
+        "PythonSysModule": "Python: Added sys module",
+        "PythonSettingsAutocomplete": "Added a Python settings for autocompletion",
+        "PythonBaseScripts": "Deleted Python base scripts",
+        "Reader": "Added Reader app with LaTeX support in N110",
+        "EqualSymplification": "Improved equal simplification",
+        "SecondDegreePolynominal": "Added additional output about second degree polynomials",
+        "VariableLoadedPythonToolbox": "Increased number of loaded variables in Python toolbox",
+        "StorageSize": "Increased size of Python script storage",
+        "Themes": "Added Upsilon theme",
+        "BatteryPercentage": "Show percentage of battery in about menu of settings",
+        "BatteryLogo": "Updated battery logo",
+        "E16Security": "Added deactivatable security to prevent Epsilon 16 unintentional updates",
+        "RecoveryMode": "Added recovery mode when crashing",
+        "Background": "Added background support"
+      }
+    }
   }
 }

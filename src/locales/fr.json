@@ -1,5 +1,6 @@
 {
   "message": "hello i18n !!",
+  "darkmode": "Theme sombre",
   "home": {
     "name": "Accueil",
     "description": "Upsilon est un fork d'Oméga"
@@ -90,6 +91,34 @@
       "note": {
         "title": "Note :",
         "content": " Tout au long de l'histoire d'Oméga, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grace à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
+      }
+    }
+  },
+  "releases": {
+    "name": "Versions",
+    "version": "Version",
+    "new": "NEW",
+    "update": "UPD",
+    "dev": "En développement",
+    "versions": {
+      "1-0": {
+        "KandinskyEnhancements": "Python : Module Kandinsky amélioré (drawcircle, fillcircle, fillpolygon, getpalette)",
+        "Ulab": "Python : Ulab ajouté sur la N110 (SciPy, NumPy)",
+        "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension and état de charge)",
+        "PythonSysModule": "Python : Module sys ajouté",
+        "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
+        "PythonBaseScripts": "Scripts Python de base supprimés",
+        "Reader": "Application Liseuse avec support LaTeX ajoutée sur la N110",
+        "EqualSymplification": "Simplification des égaux améliorés",
+        "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
+        "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
+        "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée",
+        "Themes": "Thème Upsilon ajouté",
+        "BatteryPercentage": "Pourcentage de la batterie affiché dans le menu à propos des paramètres",
+        "BatteryLogo": "Logo de la batterie changé",
+        "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
+        "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
+        "Background": "Ajout d'un support pour les fonds d'écran"
       }
     }
   }
