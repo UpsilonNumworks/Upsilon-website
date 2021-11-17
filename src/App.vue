@@ -2,6 +2,7 @@
   <div id="nav">
     <router-link to="/">{{ t('home.name') }}</router-link>
     <router-link to="/install">{{ t('installer.name') }}</router-link>
+    <router-link to="/releases">{{ t('releases.name') }}</router-link>
     <a target="_blank" href="https://github.com/Lauryy06/Upsilon">{{
       t('github.name')
     }}</a>

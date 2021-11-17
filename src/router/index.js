@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Latex from '../views/Latex.vue'
 import Installer from '../views/Installer.vue'
 import RPN from '../views/RPN.vue'
+import Releases from '../views/Releases.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/doc/rpn',
     name: 'RPN',
     component: RPN
+  },
+  {
+    path: '/releases',
+    name: 'Releases',
+    component: Releases
   }
 ]
 
