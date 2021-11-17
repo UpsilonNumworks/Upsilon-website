@@ -99,6 +99,7 @@
     "version": "Release",
     "new": "NEW",
     "update": "UPD",
+    "change": "CHG",
     "dev": "Developing",
     "versions": {
       "1-0": {
@@ -112,7 +113,7 @@
         "EqualSymplification": "Improved equal simplification",
         "SecondDegreePolynominal": "Added additional output about second degree polynomials",
         "VariableLoadedPythonToolbox": "Increased number of loaded variables in Python toolbox",
-        "StorageSize": "Increased size of Python script storage",
+        "StorageSize": "Increased size of Python script storage from 32KB to 64KB",
         "Themes": "Added Upsilon theme",
         "BatteryPercentage": "Show percentage of battery in about menu of settings",
         "BatteryLogo": "Updated battery logo",

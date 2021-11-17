@@ -6,68 +6,64 @@
       <table>
         <tbody>
           <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonBattery") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.EqualSymplification") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.VariableLoadedPythonToolbox") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.StorageSize") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonBaseScripts") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagupdate">{{ t("releases.update") }}</td>
-            <td>{{ t("releases.versions.1-0.BatteryLogo") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.Ulab") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonBattery") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.SecondDegreePolynominal") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonSettingsAutocomplete") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonSysModule") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.Themes") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.BatteryPercentage") }}</td>
-          </tr>
-          <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
             <td>{{ t("releases.versions.1-0.E16Security") }}</td>
           </tr>
           <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
             <td>{{ t("releases.versions.1-0.RecoveryMode") }}</td>
           </tr>
           <tr>
-            <td class="updatetag updatetagnew">{{ t("releases.new") }}</td>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
             <td>{{ t("releases.versions.1-0.Background") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.Themes") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.Ulab") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.PythonSysModule") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.PythonBattery") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.PythonSettingsAutocomplete") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
+            <td>{{ t("releases.versions.1-0.PythonBaseScripts") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
+            <td>{{ t("releases.versions.1-0.StorageSize") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
+            <td>{{ t("releases.versions.1-0.VariableLoadedPythonToolbox") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
+            <td>{{ t("releases.versions.1-0.BatteryLogo") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.BatteryPercentage") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
+            <td>{{ t("releases.versions.1-0.EqualSymplification") }}</td>
+          </tr>
+          <tr>
+            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
+            <td>{{ t("releases.versions.1-0.SecondDegreePolynominal") }}</td>
           </tr>
         </tbody>
       </table>
@@ -99,7 +95,7 @@ export default {
 .release-table > p {
   margin-top: 0;
 }
-.updatetag {
+.release-tag {
   width: 40px;
   text-align: center;
   font-size: 14px;
@@ -110,10 +106,13 @@ export default {
   border-radius: 6px;
   padding: 0 4px;
 }
-.updatetagnew {
-  background: #ff0000;
+.release-tag-new {
+  background: #307774
 }
-.updatetagupdate {
+.release-tag-change {
+  background: #cc6122
+}
+.release-tag-update {
   background: #dfa730;
 }
 </style>

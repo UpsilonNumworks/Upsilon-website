@@ -99,6 +99,7 @@
     "version": "Version",
     "new": "NEW",
     "update": "UPD",
+    "change": "CHG",
     "dev": "En développement",
     "versions": {
       "1-0": {
@@ -112,7 +113,7 @@
         "EqualSymplification": "Simplification des égaux améliorés",
         "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
         "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
-        "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée",
+        "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée de 32Ko à 64Ko",
         "Themes": "Thème Upsilon ajouté",
         "BatteryPercentage": "Pourcentage de la batterie affiché dans le menu à propos des paramètres",
         "BatteryLogo": "Logo de la batterie changé",
