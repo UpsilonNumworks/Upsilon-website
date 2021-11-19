@@ -1,72 +1,64 @@
 <template>
   <div id="releases">
-    <h1>{{ t("releases.name") }}</h1>
+    <h1>{{ t('releases.name') }}</h1>
     <div class="release-table">
-      <p>{{ t("releases.version") }} 1.0 ({{ t("releases.dev") }})</p>
-      <table>
-        <tbody>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.E16Security") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.RecoveryMode") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.Background") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.Themes") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.Ulab") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonSysModule") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonBattery") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonSettingsAutocomplete") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
-            <td>{{ t("releases.versions.1-0.PythonBaseScripts") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
-            <td>{{ t("releases.versions.1-0.StorageSize") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
-            <td>{{ t("releases.versions.1-0.VariableLoadedPythonToolbox") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
-            <td>{{ t("releases.versions.1-0.BatteryLogo") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.BatteryPercentage") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-change">{{ t("releases.change") }}</td>
-            <td>{{ t("releases.versions.1-0.EqualSymplification") }}</td>
-          </tr>
-          <tr>
-            <td class="release-tag release-tag-new">{{ t("releases.new") }}</td>
-            <td>{{ t("releases.versions.1-0.SecondDegreePolynominal") }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
+      <div class="grid">
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.E16Security') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.RecoveryMode') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.Background') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.Themes') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.Ulab') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.PythonSysModule') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.PythonBattery') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</div>
+
+        <div class="release-tag release-tag-change">
+          {{ t('releases.change') }}
+        </div>
+        <div>{{ t('releases.versions.1-0.PythonBaseScripts') }}</div>
+
+        <div class="release-tag release-tag-change">
+          {{ t('releases.change') }}
+        </div>
+        <div>{{ t('releases.versions.1-0.StorageSize') }}</div>
+
+        <div class="release-tag release-tag-change">
+          {{ t('releases.change') }}
+        </div>
+        <div>{{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}</div>
+
+        <div class="release-tag release-tag-change">
+          {{ t('releases.change') }}
+        </div>
+        <div>{{ t('releases.versions.1-0.BatteryLogo') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.BatteryPercentage') }}</div>
+
+        <div class="release-tag release-tag-change">
+          {{ t('releases.change') }}
+        </div>
+        <div>{{ t('releases.versions.1-0.EqualSymplification') }}</div>
+
+        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+        <div>{{ t('releases.versions.1-0.SecondDegreePolynominal') }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -85,10 +77,17 @@ export default {
 </script>
 
 <style scoped>
+.grid {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+.grid > * {
+  margin: 5px;
+}
 .release-table {
   margin: 30px;
-  background: var(--transparent-fg-1); /*#ffffff20*/
-  border: solid var(--foreground-2) 2pt; /*lightgrey*/
+  background: var(--transparent-fg-1);
+  border: solid var(--foreground-2) 2pt;
   border-radius: 15px;
   padding: 15px;
 }
@@ -102,17 +101,20 @@ export default {
   line-height: 26px;
   font-weight: 600;
   display: inline-block;
-  color: #fff;
+  color: var(--foreground);
   border-radius: 6px;
   padding: 0 4px;
+  user-select: none;
 }
 .release-tag-new {
-  background: #307774
+  background: var(--tag-new);
+  outline: solid var(--tag-new-outline) 2pt;
 }
 .release-tag-change {
-  background: #cc6122
+  background: var(--tag-change);
+  outline: solid var(--tag-change-outline) 2pt;
 }
 .release-tag-update {
-  background: #dfa730;
+  background: var(--tag-update);
 }
 </style>

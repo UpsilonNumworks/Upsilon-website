@@ -51,7 +51,6 @@ export default defineComponent({
 
 .light {
   --upsilon-1: #accef8;
-
   --upsilon-2: white;
   --foreground: black;
   --transparent-fg-1: #00000005;
@@ -59,10 +58,16 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: #303030;
   --complementary: #3265a3;
+
+  --tag-new: #b1fdde;
+  --tag-new-outline: #307774;
+  --tag-change: #ffcdb0;
+  --tag-change-outline: #cc6122;
+  --tag-update: #ffe7b3;
+  --tag-update-outline: #dfa730;
 }
 .dark {
   --upsilon-1: #7ea2ce;
-
   --upsilon-2: #0c1624;
   --foreground: #ffffff;
   --transparent-fg-1: #ffffff10;
@@ -70,6 +75,10 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: lightgrey;
   --complementary: #7ecc70;
+
+  --tag-new: #307774;
+  --tag-change: #cc6122;
+  --tag-update: #dfa730;
 }
 @media screen and (max-width: 500px) {
   #nav a {
