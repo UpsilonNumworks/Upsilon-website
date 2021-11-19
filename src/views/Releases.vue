@@ -105,6 +105,7 @@ export default {
   border-radius: 6px;
   padding: 0 4px;
   user-select: none;
+  outline-offset: -2pt;
 }
 .release-tag-new {
   background: var(--tag-new);
