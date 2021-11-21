@@ -9,364 +9,113 @@
         {{ t('doc.latex.symbolslisted') }}
       </p>
       <div id="latex-tables">
-        <table>
-          <thead>
-            <tr>
-              <th>{{ t('doc.latex.command') }}</th>
-              <th>{{ t('doc.latex.output') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>\frac{ab}{cd}</code></td>
-              <td>$\frac{ab}{cd}$</td>
-            </tr>
-            <tr>
-              <td><code>\sqrt[n]{x}</code></td>
-              <td>$\sqrt[n]{x}$</td>
-            </tr>
-          </tbody>
-        </table>
         <div class="latex-table">
-          <p>{{ t('doc.latex.mathsymbols') }}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>{{ t('doc.latex.command') }}</th>
-                <th>{{ t('doc.latex.output') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>\times</code></td>
-                <td>×</td>
-              </tr>
-              <tr>
-                <td><code>\div</code></td>
-                <td>÷</td>
-              </tr>
-              <tr>
-                <td><code>\forall</code></td>
-                <td>∀</td>
-              </tr>
-              <tr>
-                <td><code>\exists</code></td>
-                <td>∃</td>
-              </tr>
-              <tr>
-                <td><code>\partial</code></td>
-                <td>∂</td>
-              </tr>
-              <tr>
-                <td><code>\pm</code></td>
-                <td>±</td>
-              </tr>
-              <tr>
-                <td><code>\infty</code></td>
-                <td>∞</td>
-              </tr>
-              <tr>
-                <td><code>\approx</code></td>
-                <td>≈</td>
-              </tr>
-              <tr>
-                <td><code>\neq</code></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><code>\equiv</code></td>
-                <td>≡</td>
-              </tr>
-              <tr>
-                <td><code>\leq</code></td>
-                <td>≤</td>
-              </tr>
-              <tr>
-                <td><code>\geq</code></td>
-                <td>≥</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="latex-table-title">{{ t('doc.latex.functions') }}</h3>
+          <h4>{{ t('doc.latex.command') }}</h4>
+          <h4>{{ t('doc.latex.output') }}</h4>
+
+          <LatexView formula="\frac{ab}{cd}" />
+          <LatexView formula="\sqrt[n]{x}" />
+          <LatexView display="\ceil{x}" formula="\lceil x \rceil" />
+          <LatexView display="\floor{x}" formula="\lfloor x \rfloor" />
         </div>
         <div class="latex-table">
-          <p>{{ t('doc.latex.doublearrow') }}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>{{ t('doc.latex.command') }}</th>
-                <th>{{ t('doc.latex.output') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>\Leftarrow</code></td>
-                <td>⇐</td>
-              </tr>
-              <tr>
-                <td><code>\Rightarrow</code></td>
-                <td>⇒</td>
-              </tr>
-              <tr>
-                <td><code>\Uparrow</code></td>
-                <td>⇑</td>
-              </tr>
-              <tr>
-                <td><code>\Downarrow</code></td>
-                <td>⇓</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="latex-table-title">{{ t('doc.latex.mathsymbols') }}</h3>
+          <h4>{{ t('doc.latex.command') }}</h4>
+          <h4>{{ t('doc.latex.output') }}</h4>
+          <LatexView formula="\times" />
+          <LatexView formula="\div" />
+          <LatexView formula="\forall" />
+          <LatexView formula="\exists" />
+          <LatexView formula="\partial" />
+          <LatexView formula="\pm" />
+          <LatexView display="\infinity" formula="\infty" />
+          <LatexView formula="\approx" />
+          <LatexView formula="\sim" />
+          <LatexView formula="\neq" />
+          <LatexView formula="\equiv" />
+          <LatexView formula="\leq" />
+          <LatexView formula="\geq" />
+          <LatexView display="\left(" formula="(" />
+
+          <LatexView display="\right)" formula=")" />
+        </div>
+        <div class="latex-table force-break">
+          <h3 class="latex-table-title">{{ t('doc.latex.arrows') }}</h3>
+          <h4>{{ t('doc.latex.command') }}</h4>
+          <h4>{{ t('doc.latex.output') }}</h4>
+          <LatexView formula="\Leftarrow" />
+          <LatexView formula="\Rightarrow" />
+          <LatexView formula="\Uparrow" />
+          <LatexView formula="\Downarrow" />
+          <LatexView formula="\leftarrow" />
+          <LatexView formula="\rightarrow" />
+          <LatexView formula="\uparrow" />
+          <LatexView formula="\downarrow" />
+          <LatexView formula="\leftrightarrow" />
+          <LatexView formula="\updownarrow" />
         </div>
         <div class="latex-table">
-          <p>{{ t('doc.latex.simplearrow') }}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>{{ t('doc.latex.command') }}</th>
-                <th>{{ t('doc.latex.output') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>\leftarrow</code></td>
-                <td>←</td>
-              </tr>
-              <tr>
-                <td><code>\rightarrow</code></td>
-                <td>→</td>
-              </tr>
-              <tr>
-                <td><code>\uparrow</code></td>
-                <td>↑</td>
-              </tr>
-              <tr>
-                <td><code>\downarrow</code></td>
-                <td>↓</td>
-              </tr>
-              <tr>
-                <td><code>\leftrightarrow</code></td>
-                <td>↔</td>
-              </tr>
-              <tr>
-                <td><code>\updownarrow</code></td>
-                <td>↕</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="latex-table-title">
+            {{ t('doc.latex.greekcapitalletter') }}
+          </h3>
+          <h4>{{ t('doc.latex.command') }}</h4>
+          <h4>{{ t('doc.latex.output') }}</h4>
+          <LatexView display="\Alpha" formula="A" />
+          <LatexView display="\Beta" formula="B" />
+          <LatexView formula="\Gamma" />
+          <LatexView formula="\Delta" />
+          <LatexView display="\Epsilon" formula="E" />
+          <LatexView display="\Zeta" formula="Z" />
+          <LatexView display="\Eta" formula="H" />
+          <LatexView formula="\Theta" />
+          <LatexView display="\Iota" formula="I" />
+          <LatexView display="\Kappa" formula="K" />
+          <LatexView formula="\Lambda" />
+          <LatexView display="\Mu" formula="M" />
+          <LatexView display="\Nu" formula="N" />
+          <LatexView formula="\Xi" />
+          <LatexView display="\Omicron" formula="O" />
+          <LatexView formula="\Pi" />
+          <LatexView display="\Rho" formula="P" />
+          <LatexView formula="\Sigma" />
+          <LatexView display="\Tau" formula="T" />
+          <LatexView formula="\Upsilon" />
+          <LatexView formula="\Phi" />
+          <LatexView display="\Chi" formula="X" />
+          <LatexView formula="\Psi" />
+          <LatexView formula="\Omega" />
         </div>
         <div class="latex-table">
-          <p>{{ t('doc.latex.greekcapitalletter') }}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>{{ t('doc.latex.command') }}</th>
-                <th>{{ t('doc.latex.output') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>\Alpha</code></td>
-                <td>A</td>
-              </tr>
-              <tr>
-                <td><code>\Beta</code></td>
-                <td>B</td>
-              </tr>
-              <tr>
-                <td><code>\Gamma</code></td>
-                <td>Γ</td>
-              </tr>
-              <tr>
-                <td><code>\Delta</code></td>
-                <td>Δ</td>
-              </tr>
-              <tr>
-                <td><code>\Epsilon</code></td>
-                <td>E</td>
-              </tr>
-              <tr>
-                <td><code>\Zeta</code></td>
-                <td>Z</td>
-              </tr>
-              <tr>
-                <td><code>\Eta</code></td>
-                <td>H</td>
-              </tr>
-              <tr>
-                <td><code>\Theta</code></td>
-                <td>Θ</td>
-              </tr>
-              <tr>
-                <td><code>\Iota</code></td>
-                <td>I</td>
-              </tr>
-              <tr>
-                <td><code>\Kappa</code></td>
-                <td>K</td>
-              </tr>
-              <tr>
-                <td><code>\Lambda</code></td>
-                <td>Λ</td>
-              </tr>
-              <tr>
-                <td><code>\Mu</code></td>
-                <td>M</td>
-              </tr>
-              <tr>
-                <td><code>\Nu</code></td>
-                <td>N</td>
-              </tr>
-              <tr>
-                <td><code>\Xi</code></td>
-                <td>Ξ</td>
-              </tr>
-              <tr>
-                <td><code>\Omicron</code></td>
-                <td>O</td>
-              </tr>
-              <tr>
-                <td><code>\Pi</code></td>
-                <td>Π</td>
-              </tr>
-              <tr>
-                <td><code>\Rho</code></td>
-                <td>P</td>
-              </tr>
-              <tr>
-                <td><code>\Sigma</code></td>
-                <td>Σ</td>
-              </tr>
-              <tr>
-                <td><code>\Tau</code></td>
-                <td>T</td>
-              </tr>
-              <tr>
-                <td><code>\Upsilon</code></td>
-                <td>Υ</td>
-              </tr>
-              <tr>
-                <td><code>\Phi</code></td>
-                <td>Φ</td>
-              </tr>
-              <tr>
-                <td><code>\Chi</code></td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td><code>\Psi</code></td>
-                <td>Ψ</td>
-              </tr>
-              <tr>
-                <td><code>\Omega</code></td>
-                <td>Ω</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="latex-table">
-          <p>{{ t('doc.latex.greeksmallletter') }}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>{{ t('doc.latex.command') }}</th>
-                <th>{{ t('doc.latex.output') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>\alpha</code></td>
-                <td>α</td>
-              </tr>
-              <tr>
-                <td><code>\beta</code></td>
-                <td>β</td>
-              </tr>
-              <tr>
-                <td><code>\gamma</code></td>
-                <td>γ</td>
-              </tr>
-              <tr>
-                <td><code>\delta</code></td>
-                <td>δ</td>
-              </tr>
-              <tr>
-                <td><code>\epsilon</code></td>
-                <td>ϵ</td>
-              </tr>
-              <tr>
-                <td><code>\zeta</code></td>
-                <td>ζ</td>
-              </tr>
-              <tr>
-                <td><code>\eta</code></td>
-                <td>η</td>
-              </tr>
-              <tr>
-                <td><code>\theta</code></td>
-                <td>θ</td>
-              </tr>
-              <tr>
-                <td><code>\iota</code></td>
-                <td>ι</td>
-              </tr>
-              <tr>
-                <td><code>\kappa</code></td>
-                <td>κ</td>
-              </tr>
-              <tr>
-                <td><code>\lambda</code></td>
-                <td>λ</td>
-              </tr>
-              <tr>
-                <td><code>\mu</code></td>
-                <td>μ</td>
-              </tr>
-              <tr>
-                <td><code>\nu</code></td>
-                <td>ν</td>
-              </tr>
-              <tr>
-                <td><code>\xi</code></td>
-                <td>ξ</td>
-              </tr>
-              <tr>
-                <td><code>\pi</code></td>
-                <td>π</td>
-              </tr>
-              <tr>
-                <td><code>\rho</code></td>
-                <td>ρ</td>
-              </tr>
-              <tr>
-                <td><code>\sigma</code></td>
-                <td>σ</td>
-              </tr>
-              <tr>
-                <td><code>\tau</code></td>
-                <td>τ</td>
-              </tr>
-              <tr>
-                <td><code>\upsilon</code></td>
-                <td>υ</td>
-              </tr>
-              <tr>
-                <td><code>\phi</code></td>
-                <td>ϕ</td>
-              </tr>
-              <tr>
-                <td><code>\chi</code></td>
-                <td>χ</td>
-              </tr>
-              <tr>
-                <td><code>\psi</code></td>
-                <td>ψ</td>
-              </tr>
-              <tr>
-                <td><code>\omega</code></td>
-                <td>ω</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="latex-table-title">
+            {{ t('doc.latex.greeksmallletter') }}
+          </h3>
+          <h4>{{ t('doc.latex.command') }}</h4>
+          <h4>{{ t('doc.latex.output') }}</h4>
+          <LatexView formula="\alpha" />
+          <LatexView formula="\beta" />
+          <LatexView formula="\gamma" />
+          <LatexView formula="\delta" />
+          <LatexView formula="\epsilon" />
+          <LatexView formula="\zeta" />
+          <LatexView formula="\eta" />
+          <LatexView formula="\theta" />
+          <LatexView formula="\iota" />
+          <LatexView formula="\kappa" />
+          <LatexView formula="\lambda" />
+          <LatexView formula="\mu" />
+          <LatexView formula="\nu" />
+          <LatexView formula="\xi" />
+          <LatexView formula="\omicron" />
+          <LatexView formula="\pi" />
+          <LatexView formula="\rho" />
+          <LatexView formula="\sigma" />
+          <LatexView formula="\tau" />
+          <LatexView formula="\upsilon" />
+          <LatexView formula="\phi" />
+          <LatexView formula="\chi" />
+          <LatexView formula="\psi" />
+          <LatexView formula="\omega" />
         </div>
       </div>
     </div>
@@ -374,9 +123,9 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-export default defineComponent({
+import LatexView from '@/components/LatexView.vue'
+export default {
   name: '',
   setup () {
     const { t } = useI18n({
@@ -384,27 +133,59 @@ export default defineComponent({
       useScope: 'global'
     })
     return { t }
-  }
-})
+  },
+  components: { LatexView }
+}
 </script>
 
 <style scoped>
+h3,
+h4 {
+  text-align: center;
+}
 #latex-doc {
   max-width: 1500px;
+  width: 100%;
 }
-#latex-tables {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+
+@media screen and (min-width: 1500px) {
+  #latex-tables {
+    column-count: 4;
+  }
 }
+@media screen and (min-width: 1250px) and (max-width: 1500px) {
+  #latex-tables {
+    column-count: 3;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1250px) {
+  #latex-tables {
+    column-count: 2;
+  }
+}
+
 .latex-table {
-  margin: 30px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 0;
+
   background: var(--transparent-fg-1); /*#ffffff20*/
-  border: solid var(--foreground-2) 2pt; /*lightgrey*/
-  border-radius: 15px;
   padding: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  min-width: 12em;
+  flex-grow: 1;
+  break-inside: avoid;
 }
 .latex-table > p {
   margin-top: 0;
+}
+.latex-table-title {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.force-break {
+  break-after: column;
 }
 </style>

@@ -54,10 +54,10 @@
       "command": "Command",
       "output": "Output",
       "mathsymbols": "Math Symbols",
-      "doublearrow": "Double arrows",
-      "simplearrow": "Simple arrows",
       "greekcapitalletter": "Greek capital letters",
-      "greeksmallletter": "Greek small letters"
+      "greeksmallletter": "Greek small letters",
+      "functions": "Functions",
+      "arrows": "Arrows"
     },
     "rpn": {
       "the": "The",
