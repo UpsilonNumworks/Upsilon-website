@@ -189,3 +189,8 @@ h4 {
   break-after: column;
 }
 </style>
+<style>
+.MathJax_Display {
+  margin: 1em 0 !important;
+}
+</style>
