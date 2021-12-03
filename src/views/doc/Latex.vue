@@ -14,46 +14,54 @@
           <h4>{{ t('doc.latex.command') }}</h4>
           <h4>{{ t('doc.latex.output') }}</h4>
 
-          <LatexView formula="\frac{ab}{cd}" />
-          <LatexView formula="\sqrt[n]{x}" />
-          <LatexView display="\ceil{x}" formula="\lceil x \rceil" />
-          <LatexView display="\floor{x}" formula="\lfloor x \rfloor" />
+          <LatexView :latex="true" formula="\frac{ab}{cd}" />
+          <LatexView :latex="true" formula="\sqrt[n]{x}" />
+          <LatexView
+            :latex="true"
+            display="\ceil{x}"
+            formula="\lceil x \rceil"
+          />
+          <LatexView
+            :latex="true"
+            display="\floor{x}"
+            formula="\lfloor x \rfloor"
+          />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">{{ t('doc.latex.mathsymbols') }}</h3>
           <h4>{{ t('doc.latex.command') }}</h4>
           <h4>{{ t('doc.latex.output') }}</h4>
-          <LatexView formula="\times" />
-          <LatexView formula="\div" />
-          <LatexView formula="\forall" />
-          <LatexView formula="\exists" />
-          <LatexView formula="\partial" />
-          <LatexView formula="\pm" />
-          <LatexView display="\infinity" formula="\infty" />
-          <LatexView formula="\approx" />
-          <LatexView formula="\sim" />
-          <LatexView formula="\neq" />
-          <LatexView formula="\equiv" />
-          <LatexView formula="\leq" />
-          <LatexView formula="\geq" />
-          <LatexView display="\left(" formula="(" />
+          <LatexView display="\times" output="×" />
+          <LatexView display="\div" output="÷" />
+          <LatexView display="\forall" output="∀" />
+          <LatexView display="\exists" output="∃" />
+          <LatexView display="\partial" output="∂" />
+          <LatexView display="\pm" output="±" />
+          <LatexView display="\infinity" output="∞" />
+          <LatexView display="\approx" output="≈" />
+          <LatexView display="\sim" output="∼" />
+          <LatexView display="\neq" output="≠" />
+          <LatexView display="\equiv" output="≡" />
+          <LatexView display="\leq" output="≤" />
+          <LatexView display="\geq" output="≥" />
+          <LatexView display="\left(" output="(" />
 
-          <LatexView display="\right)" formula=")" />
+          <LatexView display="\right)" output=")" />
         </div>
         <div class="latex-table force-break">
           <h3 class="latex-table-title">{{ t('doc.latex.arrows') }}</h3>
           <h4>{{ t('doc.latex.command') }}</h4>
           <h4>{{ t('doc.latex.output') }}</h4>
-          <LatexView formula="\Leftarrow" />
-          <LatexView formula="\Rightarrow" />
-          <LatexView formula="\Uparrow" />
-          <LatexView formula="\Downarrow" />
-          <LatexView formula="\leftarrow" />
-          <LatexView formula="\rightarrow" />
-          <LatexView formula="\uparrow" />
-          <LatexView formula="\downarrow" />
-          <LatexView formula="\leftrightarrow" />
-          <LatexView formula="\updownarrow" />
+          <LatexView display="\Leftarrow" output="⇐" />
+          <LatexView display="\Rightarrow" output="⇒" />
+          <LatexView display="\Uparrow" output="⇑" />
+          <LatexView display="\Downarrow" output="⇓" />
+          <LatexView display="\leftarrow" output="←" />
+          <LatexView display="\rightarrow" output="→" />
+          <LatexView display="\uparrow" output="↑" />
+          <LatexView display="\downarrow" output="↓" />
+          <LatexView display="\leftrightarrow" output="↔" />
+          <LatexView display="\updownarrow" output="↕" />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">
@@ -61,30 +69,30 @@
           </h3>
           <h4>{{ t('doc.latex.command') }}</h4>
           <h4>{{ t('doc.latex.output') }}</h4>
-          <LatexView display="\Alpha" formula="A" />
-          <LatexView display="\Beta" formula="B" />
-          <LatexView formula="\Gamma" />
-          <LatexView formula="\Delta" />
-          <LatexView display="\Epsilon" formula="E" />
-          <LatexView display="\Zeta" formula="Z" />
-          <LatexView display="\Eta" formula="H" />
-          <LatexView formula="\Theta" />
-          <LatexView display="\Iota" formula="I" />
-          <LatexView display="\Kappa" formula="K" />
-          <LatexView formula="\Lambda" />
-          <LatexView display="\Mu" formula="M" />
-          <LatexView display="\Nu" formula="N" />
-          <LatexView formula="\Xi" />
-          <LatexView display="\Omicron" formula="O" />
-          <LatexView formula="\Pi" />
-          <LatexView display="\Rho" formula="P" />
-          <LatexView formula="\Sigma" />
-          <LatexView display="\Tau" formula="T" />
-          <LatexView formula="\Upsilon" />
-          <LatexView formula="\Phi" />
-          <LatexView display="\Chi" formula="X" />
-          <LatexView formula="\Psi" />
-          <LatexView formula="\Omega" />
+          <LatexView display="\Alpha" output="A" />
+          <LatexView display="\Beta" output="B" />
+          <LatexView display="\Gamma" output="Γ" />
+          <LatexView display="\Delta" output="Δ" />
+          <LatexView display="\Epsilon" output="E" />
+          <LatexView display="\Zeta" output="Z" />
+          <LatexView display="\Eta" output="H" />
+          <LatexView display="\Theta" output="Θ" />
+          <LatexView display="\Iota" output="I" />
+          <LatexView display="\Kappa" output="K" />
+          <LatexView display="\Lambda" output="Λ" />
+          <LatexView display="\Mu" output="M" />
+          <LatexView display="\Nu" output="N" />
+          <LatexView display="\Xi" output="Ξ" />
+          <LatexView display="\Omicron" output="O" />
+          <LatexView display="\Pi" output="Π" />
+          <LatexView display="\Rho" output="P" />
+          <LatexView display="\Sigma" output="Σ" />
+          <LatexView display="\Tau" output="T" />
+          <LatexView display="\Upsilon" output="Υ" />
+          <LatexView display="\Phi" output="Φ" />
+          <LatexView display="\Chi" output="X" />
+          <LatexView display="\Psi" output="Ψ" />
+          <LatexView display="\Omega" output="Ω" />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">
@@ -92,30 +100,30 @@
           </h3>
           <h4>{{ t('doc.latex.command') }}</h4>
           <h4>{{ t('doc.latex.output') }}</h4>
-          <LatexView formula="\alpha" />
-          <LatexView formula="\beta" />
-          <LatexView formula="\gamma" />
-          <LatexView formula="\delta" />
-          <LatexView formula="\epsilon" />
-          <LatexView formula="\zeta" />
-          <LatexView formula="\eta" />
-          <LatexView formula="\theta" />
-          <LatexView formula="\iota" />
-          <LatexView formula="\kappa" />
-          <LatexView formula="\lambda" />
-          <LatexView formula="\mu" />
-          <LatexView formula="\nu" />
-          <LatexView formula="\xi" />
-          <LatexView formula="\omicron" />
-          <LatexView formula="\pi" />
-          <LatexView formula="\rho" />
-          <LatexView formula="\sigma" />
-          <LatexView formula="\tau" />
-          <LatexView formula="\upsilon" />
-          <LatexView formula="\phi" />
-          <LatexView formula="\chi" />
-          <LatexView formula="\psi" />
-          <LatexView formula="\omega" />
+          <LatexView display="\alpha" output="α" />
+          <LatexView display="\beta" output="β" />
+          <LatexView display="\gamma" output="γ" />
+          <LatexView display="\delta" output="δ" />
+          <LatexView display="\epsilon" output="ϵ" />
+          <LatexView display="\zeta" output="ζ" />
+          <LatexView display="\eta" output="η" />
+          <LatexView display="\theta" output="θ" />
+          <LatexView display="\iota" output="ι" />
+          <LatexView display="\kappa" output="κ" />
+          <LatexView display="\lambda" output="λ" />
+          <LatexView display="\mu" output="μ" />
+          <LatexView display="\nu" output="ν" />
+          <LatexView display="\xi" output="ξ" />
+          <LatexView display="\omicron" output="ο" />
+          <LatexView display="\pi" output="π" />
+          <LatexView display="\rho" output="ρ" />
+          <LatexView display="\sigma" output="σ" />
+          <LatexView display="\tau" output="τ" />
+          <LatexView display="\upsilon" output="υ" />
+          <LatexView display="\phi" output="ϕ" />
+          <LatexView display="\chi" output="χ" />
+          <LatexView display="\psi" output="ψ" />
+          <LatexView display="\omega" output="ω" />
         </div>
       </div>
     </div>
@@ -128,6 +136,7 @@ import LatexView from '@/components/LatexView.vue'
 export default {
   name: '',
   setup () {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     const { t } = useI18n({
       inheritLocale: true,
       useScope: 'global'
@@ -187,10 +196,5 @@ h4 {
 }
 .force-break {
   break-after: column;
-}
-</style>
-<style>
-.MathJax_Display {
-  margin: 1em 0 !important;
 }
 </style>
