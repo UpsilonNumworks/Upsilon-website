@@ -1,63 +1,67 @@
 <template>
   <div id="releases">
-    <h1>{{ t('releases.name') }}</h1>
-    <div class="release-table">
-      <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
-      <div class="grid">
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.E16Security') }}</div>
+    <div class="releases-table-wrapper">
+      <h1>{{ t('releases.name') }}</h1>
+      <div class="release-table">
+        <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
+        <div class="grid">
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.E16Security') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.RecoveryMode') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.RecoveryMode') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.Background') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.Background') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.Themes') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.Themes') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.Ulab') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.Ulab') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.PythonSysModule') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.PythonSysModule') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.PythonBattery') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.PythonBattery') }}</div>
 
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</div>
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</div>
 
-        <div class="release-tag release-tag-change">
-          {{ t('releases.change') }}
+          <div class="release-tag release-tag-change">
+            {{ t('releases.change') }}
+          </div>
+          <div>{{ t('releases.versions.1-0.PythonBaseScripts') }}</div>
+
+          <div class="release-tag release-tag-change">
+            {{ t('releases.change') }}
+          </div>
+          <div>{{ t('releases.versions.1-0.StorageSize') }}</div>
+
+          <div class="release-tag release-tag-change">
+            {{ t('releases.change') }}
+          </div>
+          <div>
+            {{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}
+          </div>
+
+          <div class="release-tag release-tag-change">
+            {{ t('releases.change') }}
+          </div>
+          <div>{{ t('releases.versions.1-0.BatteryLogo') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.BatteryPercentage') }}</div>
+
+          <div class="release-tag release-tag-change">
+            {{ t('releases.change') }}
+          </div>
+          <div>{{ t('releases.versions.1-0.EqualSymplification') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.SecondDegreePolynominal') }}</div>
         </div>
-        <div>{{ t('releases.versions.1-0.PythonBaseScripts') }}</div>
-
-        <div class="release-tag release-tag-change">
-          {{ t('releases.change') }}
-        </div>
-        <div>{{ t('releases.versions.1-0.StorageSize') }}</div>
-
-        <div class="release-tag release-tag-change">
-          {{ t('releases.change') }}
-        </div>
-        <div>{{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}</div>
-
-        <div class="release-tag release-tag-change">
-          {{ t('releases.change') }}
-        </div>
-        <div>{{ t('releases.versions.1-0.BatteryLogo') }}</div>
-
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.BatteryPercentage') }}</div>
-
-        <div class="release-tag release-tag-change">
-          {{ t('releases.change') }}
-        </div>
-        <div>{{ t('releases.versions.1-0.EqualSymplification') }}</div>
-
-        <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-        <div>{{ t('releases.versions.1-0.SecondDegreePolynominal') }}</div>
       </div>
     </div>
   </div>
@@ -100,13 +104,16 @@ export default {
   font-size: 14px;
   line-height: 26px;
   font-weight: 600;
-  display: inline-block;
   color: var(--foreground);
   border-radius: 6px;
   padding: 0 4px;
   user-select: none;
   outline-offset: -2pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .release-tag-new {
   background: var(--tag-new);
   outline: solid var(--tag-new-outline) 2pt;
@@ -117,5 +124,13 @@ export default {
 }
 .release-tag-update {
   background: var(--tag-update);
+}
+#releases {
+  display: flex;
+  justify-content: center;
+}
+.releases-table-wrapper {
+  max-width: 1000px;
+  flex: 1;
 }
 </style>
