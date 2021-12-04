@@ -16,7 +16,11 @@
       </div>
     </div>
   </div>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="route" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
 </template>
 
 <script>
@@ -133,6 +137,8 @@ body {
   font-family: 'Righteous';
   font-size: 1.5em;
   display: flex;
+  z-index: 10000;
+  position: relative;
 }
 
 #nav a {
@@ -151,5 +157,19 @@ body {
   padding: 0;
   margin: 0;
   background: var(--upsilon-2);
+}
+
+/* Route transitions */
+.route-enter-from {
+  opacity: 0;
+}
+.route-enter-active {
+  transition: all 0.1s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+}
+.route-leave-active {
+  transition: all 0.1s ease-in;
 }
 </style>
