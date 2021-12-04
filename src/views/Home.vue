@@ -69,9 +69,12 @@
           </Feature>
           <Feature :title="t('features.external.name')">
             {{ t('features.external.description') }}
-            <a href="https://external.getomega.dev/" target="_blank">{{
-              t('features.external.installNow')
-            }}</a>
+            <a
+              href="https://lauryy06.github.io/Upsilon-External/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ t('features.external.installNow') }}</a
+            >
           </Feature>
           <Feature :title="t('features.symbolic.name')">
             {{ t('features.symbolic.description') }}
@@ -88,6 +91,7 @@
             <a
               href="https://github.com/Omega-Numworks-Prod/Omega-custom-theme-Listing"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {{ t('features.themes.andmanymore') }}
             </a>
@@ -261,10 +265,10 @@ h2 {
   background-size: cover;
 }
 .light #logos-bg {
-  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r4.png');
+  background-image: url('~@/assets/r4.webp');
 }
 .dark #logos-bg {
-  background-image: url('https://raw.githubusercontent.com/lolocomotive/Upsilon-website/master/src/assets/r3.png');
+  background-image: url('~@/assets/r3.webp');
 }
 #text-bg {
   background: linear-gradient(0, var(--upsilon-2), #00000000);
