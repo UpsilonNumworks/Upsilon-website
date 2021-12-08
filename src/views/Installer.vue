@@ -46,7 +46,7 @@ function onInstallerLoad () {
   var install = document.getElementById('install')
   var progressbar = document.getElementById('progressbar-bar')
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = true
+  const dryrun = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   var calculator = new Numworks()
 
