@@ -179,6 +179,7 @@ function onInstallerLoad () {
     }
     console.log('Internal flashed successfully')
     progressbar.parentNode.classList.remove('progressbar-active')
+    connect.hidden = false
     alert('Installation success')
   }
   async function connectedHandler () {
@@ -189,7 +190,6 @@ function onInstallerLoad () {
     usernameInput.hidden = false
     connect.hidden = true
     const PlatformInfo = await calculator.getPlatformInfo()
-    console.log(PlatformInfo)
     if (PlatformInfo.omega.user) {
       usernameInput.value = PlatformInfo.omega.user
     }
@@ -201,8 +201,7 @@ function onInstallerLoad () {
 .progressbar {
   height: 3px;
   border-radius: 1.5px;
-  /* background-color: var(--transparent-bg-3); */
-  background-color: #808080;
+  background-color: var(--foreground-2);
   margin-right: 32px;
   margin-top: 14px;
   opacity: 0;
@@ -214,7 +213,6 @@ function onInstallerLoad () {
 .progressbar-bar {
   height: 3px;
   border-radius: 1.5px;
-  /* background-color: var(--upsilon-1) */
-  background-color: #FFF
+  background-color: var(--upsilon-1)
 }
 </style>
