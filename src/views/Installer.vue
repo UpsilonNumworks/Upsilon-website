@@ -3,7 +3,7 @@
     <h1>{{ t('installer.title') }}</h1>
     <button id="connect">Connect</button>
     <button id="install" hidden>Install</button>
-    <input placeholder="Username" id="username">
+    <input placeholder="Username" id="username" hidden>
     <div class="progressbar">
       <div class="progressbar-bar" id="progressbar-bar"></div>
     </div>
@@ -45,9 +45,9 @@ function onInstallerLoad () {
   var connect = document.getElementById('connect')
   var install = document.getElementById('install')
   var progressbar = document.getElementById('progressbar-bar')
-  var usernameinput = document.getElementById('username')
+  var usernameInput = document.getElementById('username')
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = false
+  const dryrun = true
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   var calculator = new Numworks()
 
@@ -55,8 +55,8 @@ function onInstallerLoad () {
     calculator.onUnexpectedDisconnect(e, function () {
       calculator.autoConnect(connectedHandler)
       console.log('Calculator disconnected')
-      // progressbar.hidden = true
       install.hidden = true
+      usernameInput.hidden = true
       connect.hidden = false
       // Do stuff when the calculator gets disconnected.
     })
@@ -68,9 +68,7 @@ function onInstallerLoad () {
     if (typeof total === 'undefined') {
       console.log('Total progress is undefined : progress bar will not work')
     } else {
-      // const percentage = (done / total * 100).toFixed()
       const percentage = (done / total * 100)
-      // console.log('percentage: ' + percentage)
       progressbar.style.width = percentage + '%'
       progressbar.textContent = percentage.toFixed() + '%'
     }
@@ -139,20 +137,13 @@ function onInstallerLoad () {
   }
 
   async function installUpsilon () {
-    // progressbar.hidden = false
     install.hidden = true
+    usernameInput.hidden = true
     connect.hidden = true
     calculator.device.logProgress = logProgress
     logProgress(0, 1)
     progressbar.parentNode.classList.add('progressbar-active')
     downloadBin('external', installExternal)
-    // console.log(installExternal)
-    // const max = 1000
-    // for (var i = 0; i < max; i++) {
-    //   logProgress(i, max)
-    //   await sleep(1)
-    // }
-    // progressbar.hidden = true
   }
 
   async function installExternal (blob) {
@@ -161,9 +152,6 @@ function onInstallerLoad () {
     if (!dryrun) {
       await calculator.flashExternal(externalArrayBuffer)
     } else {
-      // for (var i = 0; i < externalArrayBuffer.byteLength; i++) {
-      //   logProgress(i, externalArrayBuffer.byteLength)
-      // }
       await emulateFlash(externalArrayBuffer)
     }
     console.log('External flashed successfully')
@@ -172,7 +160,7 @@ function onInstallerLoad () {
   async function installInternal (blob) {
     console.log('Internal downloaded successfully')
     const internalArrayBuffer = await blob.arrayBuffer()
-    const username = usernameinput.value
+    const username = usernameInput.value
     if (username) {
       const internalBuf = new Uint8Array(internalArrayBuffer)
 
@@ -187,9 +175,6 @@ function onInstallerLoad () {
     if (!dryrun) {
       await calculator.flashInternal(internalArrayBuffer)
     } else {
-      // for (var i = 0; i < internalArrayBuffer.byteLength; i++) {
-      //   logProgress(i, internalArrayBuffer.byteLength)
-      // }
       await emulateFlash(internalArrayBuffer)
     }
     console.log('Internal flashed successfully')
@@ -201,12 +186,12 @@ function onInstallerLoad () {
     console.log('Calculator connected')
     // Do stuff when the claculator gets connected.
     install.hidden = false
-    // progressbar.hidden = true
+    usernameInput.hidden = false
     connect.hidden = true
     const PlatformInfo = await calculator.getPlatformInfo()
     console.log(PlatformInfo)
     if (PlatformInfo.omega.user) {
-      usernameinput.value = PlatformInfo.omega.user
+      usernameInput.value = PlatformInfo.omega.user
     }
   }
 }
