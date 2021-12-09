@@ -3,6 +3,7 @@
     <h1>{{ t('installer.title') }}</h1>
     <button id="connect">Connect</button>
     <button id="install" hidden>Install</button>
+    <input placeholder="Username" id="username">
     <div class="progressbar">
       <div class="progressbar-bar" id="progressbar-bar"></div>
     </div>
@@ -41,10 +42,10 @@ export default defineComponent({
 
 })
 function onInstallerLoad () {
-  const username = 'Yaya.Cout'
   var connect = document.getElementById('connect')
   var install = document.getElementById('install')
   var progressbar = document.getElementById('progressbar-bar')
+  var usernameinput = document.getElementById('username')
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
   const dryrun = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
@@ -89,10 +90,11 @@ function onInstallerLoad () {
   function downloadBin (name, callback) {
     const version = '1.0.0'
     const model = 'N0110'.toLowerCase()
-    const fwname = 'epsilon-binpack-' + model + '.tgz.zip'
+    const fwname = 'epsilon.onboarding.' + name + '.bin'
     const mirror = ''
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
     // console.log(version, releasesList)
+    // const fwname = 'epsilon-binpack-' + model + '.tgz.zip'
     // const url = 'https://github.com/' + GitHubRepoName + '/releases/download/' + releasesList[version].name + '/' + fwname
     // const releasesAPIURL = 'https://api.github.com/repos/' + GitHubRepoName + '/releases'
     // console.log(releasesAPIURL)
@@ -170,6 +172,7 @@ function onInstallerLoad () {
   async function installInternal (blob) {
     console.log('Internal downloaded successfully')
     const internalArrayBuffer = await blob.arrayBuffer()
+    const username = usernameinput.value
     if (username) {
       const internalBuf = new Uint8Array(internalArrayBuffer)
 
@@ -193,13 +196,18 @@ function onInstallerLoad () {
     progressbar.parentNode.classList.remove('progressbar-active')
     alert('Installation success')
   }
-  function connectedHandler () {
+  async function connectedHandler () {
     calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
     console.log('Calculator connected')
     // Do stuff when the claculator gets connected.
     install.hidden = false
     // progressbar.hidden = true
     connect.hidden = true
+    const PlatformInfo = await calculator.getPlatformInfo()
+    console.log(PlatformInfo)
+    if (PlatformInfo.omega.user) {
+      usernameinput.value = PlatformInfo.omega.user
+    }
   }
 }
 </script>
