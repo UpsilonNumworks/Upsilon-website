@@ -1,9 +1,9 @@
 <template>
   <div id="installer">
     <h1>{{ t('installer.title') }}</h1>
-    <button id="connect">Connect</button>
-    <button id="install" hidden>Install</button>
-    <input placeholder="Username" id="username" hidden>
+    <button id="connect">{{ t('installer.connect') }}</button>
+    <button id="install" hidden>{{ t('installer.install') }}</button>
+    <input placeholder="Username" id="username" hidden> <!-- TODO: Translate placeholder -->
     <div class="progressbar">
       <div class="progressbar-bar" id="progressbar-bar"></div>
     </div>
@@ -13,9 +13,8 @@
 // TODO: Check of checksum is correct
 // TODO: Add N0100 support
 // TODO: Use GitHub releases
-// TODO: Improve (create) style
+// TODO: Improve style
 // TODO: Clean up code
-// TODO: Translate page
 
 <script>
 import { defineComponent } from 'vue'
