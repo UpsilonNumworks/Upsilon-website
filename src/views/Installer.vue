@@ -50,6 +50,7 @@ function onInstallerLoad () {
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
   const dryrun = false
+  const language = 'en'
   var shouldRestoreStorage = false
   var calculator = new Numworks()
 
@@ -112,11 +113,14 @@ function onInstallerLoad () {
     })
   }
 
-  async function downloadBin (name) {
+  async function downloadBin (name, model) {
     const version = '1.0.0'
-    const model = 'N0110'.toLowerCase()
-    const fwname = 'epsilon.onboarding.' + name + '.bin'
+    model = model.toLowerCase()
     const mirror = ''
+    let fwname = 'epsilon.onboarding.' + name + '.bin'
+    if (model === 'n0100') {
+      fwname = 'epsilon.onboarding.' + name + '.' + language + '.bin'
+    }
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
 
     // Download file
@@ -147,25 +151,30 @@ function onInstallerLoad () {
     calculator.device.logDebug = function () {}
     logProgress(0, 1)
     progressbar.parentNode.classList.add('progressbar-active')
-
+    const model = calculator.getModel()
     storage = await calculator.backupStorage()
     // Ditch all non-python stuff, for convinience.
     for (var i in storage.records) {
       if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
     }
+    if (model === '0100') await installN0100()
+    else if (model === '0110') await installN0110()
+    else console.error('Model not supported: ' + model)
     shouldRestoreStorage = true
-    console.log(storage)
-    await installN0110()
-    // await calculator.installStorage(storage, function () {})
     progressbar.parentNode.classList.remove('progressbar-active')
     connect.hidden = false
-    alert('Installation success')
+    // alert('Installation success')
+    console.log('Installation success')
   }
 
   async function installN0110 () {
-    const ExternalBin = await downloadBin('external')
-    const InternalBin = await downloadBin('internal')
+    const ExternalBin = await downloadBin('external', 'N0110')
+    const InternalBin = await downloadBin('internal', 'N0110')
     await installExternal(ExternalBin)
+    await installInternal(InternalBin)
+  }
+  async function installN0100 () {
+    const InternalBin = await downloadBin('internal', 'N0100')
     await installInternal(InternalBin)
   }
 
