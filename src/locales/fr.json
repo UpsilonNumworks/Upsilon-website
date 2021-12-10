@@ -7,7 +7,9 @@
   },
   "installer": {
     "name": "Installer",
-    "title": "Installer Upsilon"
+    "title": "Installer Upsilon",
+    "install": "Installer",
+    "connect": "Connecter"
   },
   "github": {
     "name": "Github"
@@ -105,7 +107,7 @@
       "1-0": {
         "KandinskyEnhancements": "Python : Module Kandinsky amélioré (drawcircle, fillcircle, fillpolygon, getpalette)",
         "Ulab": "Python : Ulab ajouté sur la N110 (SciPy, NumPy)",
-        "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension and état de charge)",
+        "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
         "PythonSysModule": "Python : Module sys ajouté",
         "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
         "PythonBaseScripts": "Scripts Python de base supprimés",

@@ -7,7 +7,9 @@
   },
   "installer": {
     "name": "Install",
-    "title": "Install Upsilon"
+    "title": "Install Upsilon",
+    "install": "Install",
+    "connect": "Connect"
   },
   "github": {
     "name": "Github"

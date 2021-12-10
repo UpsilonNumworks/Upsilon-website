@@ -15,6 +15,8 @@
 // TODO: Use GitHub releases
 // TODO: Improve style
 // TODO: Clean up code
+// TODO: Backup Python files
+// TODO: Move download to start of install
 
 <script>
 import { defineComponent } from 'vue'
