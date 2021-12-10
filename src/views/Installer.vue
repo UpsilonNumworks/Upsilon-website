@@ -15,8 +15,7 @@
 // TODO: Use GitHub releases
 // TODO: Improve style
 // TODO: Clean up code
-// TODO: Backup Python files
-// TODO: Move download to start of install
+// TODO: Progress bar no restart
 
 <script>
 import { defineComponent } from 'vue'
@@ -44,19 +43,21 @@ export default defineComponent({
 })
 function onInstallerLoad () {
   var connect = document.getElementById('connect')
-  var install = document.getElementById('install')
+  var installButton = document.getElementById('install')
   var progressbar = document.getElementById('progressbar-bar')
   var usernameInput = document.getElementById('username')
-  // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = true
+  let storage = null
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
+  // const GitHubRepoName = 'Yaya-Cout/Upsilon'
+  const dryrun = false
+  var shouldRestoreStorage = false
   var calculator = new Numworks()
 
   navigator.usb.addEventListener('disconnect', function (e) {
     calculator.onUnexpectedDisconnect(e, function () {
       calculator.autoConnect(connectedHandler)
       console.log('Calculator disconnected')
-      install.hidden = true
+      installButton.hidden = true
       usernameInput.hidden = true
       connect.hidden = false
       // Do stuff when the calculator gets disconnected.
@@ -86,42 +87,43 @@ function onInstallerLoad () {
     }
   }
 
-  function downloadBin (name, callback) {
+  function downloadAsync (method, url) {
+    return new Promise(function (resolve, reject) {
+      const xhr = new XMLHttpRequest()
+      xhr.responseType = 'blob'
+      xhr.open(method, url)
+      xhr.onload = function () {
+        if (this.status >= 200 && this.status < 300) {
+          resolve(xhr.response)
+        } else {
+          reject(new Error({
+            status: this.status,
+            statusText: xhr.statusText
+          }))
+        }
+      }
+      xhr.onerror = function () {
+        reject(new Error({
+          status: this.status,
+          statusText: xhr.statusText
+        }))
+      }
+      xhr.send()
+    })
+  }
+
+  async function downloadBin (name) {
     const version = '1.0.0'
     const model = 'N0110'.toLowerCase()
     const fwname = 'epsilon.onboarding.' + name + '.bin'
     const mirror = ''
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
-    // console.log(version, releasesList)
-    // const fwname = 'epsilon-binpack-' + model + '.tgz.zip'
-    // const url = 'https://github.com/' + GitHubRepoName + '/releases/download/' + releasesList[version].name + '/' + fwname
-    // const releasesAPIURL = 'https://api.github.com/repos/' + GitHubRepoName + '/releases'
-    // console.log(releasesAPIURL)
-
-    // // Download release URL
-    // const xhr = new XMLHttpRequest()
-    // xhr.open('GET', releasesAPIURL)
-    // xhr.responseType = 'json'
-    // xhr.onload = function (e) {
-    //   if (this.status === 200) {
-    //     console.log('response', this.response) // JSON response
-    //   }
-    // }
-    // xhr.send()
 
     // Download file
-
-    var oReq = new XMLHttpRequest()
-    oReq.responseType = 'blob'
-
     console.log('[DOWNLOADING] ' + url)
-
-    oReq.onload = function (oEvent) {
-      var blob = oReq.response
-      callback(blob)
-    }
-    oReq.open('GET', url, true)
-    oReq.send()
+    const blob = await downloadAsync('GET', url)
+    console.log('[DOWNLOADED] ' + url)
+    return await blob.arrayBuffer()
   }
 
   connect.onclick = function (e) {
@@ -133,37 +135,53 @@ function onInstallerLoad () {
     })
   }
 
-  install.onclick = async function (e) {
-    await installUpsilon()
+  installButton.onclick = async function (e) {
+    await install()
   }
 
-  async function installUpsilon () {
-    install.hidden = true
+  async function install () {
+    installButton.hidden = true
     usernameInput.hidden = true
     connect.hidden = true
     calculator.device.logProgress = logProgress
+    calculator.device.logDebug = function () {}
     logProgress(0, 1)
     progressbar.parentNode.classList.add('progressbar-active')
-    downloadBin('external', installExternal)
+
+    storage = await calculator.backupStorage()
+    // Ditch all non-python stuff, for convinience.
+    for (var i in storage.records) {
+      if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
+    }
+    shouldRestoreStorage = true
+    console.log(storage)
+    await installN0110()
+    // await calculator.installStorage(storage, function () {})
+    progressbar.parentNode.classList.remove('progressbar-active')
+    connect.hidden = false
+    alert('Installation success')
   }
 
-  async function installExternal (blob) {
-    console.log('External downloaded successfully')
-    const externalArrayBuffer = await blob.arrayBuffer()
+  async function installN0110 () {
+    const ExternalBin = await downloadBin('external')
+    const InternalBin = await downloadBin('internal')
+    await installExternal(ExternalBin)
+    await installInternal(InternalBin)
+  }
+
+  async function installExternal (data) {
     if (!dryrun) {
-      await calculator.flashExternal(externalArrayBuffer)
+      await calculator.flashExternal(data)
     } else {
-      await emulateFlash(externalArrayBuffer)
+      await emulateFlash(data)
     }
     console.log('External flashed successfully')
-    downloadBin('internal', installInternal)
   }
-  async function installInternal (blob) {
-    console.log('Internal downloaded successfully')
-    const internalArrayBuffer = await blob.arrayBuffer()
+
+  function patchUsername (InternalBin) {
     const username = usernameInput.value
     if (username) {
-      const internalBuf = new Uint8Array(internalArrayBuffer)
+      const internalBuf = new Uint8Array(InternalBin)
 
       const enc = new TextEncoder()
       let encoded = enc.encode(username + '\0')
@@ -173,27 +191,33 @@ function onInstallerLoad () {
       }
       internalBuf.set(encoded, 0x1F8)
     }
+  }
+
+  async function installInternal (data) {
+    patchUsername(data)
     if (!dryrun) {
-      await calculator.flashInternal(internalArrayBuffer)
+      await calculator.flashInternal(data)
     } else {
-      await emulateFlash(internalArrayBuffer)
+      await emulateFlash(data)
     }
     console.log('Internal flashed successfully')
-    progressbar.parentNode.classList.remove('progressbar-active')
-    connect.hidden = false
-    alert('Installation success')
   }
   async function connectedHandler () {
     calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
     console.log('Calculator connected')
     // Do stuff when the claculator gets connected.
-    install.hidden = false
+    installButton.hidden = false
     usernameInput.hidden = false
     connect.hidden = true
     const PlatformInfo = await calculator.getPlatformInfo()
     if (PlatformInfo.omega.user) {
       usernameInput.value = PlatformInfo.omega.user
     }
+    if (shouldRestoreStorage) {
+      console.log('Restoring storage', shouldRestoreStorage)
+      calculator.installStorage(storage, function () { console.log('Storage restored successfully') })
+    }
+    shouldRestoreStorage = false
   }
 }
 </script>
