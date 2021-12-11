@@ -211,6 +211,8 @@ function onInstallerLoad () {
     }
     logDebug('Model :' + model)
     logDebug('Storage :', storage)
+    logDebug('Disabling protection')
+    this.device.requestOut(0x011)
     if (model === '0100') await installN0100()
     else if (model === '0110') await installN0110()
     else console.error('Model not supported: ' + model)
