@@ -156,7 +156,12 @@ function onInstallerLoad () {
       logDebug('Downloading checksum')
       const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
       logDebug('Hashing bin file')
-      const binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
+      let binHashed = null
+      if (model === 'n0110') {
+        binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
+      } else {
+        binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
+      }
       logDebug('Verifying checksum')
       if (ckecksum === binHashed) {
         // If download is verified, return the downloaded bin file
