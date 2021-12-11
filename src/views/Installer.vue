@@ -18,6 +18,7 @@
 // TODO: Use GitHub releases
 // TODO: Clean up code
 // TODO: Progress bar no restart
+// TODO: Recovery mode
 
 <script>
 import { defineComponent } from 'vue'
@@ -53,7 +54,7 @@ function onInstallerLoad () {
   let storage = null
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = false
+  const dryrun = true
   const language = 'en'
   const debug = true
   var shouldRestoreStorage = false
@@ -65,7 +66,6 @@ function onInstallerLoad () {
       logDebug('Calculator disconnected')
       installButton.hidden = true
       usernameInput.hidden = true
-      installationSuccess.hidden = true
       connect.hidden = false
       // Do stuff when the calculator gets disconnected.
     })
@@ -195,24 +195,23 @@ function onInstallerLoad () {
     installButton.hidden = true
     usernameInput.hidden = true
     connect.hidden = true
-    installationSuccess.hidden = true
     progressbarText.hidden = false
     calculator.device.logProgress = logProgress
     // Disable WebDFU logging because it crash debug console
     calculator.device.logDebug = function () {}
     calculator.device.logInfo = function () {}
-    logProgress(0, 1)
     progressbar.parentNode.classList.add('progressbar-active')
     const model = calculator.getModel()
     storage = await calculator.backupStorage()
+    logProgress(0, 1)
     // Ditch all non-python stuff, for convinience.
     for (var i in storage.records) {
       if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
     }
-    logDebug('Model :' + model)
+    logDebug('Model : ' + model)
     logDebug('Storage :', storage)
     logDebug('Disabling protection')
-    this.device.requestOut(0x011)
+    await calculator.device.requestOut(0x11) // FIXME : It doesn't work
     if (model === '0100') await installN0100()
     else if (model === '0110') await installN0110()
     else console.error('Model not supported: ' + model)
@@ -221,13 +220,12 @@ function onInstallerLoad () {
     progressbarText.hidden = true
     connect.hidden = false
     installationSuccess.hidden = false
-    // alert('Installation success')
     console.log('Installation success')
   }
 
   function patchUsername (InternalBin) {
     const username = usernameInput.value
-    logDebug('Patching internal bin with username  : ' + username)
+    logDebug('Patching internal bin with username : ' + username)
     if (username) {
       const internalBuf = new Uint8Array(InternalBin)
 
@@ -285,7 +283,6 @@ function onInstallerLoad () {
     installButton.hidden = false
     usernameInput.hidden = false
     connect.hidden = true
-    installationSuccess.hidden = true
     const PlatformInfo = await calculator.getPlatformInfo()
     logDebug('PlatformInfo :', PlatformInfo)
     if (PlatformInfo.omega.user) {
