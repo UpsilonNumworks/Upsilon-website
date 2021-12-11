@@ -10,7 +10,6 @@
   </div>
 </template>
 
-// TODO: Check of checksum is correct
 // TODO: Test on the N0100
 // TODO: Use GitHub releases
 // TODO: Improve style
@@ -98,10 +97,18 @@ function onInstallerLoad () {
     }
   }
 
-  function downloadAsync (method, url) {
+  async function hash (blob) {
+    const msgUint8 = await blob.arrayBuffer()
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
+    const hashArray = Array.from(new Uint8Array(hashBuffer))
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+    return hashHex
+  }
+
+  function downloadAsync (method, url, responseType = 'blob') {
     return new Promise(function (resolve, reject) {
       const xhr = new XMLHttpRequest()
-      xhr.responseType = 'blob'
+      xhr.responseType = responseType
       xhr.open(method, url)
       xhr.onload = function () {
         if (this.status >= 200 && this.status < 300) {
@@ -125,19 +132,38 @@ function onInstallerLoad () {
 
   async function downloadBin (name, model) {
     const version = '1.0.0'
-    model = model.toLowerCase()
     const mirror = ''
+    const maxDownloads = 2
     let fwname = 'epsilon.onboarding.' + name + '.bin'
+    model = model.toLowerCase()
     if (model === 'n0100') {
       fwname = 'epsilon.onboarding.' + name + '.' + language + '.bin'
     }
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
 
-    // Download file
-    logDebug('[DOWNLOADING] ' + url)
-    const blob = await downloadAsync('GET', url)
-    logDebug('[DOWNLOADED] ' + url)
-    return await blob.arrayBuffer()
+    // Download bin file
+    for (var i = 0; i < maxDownloads; i++) {
+      logDebug('[DOWNLOADING] ' + url)
+      const bin = await downloadAsync('GET', url, 'blob')
+      logDebug('[DOWNLOADED] ' + url)
+      // Verify download
+      logDebug('Downloading checksum')
+      const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
+      logDebug('Hashing bin file')
+      const binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
+      logDebug('Verifying checksum')
+      if (ckecksum === binHashed) {
+        // If download is verified, return the downloaded bin file
+        logDebug('Bin file downloaded successfully')
+        return await bin.arrayBuffer()
+      } else {
+        // If download is errored, retry the download
+        logDebug('Download failed')
+        logDebug('Checksum: ' + ckecksum + ', Bin hash: ' + binHashed)
+        console.log(i)
+      }
+    }
+    throw new Error('Download failed with ' + i + ' try')
   }
 
   connect.onclick = function (e) {
