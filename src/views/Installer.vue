@@ -11,7 +11,7 @@
 </template>
 
 // TODO: Check of checksum is correct
-// TODO: Add N0100 support
+// TODO: Test on the N0100
 // TODO: Use GitHub releases
 // TODO: Improve style
 // TODO: Clean up code

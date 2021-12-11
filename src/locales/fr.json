@@ -56,10 +56,10 @@
       "command": "Commande",
       "output": "Résultat",
       "mathsymbols": "Symboles mathématiques",
-      "doublearrow": "Doubles flèches",
-      "simplearrow": "Simple flèches",
       "greekcapitalletter": "Lettres capitales greques",
-      "greeksmallletter": "Lettres minuscules greques"
+      "greeksmallletter": "Lettres minuscules greques",
+      "functions": "Fonctions",
+      "arrows": "Flèches"
     },
     "rpn": {
       "the": "La",
