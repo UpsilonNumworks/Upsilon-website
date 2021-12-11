@@ -51,13 +51,14 @@ function onInstallerLoad () {
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
   const dryrun = false
   const language = 'en'
+  const debug = true
   var shouldRestoreStorage = false
   var calculator = new Numworks()
 
   navigator.usb.addEventListener('disconnect', function (e) {
     calculator.onUnexpectedDisconnect(e, function () {
       calculator.autoConnect(connectedHandler)
-      console.log('Calculator disconnected')
+      logDebug('Calculator disconnected')
       installButton.hidden = true
       usernameInput.hidden = true
       connect.hidden = false
@@ -67,9 +68,17 @@ function onInstallerLoad () {
 
   calculator.autoConnect(connectedHandler)
 
+  function logDebug (...strings) {
+    if (debug) {
+      for (let index = 0; index < strings.length; index++) {
+        console.log(strings[index])
+      }
+    }
+  }
+
   function logProgress (done, total) {
     if (typeof total === 'undefined') {
-      console.log('Total progress is undefined : progress bar will not work')
+      console.warn('Total progress is undefined : progress bar will not work')
     } else {
       const percentage = (done / total * 100)
       progressbar.style.width = percentage + '%'
@@ -78,6 +87,7 @@ function onInstallerLoad () {
   }
 
   async function emulateFlash (data) {
+    logDebug('Emulating Flash')
     const onesecdata = 120000
     const sectotal = data.byteLength / onesecdata
     const accuracy = 1000
@@ -124,14 +134,15 @@ function onInstallerLoad () {
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
 
     // Download file
-    console.log('[DOWNLOADING] ' + url)
+    logDebug('[DOWNLOADING] ' + url)
     const blob = await downloadAsync('GET', url)
-    console.log('[DOWNLOADED] ' + url)
+    logDebug('[DOWNLOADED] ' + url)
     return await blob.arrayBuffer()
   }
 
   connect.onclick = function (e) {
     calculator.detect(function () {
+      logDebug('Manually detection')
       calculator.stopAutoConnect()
       connectedHandler()
     }, function (error) {
@@ -148,7 +159,9 @@ function onInstallerLoad () {
     usernameInput.hidden = true
     connect.hidden = true
     calculator.device.logProgress = logProgress
+    // Disable WebDFU logging because it crash debug console
     calculator.device.logDebug = function () {}
+    calculator.device.logInfo = function () {}
     logProgress(0, 1)
     progressbar.parentNode.classList.add('progressbar-active')
     const model = calculator.getModel()
@@ -157,6 +170,8 @@ function onInstallerLoad () {
     for (var i in storage.records) {
       if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
     }
+    logDebug('Model :' + model)
+    logDebug('Storage :', storage)
     if (model === '0100') await installN0100()
     else if (model === '0110') await installN0110()
     else console.error('Model not supported: ' + model)
@@ -167,28 +182,9 @@ function onInstallerLoad () {
     console.log('Installation success')
   }
 
-  async function installN0110 () {
-    const ExternalBin = await downloadBin('external', 'N0110')
-    const InternalBin = await downloadBin('internal', 'N0110')
-    await installExternal(ExternalBin)
-    await installInternal(InternalBin)
-  }
-  async function installN0100 () {
-    const InternalBin = await downloadBin('internal', 'N0100')
-    await installInternal(InternalBin)
-  }
-
-  async function installExternal (data) {
-    if (!dryrun) {
-      await calculator.flashExternal(data)
-    } else {
-      await emulateFlash(data)
-    }
-    console.log('External flashed successfully')
-  }
-
   function patchUsername (InternalBin) {
     const username = usernameInput.value
+    logDebug('Patching internal bin with username  : ' + username)
     if (username) {
       const internalBuf = new Uint8Array(InternalBin)
 
@@ -202,29 +198,59 @@ function onInstallerLoad () {
     }
   }
 
+  async function installN0110 () {
+    logDebug('Installing on N0110')
+    logDebug('Downloading')
+    const ExternalBin = await downloadBin('external', 'N0110')
+    const InternalBin = await downloadBin('internal', 'N0110')
+    logDebug('Installing')
+    await installExternal(ExternalBin)
+    await installInternal(InternalBin)
+  }
+  async function installN0100 () {
+    logDebug('Installing on N0100')
+    logDebug('Downloading')
+    const InternalBin = await downloadBin('internal', 'N0100')
+    logDebug('Installing')
+    await installInternal(InternalBin)
+  }
+
+  async function installExternal (data) {
+    logDebug('Flashing external')
+    if (!dryrun) {
+      await calculator.flashExternal(data)
+    } else {
+      await emulateFlash(data)
+    }
+    logDebug('External flashed successfully')
+  }
+
   async function installInternal (data) {
+    logDebug('Flashing internal')
     patchUsername(data)
     if (!dryrun) {
       await calculator.flashInternal(data)
     } else {
       await emulateFlash(data)
     }
-    console.log('Internal flashed successfully')
+    logDebug('Internal flashed successfully')
   }
   async function connectedHandler () {
     calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
-    console.log('Calculator connected')
+    logDebug('Calculator connected')
     // Do stuff when the claculator gets connected.
     installButton.hidden = false
     usernameInput.hidden = false
     connect.hidden = true
     const PlatformInfo = await calculator.getPlatformInfo()
+    logDebug('PlatformInfo :', PlatformInfo)
     if (PlatformInfo.omega.user) {
+      logDebug('Setting username input value to ' + PlatformInfo.omega.user)
       usernameInput.value = PlatformInfo.omega.user
     }
     if (shouldRestoreStorage) {
-      console.log('Restoring storage', shouldRestoreStorage)
-      calculator.installStorage(storage, function () { console.log('Storage restored successfully') })
+      logDebug('Restoring storage', shouldRestoreStorage)
+      calculator.installStorage(storage, function () { logDebug('Storage restored successfully') })
     }
     shouldRestoreStorage = false
   }
