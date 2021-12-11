@@ -61,7 +61,10 @@
           {{ t('home.description') }}
         </p>
         <div id="features">
-          <Feature :title="t('features.reader.name')">
+          <Feature
+            :image="require('@/assets/r6.webp')"
+            :title="t('features.reader.name')"
+          >
             {{ t('features.reader.description') }}
             <router-link to="/doc/latex">{{
               t('features.reader.docLink')
@@ -149,17 +152,17 @@ export default defineComponent({
 <style>
 @media screen and (min-width: 1500px) {
   #features {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 1500px) and (min-width: 700px) {
+@media screen and (max-width: 1500px) and (min-width: 1100px) {
   #features {
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   #features {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (max-width: 500px) {
@@ -202,6 +205,8 @@ h2 {
   width: 100vw;
   display: flex;
   justify-content: center;
+  background-size: cover !important;
+  background-attachment: fixed !important;
 }
 #content {
   max-width: 1800px;
@@ -216,13 +221,21 @@ h2 {
   font-size: 2em;
   font-weight: 300;
 }
+.light #content-bg {
+  /*TODO: make a light mode render */
+  background: url('~@/assets/r7.webp');
+}
+.dark #content-bg {
+  background: url('~@/assets/r7.webp');
+}
 #features {
   transition: padding 0.1s;
-  background: var(--transparent-fg-1);
   border-radius: 40px 40px 0 0;
   display: grid;
   justify-content: space-between;
   flex-wrap: wrap;
+  background-position: fixed;
+  background-size: fit;
 }
 #logos > #slogan {
   top: 51%;

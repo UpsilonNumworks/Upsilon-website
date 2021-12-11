@@ -56,9 +56,23 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
 
+::-webkit-scrollbar {
+  width: 10px;
+  background: #00000000;
+  outline: solid black 5pt;
+}
+::-webkit-scrollbar-track {
+  background: var(--upsilon-2-transparent);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--upsilon-1);
+  border-radius: 5pt;
+}
+
 .light {
   --upsilon-1: #accef8;
   --upsilon-2: white;
+  --upsilon-2-transparent: #ffffff50;
   --foreground: black;
   --transparent-fg-1: #00000005;
   --transparent-fg-2: #00000020;
@@ -76,6 +90,7 @@ export default defineComponent({
 .dark {
   --upsilon-1: #7ea2ce;
   --upsilon-2: #0c1624;
+  --upsilon-2-transparent: #0c162470;
   --foreground: #ffffff;
   --transparent-fg-1: #ffffff10;
   --transparent-fg-2: #ffffff20;
@@ -132,6 +147,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
   transition: color, background-color 0.5s;
+  overflow-y: overlay;
 }
 
 #nav {
@@ -174,5 +190,13 @@ body {
 }
 .route-leave-active {
   transition: all 0.1s ease-in;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
-  <div class="feature">
-    <h2>{{ title }}</h2>
-    <div class="feature-content">
-      <slot></slot>
+  <div class="feature-container">
+    <div class="feature">
+      <h2>{{ title }}</h2>
+      <div class="feature-content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -13,42 +15,23 @@ export default {
   props: {
     title: String,
     content: String,
-    image: String
+    image: Image
   }
 }
 </script>
 
 <style>
-@media screen and (min-width: 500px) {
-  .feature {
-    margin: 15px;
-    padding: 30px;
-    border-radius: 15px;
-  }
-  .feature-content {
-    font-size: 1.2em;
-  }
-}
-@media screen and (max-width: 500px) {
-  .feature {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 25px;
-  }
-  .feature-content {
-    font-size: 1em;
-  }
-}
-
 .feature {
-  background: var(--transparent-fg-1);
-  transition: margin, padding, border-radius 0.1s;
-  border: solid var(--foreground-2) 2pt;
+  backdrop-filter: blur(20px);
+  background: var(--transparent-bg-3) url('~@/assets/noise.webp');
+  background-size: cover;
+  image-rendering: pixelated;
+  padding: 3em;
+  border-radius: 50px;
+  margin: 1em;
+  font-size: 1.2em;
 }
-
-.feature > h2 {
-  font-size: 1.6em;
-  margin: 5px;
+.feature h2 {
   margin-top: 0;
 }
 </style>
