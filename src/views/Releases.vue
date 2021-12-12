@@ -6,6 +6,9 @@
         <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
         <div class="grid">
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.latex') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.E16Security') }}</div>
 
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>

@@ -3,7 +3,13 @@
   "darkmode": "Dark theme",
   "home": {
     "name": "Home",
-    "description": "Upsilon is a fork of Omega"
+    "description": "Since Upsilon is a fork of Omega, it also has all the features of Omega",
+    "features": {
+      "header": {
+        "upsilon": "Main features",
+        "omega": "Since Upsilon is a fork of Omega, it also supports all of Omega's features"
+      }
+    }
   },
   "installer": {
     "name": "Install",
@@ -33,7 +39,7 @@
     },
     "symbolic": {
       "name": "Symbolic calculation",
-      "description": "Symbolic computation was removed from Epsilon in version 11.2. Upsilon reintroduces that feature."
+      "description": "Symbolic computation was removed from Epsilon in version 11.2. Omega reintroduces that feature."
     },
     "themes": {
       "name": "Themes engine",
@@ -46,12 +52,22 @@
     },
     "rpn": {
       "name": "RPN",
-      "description": "Upsilon supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations.",
+      "description": "Omega supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations.",
       "docLink": "Learn more"
     },
     "3ds": {
       "name": "3DS simulator",
-      "description": "Upsilon is available and fully usable on the Nintendo 3DS."
+      "description": "Omega is available and fully usable on the Nintendo 3DS."
+    },
+    "protection": {
+      "title": "Protection against E16",
+      "content": "Updating to Epsilon 16+ locks your calculator down preventing you from insalling you any unofficial firmware. This protection prevents from unintentionnal updates"
+    },
+    "python": {
+      "title": "Python improvements",
+      "ulab": "Added Ulab which contains SciPy and NumPy (N110 only) ",
+      "sys": "Added a sys module",
+      "battery": "Added a way to get the battery level (level, voltage and charging status)"
     }
   },
   "doc": {
@@ -127,7 +143,8 @@
         "BatteryLogo": "Updated battery logo",
         "E16Security": "Added deactivatable security to prevent Epsilon 16 unintentional updates",
         "RecoveryMode": "Added recovery mode when crashing",
-        "Background": "Added background support"
+        "Background": "Added background support",
+        "latex": "A reader app with support for LaTeX mathematical expressions and symbols"
       }
     }
   }
