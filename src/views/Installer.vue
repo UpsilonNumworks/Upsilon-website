@@ -61,9 +61,9 @@ function onInstallerLoad () {
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = false
   const language = 'en'
   const debug = true
+  var dryrun = false
   var shouldRestoreStorage = false
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
@@ -73,6 +73,12 @@ function onInstallerLoad () {
 
   // Auto connect for install
   calculator.autoConnect(connectedHandler)
+
+  // Ensure dry run is disabled in production
+  if (process.env.NODE_ENV === 'production' && dryrun) {
+    console.warn('Dry run mode is enabled in the production environment, disabling it')
+    dryrun = false
+  }
 
   navigator.usb.addEventListener('disconnect', function (e) {
     calculator.onUnexpectedDisconnect(e, function () {
@@ -223,7 +229,12 @@ function onInstallerLoad () {
   async function downloadBin (name, model) {
     // Function to download binary file that will be flashed on the calculator
     const version = '1.0.0'
-    const mirror = ''
+    let mirror = null
+    if (process.env.NODE_ENV === 'development') {
+      mirror = '/'
+    } else {
+      mirror = '/Upsilon-website/'
+    }
     const maxDownloads = 2
     let fwname = 'epsilon.onboarding.' + name + '.bin'
     model = model.toLowerCase()
