@@ -55,60 +55,81 @@
       </svg>
       <div id="slogan">When Epsiloff and Omegout</div>
     </div>
-    <div id="content-bg">
-      <div id="content">
-        <p id="description">
-          {{ t('home.description') }}
-        </p>
-        <div id="features">
-          <Feature :title="t('features.reader.name')">
-            {{ t('features.reader.description') }}
-            <router-link to="/doc/latex">{{
-              t('features.reader.docLink')
-            }}</router-link>
-          </Feature>
-          <Feature :title="t('features.external.name')">
-            {{ t('features.external.description') }}
-            <a
-              href="https://lauryy06.github.io/Upsilon-External/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >{{ t('features.external.installNow') }}</a
-            >
-          </Feature>
-          <Feature :title="t('features.symbolic.name')">
-            {{ t('features.symbolic.description') }}
-          </Feature>
-          <Feature :title="t('features.themes.name')">
-            {{ t('features.themes.description') }}
-            <ul>
-              <li>Upsilon light</li>
-              <li>Omega light</li>
-              <li>Omega dark</li>
-              <li>Epsilon light</li>
-              <li>Epsilon dark</li>
-            </ul>
-            <a
-              href="https://github.com/Omega-Numworks-Prod/Omega-custom-theme-Listing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ t('features.themes.andmanymore') }}
-            </a>
-          </Feature>
-          <Feature :title="t('features.periodic.name')">
-            {{ t('features.periodic.description') }}
-          </Feature>
-          <Feature :title="t('features.rpn.name')">
-            {{ t('features.rpn.description') }}
-            <router-link to="/doc/rpn">{{
-              t('features.rpn.docLink')
-            }}</router-link>
-          </Feature>
-          <Feature :title="t('features.3ds.name')">
-            {{ t('features.3ds.description') }}
-          </Feature>
-        </div>
+    <div id="content">
+      <div class="features-header" id="features-upsilon-header">
+        <h2>
+          {{ t('home.features.header.upsilon') }}
+        </h2>
+      </div>
+      <div class="features" id="features-upsilon">
+        <Feature
+          :image="require('@/assets/r6.webp')"
+          :title="t('features.reader.name')"
+        >
+          {{ t('features.reader.description') }}
+          <router-link to="/doc/latex">{{
+            t('features.reader.docLink')
+          }}</router-link>
+        </Feature>
+
+        <Feature :title="t('features.protection.title')">
+          {{ t('features.protection.content') }}
+        </Feature>
+        <Feature :title="t('features.python.title')">
+          <ul>
+            <li>{{ t('features.python.ulab') }}</li>
+            <li>{{ t('features.python.sys') }}</li>
+            <li>{{ t('features.python.battery') }}</li>
+          </ul>
+        </Feature>
+      </div>
+      <div class="features-header" id="features-omega-header">
+        <h2>
+          {{ t('home.features.header.omega') }}
+        </h2>
+      </div>
+      <div class="features" id="features-omega">
+        <Feature :title="t('features.external.name')">
+          {{ t('features.external.description') }}
+          <a
+            href="https://lauryy06.github.io/Upsilon-External/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ t('features.external.installNow') }}</a
+          >
+        </Feature>
+        <Feature :title="t('features.symbolic.name')">
+          {{ t('features.symbolic.description') }}
+        </Feature>
+        <Feature :title="t('features.themes.name')">
+          {{ t('features.themes.description') }}
+          <ul>
+            <li>Upsilon light</li>
+            <li>Omega light</li>
+            <li>Omega dark</li>
+            <li>Epsilon light</li>
+            <li>Epsilon dark</li>
+          </ul>
+          <a
+            href="https://github.com/Omega-Numworks-Prod/Omega-custom-theme-Listing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ t('features.themes.andmanymore') }}
+          </a>
+        </Feature>
+        <Feature :title="t('features.periodic.name')">
+          {{ t('features.periodic.description') }}
+        </Feature>
+        <Feature :title="t('features.rpn.name')">
+          {{ t('features.rpn.description') }}
+          <router-link to="/doc/rpn">{{
+            t('features.rpn.docLink')
+          }}</router-link>
+        </Feature>
+        <Feature :title="t('features.3ds.name')">
+          {{ t('features.3ds.description') }}
+        </Feature>
       </div>
     </div>
   </div>
@@ -148,27 +169,27 @@ export default defineComponent({
 </script>
 <style>
 @media screen and (min-width: 1500px) {
-  #features {
-    grid-template-columns: auto auto auto;
+  .features {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 1500px) and (min-width: 700px) {
-  #features {
-    grid-template-columns: auto auto;
+@media screen and (max-width: 1500px) and (min-width: 1100px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (max-width: 700px) {
-  #features {
-    grid-template-columns: auto;
+@media screen and (max-width: 1100px) {
+  .features {
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (max-width: 500px) {
-  #features {
+  .features {
     padding: 10px;
   }
 }
 @media screen and (min-width: 500px) {
-  #features {
+  .features {
     padding: 30px;
   }
 }
@@ -195,34 +216,67 @@ h1 {
 h2 {
   font-size: 2em;
 }
-#content-bg {
+#content {
   position: absolute;
   top: 100vh;
   background-color: var(--upsilon-2);
   width: 100vw;
+}
+
+.features-header {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin: 0;
+  text-align: center;
+  font-size: 2em;
+  font-family: Lato;
+  font-weight: 200;
   display: flex;
   justify-content: center;
 }
-#content {
-  max-width: 1800px;
-  flex: 1;
+.features-header h2 {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+  border-radius: 10px;
 }
-#content #description {
-  max-width: 1000px;
-  text-align: justify;
-  left: 50%;
-  transform: translateX(-50%);
-  position: relative;
-  font-size: 2em;
-  font-weight: 300;
+#features-omega-header h2 {
+  background-color: var(--feature-bg-omega);
 }
-#features {
-  transition: padding 0.1s;
-  background: var(--transparent-fg-1);
-  border-radius: 40px 40px 0 0;
+#features-upsilon-header h2 {
+  background-color: var(--feature-bg-upsilon);
+}
+.features,
+.features-header {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+.light #features-omega,
+.light #features-omega-header {
+  background-image: url('~@/assets/r10.webp');
+}
+.dark #features-omega,
+.dark #features-omega-header {
+  background-image: url('~@/assets/r9.webp');
+}
+.light #features-upsilon,
+.light #features-upsilon-header {
+  background-image: url('~@/assets/r8.webp');
+}
+.dark #features-upsilon,
+.dark #features-upsilon-header {
+  background-image: url('~@/assets/r7.webp');
+}
+.features {
   display: grid;
   justify-content: space-between;
   flex-wrap: wrap;
+  background-position: fixed;
+  background-size: fit;
 }
 #logos > #slogan {
   top: 51%;
@@ -261,8 +315,8 @@ h2 {
 }
 #logos-bg {
   background: var(--upsilon-2);
-  transition: background-image 0.5s;
   background-size: cover;
+  transition: background-image 0.5s;
 }
 .light #logos-bg {
   background-image: url('~@/assets/r4.webp');

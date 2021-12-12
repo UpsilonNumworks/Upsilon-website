@@ -15,3 +15,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+label {
+  user-select: none;
+}
+</style>

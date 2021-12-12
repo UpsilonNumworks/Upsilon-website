@@ -3,7 +3,13 @@
   "darkmode": "Theme sombre",
   "home": {
     "name": "Accueil",
-    "description": "Upsilon est un fork d'Oméga"
+    "description": "Upsilon est un fork d'Omega",
+    "features": {
+      "header": {
+        "omega": "Comme Upsilon est un fork d'Omega, il prend également en charge toutes les fonctionnalités d'Omega",
+        "upsilon": "Fonctionalités principales"
+      }
+    }
   },
   "installer": {
     "name": "Installer",
@@ -33,7 +39,7 @@
     },
     "symbolic": {
       "name": "Calcul symbolique",
-      "description": "Le calcul symbolique a été retiré d'Epsilon à la version 11.2. Upsilon réintroduit cette fonctionnalité."
+      "description": "Le calcul symbolique a été retiré d'Epsilon à la version 11.2. Omega réintroduit cette fonctionnalité."
     },
     "themes": {
       "name": "Moteur de thèmes",
@@ -42,16 +48,26 @@
     },
     "periodic": {
       "name": "Tableau périodique",
-      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Upsilon est clair et simple d'utilisation."
+      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Omega est clair et simple d'utilisation."
     },
     "rpn": {
       "name": "RPN",
-      "description": "Upsilon supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathématiques.",
+      "description": "Omega supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathématiques.",
       "docLink": "En savoir plus"
     },
     "3ds": {
       "name": "Simulateur 3DS",
-      "description": "Upsilon est disponible et entièrement utilisable sur Nintendo 3DS."
+      "description": "Omega est disponible et entièrement utilisable sur Nintendo 3DS."
+    },
+    "protection": {
+      "content": "La mise à jour vers Epsilon 16 verrouille la calculatrice, empêchant d'installer un firmware non officiel. Cette protection empêche les mises à jour involontaires",
+      "title": "Protection contre E16"
+    },
+    "python": {
+      "battery": "Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
+      "sys": "Ajout du module sys",
+      "title": "Améliorations Python",
+      "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
     }
   },
   "doc": {
@@ -64,8 +80,8 @@
       "mathsymbols": "Symboles mathématiques",
       "greekcapitalletter": "Lettres capitales greques",
       "greeksmallletter": "Lettres minuscules greques",
-      "functions": "Fonctions",
-      "arrows": "Flèches"
+      "arrows": "Flèches",
+      "functions": "Fonctions"
     },
     "rpn": {
       "the": "La",
@@ -127,7 +143,8 @@
         "BatteryLogo": "Logo de la batterie changé",
         "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
         "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
-        "Background": "Ajout d'un support pour les fonds d'écran"
+        "Background": "Ajout d'un support pour les fonds d'écran",
+        "latex": "Une liseuse prenant en charge les expressions et symboles mathématiques LaTeX"
       }
     }
   }

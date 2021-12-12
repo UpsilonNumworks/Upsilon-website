@@ -56,15 +56,31 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
 
+::-webkit-scrollbar {
+  width: 10px;
+  background: #00000000;
+  outline: solid black 5pt;
+}
+::-webkit-scrollbar-track {
+  background: var(--upsilon-2-transparent);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--upsilon-1);
+  border-radius: 5pt;
+}
+
 .light {
   --upsilon-1: #accef8;
   --upsilon-2: white;
+  --upsilon-2-transparent: #ffffff50;
   --foreground: black;
   --transparent-fg-1: #00000005;
   --transparent-fg-2: #00000020;
   --transparent-bg-3: #00000030;
   --foreground-2: #303030;
   --complementary: #3265a3;
+  --feature-bg-upsilon: #accef8a0;
+  --feature-bg-omega: #ffd9d9a0;
 
   --tag-new: #b1fdde;
   --tag-new-outline: #307774;
@@ -76,12 +92,15 @@ export default defineComponent({
 .dark {
   --upsilon-1: #7ea2ce;
   --upsilon-2: #0c1624;
+  --upsilon-2-transparent: #0c162470;
   --foreground: #ffffff;
   --transparent-fg-1: #ffffff10;
   --transparent-fg-2: #ffffff20;
   --transparent-bg-3: #00000030;
   --foreground-2: lightgrey;
   --complementary: #7ecc70;
+  --feature-bg-upsilon: #0c1624b0;
+  --feature-bg-omega: #000000b0;
 
   --tag-new: #307774;
   --tag-change: #cc6122;
@@ -131,7 +150,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
-  transition: color, background-color 0.5s;
+  transition: background-image 0.5s, color 0.5s, background-color 0.5s,
+    backdrop-filter 0.5s;
+  overflow-y: overlay;
 }
 
 #nav {
@@ -149,7 +170,6 @@ body {
   color: var(--foreground);
   text-decoration: none;
   display: block;
-  transition: margin, font-size 0.1s;
 }
 
 #nav a.router-link-exact-active {
@@ -174,5 +194,13 @@ body {
 }
 .route-leave-active {
   transition: all 0.1s ease-in;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }
 </style>
