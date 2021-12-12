@@ -56,6 +56,7 @@ function onInstallerLoad () {
   var progressbarText = document.getElementById('progressbarText')
   var usernameInput = document.getElementById('username')
   var installationSuccess = document.getElementById('installationSuccess')
+  var installationFail = document.getElementById('installationFail')
   var recoverySuccess = document.getElementById('recoverySuccess')
   var storage = null
   var inRecoveryMode = false
@@ -111,16 +112,20 @@ function onInstallerLoad () {
 
   async function install () {
     // Install Upsilon on the calculator
-    await initInstall()
-    const model = calculator.getModel()
-    logDebug('Model : ' + model)
-    if (model === '0100') await installN0100()
-    else if (model === '0110') await installN0110()
-    else console.error('Model not supported: ' + model)
-    console.log('Installation success')
-    inRecoveryMode = false
-    await postInstall()
-    inRecoveryMode = false
+    try {
+      await initInstall()
+      const model = calculator.getModel()
+      logDebug('Model : ' + model)
+      if (model === '0100') await installN0100()
+      else if (model === '0110') await installN0110()
+      else console.error('Model not supported: ' + model)
+      console.log('Installation success')
+      inRecoveryMode = false
+      await postInstall()
+      inRecoveryMode = false
+    } catch (error) {
+      await errorHandler(error)
+    }
   }
 
   async function recovery () {
@@ -402,6 +407,12 @@ function onInstallerLoad () {
       internalBuf.set(encoded, 0x1F8)
     }
   }
+  async function errorHandler (error) {
+    console.error(error)
+    installationFail.hidden = false
+    await postInstall()
+    installationSuccess.hidden = true
+  }
 }
 </script>
 
@@ -477,7 +488,7 @@ function onInstallerLoad () {
   text-align: center;
 }
 
-.installationSuccess {
+.installationMessage {
   font-size: 20px;
 }
 
