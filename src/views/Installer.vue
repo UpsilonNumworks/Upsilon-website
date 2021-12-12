@@ -3,13 +3,15 @@
     <h1>{{ t('installer.title') }}</h1>
     <div class="installer">
       <button class="btn btn-primary" id="connect">{{ t('installer.connect') }}</button>
+      <button class="btn btn-secondary" id="recovery">Recovery</button>
       <button class="btn btn-primary" id="install" hidden>{{ t('installer.install') }}</button>
       <input class="textinput" type="text" placeholder="Username" id="username" maxlength="16"  hidden> <!-- TODO: Translate placeholder -->
       <div class="progressbar" id="progressbar">
         <div class="progressbar-bar" id="progressbar-bar"></div>
       </div>
       <div id="progressbarText"></div>
-      <div id="installationSuccess" class="installationSuccess" hidden>Merci d'avoir installé Upsilon.</div>
+      <div id="installationSuccess" class="installationMessage installationSuccess" hidden>Merci d'avoir installé Upsilon.</div>
+      <div id="installationFail" class="installationMessage installationFail" hidden>Erreur lors de l'installation de Upsilon.</div>
     </div>
   </div>
 </template>
@@ -47,11 +49,13 @@ export default defineComponent({
 function onInstallerLoad () {
   var connect = document.getElementById('connect')
   var installButton = document.getElementById('install')
+  var recoveryButton = document.getElementById('recovery')
   var progressbar = document.getElementById('progressbar-bar')
   var progressbarText = document.getElementById('progressbarText')
   var usernameInput = document.getElementById('username')
   var installationSuccess = document.getElementById('installationSuccess')
-  let storage = null
+  var storage = null
+  var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
   const dryrun = true
@@ -59,19 +63,111 @@ function onInstallerLoad () {
   const debug = true
   var shouldRestoreStorage = false
   var calculator = new Numworks()
+  var calculatorRecovery = new Numworks.Recovery()
+
+  calculator.autoConnect(connectedHandler)
 
   navigator.usb.addEventListener('disconnect', function (e) {
     calculator.onUnexpectedDisconnect(e, function () {
+      // Do stuff when the calculator gets disconnected.
       calculator.autoConnect(connectedHandler)
       logDebug('Calculator disconnected')
       installButton.hidden = true
       usernameInput.hidden = true
+      recoveryButton.hidden = false
       connect.hidden = false
-      // Do stuff when the calculator gets disconnected.
     })
   })
 
-  calculator.autoConnect(connectedHandler)
+  connect.onclick = function (e) {
+    calculator.detect(function () {
+      logDebug('Manually detection')
+      calculator.stopAutoConnect()
+      connectedHandler()
+    }, function (error) {
+      console.error('Error: ' + error)
+    })
+  }
+
+  recoveryButton.onclick = function (e) {
+    calculatorRecovery.detect(async function () {
+      logDebug('Recovery mode detected')
+      calculator.stopAutoConnect()
+      inRecoveryMode = true
+      connectedHandler()
+      await recovery()
+    }, function (error) {
+      console.error('Error: ' + error)
+    })
+  }
+
+  installButton.onclick = async function (e) {
+    await install()
+  }
+
+  async function install () {
+    await initInstall()
+    const model = calculator.getModel()
+    logDebug('Model : ' + model)
+    if (model === '0100') await installN0100()
+    else if (model === '0110') await installN0110()
+    else console.error('Model not supported: ' + model)
+    console.log('Installation success')
+    await postInstall()
+  }
+
+  async function recovery () {
+    await initInstall()
+    const model = calculatorRecovery.getModel()
+    logDebug('Model : ' + model)
+    logDebug('Downloading flasher')
+    const flasher = await downloadBin('flasher', 'N' + model)
+    logDebug('Flashing flasher')
+    await calculatorRecovery.flashRecovery(flasher)
+    logDebug('Recovery flashed successfully')
+    await postInstall()
+  }
+
+  async function installN0110 () {
+    logDebug('Installing on N0110')
+    logDebug('Downloading')
+    const ExternalBin = await downloadBin('external', 'N0110')
+    const InternalBin = await downloadBin('internal', 'N0110')
+    logDebug('Installing')
+    await installExternal(ExternalBin)
+    await installInternal(InternalBin)
+  }
+
+  async function installN0100 () {
+    logDebug('Installing on N0100')
+    logDebug('Downloading')
+    const InternalBin = await downloadBin('internal', 'N0100')
+    logDebug('Installing')
+    await installInternal(InternalBin)
+  }
+
+  async function connectedHandler () {
+    calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
+    logDebug('Calculator connected')
+    // Do stuff when the claculator gets connected.
+    installButton.hidden = false
+    usernameInput.hidden = false
+    recoveryButton.hidden = true
+    connect.hidden = true
+    if (!inRecoveryMode) {
+      const PlatformInfo = await calculator.getPlatformInfo()
+      logDebug('PlatformInfo :', PlatformInfo)
+      if (PlatformInfo.omega.user) {
+        logDebug('Setting username input value to ' + PlatformInfo.omega.user)
+        usernameInput.value = PlatformInfo.omega.user
+      }
+    }
+    if (shouldRestoreStorage && !inRecoveryMode) {
+      logDebug('Restoring storage', shouldRestoreStorage)
+      calculator.installStorage(storage, function () { logDebug('Storage restored successfully') })
+      shouldRestoreStorage = false
+    }
+  }
 
   function logDebug (...strings) {
     if (debug) {
@@ -91,24 +187,56 @@ function onInstallerLoad () {
     }
   }
 
-  async function emulateFlash (data) {
-    logDebug('Emulating Flash')
-    const onesecdata = 120000
-    const sectotal = data.byteLength / onesecdata
-    const accuracy = 1000
-    const sleeptime = sectotal / accuracy * 1000
-    for (let i = 0; i < accuracy; i++) {
-      logProgress(i, accuracy)
-      await new Promise(resolve => setTimeout(resolve, sleeptime))
-    }
-  }
-
   async function hash (blob) {
     const msgUint8 = await blob.arrayBuffer()
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
     const hashArray = Array.from(new Uint8Array(hashBuffer))
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
     return hashHex
+  }
+
+  async function downloadBin (name, model) {
+    const version = '1.0.0'
+    const mirror = ''
+    const maxDownloads = 2
+    let fwname = 'epsilon.onboarding.' + name + '.bin'
+    model = model.toLowerCase()
+    if (model === 'n0100') {
+      fwname = 'epsilon.onboarding.' + name + '.' + language + '.bin'
+    }
+    if (name === 'flasher') {
+      fwname = 'flasher.light.bin'
+    }
+    const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
+
+    // Download bin file
+    for (var i = 0; i < maxDownloads; i++) {
+      logDebug('[DOWNLOADING] ' + url)
+      const bin = await downloadAsync('GET', url, 'blob')
+      logDebug('[DOWNLOADED] ' + url)
+      // Verify download
+      logDebug('Downloading checksum')
+      const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
+      logDebug('Hashing bin file')
+      let binHashed = null
+      if (model === 'n0100' && name !== 'flasher') {
+        binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
+      } else {
+        binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
+      }
+      logDebug('Verifying checksum')
+      if (ckecksum === binHashed) {
+        // If download is verified, return the downloaded bin file
+        logDebug('Bin file downloaded successfully')
+        return await bin.arrayBuffer()
+      } else {
+        // If download is errored, retry the download
+        logDebug('Download failed')
+        logDebug('Checksum: ' + ckecksum + ', Bin hash: ' + binHashed)
+        console.log(i)
+      }
+    }
+    throw new Error('Download failed with ' + i + ' try')
   }
 
   function downloadAsync (method, url, responseType = 'blob') {
@@ -136,124 +264,55 @@ function onInstallerLoad () {
     })
   }
 
-  async function downloadBin (name, model) {
-    const version = '1.0.0'
-    const mirror = ''
-    const maxDownloads = 2
-    let fwname = 'epsilon.onboarding.' + name + '.bin'
-    model = model.toLowerCase()
-    if (model === 'n0100') {
-      fwname = 'epsilon.onboarding.' + name + '.' + language + '.bin'
-    }
-    const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
-
-    // Download bin file
-    for (var i = 0; i < maxDownloads; i++) {
-      logDebug('[DOWNLOADING] ' + url)
-      const bin = await downloadAsync('GET', url, 'blob')
-      logDebug('[DOWNLOADED] ' + url)
-      // Verify download
-      logDebug('Downloading checksum')
-      const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
-      logDebug('Hashing bin file')
-      let binHashed = null
-      if (model === 'n0110') {
-        binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
-      } else {
-        binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
-      }
-      logDebug('Verifying checksum')
-      if (ckecksum === binHashed) {
-        // If download is verified, return the downloaded bin file
-        logDebug('Bin file downloaded successfully')
-        return await bin.arrayBuffer()
-      } else {
-        // If download is errored, retry the download
-        logDebug('Download failed')
-        logDebug('Checksum: ' + ckecksum + ', Bin hash: ' + binHashed)
-        console.log(i)
-      }
-    }
-    throw new Error('Download failed with ' + i + ' try')
-  }
-
-  connect.onclick = function (e) {
-    calculator.detect(function () {
-      logDebug('Manually detection')
-      calculator.stopAutoConnect()
-      connectedHandler()
-    }, function (error) {
-      console.error('Error: ' + error)
-    })
-  }
-
-  installButton.onclick = async function (e) {
-    await install()
-  }
-
-  async function install () {
+  async function initInstall () {
     installButton.hidden = true
     usernameInput.hidden = true
+    recoveryButton.hidden = true
     connect.hidden = true
     progressbarText.hidden = false
-    calculator.device.logProgress = logProgress
-    // Disable WebDFU logging because it crash debug console
-    calculator.device.logDebug = function () {}
-    calculator.device.logInfo = function () {}
-    progressbar.parentNode.classList.add('progressbar-active')
-    const model = calculator.getModel()
-    storage = await calculator.backupStorage()
-    logProgress(0, 1)
-    // Ditch all non-python stuff, for convinience.
-    for (var i in storage.records) {
-      if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
+    if (inRecoveryMode) {
+      calculatorRecovery.device.logProgress = logProgress
+    } else {
+      calculator.device.logProgress = logProgress
     }
-    logDebug('Model : ' + model)
-    logDebug('Storage :', storage)
+    try {
+    // Disable WebDFU logging because it crash debug console
+      calculator.device.logDebug = function () {}
+      calculator.device.logInfo = function () {}
+    } catch (e) {
+      console.warn('Error while disabling WebDFU logging')
+    }
+    progressbar.parentNode.classList.add('progressbar-active')
+    try {
+      storage = await calculator.backupStorage()
+      // Ditch all non-python stuff, for convinience.
+      for (var i in storage.records) {
+        if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
+      }
+      logDebug('Storage :', storage)
+    } catch (e) {
+      if (storage == null) {
+        storage = new DataView(new ArrayBuffer())
+        console.warn('Error when fetching scripts, creating a new empty storage')
+      } else {
+        logDebug('Error when fetching scripts, kepping old scripts')
+      }
+    }
+    logProgress(0, 1)
     logDebug('Disabling protection')
-    await calculator.device.requestOut(0x11) // FIXME : It doesn't work
-    if (model === '0100') await installN0100()
-    else if (model === '0110') await installN0110()
-    else console.error('Model not supported: ' + model)
+    if (!inRecoveryMode) {
+      await calculator.device.requestOut(0x11) // FIXME : It doesn't work
+      // TODO: Add ask user to disable the protection
+    }
+  }
+
+  async function postInstall () {
     shouldRestoreStorage = true
     progressbar.parentNode.classList.remove('progressbar-active')
     progressbarText.hidden = true
+    recoveryButton.hidden = false
     connect.hidden = false
     installationSuccess.hidden = false
-    console.log('Installation success')
-  }
-
-  function patchUsername (InternalBin) {
-    const username = usernameInput.value
-    logDebug('Patching internal bin with username : ' + username)
-    if (username) {
-      const internalBuf = new Uint8Array(InternalBin)
-
-      const enc = new TextEncoder()
-      let encoded = enc.encode(username + '\0')
-      if (encoded.length > 16) {
-        encoded[15] = 0
-        encoded = encoded.slice(0, 16)
-      }
-      internalBuf.set(encoded, 0x1F8)
-    }
-  }
-
-  async function installN0110 () {
-    logDebug('Installing on N0110')
-    logDebug('Downloading')
-    const ExternalBin = await downloadBin('external', 'N0110')
-    const InternalBin = await downloadBin('internal', 'N0110')
-    logDebug('Installing')
-    await installExternal(ExternalBin)
-    await installInternal(InternalBin)
-  }
-  async function installN0100 () {
-    logDebug('Installing on N0100')
-    logDebug('Downloading')
-    const InternalBin = await downloadBin('internal', 'N0100')
-    logDebug('Installing')
-    await installInternal(InternalBin)
   }
 
   async function installExternal (data) {
@@ -276,24 +335,33 @@ function onInstallerLoad () {
     }
     logDebug('Internal flashed successfully')
   }
-  async function connectedHandler () {
-    calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
-    logDebug('Calculator connected')
-    // Do stuff when the claculator gets connected.
-    installButton.hidden = false
-    usernameInput.hidden = false
-    connect.hidden = true
-    const PlatformInfo = await calculator.getPlatformInfo()
-    logDebug('PlatformInfo :', PlatformInfo)
-    if (PlatformInfo.omega.user) {
-      logDebug('Setting username input value to ' + PlatformInfo.omega.user)
-      usernameInput.value = PlatformInfo.omega.user
+
+  async function emulateFlash (data) {
+    logDebug('Emulating Flash')
+    const onesecdata = 120000
+    const sectotal = data.byteLength / onesecdata
+    const accuracy = 1000
+    const sleeptime = sectotal / accuracy * 1000
+    for (let i = 0; i < accuracy; i++) {
+      logProgress(i, accuracy)
+      await new Promise(resolve => setTimeout(resolve, sleeptime))
     }
-    if (shouldRestoreStorage) {
-      logDebug('Restoring storage', shouldRestoreStorage)
-      calculator.installStorage(storage, function () { logDebug('Storage restored successfully') })
+  }
+
+  function patchUsername (InternalBin) {
+    const username = usernameInput.value
+    logDebug('Patching internal bin with username : ' + username)
+    if (username) {
+      const internalBuf = new Uint8Array(InternalBin)
+
+      const enc = new TextEncoder()
+      let encoded = enc.encode(username + '\0')
+      if (encoded.length > 16) {
+        encoded[15] = 0
+        encoded = encoded.slice(0, 16)
+      }
+      internalBuf.set(encoded, 0x1F8)
     }
-    shouldRestoreStorage = false
   }
 }
 </script>
@@ -339,6 +407,17 @@ function onInstallerLoad () {
 
 .btn-primary:hover {
   background-color: var(--upsilon-1);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--upsilon-2);
+  color: var(--foreground);
+  border: 2px solid var(--complementary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--complementary);
   color: white;
 }
 
