@@ -61,7 +61,7 @@ function onInstallerLoad () {
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = true
+  const dryrun = false
   const language = 'en'
   const debug = true
   var shouldRestoreStorage = false
