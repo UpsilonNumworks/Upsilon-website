@@ -22,7 +22,6 @@
 // TODO: Use GitHub releases
 // TODO: Clean up code
 // TODO: Progress bar no restart
-// TODO: Use error message
 
 <script>
 import { defineComponent } from 'vue'
@@ -130,19 +129,23 @@ function onInstallerLoad () {
 
   async function recovery () {
     // Flash Upsilon's recovery on the calculator
-    calculatorRecovery.stopAutoConnect()
-    inRecoveryMode = true
-    connectedHandler()
-    await initInstall()
-    const model = calculatorRecovery.getModel()
-    logDebug('Model : ' + model)
-    logDebug('Downloading flasher')
-    const flasher = await downloadBin('flasher', 'N' + model)
-    logDebug('Flashing flasher')
-    await calculatorRecovery.flashRecovery(flasher)
-    logDebug('Recovery flashed successfully')
-    await postInstall()
-    recoverySuccess.hidden = false
+    try {
+      calculatorRecovery.stopAutoConnect()
+      inRecoveryMode = true
+      connectedHandler()
+      await initInstall()
+      const model = calculatorRecovery.getModel()
+      logDebug('Model : ' + model)
+      logDebug('Downloading flasher')
+      const flasher = await downloadBin('flasher', 'N' + model)
+      logDebug('Flashing flasher')
+      await calculatorRecovery.flashRecovery(flasher)
+      logDebug('Recovery flashed successfully')
+      await postInstall()
+      recoverySuccess.hidden = false
+    } catch (error) {
+      await errorHandler(error)
+    }
   }
 
   async function installN0100 () {
