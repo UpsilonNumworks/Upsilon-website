@@ -11,7 +11,9 @@
       </div>
       <div id="progressbarText"></div>
       <div id="installationSuccess" class="installationMessage installationSuccess" hidden>Merci d'avoir installé Upsilon.</div>
-      <div id="installationFail" class="installationMessage installationFail" hidden>Erreur lors de l'installation de Upsilon.</div>
+      <div id="installationFail" class="installationMessage installationFail" hidden>Erreur lors de l'installation d'Upsilon.</div>
+      <div id="recoverySuccess" class="installationMessage recoverySuccess" hidden>Mode de restauration installé avec succès.
+        <br>Veuillez cliquer sur "{{ t('installer.connect') }}" puis séléctionner votre calculatrice dans la liste des périphériques.</div>
     </div>
   </div>
 </template>
@@ -54,17 +56,22 @@ function onInstallerLoad () {
   var progressbarText = document.getElementById('progressbarText')
   var usernameInput = document.getElementById('username')
   var installationSuccess = document.getElementById('installationSuccess')
+  var recoverySuccess = document.getElementById('recoverySuccess')
   var storage = null
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = true
+  const dryrun = false
   const language = 'en'
   const debug = true
   var shouldRestoreStorage = false
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
 
+  // Auto connect for the Recovery
+  // calculatorRecovery.autoConnect(recovery)
+
+  // Auto connect for install
   calculator.autoConnect(connectedHandler)
 
   navigator.usb.addEventListener('disconnect', function (e) {
@@ -92,8 +99,6 @@ function onInstallerLoad () {
   recoveryButton.onclick = function (e) {
     calculatorRecovery.detect(async function () {
       logDebug('Recovery mode detected')
-      inRecoveryMode = true
-      connectedHandler()
       await recovery()
     }, function (error) {
       console.error('Error: ' + error)
@@ -105,6 +110,7 @@ function onInstallerLoad () {
   }
 
   async function install () {
+    // Install Upsilon on the calculator
     await initInstall()
     const model = calculator.getModel()
     logDebug('Model : ' + model)
@@ -112,10 +118,16 @@ function onInstallerLoad () {
     else if (model === '0110') await installN0110()
     else console.error('Model not supported: ' + model)
     console.log('Installation success')
+    inRecoveryMode = false
     await postInstall()
+    inRecoveryMode = false
   }
 
   async function recovery () {
+    // Flash Upsilon's recovery on the calculator
+    calculatorRecovery.stopAutoConnect()
+    inRecoveryMode = true
+    connectedHandler()
     await initInstall()
     const model = calculatorRecovery.getModel()
     logDebug('Model : ' + model)
@@ -125,9 +137,20 @@ function onInstallerLoad () {
     await calculatorRecovery.flashRecovery(flasher)
     logDebug('Recovery flashed successfully')
     await postInstall()
+    recoverySuccess.hidden = false
+  }
+
+  async function installN0100 () {
+    // Install Upsilon on the N0100
+    logDebug('Installing on N0100')
+    logDebug('Downloading')
+    const InternalBin = await downloadBin('internal', 'N0100')
+    logDebug('Installing')
+    await installInternal(InternalBin)
   }
 
   async function installN0110 () {
+    // Install Upsilon on the N0110
     logDebug('Installing on N0110')
     logDebug('Downloading')
     const ExternalBin = await downloadBin('external', 'N0110')
@@ -137,20 +160,13 @@ function onInstallerLoad () {
     await installInternal(InternalBin)
   }
 
-  async function installN0100 () {
-    logDebug('Installing on N0100')
-    logDebug('Downloading')
-    const InternalBin = await downloadBin('internal', 'N0100')
-    logDebug('Installing')
-    await installInternal(InternalBin)
-  }
-
   async function connectedHandler () {
+    // Do stuff when the calculator gets connected.
     logDebug('Calculator connected')
-    // Do stuff when the claculator gets connected.
     installButton.hidden = false
     usernameInput.hidden = false
     recoveryButton.hidden = true
+    recoverySuccess.hidden = true
     connect.hidden = true
     if (!inRecoveryMode) {
       const PlatformInfo = await calculator.getPlatformInfo()
@@ -168,6 +184,7 @@ function onInstallerLoad () {
   }
 
   function logDebug (...strings) {
+    // Function to log debug message in debug if enabled
     if (debug) {
       for (let index = 0; index < strings.length; index++) {
         console.log(strings[index])
@@ -176,6 +193,7 @@ function onInstallerLoad () {
   }
 
   function logProgress (done, total) {
+    // Function to log progress in progress bar
     if (typeof total === 'undefined') {
       console.warn('Total progress is undefined : progress bar will not work')
     } else {
@@ -186,6 +204,7 @@ function onInstallerLoad () {
   }
 
   async function hash (blob) {
+    // Hash blob file
     const msgUint8 = await blob.arrayBuffer()
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
     const hashArray = Array.from(new Uint8Array(hashBuffer))
@@ -194,6 +213,7 @@ function onInstallerLoad () {
   }
 
   async function downloadBin (name, model) {
+    // Function to download binary file that will be flashed on the calculator
     const version = '1.0.0'
     const mirror = ''
     const maxDownloads = 2
@@ -238,6 +258,7 @@ function onInstallerLoad () {
   }
 
   function downloadAsync (method, url, responseType = 'blob') {
+    // Function to download a file asyncronously
     return new Promise(function (resolve, reject) {
       const xhr = new XMLHttpRequest()
       xhr.responseType = responseType
@@ -263,6 +284,7 @@ function onInstallerLoad () {
   }
 
   async function initInstall () {
+    // Function to setup the installation
     installButton.hidden = true
     usernameInput.hidden = true
     recoveryButton.hidden = true
@@ -271,8 +293,13 @@ function onInstallerLoad () {
     installationSuccess.hidden = true
     if (inRecoveryMode) {
       calculatorRecovery.device.logProgress = logProgress
-    } else {
+    }
+    try {
       calculator.device.logProgress = logProgress
+    } catch (err) {
+      if (!inRecoveryMode) {
+        console.warn('Error when initializing the progress bar')
+      }
     }
     try {
     // Disable WebDFU logging because it crash debug console
@@ -300,12 +327,17 @@ function onInstallerLoad () {
     logProgress(0, 1)
     logDebug('Disabling protection')
     if (!inRecoveryMode) {
-      await calculator.device.requestOut(0x11) // FIXME : It doesn't work
+      try {
+        await calculator.device.requestOut(0x11) // FIXME : It doesn't work
       // TODO: Add ask user to disable the protection
+      } catch (e) {
+        console.warn('Error while disabling calculator protection')
+      }
     }
   }
 
   async function postInstall () {
+    // Function to finish the installation cleanly.
     shouldRestoreStorage = true
     progressbar.parentNode.classList.remove('progressbar-active')
     progressbarText.hidden = true
@@ -313,10 +345,13 @@ function onInstallerLoad () {
     connect.hidden = false
     if (!inRecoveryMode) {
       installationSuccess.hidden = false
+    } else {
+      recoverySuccess.hidden = true
     }
   }
 
   async function installExternal (data) {
+    // Function to flash the external memory
     logDebug('Flashing external')
     if (!dryrun) {
       await calculator.flashExternal(data)
@@ -327,6 +362,7 @@ function onInstallerLoad () {
   }
 
   async function installInternal (data) {
+    // Function to flash the internal memory
     logDebug('Flashing internal')
     patchUsername(data)
     if (!dryrun) {
@@ -338,6 +374,7 @@ function onInstallerLoad () {
   }
 
   async function emulateFlash (data) {
+    // Function to emulate the flash in dry run mode.
     logDebug('Emulating Flash')
     const onesecdata = 120000
     const sectotal = data.byteLength / onesecdata
@@ -350,6 +387,7 @@ function onInstallerLoad () {
   }
 
   function patchUsername (InternalBin) {
+    // Function to patch the internal bin with the username.
     const username = usernameInput.value
     logDebug('Patching internal bin with username : ' + username)
     if (username) {
@@ -395,7 +433,6 @@ function onInstallerLoad () {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  /* margin: 4px 2px; */
   margin: 12px 6px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -415,17 +452,16 @@ function onInstallerLoad () {
 .btn-important {
   background-color: var(--upsilon-2);
   color: var(--foreground);
-  border: 2px solid var(--important);
+  border: 2px solid var(--foreground-2);
 }
 
 .btn-important:hover {
-  background-color: var(--important);
+  background-color: var(--foreground-2);
   color: white;
 }
 
 .textinput {
   border: 2px solid var(--upsilon-1); /* FIXME */
-  /* border: none; */
   border-radius: 5px;
   background-color: var(--upsilon-2);
   color: var(--foreground);
