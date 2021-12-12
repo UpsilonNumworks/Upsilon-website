@@ -231,6 +231,8 @@ h2 {
   font-size: 2em;
   font-family: Lato;
   font-weight: 200;
+  display: flex;
+  justify-content: center;
 }
 .features-header h2 {
   font-size: inherit;
@@ -239,7 +241,6 @@ h2 {
   margin: 0;
   margin-left: 10px;
   margin-right: 10px;
-  display: inline;
   padding: 20px;
   border-radius: 10px;
 }
