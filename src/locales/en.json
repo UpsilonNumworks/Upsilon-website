@@ -13,7 +13,15 @@
   },
   "installer": {
     "name": "Install",
-    "title": "Install Upsilon"
+    "title": "Install Upsilon",
+    "install": "Install",
+    "connect": "Connect",
+    "recovery": "Recovery",
+    "installationSuccess": "Thanks you for installing Upsilon.",
+    "recoverySuccess": "Recovery mode is now installed successfully.",
+    "pleaseclickon": "Please click on",
+    "thenselect": "then select your calculator in the peripherals list",
+    "installationFail": "Installation of Upsilon failed."
   },
   "github": {
     "name": "Github"
