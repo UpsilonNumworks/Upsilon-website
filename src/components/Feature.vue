@@ -22,14 +22,18 @@ export default {
 
 <style>
 .feature {
-  backdrop-filter: blur(20px);
-  background: var(--transparent-bg-3) url('~@/assets/noise.webp');
   background-size: cover;
   image-rendering: pixelated;
   padding: 3em;
-  border-radius: 50px;
+  border-radius: 10px;
   margin: 1em;
   font-size: 1.2em;
+}
+#features-upsilon .feature {
+  background-color: var(--feature-bg-upsilon);
+}
+#features-omega .feature {
+  background-color: var(--feature-bg-omega);
 }
 .feature h2 {
   margin-top: 0;

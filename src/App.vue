@@ -79,6 +79,8 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: #303030;
   --complementary: #3265a3;
+  --feature-bg-upsilon: #accef8a0;
+  --feature-bg-omega: #ffd9d9a0;
 
   --tag-new: #b1fdde;
   --tag-new-outline: #307774;
@@ -97,6 +99,8 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: lightgrey;
   --complementary: #7ecc70;
+  --feature-bg-upsilon: #0c1624b0;
+  --feature-bg-omega: #000000b0;
 
   --tag-new: #307774;
   --tag-change: #cc6122;
@@ -146,7 +150,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
-  transition: color, background-color 0.5s;
+  transition: background-image 0.5s, color 0.5s, background-color 0.5s,
+    backdrop-filter 0.5s;
   overflow-y: overlay;
 }
 
@@ -165,7 +170,6 @@ body {
   color: var(--foreground);
   text-decoration: none;
   display: block;
-  transition: margin, font-size 0.1s;
 }
 
 #nav a.router-link-exact-active {

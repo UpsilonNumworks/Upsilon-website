@@ -7,7 +7,8 @@ module.exports = {
       enableLegacy: false,
       runtimeOnly: false,
       compositionOnly: false,
-      fullInstall: true
+      fullInstall: true,
+      seo: true
     }
   },
   publicPath: process.env.NODE_ENV === 'production' ? '/Upsilon-website/' : '/'
