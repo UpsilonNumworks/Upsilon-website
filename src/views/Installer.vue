@@ -22,7 +22,6 @@
 // TODO: Use GitHub releases
 // TODO: Clean up code
 // TODO: Progress bar no restart
-// TODO: Recovery mode
 
 <script>
 import { defineComponent } from 'vue'
