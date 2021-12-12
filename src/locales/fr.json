@@ -9,7 +9,13 @@
     "name": "Installer",
     "title": "Installer Upsilon",
     "install": "Installer",
-    "connect": "Connecter"
+    "connect": "Connecter",
+    "recovery": "Mode de restauration",
+    "installationSuccess": "Merci d'avoir installé Upsilon.",
+    "recoverySuccess": "Mode de restauration installé avec succès.",
+    "pleaseclickon": "Veuillez cliquer sur",
+    "thenselect": "puis séléctionner votre calculatrice dans la liste des périphériques",
+    "installationFail": "Erreur lors de l'installation d'Upsilon."
   },
   "github": {
     "name": "Github"

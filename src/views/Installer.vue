@@ -3,17 +3,17 @@
     <h1>{{ t('installer.title') }}</h1>
     <div class="installer">
       <button class="btn btn-primary" id="connect">{{ t('installer.connect') }}</button>
-      <button class="btn btn-important" id="recovery">Recovery</button>
+      <button class="btn btn-important" id="recovery">{{ t('installer.recovery') }}</button>
       <button class="btn btn-primary" id="install" hidden>{{ t('installer.install') }}</button>
       <input class="textinput" type="text" placeholder="Username" id="username" maxlength="16"  hidden> <!-- TODO: Translate placeholder -->
       <div class="progressbar" id="progressbar">
         <div class="progressbar-bar" id="progressbar-bar"></div>
       </div>
       <div id="progressbarText"></div>
-      <div id="installationSuccess" class="installationMessage installationSuccess" hidden>Merci d'avoir installé Upsilon.</div>
-      <div id="installationFail" class="installationMessage installationFail" hidden>Erreur lors de l'installation d'Upsilon.</div>
-      <div id="recoverySuccess" class="installationMessage recoverySuccess" hidden>Mode de restauration installé avec succès.
-        <br>Veuillez cliquer sur "{{ t('installer.connect') }}" puis séléctionner votre calculatrice dans la liste des périphériques.</div>
+      <div id="installationSuccess" class="installationMessage installationSuccess" hidden>{{ t('installer.installationSuccess') }}</div>
+      <div id="installationFail" class="installationMessage installationFail" hidden>{{ t('installer.installationFail') }}</div>
+      <div id="recoverySuccess" class="installationMessage recoverySuccess" hidden>{{ t('installer.recoverySuccess') }}
+        <br>{{ t('installer.pleaseclickon') }} "{{ t('installer.connect') }}" {{ t('installer.thenselect') }}.</div>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@
 // TODO: Use GitHub releases
 // TODO: Clean up code
 // TODO: Progress bar no restart
+// TODO: Use error message
 
 <script>
 import { defineComponent } from 'vue'
@@ -60,7 +61,7 @@ function onInstallerLoad () {
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
   // const GitHubRepoName = 'Yaya-Cout/Upsilon'
-  const dryrun = false
+  const dryrun = true
   const language = 'en'
   const debug = true
   var shouldRestoreStorage = false
