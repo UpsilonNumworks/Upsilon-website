@@ -3,7 +3,7 @@
     <h1>{{ t('installer.title') }}</h1>
     <div class="installer">
       <button class="btn btn-primary" id="connect">{{ t('installer.connect') }}</button>
-      <button class="btn btn-secondary" id="recovery">Recovery</button>
+      <button class="btn btn-important" id="recovery">Recovery</button>
       <button class="btn btn-primary" id="install" hidden>{{ t('installer.install') }}</button>
       <input class="textinput" type="text" placeholder="Username" id="username" maxlength="16"  hidden> <!-- TODO: Translate placeholder -->
       <div class="progressbar" id="progressbar">
@@ -92,7 +92,6 @@ function onInstallerLoad () {
   recoveryButton.onclick = function (e) {
     calculatorRecovery.detect(async function () {
       logDebug('Recovery mode detected')
-      calculator.stopAutoConnect()
       inRecoveryMode = true
       connectedHandler()
       await recovery()
@@ -147,7 +146,6 @@ function onInstallerLoad () {
   }
 
   async function connectedHandler () {
-    calculator.stopAutoConnect() // It's connected, so autoConnect should stop.
     logDebug('Calculator connected')
     // Do stuff when the claculator gets connected.
     installButton.hidden = false
@@ -205,7 +203,7 @@ function onInstallerLoad () {
       fwname = 'epsilon.onboarding.' + name + '.' + language + '.bin'
     }
     if (name === 'flasher') {
-      fwname = 'flasher.light.bin'
+      fwname = 'flasher.verbose.bin'
     }
     const url = mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
 
@@ -219,7 +217,7 @@ function onInstallerLoad () {
       const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
       logDebug('Hashing bin file')
       let binHashed = null
-      if (model === 'n0100' && name !== 'flasher') {
+      if (model === 'n0100') {
         binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
       } else {
         binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
@@ -270,6 +268,7 @@ function onInstallerLoad () {
     recoveryButton.hidden = true
     connect.hidden = true
     progressbarText.hidden = false
+    installationSuccess.hidden = true
     if (inRecoveryMode) {
       calculatorRecovery.device.logProgress = logProgress
     } else {
@@ -312,7 +311,9 @@ function onInstallerLoad () {
     progressbarText.hidden = true
     recoveryButton.hidden = false
     connect.hidden = false
-    installationSuccess.hidden = false
+    if (!inRecoveryMode) {
+      installationSuccess.hidden = false
+    }
   }
 
   async function installExternal (data) {
@@ -394,7 +395,8 @@ function onInstallerLoad () {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 4px 2px;
+  /* margin: 4px 2px; */
+  margin: 12px 6px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -410,14 +412,14 @@ function onInstallerLoad () {
   color: white;
 }
 
-.btn-secondary {
+.btn-important {
   background-color: var(--upsilon-2);
   color: var(--foreground);
-  border: 2px solid var(--complementary);
+  border: 2px solid var(--important);
 }
 
-.btn-secondary:hover {
-  background-color: var(--complementary);
+.btn-important:hover {
+  background-color: var(--important);
   color: white;
 }
 

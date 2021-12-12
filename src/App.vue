@@ -65,6 +65,7 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: #303030;
   --complementary: #3265a3;
+  --important: #e27e7e;
 
   --tag-new: #b1fdde;
   --tag-new-outline: #307774;
@@ -82,6 +83,7 @@ export default defineComponent({
   --transparent-bg-3: #00000030;
   --foreground-2: lightgrey;
   --complementary: #7ecc70;
+  --important: #972020;
 
   --tag-new: #307774;
   --tag-change: #cc6122;
