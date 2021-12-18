@@ -4,9 +4,7 @@ Anyone is welcome to contribute or request features/report bugs!
 
 ## To do
 
--   Add images to feature cards
--   Change Upsilon description
--   Installer
+-   Installer improvements (more info on what the buttons actually do)
 -   Better Light mode
 -   Simulator
 -   Proper switch
