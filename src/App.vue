@@ -81,6 +81,8 @@ export default defineComponent({
   --complementary: #3265a3;
   --feature-bg-upsilon: #accef8a0;
   --feature-bg-omega: #ffd9d9a0;
+  --error-bg: #ff7d7d85;
+  --error-text: darkred;
 
   --tag-new: #b1fdde;
   --tag-new-outline: #307774;
@@ -101,6 +103,8 @@ export default defineComponent({
   --complementary: #7ecc70;
   --feature-bg-upsilon: #0c1624b0;
   --feature-bg-omega: #000000b0;
+  --error-bg: #8b000085;
+  --error-text: pink;
 
   --tag-new: #307774;
   --tag-change: #cc6122;

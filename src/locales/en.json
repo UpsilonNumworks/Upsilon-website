@@ -21,7 +21,22 @@
     "recoverySuccess": "Recovery mode is now installed successfully.",
     "pleaseclickon": "Please click on",
     "thenselect": "then select your calculator in the peripherals list",
-    "installationFail": "Installation of Upsilon failed."
+    "installationFail": "Installation of Upsilon failed.",
+    "error": "Error",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "backingup": "Backing up...",
+    "installing2of2": "Installing 2 of 2...",
+    "installing1of2": "Installing 1 of 2...",
+    "installing": "Installing...",
+    "done": "Done",
+    "restoring": "Restoring scripts...",
+    "hints": {
+      "DisableProtection": "Try disabling the USB protection",
+      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator"
+    },
+    "restore": "Restore scripts",
+    "username": "Username"
   },
   "github": {
     "name": "Github"
