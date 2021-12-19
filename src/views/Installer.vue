@@ -68,6 +68,7 @@ function onInstallerLoad (t) {
   const progressbarText = document.getElementById('progressbar-text')
   const usernameInput = document.getElementById('input-uname')
   const statusDisplay = document.getElementById('status-display')
+
   var storage = null
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
@@ -106,10 +107,9 @@ function onInstallerLoad (t) {
 
   installBtn.addEventListener('click', (event) => {
     event.preventDefault()
-    install()
+    install().catch(onError)
   })
   function onError (err) {
-    console.error(err.message)
     statusDisplay.innerHTML = t('installer.error') + ': ' + err.message
     statusDisplay.classList = ['error']
 
@@ -126,6 +126,7 @@ function onInstallerLoad (t) {
     }
   }
   function setStatus (status) {
+    console.log('Status set to', status)
     switch (status) {
       case 'connected':
         console.log('Calculator connected')
@@ -150,6 +151,10 @@ function onInstallerLoad (t) {
         installForm.hidden = true
         recoveryBtn.hidden = true
         connectBtn.hidden = true
+        break
+      case 'downloading':
+        statusDisplay.innerHTML = t('installer.downloading')
+        statusDisplay.classList = ['info']
         break
       case 'installingInternal':
         statusDisplay.innerHTML = t('installer.installing2of2')
@@ -181,7 +186,7 @@ function onInstallerLoad (t) {
       await initInstall()
       const model = calculator.getModel()
       console.log('Model : ' + model)
-
+      setStatus('downloading')
       if (model === '0100') {
         setStatus('installingN100')
         downloadBin('internal', 'N0100').then((bin) => {
@@ -191,13 +196,13 @@ function onInstallerLoad (t) {
       } else if (model === '0110') {
         await downloadBin('external', 'N0110').then(async (bin) => {
           setStatus('installingExternal')
-          await calculator.flashExternal(bin).catch(onError)
+          await calculator.flashExternal(bin)
         })
         console.log('downloading internal')
-        downloadBin('internal', 'N0110').then((bin) => {
+        await downloadBin('internal', 'N0110').then(async (bin) => {
           patchUsername(bin)
           setStatus('installingInternal')
-          calculator.flashInternal(bin).catch(onError)
+          await calculator.flashInternal(bin)
         })
       } else console.error('Model not supported: ' + model)
 
@@ -266,11 +271,18 @@ function onInstallerLoad (t) {
     return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
   }
 
+  async function getDownloadURL (jsonUrl) {
+    return fetch(jsonUrl).then((response) => {
+      return response.json().then((json) => {
+        return jsonUrl + '?alt=media&token=' + json.downloadTokens
+      })
+    })
+  }
   async function downloadBin (name, model) {
     // Function to download binary file that will be flashed on the calculator
-    const version = '1.0.0'
     const mirror =
-      process.env.NODE_ENV === 'development' ? '/' : '/Upsilon-website'
+      'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/'
+    const release = 'dev'
     const maxDownloads = 2
     let fwname = 'epsilon.onboarding.' + name + '.bin'
     model = model.toLowerCase()
@@ -280,17 +292,22 @@ function onInstallerLoad (t) {
     if (name === 'flasher') {
       fwname = 'flasher.verbose.bin'
     }
-    const url =
-      mirror + 'firmwares/' + version + '/' + model.toLowerCase() + '/' + fwname
+    const jsonUrl = `${mirror}${release}%2F${
+      model === 'n0100' ? 'n100' : 'n110'
+    }%2F${fwname}`
+    console.log(jsonUrl)
+    const binUrl = await getDownloadURL(jsonUrl)
+    console.log(binUrl)
+    const shaUrl = await getDownloadURL(jsonUrl + '.sha256')
+    console.log(shaUrl)
 
     // Download bin file
     for (var i = 0; i < maxDownloads; i++) {
-      console.log('[DOWNLOADING] ' + url)
-      const bin = await downloadAsync('GET', url, 'blob')
-      console.log('[DOWNLOADED] ' + url)
+      console.log('Downloading ' + fwname)
+      const bin = await downloadAsync('GET', binUrl, 'blob')
       // Verify download
       console.log('Downloading checksum')
-      const ckecksum = await downloadAsync('GET', url + '.sha256', 'text')
+      const checksum = await downloadAsync('GET', shaUrl, 'text')
       console.log('Hashing bin file')
       let binHashed = null
       if (model === 'n0100') {
@@ -299,47 +316,28 @@ function onInstallerLoad (t) {
         binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
       }
       console.log('Verifying checksum')
-      if (ckecksum === binHashed) {
+      if (checksum === binHashed) {
         // If download is verified, return the downloaded bin file
         console.log('Bin file downloaded successfully')
         return await bin.arrayBuffer()
       } else {
         // If download is errored, retry the download
         console.log('Download failed')
-        console.log('Checksum: ' + ckecksum + ', Bin hash: ' + binHashed)
-        console.log(i)
+        console.log('Checksum: ' + checksum + ', Bin hash: ' + binHashed)
+        throw new Error({ message: 'Failed to verify file integrity' })
       }
     }
-    throw new Error('Download failed with ' + i + ' try')
+    throw new Error('Download failed after ' + i + ' tr' + i > 1 ? 'ies' : 'y')
   }
 
-  function downloadAsync (method, url, responseType = 'blob') {
-    // Function to download a file asyncronously
-    return new Promise(function (resolve, reject) {
-      const xhr = new XMLHttpRequest()
-      xhr.responseType = responseType
-      xhr.open(method, url)
-      xhr.onload = function () {
-        if (this.status >= 200 && this.status < 300) {
-          resolve(xhr.response)
-        } else {
-          reject(
-            new Error({
-              status: this.status,
-              statusText: xhr.statusText
-            })
-          )
-        }
+  async function downloadAsync (method, url, responseType = 'blob') {
+    return fetch(url, { method: method }).then((response) => {
+      console.log(response)
+      if (responseType === 'blob') {
+        return response.blob()
+      } else {
+        return response.text()
       }
-      xhr.onerror = function () {
-        reject(
-          new Error({
-            status: this.status,
-            statusText: xhr.statusText
-          })
-        )
-      }
-      xhr.send()
     })
   }
 
@@ -400,11 +398,6 @@ function onInstallerLoad (t) {
     progressbarText.hidden = true
     recoveryBtn.hidden = false
     connectBtn.hidden = false
-    if (!inRecoveryMode) {
-      // installationSuccess.hidden = false
-    } else {
-      // recoverySuccess.hidden = true
-    }
   }
 
   function patchUsername (InternalBin) {

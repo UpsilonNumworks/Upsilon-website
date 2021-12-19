@@ -36,7 +36,8 @@
       "closeOtherTabs": "Try closing other tabs/apps accessing the calculator"
     },
     "restore": "Restore scripts",
-    "username": "Username"
+    "username": "Username",
+    "downloading": "Downloading..."
   },
   "github": {
     "name": "Github"
