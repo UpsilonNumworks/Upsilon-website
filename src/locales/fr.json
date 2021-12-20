@@ -87,7 +87,7 @@
       "the": "La",
       "rpn": "Notation Polonaise Inverse",
       "definition": {
-        "p1": "est une autre façon d'écrire des calculs mathématiques. Il a été inventé par le mathématicien polonais Jan Łukasiewicz en 1924.",
+        "p1": "est une autre façon d'écrire des calculs mathématiques. Ele a été inventée par le mathématicien polonais Jan Łukasiewicz en 1924.",
         "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile. Les opérateurs et les résulats sont tous placés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
       },
       "h2": "Introduction rapide à l'application RPN d'Upsilon",
@@ -114,7 +114,7 @@
       },
       "note": {
         "title": "Note :",
-        "content": " Tout au long de l'histoire d'Oméga, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grace à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
+        "content": " Tout au long de l'histoire d'Oméga, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grâce à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
       }
     }
   },
