@@ -179,7 +179,7 @@ h4 {
   margin-right: 15px;
   margin-top: 0;
 
-  background: var(--transparent-fg-1); /*#ffffff20*/
+  background: var(--feature-bg-upsilon); /*#ffffff20*/
   padding: 15px;
   display: grid;
   grid-template-columns: auto auto;

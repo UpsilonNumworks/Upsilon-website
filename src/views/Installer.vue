@@ -21,7 +21,7 @@
             id="input-uname"
           />
           <button id="btn-install" class="btn btn-primary" type="submit">
-            Install
+            {{ t('installer.install') }}
           </button>
         </form>
         <div class="progressbar" id="progressbar">
@@ -552,6 +552,7 @@ h1 {
   background: var(--feature-bg-upsilon);
   padding: 1em;
   max-width: 700px;
+  border-radius: 10px;
 }
 #install-form {
   display: grid;
@@ -583,18 +584,6 @@ input {
 }
 #btn-install {
   grid-column: 1 / 3;
-}
-.light #installer {
-  background-image: url('~@/assets/r8.webp');
-
-  background-size: cover;
-  background-attachment: fixed;
-}
-.dark #installer {
-  background-image: url('~@/assets/r7.webp');
-
-  background-size: cover;
-  background-attachment: fixed;
 }
 *[hidden] {
   display: none !important;

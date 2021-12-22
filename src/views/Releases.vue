@@ -32,6 +32,12 @@
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</div>
 
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.KandinskyEnhancements') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.Reader') }}</div>
+
           <div class="release-tag release-tag-change">
             {{ t('releases.change') }}
           </div>
@@ -93,10 +99,9 @@ export default {
 }
 .release-table {
   margin: 30px;
-  background: var(--transparent-fg-1);
-  border: solid var(--foreground-2) 2pt;
-  border-radius: 15px;
-  padding: 15px;
+  background: var(--feature-bg-upsilon);
+  border-radius: 10px;
+  padding: 2em;
 }
 .release-table > p {
   margin-top: 0;
@@ -131,6 +136,7 @@ export default {
 #releases {
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 .releases-table-wrapper {
   max-width: 1000px;

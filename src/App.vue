@@ -137,7 +137,7 @@ export default defineComponent({
   margin-top: 50px;
 }
 .doc {
-  background: var(--transparent-fg-1);
+  background: var(--feature-bg-upsilon);
   max-width: 1000px;
   border-radius: 30px 30px 0 0;
   padding: 30px;
@@ -206,5 +206,18 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+}
+
+body.light {
+  background-image: url('~@/assets/r8.webp');
+
+  background-size: cover;
+  background-attachment: fixed;
+}
+body.dark {
+  background-image: url('~@/assets/r7.webp');
+
+  background-size: cover;
+  background-attachment: fixed;
 }
 </style>
