@@ -20,7 +20,9 @@
             name="input-uname"
             id="input-uname"
           />
-          <button id="btn-disconnect">{{ t('installer.disconnect') }}</button>
+          <button type="button" id="btn-disconnect">
+            {{ t('installer.disconnect') }}
+          </button>
           <button id="btn-install" class="btn-primary" type="submit">
             {{ t('installer.install') }}
           </button>
