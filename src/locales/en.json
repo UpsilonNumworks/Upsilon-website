@@ -37,7 +37,8 @@
     },
     "restore": "Restore scripts",
     "username": "Username",
-    "downloading": "Downloading..."
+    "downloading": "Downloading...",
+    "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) "
   },
   "github": {
     "name": "Github"

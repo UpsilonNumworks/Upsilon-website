@@ -21,7 +21,24 @@
     "recoverySuccess": "Mode de restauration installé avec succès.",
     "pleaseclickon": "Veuillez cliquer sur",
     "thenselect": "puis séléctionner votre calculatrice dans la liste des périphériques",
-    "installationFail": "Erreur lors de l'installation d'Upsilon."
+    "installationFail": "Erreur lors de l'installation d'Upsilon.",
+    "backingup": "Sauvegarde...",
+    "connected": "Connecté",
+    "disconnected": "Déconnecté",
+    "done": "Fait",
+    "downloading": "Téléchargement...",
+    "error": "Erreur",
+    "hints": {
+      "DisableProtection": "Essayez de désactiver la protection USB",
+      "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice"
+    },
+    "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
+    "installing": "Installation...",
+    "installing1of2": "Installation 1/2...",
+    "installing2of2": "Installation 2/2...",
+    "restore": "Garder les scripts",
+    "restoring": "Restauration des scripts...",
+    "username": "Nom d'utilisateur"
   },
   "github": {
     "name": "Github"

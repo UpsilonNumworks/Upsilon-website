@@ -69,6 +69,14 @@ function onInstallerLoad (t) {
   const usernameInput = document.getElementById('input-uname')
   const statusDisplay = document.getElementById('status-display')
 
+  if (!('usb' in navigator)) {
+    statusDisplay.innerText = t('installer.incompatibleBrowser')
+    statusDisplay.classList = ['error']
+    connectBtn.hidden = true
+    recoveryBtn.hidden = true
+    return
+  }
+
   var storage = null
   var inRecoveryMode = false
   // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
@@ -445,6 +453,7 @@ h1 {
   padding: 1em;
   margin: 1em;
 }
+
 .disconnected {
   background-color: var(--feature-bg-omega);
   border: solid var(--error-text) 1pt;
