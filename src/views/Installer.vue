@@ -4,10 +4,10 @@
       <h1>{{ t('installer.title') }}</h1>
       <div class="installer">
         <div id="status-display"></div>
-        <button class="btn" id="btn-connect">
+        <button id="btn-connect">
           {{ t('installer.connect') }}
         </button>
-        <button class="btn" id="btn-recovery">
+        <button id="btn-recovery">
           {{ t('installer.recovery') }}
         </button>
         <form hidden id="install-form">
@@ -20,7 +20,8 @@
             name="input-uname"
             id="input-uname"
           />
-          <button id="btn-install" class="btn btn-primary" type="submit">
+          <button id="btn-disconnect">{{ t('installer.disconnect') }}</button>
+          <button id="btn-install" class="btn-primary" type="submit">
             {{ t('installer.install') }}
           </button>
         </form>
@@ -33,8 +34,7 @@
   </div>
 </template>
 
-// TODO: Test on the N0100 // TODO: Use GitHub releases // TODO: Clean up code
-// TODO: Progress bar no restart
+// TODO: Test on the N0100 // TODO: Clean up code
 
 <script>
 import { defineComponent } from 'vue'
@@ -62,6 +62,7 @@ export default defineComponent({
 function onInstallerLoad (t) {
   const installForm = document.getElementById('install-form')
   const connectBtn = document.getElementById('btn-connect')
+  const disconnectBtn = document.getElementById('btn-disconnect')
   const installBtn = document.getElementById('btn-install')
   const recoveryBtn = document.getElementById('btn-recovery')
   const progressbar = document.getElementById('progressbar-bar')
@@ -100,11 +101,18 @@ function onInstallerLoad (t) {
     })
   })
 
-  connectBtn.onclick = function (e) {
-    calculator.detect(function () {
+  connectBtn.onclick = (e) => {
+    calculator.detect(() => {
       calculator.stopAutoConnect()
       connectedHandler()
     }, onError)
+  }
+
+  disconnectBtn.onclick = (e) => {
+    e.preventDefault()
+    calculator.device.device_.close()
+    calculator.stopAutoConnect()
+    setStatus('disconnected')
   }
 
   recoveryBtn.onclick = () => {
@@ -303,11 +311,8 @@ function onInstallerLoad (t) {
     const jsonUrl = `${mirror}${release}%2F${
       model === 'n0100' ? 'n100' : 'n110'
     }%2F${fwname}`
-    console.log(jsonUrl)
     const binUrl = await getDownloadURL(jsonUrl)
-    console.log(binUrl)
     const shaUrl = await getDownloadURL(jsonUrl + '.sha256')
-    console.log(shaUrl)
 
     // Download bin file
     for (var i = 0; i < maxDownloads; i++) {
@@ -340,7 +345,6 @@ function onInstallerLoad (t) {
 
   async function downloadAsync (method, url, responseType = 'blob') {
     return fetch(url, { method: method }).then((response) => {
-      console.log(response)
       if (responseType === 'blob') {
         return response.blob()
       } else {
@@ -363,13 +367,17 @@ function onInstallerLoad (t) {
       }
     }
     try {
-      // Disable WebDFU logging because it crash debug console
-      calculator.device.console.log = function () {}
-      calculator.device.logInfo = function () {}
+      // Disable WebDFU logging in production
+      if (process.env.NODE_ENV === 'production') {
+        calculator.device.logDebug = () => {}
+        calculator.device.logInfo = () => {}
+      }
     } catch (e) {
       console.warn('Error while disabling WebDFU logging')
     }
     progressbar.parentNode.classList.add('progressbar-active')
+    console.log('Calculator object:', calculator.device)
+
     try {
       storage = await calculator.backupStorage()
       // Ditch all non-python stuff, for convinience.
@@ -391,10 +399,9 @@ function onInstallerLoad (t) {
     console.log('Disabling protection')
     if (!inRecoveryMode) {
       try {
-        await calculator.device.requestOut(0x11) // FIXME : It doesn't work
-        // TODO: Add ask user to disable the protection
+        await calculator.device.requestOut(11)
       } catch (e) {
-        console.warn('Error while disabling calculator protection')
+        console.log("Couldn't disable protection")
       }
     }
   }
@@ -481,7 +488,7 @@ h1 {
   background-color: var(--upsilon-1);
 }
 
-.btn {
+button {
   border-radius: 5px;
   background-color: var(--upsilon-1);
   border: none;
@@ -493,8 +500,19 @@ h1 {
   margin: 12px 6px;
   transition-duration: 0.4s;
   cursor: pointer;
+  user-select: none;
 }
-
+#btn-disconnect {
+  background-color: var(--feature-bg-omega);
+  border: solid var(--error-text) 1pt;
+  backdrop-filter: blur(50px);
+  color: var(--foreground);
+}
+#btn-disconnect:hover {
+  background-color: var(--error-text);
+  border: solid var(--error-text) 1pt;
+  color: var(--upsilon-2);
+}
 #btn-connect,
 #btn-install {
   background-color: var(--upsilon-2);
@@ -582,9 +600,7 @@ input {
   color: var(--foreground);
   font-family: inherit;
 }
-#btn-install {
-  grid-column: 1 / 3;
-}
+
 *[hidden] {
   display: none !important;
 }
