@@ -37,9 +37,16 @@
     },
     "restore": "Restore scripts",
     "username": "Username",
-    "downloading": "Downloading...",
-    "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) ",
-    "disconnect": "Disconnect"
+    "downloading": "Downloading",
+    "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) ",
+    "disconnect": "Disconnect",
+    "of2": " of 2",
+    "erasing": "Erasing",
+    "writing": "Writing",
+    "downloadingRecovery": "Downloading recovery software...",
+    "installingRecovery": "Installing recovery software...",
+    "recoveryDone": "Recovery software installed successfully! You can now press on connect and install Upsilon.",
+    "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now."
   },
   "github": {
     "name": "Github"

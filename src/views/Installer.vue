@@ -86,6 +86,7 @@ function onInstallerLoad (t) {
   var shouldRestoreStorage = false
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
+  var currentbin = '' // internal or external
 
   // Auto connect for the Recovery
   // calculatorRecovery.autoConnect(recovery)
@@ -146,7 +147,12 @@ function onInstallerLoad (t) {
     switch (status) {
       case 'connected':
         console.log('Calculator connected')
-        statusDisplay.innerHTML = t('installer.connected')
+        if (inRecoveryMode) {
+          statusDisplay.innerHTML = t('installer.recoveryConnected')
+        } else {
+          statusDisplay.innerHTML = t('installer.connected')
+        }
+
         statusDisplay.classList = ['info']
         installForm.hidden = false
         recoveryBtn.hidden = true
@@ -169,15 +175,28 @@ function onInstallerLoad (t) {
         connectBtn.hidden = true
         break
       case 'downloading':
-        statusDisplay.innerHTML = t('installer.downloading')
+        statusDisplay.innerHTML =
+          t('installer.downloading') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
         statusDisplay.classList = ['info']
         break
-      case 'installingInternal':
-        statusDisplay.innerHTML = t('installer.installing2of2')
+      case 'erasing':
+        statusDisplay.innerHTML =
+          t('installer.erasing') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
         statusDisplay.classList = ['info']
         break
-      case 'installingExternal':
-        statusDisplay.innerHTML = t('installer.installing1of2')
+      case 'copying':
+        statusDisplay.innerHTML =
+          t('installer.writing') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
+        statusDisplay.classList = ['info']
+        break
+      case 'downloadingN100':
+        statusDisplay.innerHTML = t('installer.downloading') + '...'
         statusDisplay.classList = ['info']
         break
       case 'installingN100':
@@ -192,8 +211,30 @@ function onInstallerLoad (t) {
         statusDisplay.innerHTML = t('installer.restoring')
         statusDisplay.classList = ['info']
         break
+      case 'downloadingRecovery':
+        statusDisplay.innerHTML = t('installer.downloadingRecovery')
+        statusDisplay.classList = ['info']
+        break
+      case 'installingRecovery':
+        statusDisplay.innerHTML = t('installer.installingRecovery')
+        statusDisplay.classList = ['info']
+        break
+      case 'recoveryDone':
+        statusDisplay.innerHTML = t('installer.recoveryDone')
+        statusDisplay.classList = ['info']
+        break
       default:
         throw new Error('Invalid status specified')
+    }
+  }
+  function logInfo (text) {
+    if (text === 'Erasing DFU device memory') {
+      setStatus('erasing')
+    } else if (text === 'Copying data from browser to DFU device') {
+      setStatus('copying')
+    }
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(text)
     }
   }
   async function install () {
@@ -202,22 +243,26 @@ function onInstallerLoad (t) {
       await initInstall()
       const model = calculator.getModel()
       console.log('Model : ' + model)
-      setStatus('downloading')
       if (model === '0100') {
-        setStatus('installingN100')
+        setStatus('downloadingN100')
         downloadBin('internal', 'N0100').then((bin) => {
+          setStatus('installingN100')
           patchUsername(bin)
           calculator.flashInternal(bin).catch(onError)
         })
       } else if (model === '0110') {
+        currentbin = 'external'
+        setStatus('downloading')
+
         await downloadBin('external', 'N0110').then(async (bin) => {
-          setStatus('installingExternal')
           await calculator.flashExternal(bin)
         })
         console.log('downloading internal')
+        currentbin = 'internal'
+        setStatus('downloading')
+        logProgress(0, 1)
         await downloadBin('internal', 'N0110').then(async (bin) => {
           patchUsername(bin)
-          setStatus('installingInternal')
           await calculator.flashInternal(bin)
         })
       } else console.error('Model not supported: ' + model)
@@ -241,11 +286,14 @@ function onInstallerLoad (t) {
       const model = calculatorRecovery.getModel()
       console.log('Model : ' + model)
       console.log('Downloading flasher')
+      setStatus('downloadingRecovery')
       const flasher = await downloadBin('flasher', 'N' + model)
       console.log('Flashing flasher')
+      setStatus('installingRecovery')
       await calculatorRecovery.flashRecovery(flasher)
       console.log('Recovery flashed successfully')
       await postInstall()
+      setStatus('recoveryDone')
     } catch (error) {
       await errorHandler(error)
     }
@@ -355,7 +403,6 @@ function onInstallerLoad (t) {
 
   async function initInstall () {
     // Function to setup the installation
-    setStatus('backingup')
     if (inRecoveryMode) {
       calculatorRecovery.device.logProgress = logProgress
     }
@@ -370,14 +417,15 @@ function onInstallerLoad (t) {
       // Disable WebDFU logging in production
       if (process.env.NODE_ENV === 'production') {
         calculator.device.logDebug = () => {}
-        calculator.device.logInfo = () => {}
       }
+      calculator.device.logInfo = logInfo
     } catch (e) {
       console.warn('Error while disabling WebDFU logging')
     }
     progressbar.parentNode.classList.add('progressbar-active')
     console.log('Calculator object:', calculator.device)
 
+    setStatus('backingup')
     try {
       storage = await calculator.backupStorage()
       // Ditch all non-python stuff, for convinience.

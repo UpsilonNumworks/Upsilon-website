@@ -26,19 +26,27 @@
     "connected": "Connecté",
     "disconnected": "Déconnecté",
     "done": "Fait",
-    "downloading": "Téléchargement...",
+    "downloading": "Téléchargement",
     "error": "Erreur",
     "hints": {
       "DisableProtection": "Essayez de désactiver la protection USB",
       "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice"
     },
-    "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
+    "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
     "installing": "Installation...",
     "installing1of2": "Installation 1/2...",
     "installing2of2": "Installation 2/2...",
     "restore": "Garder les scripts",
     "restoring": "Restauration des scripts...",
-    "username": "Nom d'utilisateur"
+    "username": "Nom d'utilisateur",
+    "disconnect": "Déconnecter",
+    "erasing": "Effacement",
+    "writing": "Écriture",
+    "of2": "/2",
+    "downloadingRecovery": "Téléchargement du logiciel de récupération...",
+    "installingRecovery": "Installation du logiciel de récupération...",
+    "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
+    "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement."
   },
   "github": {
     "name": "Github"
