@@ -62,10 +62,7 @@
         </h2>
       </div>
       <div class="features" id="features-upsilon">
-        <Feature
-          :image="require('@/assets/r6.webp')"
-          :title="t('features.reader.name')"
-        >
+        <Feature :title="t('features.reader.name')">
           {{ t('features.reader.description') }}
           <router-link to="/doc/latex">{{
             t('features.reader.docLink')
@@ -257,19 +254,19 @@ h2 {
 }
 .light #features-omega,
 .light #features-omega-header {
-  background-image: url('~@/assets/r10.webp');
+  background-image: url('~@/assets/Calculators_omega_light.webp');
 }
 .dark #features-omega,
 .dark #features-omega-header {
-  background-image: url('~@/assets/r9.webp');
+  background-image: url('~@/assets/Calculators_omega_dark.webp');
 }
 .light #features-upsilon,
 .light #features-upsilon-header {
-  background-image: url('~@/assets/r8.webp');
+  background-image: url('~@/assets/Calculators_upsilon_light.webp');
 }
 .dark #features-upsilon,
 .dark #features-upsilon-header {
-  background-image: url('~@/assets/r7.webp');
+  background-image: url('~@/assets/Calculators_upsilon_dark.webp');
 }
 .features {
   display: grid;
@@ -319,10 +316,10 @@ h2 {
   transition: background-image 0.5s;
 }
 .light #logos-bg {
-  background-image: url('~@/assets/r4.webp');
+  background-image: url('~@/assets/Two_calculators_light.webp');
 }
 .dark #logos-bg {
-  background-image: url('~@/assets/r3.webp');
+  background-image: url('~@/assets/Two_calculators_dark.webp');
 }
 #text-bg {
   background: linear-gradient(0, var(--upsilon-2), #00000000);

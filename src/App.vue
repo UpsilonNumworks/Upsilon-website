@@ -209,13 +209,13 @@ h6 {
 }
 
 body.light {
-  background-image: url('~@/assets/r8.webp');
+  background-image: url('~@/assets/Calculators_upsilon_light.webp');
 
   background-size: cover;
   background-attachment: fixed;
 }
 body.dark {
-  background-image: url('~@/assets/r7.webp');
+  background-image: url('~@/assets/Calculators_upsilon_dark.webp');
 
   background-size: cover;
   background-attachment: fixed;
