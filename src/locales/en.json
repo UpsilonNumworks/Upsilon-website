@@ -172,5 +172,13 @@
         "latex": "A reader app with support for LaTeX mathematical expressions and symbols"
       }
     }
+  },
+  "simulator": {
+    "name": "Simulator"
+  },
+  "notFound": {
+    "title": "Bruh",
+    "underTitle": "That page does not exist mate",
+    "goHome": "Go home"
   }
 }

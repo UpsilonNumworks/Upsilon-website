@@ -4,6 +4,8 @@ import Latex from '../views/doc/Latex.vue'
 import Installer from '../views/Installer.vue'
 import RPN from '../views/doc/RPN.vue'
 import Releases from '../views/Releases.vue'
+import Simulator from '../views/Simulator.vue'
+import NotFound from '../views/NotFound.vue'
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path: '/releases',
     name: 'Releases',
     component: Releases
+  },
+  {
+    path: '/simulator',
+    name: 'Simulator',
+    component: Simulator
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: NotFound
   }
 ]
 
