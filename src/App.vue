@@ -1,8 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link to="/">{{ t('home.name') }}</router-link>
-    <router-link to="/install">{{ t('installer.name') }}</router-link>
-    <router-link to="/releases">{{ t('releases.name') }}</router-link>
+  <div class="closed" id="nav">
+    <router-link id="link-mobile-upsilon" to="/">Upsilon</router-link>
+    <button @click="toggleNavbar" id="nav-btn"></button>
+    <router-link @click="toggleNavbar" to="/">{{ t('home.name') }}</router-link>
+    <router-link @click="toggleNavbar" to="/install">{{
+      t('installer.name')
+    }}</router-link>
+    <router-link @click="toggleNavbar" to="/releases">{{
+      t('releases.name')
+    }}</router-link>
+    <router-link @click="toggleNavbar" to="/simulator">{{
+      t('simulator.name')
+    }}</router-link>
+
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -46,13 +56,17 @@ export default defineComponent({
     switchTheme (checked) {
       const theme = checked ? 'dark' : 'light'
       document.body.classList = [theme]
+    },
+    toggleNavbar () {
+      document.getElementById('nav').classList.toggle('open')
+      document.getElementById('nav').classList.toggle('closed')
     }
   }
 })
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
 
@@ -110,20 +124,88 @@ export default defineComponent({
   --tag-change: #cc6122;
   --tag-update: #dfa730;
 }
-@media screen and (max-width: 500px) {
-  #nav a {
-    font-size: 0.8em;
-    margin: 20px;
+#nav a {
+  transition: font-size, margin 0.1s ease-in-out;
+}
+#nav #link-mobile-upsilon,
+#nav #nav-btn {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  /* Responsive navbar */
+
+  #nav.closed {
+    justify-content: space-between;
+  }
+  #nav.closed a,
+  .right {
+    display: none !important;
+  }
+  #nav.closed #link-mobile-upsilon {
+    display: block !important;
+    margin: 15px;
+  }
+  #nav.closed #nav-btn {
+    margin: 15px;
+  }
+  #nav #nav-btn {
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    border: none;
+    display: block;
+    margin-top: 15px;
+  }
+
+  #nav #nav-btn::after {
+    content: '\f0c9';
+    font-weight: 900;
+    font-size: 1.5em;
+    font-family: 'Font Awesome 5 Free';
+    color: var(--foreground);
+  }
+  #nav.closed #nav-btn::after {
+    font-size: 2em;
+  }
+  #nav.open {
+    flex-direction: column;
+  }
+
+  #nav.open a {
+    margin: 10px;
+    text-align: center;
+  }
+  #nav.open a.router-link-exact-active {
+    text-decoration: underline;
+  }
+  .right {
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 5px;
   }
 }
-@media screen and (min-width: 500px) {
-  #nav a {
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+  /* Smaller navbar */
+  #nav a,
+  .darkmode-switch {
+    font-size: 0.7em;
+    font-family: Lato, sans-serif;
+    font-weight: 600 !important;
+    margin: 15px;
+  }
+  #nav a.router-link-exact-active {
+    border-bottom: solid var(--foreground) 2pt;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #nav a,
+  .darkmode-switch {
     font-size: 1em;
     margin: 30px;
   }
-}
-.darkmode-switch {
-  margin-right: 30px;
+  #nav a.router-link-exact-active {
+    border-bottom: solid var(--foreground) 2pt;
+  }
 }
 .right {
   flex: 1;
@@ -167,6 +249,7 @@ body {
   display: flex;
   z-index: 10000;
   position: relative;
+  user-select: none;
 }
 
 #nav a {
@@ -176,9 +259,6 @@ body {
   display: block;
 }
 
-#nav a.router-link-exact-active {
-  border-bottom: solid var(--foreground) 2pt;
-}
 body {
   overflow-x: hidden;
   padding: 0;
@@ -219,5 +299,13 @@ body.dark {
 
   background-size: cover;
   background-attachment: fixed;
+}
+.generic-page {
+  width: 100%;
+  margin: auto;
+  background: var(--feature-bg-upsilon);
+  padding: 1em;
+  max-width: 700px;
+  border-radius: 10px;
 }
 </style>

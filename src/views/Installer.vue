@@ -1,6 +1,6 @@
 <template>
   <div id="installer">
-    <div id="installer-container">
+    <div class="generic-page" id="installer-container">
       <h1>{{ t('installer.title') }}</h1>
       <div class="installer">
         <div id="status-display"></div>
@@ -610,18 +610,11 @@ button {
 
 #installer {
   padding: 1em;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: baseline;
 }
-#installer-container {
-  width: 100%;
-  background: var(--feature-bg-upsilon);
-  padding: 1em;
-  max-width: 700px;
-  border-radius: 10px;
-}
+
 #install-form {
   display: grid;
   grid-template-columns: auto auto;

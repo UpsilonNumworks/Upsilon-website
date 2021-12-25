@@ -2,7 +2,7 @@
   <div id="releases">
     <div class="releases-table-wrapper">
       <h1>{{ t('releases.name') }}</h1>
-      <div class="release-table">
+      <div class="generic-page release-table">
         <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
         <div class="grid">
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
@@ -98,9 +98,7 @@ export default {
   margin: 5px;
 }
 .release-table {
-  margin: 30px;
-  background: var(--feature-bg-upsilon);
-  border-radius: 10px;
+  margin-top: 30px;
   padding: 2em;
 }
 .release-table > p {
@@ -136,7 +134,6 @@ export default {
 #releases {
   display: flex;
   justify-content: center;
-  height: 100vh;
 }
 .releases-table-wrapper {
   max-width: 1000px;

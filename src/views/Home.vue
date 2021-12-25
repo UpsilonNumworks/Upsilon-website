@@ -149,6 +149,7 @@ export default defineComponent({
   components: { Feature },
   mounted () {
     const updateSize = () => {
+      // TODO check if on home page
       document.getElementById(
         'upsi-fork'
       ).style.transform = `translateX(-50%) scale(${window.innerHeight / 500})`
