@@ -28,6 +28,19 @@ export default {
   border-radius: 10px;
   margin: 1em;
   font-size: 1.2em;
+  animation-name: appear-from-bottom;
+  animation-delay: 0.1s;
+  animation-duration: 0.3s;
+}
+@keyframes appear-from-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #features-upsilon .feature {
   background-color: var(--feature-bg-upsilon);

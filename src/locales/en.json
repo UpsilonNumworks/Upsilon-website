@@ -33,7 +33,30 @@
     "restoring": "Restoring scripts...",
     "hints": {
       "DisableProtection": "Try disabling the USB protection",
-      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator"
+      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator",
+      "noDeviceSelected": {
+        "text1": "Make sure you select your calculator in the menu.\n If it didn't show up make sure that:",
+        "li1": "The calculator is connected and says it's connected",
+        "li2": "You installed the driver correctly",
+        "driverHint": {
+          "download": "Download",
+          "linux": {
+            "thisfile": "this file",
+            "linuxMoveIt": "and move it inside the /etc/udev/rules.d folder",
+            "command": "Which can be done with the following command"
+          },
+          "andInstall": "and install",
+          "theDriver": "the driver",
+          "rebootAfter": "and reboot after"
+        },
+        "moreHelp": {
+          "needHelp": "Still not working?",
+          "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button.",
+          "1": "If you're still having trouble you can join the",
+          "2": "and ask for help there.",
+          "discord": "Omega community discord server"
+        }
+      }
     },
     "restore": "Restore scripts",
     "username": "Username",

@@ -47,6 +47,7 @@ import { useI18n } from 'vue-i18n'
 export default {
   name: 'RPN',
   setup () {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     const { t } = useI18n({
       inheritLocale: true,
       useScope: 'global'

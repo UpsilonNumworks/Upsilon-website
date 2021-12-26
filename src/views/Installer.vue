@@ -142,6 +142,44 @@ function onInstallerLoad (t) {
     } else if (err.message.includes('Unable to claim interface')) {
       statusDisplay.innerHTML +=
         '<br> <b>' + t('installer.hints.closeOtherTabs') + '</b>'
+    } else if (err.message.includes('No device selected')) {
+      statusDisplay.innerHTML +=
+        '<br>' +
+        t('installer.hints.noDeviceSelected.text1') +
+        '<ul style="text-align:left"><li>' +
+        t('installer.hints.noDeviceSelected.li1') +
+        '</li><li><details><summary>' +
+        t('installer.hints.noDeviceSelected.li2') +
+        '</summary><details><summary>Linux</summary>' +
+        t('installer.hints.noDeviceSelected.driverHint.download') +
+        ' <a href="https://workshop.numworks.com/files/drivers/linux/50-numworks-calculator.rules">' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.thisfile') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.linuxMoveIt') +
+        '<br>' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.command') +
+        '<pre>wget https://workshop.numworks.com/files/drivers/linux/50-numworks-calculator.rules && sudo mv 50-numworks-calculator.rules /etc/udev/rules.d </pre>' +
+        '</details><details><summary>Windows</summary>' +
+        t('installer.hints.noDeviceSelected.driverHint.download') +
+        ' ' +
+        t('installer.hints.noDeviceSelected.driverHint.andInstall') +
+        ' <a href="https://my.numworks.com/files/drivers/windows/numworks-driver-win64.msi">' +
+        t('installer.hints.noDeviceSelected.driverHint.theDriver') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.driverHint.rebootAfter') +
+        '</details>' +
+        '</details>' +
+        '</li></ul><details><summary>' +
+        t('installer.hints.noDeviceSelected.moreHelp.needHelp') +
+        '</summary>' +
+        t('installer.hints.noDeviceSelected.moreHelp.tryRecovery') +
+        '<br>' +
+        t('installer.hints.noDeviceSelected.moreHelp.1') +
+        ' <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/FSnX3tUu">' +
+        t('installer.hints.noDeviceSelected.moreHelp.discord') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.moreHelp.2') +
+        '</details>'
     }
   }
   function setStatus (status) {
@@ -489,7 +527,31 @@ function onInstallerLoad (t) {
   }
 }
 </script>
-
+<style>
+details {
+  text-align: justify;
+}
+summary {
+  user-select: none;
+  cursor: pointer;
+}
+details details {
+  margin-left: 10px;
+}
+pre {
+  overflow-x: scroll;
+}
+pre::-webkit-scrollbar {
+  height: 5px;
+}
+pre::-webkit-scrollbar-track {
+  background: var(--error-bg);
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--error-text);
+  border-radius: 5pt;
+}
+</style>
 <style scoped>
 h1 {
   margin: 0.5em;

@@ -73,7 +73,6 @@ export default defineComponent({
 ::-webkit-scrollbar {
   width: 10px;
   background: #00000000;
-  outline: solid black 5pt;
 }
 ::-webkit-scrollbar-track {
   background: var(--upsilon-2-transparent);
