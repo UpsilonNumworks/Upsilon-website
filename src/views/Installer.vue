@@ -12,7 +12,12 @@
         </button>
         <form hidden id="install-form">
           <label for="input-restore">{{ t('installer.restore') }}:</label>
-          <input type="checkbox" name="input-uname" id="input-restore" />
+          <input
+            checked
+            type="checkbox"
+            name="input-uname"
+            id="input-restore"
+          />
           <label for="input-uname">{{ t('installer.username') }}:</label>
           <input
             maxlength="16"
@@ -27,6 +32,31 @@
             {{ t('installer.install') }}
           </button>
         </form>
+        <div id="done-msg" hidden>
+          <span id="thanks"> {{ t('installer.thanks') }}</span>
+          <h2>{{ t('installer.whatnext') }}</h2>
+
+          <p>
+            {{ t('installer.external') }}
+            <a
+              id="external-link"
+              href="https://lauryy06.github.io/Upsilon-External/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ t('installer.gothere') }}</a
+            >
+          </p>
+          <p>
+            {{ t('installer.jointhe') }}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://discord.gg/FSnX3tUu"
+            >
+              {{ t('installer.joinDiscord') }}
+            </a>
+          </p>
+        </div>
         <div class="progressbar" id="progressbar">
           <div class="progressbar-bar" id="progressbar-bar"></div>
         </div>
@@ -67,10 +97,17 @@ function onInstallerLoad (t) {
   const disconnectBtn = document.getElementById('btn-disconnect')
   const installBtn = document.getElementById('btn-install')
   const recoveryBtn = document.getElementById('btn-recovery')
+  const restoreCheckbox = document.getElementById('input-restore')
   const progressbar = document.getElementById('progressbar-bar')
   const progressbarText = document.getElementById('progressbar-text')
   const usernameInput = document.getElementById('input-uname')
   const statusDisplay = document.getElementById('status-display')
+  const doneMsg = document.getElementById('done-msg')
+  const externalLink = document.getElementById('external-link')
+
+  externalLink.onclick = () => {
+    calculator.device.device_.close()
+  }
 
   if (!('usb' in navigator)) {
     statusDisplay.innerText = t('installer.incompatibleBrowser')
@@ -197,14 +234,19 @@ function onInstallerLoad (t) {
         installForm.hidden = false
         recoveryBtn.hidden = true
         connectBtn.hidden = true
+        doneMsg.hidden = true
+
         break
       case 'disconnected':
+        if (statusDisplay.innerHTML === t('installer.waitingForReboot')) return
         console.log('Calculator disconnected')
         statusDisplay.innerHTML = t('installer.disconnected')
         statusDisplay.classList = ['disconnected']
         installForm.hidden = true
         recoveryBtn.hidden = false
         connectBtn.hidden = false
+        doneMsg.hidden = true
+
         break
       case 'backingup':
         statusDisplay.innerHTML = t('installer.backingup')
@@ -213,6 +255,8 @@ function onInstallerLoad (t) {
         installForm.hidden = true
         recoveryBtn.hidden = true
         connectBtn.hidden = true
+        doneMsg.hidden = true
+
         break
       case 'downloading':
         statusDisplay.innerHTML =
@@ -235,6 +279,10 @@ function onInstallerLoad (t) {
           '/2 ...'
         statusDisplay.classList = ['info']
         break
+      case 'waitingForReboot':
+        statusDisplay.innerHTML = t('installer.waitingForReboot')
+        statusDisplay.classList = ['info']
+        break
       case 'downloadingN100':
         statusDisplay.innerHTML = t('installer.downloading') + '...'
         statusDisplay.classList = ['info']
@@ -246,6 +294,8 @@ function onInstallerLoad (t) {
       case 'installationDone':
         statusDisplay.innerHTML = t('installer.done')
         statusDisplay.classList = ['info']
+        installForm.hidden = true
+        doneMsg.hidden = false
         break
       case 'restoring':
         statusDisplay.innerHTML = t('installer.restoring')
@@ -307,7 +357,7 @@ function onInstallerLoad (t) {
         })
       } else console.error('Model not supported: ' + model)
 
-      setStatus('installationDone')
+      setStatus('waitingForReboot')
       inRecoveryMode = false
       await postInstall()
       inRecoveryMode = false
@@ -341,7 +391,9 @@ function onInstallerLoad (t) {
 
   async function connectedHandler () {
     // Do stuff when the calculator gets connected.
-    setStatus('connected')
+    setTimeout(() => {
+      setStatus('connected')
+    }, 0)
     if (!inRecoveryMode) {
       const PlatformInfo = await calculator.getPlatformInfo()
       console.log('PlatformInfo :', PlatformInfo)
@@ -353,9 +405,17 @@ function onInstallerLoad (t) {
       }
     }
     if (shouldRestoreStorage && !inRecoveryMode) {
+      if (!restoreCheckbox.checked) {
+        setTimeout(() => {
+          setStatus('installationDone')
+        }, 0)
+        shouldRestoreStorage = false
+        return
+      }
       console.log('Restoring storage', shouldRestoreStorage)
-      calculator.installStorage(storage, function () {
+      await calculator.installStorage(storage, function () {
         console.log('Storage restored successfully')
+        setStatus('installationDone')
       })
       shouldRestoreStorage = false
     }
@@ -553,6 +613,15 @@ pre::-webkit-scrollbar-thumb {
 }
 </style>
 <style scoped>
+#thanks {
+  font-size: 1.1em;
+}
+p {
+  text-align: justify;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  font-size: 1.1em;
+}
 h1 {
   margin: 0.5em;
   padding: 0.5em;

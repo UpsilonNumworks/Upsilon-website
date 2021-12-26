@@ -304,7 +304,7 @@ body.dark {
   margin: auto;
   background: var(--feature-bg-upsilon);
   padding: 1em;
-  max-width: 700px;
+  max-width: 800px;
   border-radius: 10px;
 }
 </style>

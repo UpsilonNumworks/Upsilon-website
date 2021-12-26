@@ -50,10 +50,10 @@
           "rebootAfter": "and reboot after"
         },
         "moreHelp": {
-          "needHelp": "Still not working?",
-          "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button.",
           "1": "If you're still having trouble you can join the",
           "2": "and ask for help there.",
+          "needHelp": "Still not working?",
+          "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button.",
           "discord": "Omega community discord server"
         }
       }
@@ -69,7 +69,14 @@
     "downloadingRecovery": "Downloading recovery software...",
     "installingRecovery": "Installing recovery software...",
     "recoveryDone": "Recovery software installed successfully! You can now press on connect and install Upsilon.",
-    "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now."
+    "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now.",
+    "waitingForReboot": "Waiting for calculator to restart...",
+    "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
+    "whatnext": "What next?",
+    "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's homescreen?",
+    "jointhe": "Wanna can chat with Upsilon/Omega's contributors or ask for help and stuff?",
+    "gothere": "Go there",
+    "joinDiscord": "Join the Omega community discord server"
   },
   "github": {
     "name": "Github"
