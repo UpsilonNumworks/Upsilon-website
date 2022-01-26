@@ -1,18 +1,23 @@
 <template>
   <div id="installer">
-    <div id="installer-container">
+    <div class="generic-page" id="installer-container">
       <h1>{{ t('installer.title') }}</h1>
       <div class="installer">
         <div id="status-display"></div>
-        <button class="btn" id="btn-connect">
+        <button id="btn-connect">
           {{ t('installer.connect') }}
         </button>
-        <button class="btn" id="btn-recovery">
+        <button id="btn-recovery">
           {{ t('installer.recovery') }}
         </button>
         <form hidden id="install-form">
           <label for="input-restore">{{ t('installer.restore') }}:</label>
-          <input type="checkbox" name="input-uname" id="input-restore" />
+          <input
+            checked
+            type="checkbox"
+            name="input-uname"
+            id="input-restore"
+          />
           <label for="input-uname">{{ t('installer.username') }}:</label>
           <input
             maxlength="16"
@@ -20,10 +25,38 @@
             name="input-uname"
             id="input-uname"
           />
-          <button id="btn-install" class="btn btn-primary" type="submit">
-            Install
+          <button type="button" id="btn-disconnect">
+            {{ t('installer.disconnect') }}
+          </button>
+          <button id="btn-install" class="btn-primary" type="submit">
+            {{ t('installer.install') }}
           </button>
         </form>
+        <div id="done-msg" hidden>
+          <span id="thanks"> {{ t('installer.thanks') }}</span>
+          <h2>{{ t('installer.whatnext') }}</h2>
+
+          <p>
+            {{ t('installer.external') }}
+            <a
+              id="external-link"
+              href="https://lauryy06.github.io/Upsilon-External/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ t('installer.gothere') }}</a
+            >
+          </p>
+          <p>
+            {{ t('installer.jointhe') }}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://discord.gg/FSnX3tUu"
+            >
+              {{ t('installer.joinDiscord') }}
+            </a>
+          </p>
+        </div>
         <div class="progressbar" id="progressbar">
           <div class="progressbar-bar" id="progressbar-bar"></div>
         </div>
@@ -33,8 +66,7 @@
   </div>
 </template>
 
-// TODO: Test on the N0100 // TODO: Use GitHub releases // TODO: Clean up code
-// TODO: Progress bar no restart
+// TODO: Test on the N0100 // TODO: Clean up code
 
 <script>
 import { defineComponent } from 'vue'
@@ -62,12 +94,20 @@ export default defineComponent({
 function onInstallerLoad (t) {
   const installForm = document.getElementById('install-form')
   const connectBtn = document.getElementById('btn-connect')
+  const disconnectBtn = document.getElementById('btn-disconnect')
   const installBtn = document.getElementById('btn-install')
   const recoveryBtn = document.getElementById('btn-recovery')
+  const restoreCheckbox = document.getElementById('input-restore')
   const progressbar = document.getElementById('progressbar-bar')
   const progressbarText = document.getElementById('progressbar-text')
   const usernameInput = document.getElementById('input-uname')
   const statusDisplay = document.getElementById('status-display')
+  const doneMsg = document.getElementById('done-msg')
+  const externalLink = document.getElementById('external-link')
+
+  externalLink.onclick = () => {
+    calculator.device.device_.close()
+  }
 
   if (!('usb' in navigator)) {
     statusDisplay.innerText = t('installer.incompatibleBrowser')
@@ -85,6 +125,7 @@ function onInstallerLoad (t) {
   var shouldRestoreStorage = false
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
+  var currentbin = '' // internal or external
 
   // Auto connect for the Recovery
   // calculatorRecovery.autoConnect(recovery)
@@ -100,11 +141,18 @@ function onInstallerLoad (t) {
     })
   })
 
-  connectBtn.onclick = function (e) {
-    calculator.detect(function () {
+  connectBtn.onclick = (e) => {
+    calculator.detect(() => {
       calculator.stopAutoConnect()
       connectedHandler()
     }, onError)
+  }
+
+  disconnectBtn.onclick = (e) => {
+    e.preventDefault()
+    calculator.device.device_.close()
+    calculator.stopAutoConnect()
+    setStatus('disconnected')
   }
 
   recoveryBtn.onclick = () => {
@@ -131,6 +179,44 @@ function onInstallerLoad (t) {
     } else if (err.message.includes('Unable to claim interface')) {
       statusDisplay.innerHTML +=
         '<br> <b>' + t('installer.hints.closeOtherTabs') + '</b>'
+    } else if (err.message.includes('No device selected')) {
+      statusDisplay.innerHTML +=
+        '<br>' +
+        t('installer.hints.noDeviceSelected.text1') +
+        '<ul style="text-align:left"><li>' +
+        t('installer.hints.noDeviceSelected.li1') +
+        '</li><li><details><summary>' +
+        t('installer.hints.noDeviceSelected.li2') +
+        '</summary><details><summary>Linux</summary>' +
+        t('installer.hints.noDeviceSelected.driverHint.download') +
+        ' <a href="https://workshop.numworks.com/files/drivers/linux/50-numworks-calculator.rules">' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.thisfile') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.linuxMoveIt') +
+        '<br>' +
+        t('installer.hints.noDeviceSelected.driverHint.linux.command') +
+        '<pre>wget https://workshop.numworks.com/files/drivers/linux/50-numworks-calculator.rules && sudo mv 50-numworks-calculator.rules /etc/udev/rules.d </pre>' +
+        '</details><details><summary>Windows</summary>' +
+        t('installer.hints.noDeviceSelected.driverHint.download') +
+        ' ' +
+        t('installer.hints.noDeviceSelected.driverHint.andInstall') +
+        ' <a href="https://my.numworks.com/files/drivers/windows/numworks-driver-win64.msi">' +
+        t('installer.hints.noDeviceSelected.driverHint.theDriver') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.driverHint.rebootAfter') +
+        '</details>' +
+        '</details>' +
+        '</li></ul><details><summary>' +
+        t('installer.hints.noDeviceSelected.moreHelp.needHelp') +
+        '</summary>' +
+        t('installer.hints.noDeviceSelected.moreHelp.tryRecovery') +
+        '<br>' +
+        t('installer.hints.noDeviceSelected.moreHelp.1') +
+        ' <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/FSnX3tUu">' +
+        t('installer.hints.noDeviceSelected.moreHelp.discord') +
+        '</a> ' +
+        t('installer.hints.noDeviceSelected.moreHelp.2') +
+        '</details>'
     }
   }
   function setStatus (status) {
@@ -138,19 +224,29 @@ function onInstallerLoad (t) {
     switch (status) {
       case 'connected':
         console.log('Calculator connected')
-        statusDisplay.innerHTML = t('installer.connected')
+        if (inRecoveryMode) {
+          statusDisplay.innerHTML = t('installer.recoveryConnected')
+        } else {
+          statusDisplay.innerHTML = t('installer.connected')
+        }
+
         statusDisplay.classList = ['info']
         installForm.hidden = false
         recoveryBtn.hidden = true
         connectBtn.hidden = true
+        doneMsg.hidden = true
+
         break
       case 'disconnected':
+        if (statusDisplay.innerHTML === t('installer.waitingForReboot')) return
         console.log('Calculator disconnected')
         statusDisplay.innerHTML = t('installer.disconnected')
         statusDisplay.classList = ['disconnected']
         installForm.hidden = true
         recoveryBtn.hidden = false
         connectBtn.hidden = false
+        doneMsg.hidden = true
+
         break
       case 'backingup':
         statusDisplay.innerHTML = t('installer.backingup')
@@ -159,17 +255,36 @@ function onInstallerLoad (t) {
         installForm.hidden = true
         recoveryBtn.hidden = true
         connectBtn.hidden = true
+        doneMsg.hidden = true
+
         break
       case 'downloading':
-        statusDisplay.innerHTML = t('installer.downloading')
+        statusDisplay.innerHTML =
+          t('installer.downloading') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
         statusDisplay.classList = ['info']
         break
-      case 'installingInternal':
-        statusDisplay.innerHTML = t('installer.installing2of2')
+      case 'erasing':
+        statusDisplay.innerHTML =
+          t('installer.erasing') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
         statusDisplay.classList = ['info']
         break
-      case 'installingExternal':
-        statusDisplay.innerHTML = t('installer.installing1of2')
+      case 'copying':
+        statusDisplay.innerHTML =
+          t('installer.writing') +
+          (currentbin === 'external' ? ' 1' : ' 2') +
+          '/2 ...'
+        statusDisplay.classList = ['info']
+        break
+      case 'waitingForReboot':
+        statusDisplay.innerHTML = t('installer.waitingForReboot')
+        statusDisplay.classList = ['info']
+        break
+      case 'downloadingN100':
+        statusDisplay.innerHTML = t('installer.downloading') + '...'
         statusDisplay.classList = ['info']
         break
       case 'installingN100':
@@ -179,13 +294,37 @@ function onInstallerLoad (t) {
       case 'installationDone':
         statusDisplay.innerHTML = t('installer.done')
         statusDisplay.classList = ['info']
+        installForm.hidden = true
+        doneMsg.hidden = false
         break
       case 'restoring':
         statusDisplay.innerHTML = t('installer.restoring')
         statusDisplay.classList = ['info']
         break
+      case 'downloadingRecovery':
+        statusDisplay.innerHTML = t('installer.downloadingRecovery')
+        statusDisplay.classList = ['info']
+        break
+      case 'installingRecovery':
+        statusDisplay.innerHTML = t('installer.installingRecovery')
+        statusDisplay.classList = ['info']
+        break
+      case 'recoveryDone':
+        statusDisplay.innerHTML = t('installer.recoveryDone')
+        statusDisplay.classList = ['info']
+        break
       default:
         throw new Error('Invalid status specified')
+    }
+  }
+  function logInfo (text) {
+    if (text === 'Erasing DFU device memory') {
+      setStatus('erasing')
+    } else if (text === 'Copying data from browser to DFU device') {
+      setStatus('copying')
+    }
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(text)
     }
   }
   async function install () {
@@ -194,27 +333,31 @@ function onInstallerLoad (t) {
       await initInstall()
       const model = calculator.getModel()
       console.log('Model : ' + model)
-      setStatus('downloading')
       if (model === '0100') {
-        setStatus('installingN100')
+        setStatus('downloadingN100')
         downloadBin('internal', 'N0100').then((bin) => {
+          setStatus('installingN100')
           patchUsername(bin)
           calculator.flashInternal(bin).catch(onError)
         })
       } else if (model === '0110') {
+        currentbin = 'external'
+        setStatus('downloading')
+
         await downloadBin('external', 'N0110').then(async (bin) => {
-          setStatus('installingExternal')
           await calculator.flashExternal(bin)
         })
         console.log('downloading internal')
+        currentbin = 'internal'
+        setStatus('downloading')
+        logProgress(0, 1)
         await downloadBin('internal', 'N0110').then(async (bin) => {
           patchUsername(bin)
-          setStatus('installingInternal')
           await calculator.flashInternal(bin)
         })
       } else console.error('Model not supported: ' + model)
 
-      setStatus('installationDone')
+      setStatus('waitingForReboot')
       inRecoveryMode = false
       await postInstall()
       inRecoveryMode = false
@@ -233,11 +376,14 @@ function onInstallerLoad (t) {
       const model = calculatorRecovery.getModel()
       console.log('Model : ' + model)
       console.log('Downloading flasher')
+      setStatus('downloadingRecovery')
       const flasher = await downloadBin('flasher', 'N' + model)
       console.log('Flashing flasher')
+      setStatus('installingRecovery')
       await calculatorRecovery.flashRecovery(flasher)
       console.log('Recovery flashed successfully')
       await postInstall()
+      setStatus('recoveryDone')
     } catch (error) {
       await errorHandler(error)
     }
@@ -245,7 +391,9 @@ function onInstallerLoad (t) {
 
   async function connectedHandler () {
     // Do stuff when the calculator gets connected.
-    setStatus('connected')
+    setTimeout(() => {
+      setStatus('connected')
+    }, 0)
     if (!inRecoveryMode) {
       const PlatformInfo = await calculator.getPlatformInfo()
       console.log('PlatformInfo :', PlatformInfo)
@@ -257,9 +405,17 @@ function onInstallerLoad (t) {
       }
     }
     if (shouldRestoreStorage && !inRecoveryMode) {
+      if (!restoreCheckbox.checked) {
+        setTimeout(() => {
+          setStatus('installationDone')
+        }, 0)
+        shouldRestoreStorage = false
+        return
+      }
       console.log('Restoring storage', shouldRestoreStorage)
-      calculator.installStorage(storage, function () {
+      await calculator.installStorage(storage, function () {
         console.log('Storage restored successfully')
+        setStatus('installationDone')
       })
       shouldRestoreStorage = false
     }
@@ -303,11 +459,8 @@ function onInstallerLoad (t) {
     const jsonUrl = `${mirror}${release}%2F${
       model === 'n0100' ? 'n100' : 'n110'
     }%2F${fwname}`
-    console.log(jsonUrl)
     const binUrl = await getDownloadURL(jsonUrl)
-    console.log(binUrl)
     const shaUrl = await getDownloadURL(jsonUrl + '.sha256')
-    console.log(shaUrl)
 
     // Download bin file
     for (var i = 0; i < maxDownloads; i++) {
@@ -340,7 +493,6 @@ function onInstallerLoad (t) {
 
   async function downloadAsync (method, url, responseType = 'blob') {
     return fetch(url, { method: method }).then((response) => {
-      console.log(response)
       if (responseType === 'blob') {
         return response.blob()
       } else {
@@ -351,7 +503,6 @@ function onInstallerLoad (t) {
 
   async function initInstall () {
     // Function to setup the installation
-    setStatus('backingup')
     if (inRecoveryMode) {
       calculatorRecovery.device.logProgress = logProgress
     }
@@ -363,13 +514,18 @@ function onInstallerLoad (t) {
       }
     }
     try {
-      // Disable WebDFU logging because it crash debug console
-      calculator.device.console.log = function () {}
-      calculator.device.logInfo = function () {}
+      // Disable WebDFU logging in production
+      if (process.env.NODE_ENV === 'production') {
+        calculator.device.logDebug = () => {}
+      }
+      calculator.device.logInfo = logInfo
     } catch (e) {
       console.warn('Error while disabling WebDFU logging')
     }
     progressbar.parentNode.classList.add('progressbar-active')
+    console.log('Calculator object:', calculator.device)
+
+    setStatus('backingup')
     try {
       storage = await calculator.backupStorage()
       // Ditch all non-python stuff, for convinience.
@@ -391,10 +547,9 @@ function onInstallerLoad (t) {
     console.log('Disabling protection')
     if (!inRecoveryMode) {
       try {
-        await calculator.device.requestOut(0x11) // FIXME : It doesn't work
-        // TODO: Add ask user to disable the protection
+        await calculator.device.requestOut(11)
       } catch (e) {
-        console.warn('Error while disabling calculator protection')
+        console.log("Couldn't disable protection")
       }
     }
   }
@@ -432,8 +587,41 @@ function onInstallerLoad (t) {
   }
 }
 </script>
-
+<style>
+details {
+  text-align: justify;
+}
+summary {
+  user-select: none;
+  cursor: pointer;
+}
+details details {
+  margin-left: 10px;
+}
+pre {
+  overflow-x: scroll;
+}
+pre::-webkit-scrollbar {
+  height: 5px;
+}
+pre::-webkit-scrollbar-track {
+  background: var(--error-bg);
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--error-text);
+  border-radius: 5pt;
+}
+</style>
 <style scoped>
+#thanks {
+  font-size: 1.1em;
+}
+p {
+  text-align: justify;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  font-size: 1.1em;
+}
 h1 {
   margin: 0.5em;
   padding: 0.5em;
@@ -481,7 +669,7 @@ h1 {
   background-color: var(--upsilon-1);
 }
 
-.btn {
+button {
   border-radius: 5px;
   background-color: var(--upsilon-1);
   border: none;
@@ -493,8 +681,19 @@ h1 {
   margin: 12px 6px;
   transition-duration: 0.4s;
   cursor: pointer;
+  user-select: none;
 }
-
+#btn-disconnect {
+  background-color: var(--feature-bg-omega);
+  border: solid var(--error-text) 1pt;
+  backdrop-filter: blur(50px);
+  color: var(--foreground);
+}
+#btn-disconnect:hover {
+  background-color: var(--error-text);
+  border: solid var(--error-text) 1pt;
+  color: var(--upsilon-2);
+}
 #btn-connect,
 #btn-install {
   background-color: var(--upsilon-2);
@@ -542,17 +741,11 @@ h1 {
 
 #installer {
   padding: 1em;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: baseline;
 }
-#installer-container {
-  width: 100%;
-  background: var(--feature-bg-upsilon);
-  padding: 1em;
-  max-width: 700px;
-}
+
 #install-form {
   display: grid;
   grid-template-columns: auto auto;
@@ -581,21 +774,7 @@ input {
   color: var(--foreground);
   font-family: inherit;
 }
-#btn-install {
-  grid-column: 1 / 3;
-}
-.light #installer {
-  background-image: url('~@/assets/r8.webp');
 
-  background-size: cover;
-  background-attachment: fixed;
-}
-.dark #installer {
-  background-image: url('~@/assets/r7.webp');
-
-  background-size: cover;
-  background-attachment: fixed;
-}
 *[hidden] {
   display: none !important;
 }

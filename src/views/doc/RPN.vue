@@ -47,6 +47,7 @@ import { useI18n } from 'vue-i18n'
 export default {
   name: 'RPN',
   setup () {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     const { t } = useI18n({
       inheritLocale: true,
       useScope: 'global'
@@ -61,7 +62,7 @@ p {
 }
 blockquote {
   font-family: 'EB Garamond', serif;
-  background: var(--transparent-fg-1);
+  background: var(--feature-bg-upsilon);
   padding: 20px;
   border-left: solid var(--foreground-2) 6pt;
   border-radius: 15px;

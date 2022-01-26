@@ -2,7 +2,7 @@
   <div id="releases">
     <div class="releases-table-wrapper">
       <h1>{{ t('releases.name') }}</h1>
-      <div class="release-table">
+      <div class="generic-page release-table">
         <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
         <div class="grid">
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
@@ -31,6 +31,12 @@
 
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.KandinskyEnhancements') }}</div>
+
+          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
+          <div>{{ t('releases.versions.1-0.Reader') }}</div>
 
           <div class="release-tag release-tag-change">
             {{ t('releases.change') }}
@@ -92,11 +98,8 @@ export default {
   margin: 5px;
 }
 .release-table {
-  margin: 30px;
-  background: var(--transparent-fg-1);
-  border: solid var(--foreground-2) 2pt;
-  border-radius: 15px;
-  padding: 15px;
+  margin-top: 30px;
+  padding: 2em;
 }
 .release-table > p {
   margin-top: 0;

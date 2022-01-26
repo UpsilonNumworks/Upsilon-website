@@ -33,12 +33,50 @@
     "restoring": "Restoring scripts...",
     "hints": {
       "DisableProtection": "Try disabling the USB protection",
-      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator"
+      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator",
+      "noDeviceSelected": {
+        "text1": "Make sure you select your calculator in the menu.\n If it didn't show up make sure that:",
+        "li1": "The calculator is connected and says it's connected",
+        "li2": "You installed the driver correctly",
+        "driverHint": {
+          "download": "Download",
+          "linux": {
+            "thisfile": "this file",
+            "linuxMoveIt": "and move it inside the /etc/udev/rules.d folder",
+            "command": "Which can be done with the following command"
+          },
+          "andInstall": "and install",
+          "theDriver": "the driver",
+          "rebootAfter": "and reboot after"
+        },
+        "moreHelp": {
+          "1": "If you're still having trouble you can join the",
+          "2": "and ask for help there.",
+          "needHelp": "Still not working?",
+          "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button.",
+          "discord": "Omega community discord server"
+        }
+      }
     },
     "restore": "Restore scripts",
     "username": "Username",
-    "downloading": "Downloading...",
-    "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) "
+    "downloading": "Downloading",
+    "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) ",
+    "disconnect": "Disconnect",
+    "of2": " of 2",
+    "erasing": "Erasing",
+    "writing": "Writing",
+    "downloadingRecovery": "Downloading recovery software...",
+    "installingRecovery": "Installing recovery software...",
+    "recoveryDone": "Recovery software installed successfully! You can now press on connect and install Upsilon.",
+    "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now.",
+    "waitingForReboot": "Waiting for calculator to restart...",
+    "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
+    "whatnext": "What next?",
+    "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's homescreen?",
+    "jointhe": "Wanna can chat with Upsilon/Omega's contributors or ask for help and stuff?",
+    "gothere": "Go there",
+    "joinDiscord": "Join the Omega community discord server"
   },
   "github": {
     "name": "Github"
@@ -164,5 +202,13 @@
         "latex": "A reader app with support for LaTeX mathematical expressions and symbols"
       }
     }
+  },
+  "simulator": {
+    "name": "Simulator"
+  },
+  "notFound": {
+    "title": "Bruh",
+    "underTitle": "That page does not exist mate",
+    "goHome": "Go home"
   }
 }
