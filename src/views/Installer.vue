@@ -152,6 +152,7 @@ function onInstallerLoad (t) {
     e.preventDefault()
     calculator.device.device_.close()
     calculator.stopAutoConnect()
+    recovery.stopAutoConnect()
     setStatus('disconnected')
   }
 

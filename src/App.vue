@@ -69,7 +69,9 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
-
+* {
+  transition: background, background-color 0.2s;
+}
 ::-webkit-scrollbar {
   width: 10px;
   background: #00000000;
