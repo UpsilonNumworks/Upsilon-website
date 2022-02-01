@@ -30,7 +30,30 @@
     "error": "Erreur",
     "hints": {
       "DisableProtection": "Essayez de désactiver la protection USB",
-      "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice"
+      "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice",
+      "noDeviceSelected": {
+        "driverHint": {
+          "andInstall": "et installez",
+          "download": "Téléchargez",
+          "linux": {
+            "command": "Ce qui peut être fait avec la commande suivante",
+            "linuxMoveIt": "et déplacez-le dans le dossier /etc/udev/rules.d",
+            "thisfile": "ce fichier"
+          },
+          "rebootAfter": "et redémarrez après",
+          "theDriver": "le driver"
+        },
+        "li1": "La calculatrice est connectée et affiche qu'elle est connectée",
+        "li2": "Vous avez correctement installé le driver",
+        "moreHelp": {
+          "1": "Si vous rencontrez toujours des difficultés, vous pouvez rejoindre le",
+          "2": "et demander de l'aide là-bas.",
+          "discord": "Serveur discord de la communauté Omega",
+          "needHelp": "Ça ne fonctionne toujours pas?",
+          "tryRecovery": "Si vous avez installé le driver et que la calculatrice a un écran noir (ou l'écran de crash upsilon), vous pouvez essayer de la restaurer en appuyant simultanément sur les touches 6 et reset (à l'arrière de la calculatrice) puis en appuyant sur le bouton recovery \n."
+        },
+        "text1": "Assurez-vous de sélectionner votre calculatrice dans le menu.\n Si elle ne s'affiche pas, vérifiez que:"
+      }
     },
     "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
     "installing": "Installation...",
@@ -46,7 +69,21 @@
     "downloadingRecovery": "Téléchargement du logiciel de récupération...",
     "installingRecovery": "Installation du logiciel de récupération...",
     "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
-    "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement."
+    "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
+    "channels": {
+      "beta": "Beta",
+      "dev": "Développement"
+    },
+    "download404": "Erreur de réseau: Fichier non trouvé (404)",
+    "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil ?",
+    "gothere": "Cliquez ici",
+    "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
+    "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
+    "releaseChannel": "Version",
+    "thanks": "Merci d'avoir installé Upsilon ! \nPréparez-vous à profiter de la supériorité de l'open source ;)",
+    "unsupportedModel": "Modèle non pris en charge",
+    "waitingForReboot": "En attente du redémarrage de la calculatrice...",
+    "whatnext": "Et ensuite ?"
   },
   "github": {
     "name": "Github"
@@ -172,5 +209,13 @@
         "latex": "Une liseuse prenant en charge les expressions et symboles mathématiques LaTeX"
       }
     }
+  },
+  "notFound": {
+    "goHome": "Retour à l'accueuil",
+    "title": "Bruh",
+    "underTitle": "Cette page n'existe pas mec"
+  },
+  "simulator": {
+    "name": "Simulateur"
   }
 }
