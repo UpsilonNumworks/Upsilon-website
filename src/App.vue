@@ -23,6 +23,7 @@
       <div class="darkmode-switch">
         <Switch
           :label="t('darkmode')"
+          :checked="true"
           sid="theme-switch"
           @switched="switchTheme"
         />

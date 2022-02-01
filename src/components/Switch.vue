@@ -1,8 +1,14 @@
 <template>
   <div class="switch">
     <label :for="sid">{{ label }}</label>
-    <input @change="passEvent" type="checkbox" :name="sid" :id="sid" checked />
-    <label :for="sid" class="slider"></label>
+    <input
+      @change="passEvent"
+      type="checkbox"
+      :name="sid"
+      :id="sid"
+      :checked="checked"
+    />
+    <label :class="(border ? 'border ' : '') + 'slider'" :for="sid"></label>
   </div>
 </template>
 
@@ -10,7 +16,9 @@
 export default {
   props: {
     label: String,
-    sid: String
+    sid: String,
+    border: Boolean,
+    checked: Boolean
   },
   methods: {
     passEvent () {
@@ -20,9 +28,13 @@ export default {
 }
 </script>
 <style scoped>
+.border {
+  outline: solid var(--upsilon-1) 2pt;
+}
 .switch {
-  display: flex;
+  display: flex !important;
   align-items: center;
+  justify-content: center;
   --switch-height: 1em;
   --switch-width: 2em;
   --button-scale: 0.9;
