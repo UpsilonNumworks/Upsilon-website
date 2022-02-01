@@ -11,13 +11,13 @@
           {{ t('installer.recovery') }}
         </button>
         <form hidden id="install-form">
-          <label for="input-restore">{{ t('installer.restore') }}:</label>
-          <input
-            checked
-            type="checkbox"
-            name="input-uname"
-            id="input-restore"
-          />
+          <label for="select-channel"
+            >{{ t('installer.releaseChannel') }}:</label
+          >
+          <CustomSelect name="select-channel" id="select-channel">
+            <option value="beta">{{ t('installer.channels.beta') }}</option>
+            <option value="dev">{{ t('installer.channels.dev') }}</option>
+          </CustomSelect>
           <label for="input-uname">{{ t('installer.username') }}:</label>
           <input
             maxlength="16"
@@ -66,15 +66,17 @@
   </div>
 </template>
 
-// TODO: Test on the N0100 // TODO: Clean up code
+// TODO: Test on the N0100
 
 <script>
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Numworks from 'numworks.js'
+import CustomSelect from '@/components/CustomSelect'
 
 export default defineComponent({
   name: 'installer',
+  components: { CustomSelect },
   setup () {
     const { t } = useI18n({
       inheritLocale: true,
@@ -97,13 +99,13 @@ function onInstallerLoad (t) {
   const disconnectBtn = document.getElementById('btn-disconnect')
   const installBtn = document.getElementById('btn-install')
   const recoveryBtn = document.getElementById('btn-recovery')
-  const restoreCheckbox = document.getElementById('input-restore')
   const progressbar = document.getElementById('progressbar-bar')
   const progressbarText = document.getElementById('progressbar-text')
   const usernameInput = document.getElementById('input-uname')
   const statusDisplay = document.getElementById('status-display')
   const doneMsg = document.getElementById('done-msg')
   const externalLink = document.getElementById('external-link')
+  const channelSelect = document.getElementById('select-channel')
 
   externalLink.onclick = () => {
     calculator.device.device_.close()
@@ -112,6 +114,7 @@ function onInstallerLoad (t) {
   if (!('usb' in navigator)) {
     statusDisplay.innerText = t('installer.incompatibleBrowser')
     statusDisplay.classList = ['error']
+    // TODO use v-if
     connectBtn.hidden = true
     recoveryBtn.hidden = true
     return
@@ -119,18 +122,13 @@ function onInstallerLoad (t) {
 
   var storage = null
   var inRecoveryMode = false
-  // const releasesList = { '1.0.0': { name: 'U1.0.0' } }
-  // const GitHubRepoName = 'Yaya-Cout/Upsilon'
+  // TODO language selection menu
   const language = 'en'
   var shouldRestoreStorage = false
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
-  var currentbin = '' // internal or external
+  var currentbin = ''
 
-  // Auto connect for the Recovery
-  // calculatorRecovery.autoConnect(recovery)
-
-  // Auto connect for install
   calculator.autoConnect(connectedHandler)
 
   navigator.usb.addEventListener('disconnect', function (e) {
@@ -164,7 +162,7 @@ function onInstallerLoad (t) {
 
   installBtn.addEventListener('click', (event) => {
     event.preventDefault()
-    install().catch(onError)
+    install()
   })
   function onError (err) {
     statusDisplay.innerHTML = t('installer.error') + ': ' + err.message
@@ -232,6 +230,7 @@ function onInstallerLoad (t) {
         }
 
         statusDisplay.classList = ['info']
+        // TODO use v-if
         installForm.hidden = false
         recoveryBtn.hidden = true
         connectBtn.hidden = true
@@ -243,6 +242,7 @@ function onInstallerLoad (t) {
         console.log('Calculator disconnected')
         statusDisplay.innerHTML = t('installer.disconnected')
         statusDisplay.classList = ['disconnected']
+        // TODO use v-if
         installForm.hidden = true
         recoveryBtn.hidden = false
         connectBtn.hidden = false
@@ -252,6 +252,7 @@ function onInstallerLoad (t) {
       case 'backingup':
         statusDisplay.innerHTML = t('installer.backingup')
         statusDisplay.classList = ['info']
+        // TODO use v-if
         progressbar.hidden = false
         installForm.hidden = true
         recoveryBtn.hidden = true
@@ -295,6 +296,7 @@ function onInstallerLoad (t) {
       case 'installationDone':
         statusDisplay.innerHTML = t('installer.done')
         statusDisplay.classList = ['info']
+        // TODO use v-if
         installForm.hidden = true
         doneMsg.hidden = false
         break
@@ -336,34 +338,37 @@ function onInstallerLoad (t) {
       console.log('Model : ' + model)
       if (model === '0100') {
         setStatus('downloadingN100')
-        downloadBin('internal', 'N0100').then((bin) => {
-          setStatus('installingN100')
-          patchUsername(bin)
-          calculator.flashInternal(bin).catch(onError)
-        })
+        const bin = await downloadBin('internal', 'N0100')
+        setStatus('installingN100')
+        patchUsername(bin)
+        await calculator.flashInternal(bin)
       } else if (model === '0110') {
         currentbin = 'external'
         setStatus('downloading')
-
-        await downloadBin('external', 'N0110').then(async (bin) => {
-          await calculator.flashExternal(bin)
-        })
+        const externalBin = await downloadBin('external', 'N0110')
+        await calculator.flashExternal(externalBin)
         console.log('downloading internal')
         currentbin = 'internal'
         setStatus('downloading')
         logProgress(0, 1)
-        await downloadBin('internal', 'N0110').then(async (bin) => {
-          patchUsername(bin)
-          await calculator.flashInternal(bin)
-        })
-      } else console.error('Model not supported: ' + model)
+        const internalBin = await downloadBin('internal', 'N0110')
+        patchUsername(internalBin)
+        await calculator.flashInternal(internalBin)
+      } else throw new Error(t('installer.unsupportedModel') + ':' + model)
 
       setStatus('waitingForReboot')
       inRecoveryMode = false
-      await postInstall()
       inRecoveryMode = false
     } catch (error) {
-      await errorHandler(error)
+      onError(error)
+    } finally {
+      shouldRestoreStorage = true
+
+      // TODO use v-if
+      progressbar.parentNode.classList.remove('progressbar-active')
+      progressbarText.hidden = true
+      recoveryBtn.hidden = false
+      connectBtn.hidden = false
     }
   }
 
@@ -376,17 +381,23 @@ function onInstallerLoad (t) {
       await initInstall()
       const model = calculatorRecovery.getModel()
       console.log('Model : ' + model)
-      console.log('Downloading flasher')
+      console.log('Downloading recovery')
       setStatus('downloadingRecovery')
       const flasher = await downloadBin('flasher', 'N' + model)
-      console.log('Flashing flasher')
+      console.log('Flashing recovery')
       setStatus('installingRecovery')
       await calculatorRecovery.flashRecovery(flasher)
       console.log('Recovery flashed successfully')
-      await postInstall()
       setStatus('recoveryDone')
     } catch (error) {
-      await errorHandler(error)
+      onError(error)
+    } finally {
+      shouldRestoreStorage = true
+      // TODO use v-if
+      progressbar.parentNode.classList.remove('progressbar-active')
+      progressbarText.hidden = true
+      recoveryBtn.hidden = false
+      connectBtn.hidden = false
     }
   }
 
@@ -406,13 +417,6 @@ function onInstallerLoad (t) {
       }
     }
     if (shouldRestoreStorage && !inRecoveryMode) {
-      if (!restoreCheckbox.checked) {
-        setTimeout(() => {
-          setStatus('installationDone')
-        }, 0)
-        shouldRestoreStorage = false
-        return
-      }
       console.log('Restoring storage', shouldRestoreStorage)
       await calculator.installStorage(storage, function () {
         console.log('Storage restored successfully')
@@ -438,6 +442,11 @@ function onInstallerLoad (t) {
 
   async function getDownloadURL (jsonUrl) {
     return fetch(jsonUrl).then((response) => {
+      if (response.status === 404) {
+        const err = new Error()
+        err.message = t('installer.download404')
+        throw err
+      }
       return response.json().then((json) => {
         return jsonUrl + '?alt=media&token=' + json.downloadTokens
       })
@@ -447,8 +456,6 @@ function onInstallerLoad (t) {
     // Function to download binary file that will be flashed on the calculator
     const mirror =
       'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/'
-    const release = 'dev'
-    const maxDownloads = 2
     let fwname = 'epsilon.onboarding.' + name + '.bin'
     model = model.toLowerCase()
     if (model === 'n0100') {
@@ -457,43 +464,37 @@ function onInstallerLoad (t) {
     if (name === 'flasher') {
       fwname = 'flasher.verbose.bin'
     }
-    const jsonUrl = `${mirror}${release}%2F${
+    const jsonUrl = `${mirror}${channelSelect.value}%2F${
       model === 'n0100' ? 'n100' : 'n110'
     }%2F${fwname}`
     const binUrl = await getDownloadURL(jsonUrl)
     const shaUrl = await getDownloadURL(jsonUrl + '.sha256')
 
-    // Download bin file
-    for (var i = 0; i < maxDownloads; i++) {
-      console.log('Downloading ' + fwname)
-      const bin = await downloadAsync('GET', binUrl, 'blob')
-      // Verify download
-      console.log('Downloading checksum')
-      const checksum = await downloadAsync('GET', shaUrl, 'text')
-      console.log('Hashing bin file')
-      let binHashed = null
-      if (model === 'n0100') {
-        binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
-      } else {
-        binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
-      }
-      console.log('Verifying checksum')
-      if (checksum === binHashed) {
-        // If download is verified, return the downloaded bin file
-        console.log('Bin file downloaded successfully')
-        return await bin.arrayBuffer()
-      } else {
-        // If download is errored, retry the download
-        console.log('Download failed')
-        console.log('Checksum: ' + checksum + ', Bin hash: ' + binHashed)
-        throw new Error({ message: 'Failed to verify file integrity' })
-      }
+    console.log('Downloading ' + fwname)
+    const bin = await downloadAsync('GET', binUrl, 'blob')
+    const checksum = await downloadAsync('GET', shaUrl, 'text')
+
+    let binHashed
+    if (model === 'n0100') {
+      binHashed = (await hash(bin)) + ' *final-output/' + fwname + '\n'
+    } else {
+      binHashed = (await hash(bin)) + ' *binpack/' + fwname + '\n'
     }
-    throw new Error('Download failed after ' + i + ' tr' + i > 1 ? 'ies' : 'y')
+    if (checksum === binHashed) {
+      console.log('Bin file downloaded successfully')
+      return bin.arrayBuffer()
+    } else {
+      throw new Error('Failed to verify file integrity')
+    }
   }
 
   async function downloadAsync (method, url, responseType = 'blob') {
     return fetch(url, { method: method }).then((response) => {
+      if (response.status === 404) {
+        const err = new Error()
+        err.message = t('installer.download404')
+        throw err
+      }
       if (responseType === 'blob') {
         return response.blob()
       } else {
@@ -524,12 +525,11 @@ function onInstallerLoad (t) {
       console.warn('Error while disabling WebDFU logging')
     }
     progressbar.parentNode.classList.add('progressbar-active')
-    console.log('Calculator object:', calculator.device)
 
     setStatus('backingup')
     try {
       storage = await calculator.backupStorage()
-      // Ditch all non-python stuff, for convinience.
+      // Ditch all non-python stuff, for convenience.
       for (var i in storage.records) {
         if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
       }
@@ -545,29 +545,17 @@ function onInstallerLoad (t) {
       }
     }
     logProgress(0, 1)
-    console.log('Disabling protection')
     if (!inRecoveryMode) {
       try {
         await calculator.device.requestOut(11)
-      } catch (e) {
-        console.log("Couldn't disable protection")
-      }
+        console.log('Protection disabled')
+      } catch (e) {}
     }
   }
 
-  async function postInstall () {
-    // Function to finish the installation cleanly.
-    shouldRestoreStorage = true
-    progressbar.parentNode.classList.remove('progressbar-active')
-    progressbarText.hidden = true
-    recoveryBtn.hidden = false
-    connectBtn.hidden = false
-  }
-
   function patchUsername (InternalBin) {
-    // Function to patch the internal bin with the username.
     const username = usernameInput.value
-    console.log('Patching internal bin with username : ' + username)
+    console.log('Setting username to ' + username)
     if (username) {
       const internalBuf = new Uint8Array(InternalBin)
 
@@ -579,12 +567,6 @@ function onInstallerLoad (t) {
       }
       internalBuf.set(encoded, 0x1f8)
     }
-  }
-  async function errorHandler (error) {
-    console.error(error)
-    // installationFail.hidden = false
-    await postInstall()
-    // installationSuccess.hidden = true
   }
 }
 </script>
@@ -642,7 +624,6 @@ h1 {
   padding: 1em;
   margin: 1em;
 }
-
 .disconnected {
   background-color: var(--feature-bg-omega);
   border: solid var(--error-text) 1pt;
