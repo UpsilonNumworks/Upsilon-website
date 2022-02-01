@@ -76,7 +76,14 @@
     "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's homescreen?",
     "jointhe": "Wanna can chat with Upsilon/Omega's contributors or ask for help and stuff?",
     "gothere": "Go there",
-    "joinDiscord": "Join the Omega community discord server"
+    "joinDiscord": "Join the Omega community discord server",
+    "releaseChannel": "Release channel",
+    "channels": {
+      "beta": "Beta",
+      "dev": "Dev"
+    },
+    "unsupportedModel": "Unsupported model",
+    "download404": "Network Error: Couldn't find required file (404)"
   },
   "github": {
     "name": "Github"
