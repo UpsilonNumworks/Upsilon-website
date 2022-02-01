@@ -5,6 +5,7 @@
       <div class="generic-page release-table">
         <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
         <div class="grid">
+          <!--TODO clean this up-->
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.latex') }}</div>
 
@@ -22,9 +23,6 @@
 
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.Ulab') }}</div>
-
-          <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
-          <div>{{ t('releases.versions.1-0.PythonSysModule') }}</div>
 
           <div class="release-tag release-tag-new">{{ t('releases.new') }}</div>
           <div>{{ t('releases.versions.1-0.PythonBattery') }}</div>
