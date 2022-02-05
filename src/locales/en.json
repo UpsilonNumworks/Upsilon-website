@@ -195,7 +195,7 @@
         "PythonSysModule": "Python: Added sys module",
         "PythonSettingsAutocomplete": "Added a Python settings for autocompletion",
         "PythonBaseScripts": "Deleted Python base scripts",
-        "Reader": "Added Reader app with LaTeX support in N110",
+        "Reader": "Added Reader app for N110",
         "EqualSymplification": "Improved equal simplification",
         "SecondDegreePolynominal": "Added additional output about second degree polynomials",
         "VariableLoadedPythonToolbox": "Increased number of loaded variables in Python toolbox",
@@ -206,7 +206,7 @@
         "E16Security": "Added deactivatable security to prevent Epsilon 16 unintentional updates",
         "RecoveryMode": "Added recovery mode when crashing",
         "Background": "Added background support",
-        "latex": "A reader app with support for LaTeX mathematical expressions and symbols"
+        "latex": "Support of LaTex expressions and symbols in the Reader app."
       }
     }
   },
