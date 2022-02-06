@@ -204,6 +204,10 @@
         "content": " throughout the whole Omega history, a bug made the RPN app hard to safely use on the calculator, however, thanks to RedGlow, dl11 and Overengined, the bug was fixed, and it is now totally safe to use the RPN app.",
         "title": "Note:"
       }
+    },
+    "themes": {
+      "title": "List of themes",
+      "description": "All of these themes can be installed with the online installer"
     }
   },
   "releases": {

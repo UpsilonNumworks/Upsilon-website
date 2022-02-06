@@ -102,7 +102,7 @@
   </div>
 </template>
 
-// TODO: Test on the N0100
+// TODO: Test on the N0100 (and fix because it doesn't even work.)
 
 <script>
 import { defineComponent } from 'vue'
