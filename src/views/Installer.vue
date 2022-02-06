@@ -46,7 +46,7 @@
               themes.map((theme) => {
                 return {
                   text: t('installer.themes.' + theme),
-                  imgSrc: '/themes/' + theme + '.webp',
+                  imgSrc: './themes/' + theme + '.webp',
                   id: theme
                 }
               })
