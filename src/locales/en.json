@@ -9,7 +9,9 @@
         "upsilon": "Main features",
         "omega": "Since Upsilon is a fork of Omega, it also supports all of Omega's features"
       }
-    }
+    },
+    "findThemeList": "You can find a list of all the available themes here.",
+    "here": "here"
   },
   "installer": {
     "name": "Install",
