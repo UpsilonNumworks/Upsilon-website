@@ -195,7 +195,7 @@
         "PythonSysModule": "Python : Module sys ajouté",
         "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
         "PythonBaseScripts": "Scripts Python de base supprimés",
-        "Reader": "Application Liseuse avec support LaTeX ajoutée sur la N110",
+        "Reader": "Ajout d'un application Liseuse sur N110",
         "EqualSymplification": "Simplification des égaux améliorés",
         "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
         "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
@@ -206,7 +206,7 @@
         "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
         "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
         "Background": "Ajout d'un support pour les fonds d'écran",
-        "latex": "Une liseuse prenant en charge les expressions et symboles mathématiques LaTeX"
+        "latex": "Prise en charge des expressions et symboles mathématiques LaTex"
       }
     }
   },
