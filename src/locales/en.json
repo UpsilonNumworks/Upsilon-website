@@ -58,6 +58,24 @@
         }
       }
     },
+    "themes": {
+      "upsilon_light": "Upsilon Light",
+      "upsilon_dark": "Upsilon Dark",
+      "epsilon_light": "Epsilon Light",
+      "epsilon_dark": "Epsilon Dark",
+      "omega_light": "Omega Light",
+      "omega_dark": "Omega Dark",
+      "arc_dark": "Arc Dark",
+      "miami_vice": "Miami Vice",
+      "omega_trans": "Omega Trans",
+      "omega_blink": "Omega Blink",
+      "omega_dracula": "Omega Dracula",
+      "omega_kawaii": "Omega Kawaii",
+      "omega_shrek": "Omega Shrek",
+      "cursed_light": "Omega Cursed",
+      "omega_freenumworks": "Omega FreeNumworks",
+      "ahegao": "Ahegao"
+    },
     "restore": "Restore scripts",
     "username": "Username",
     "downloading": "Downloading",
@@ -79,11 +97,19 @@
     "joinDiscord": "Join the Omega community discord server",
     "releaseChannel": "Release channel",
     "channels": {
-      "beta": "Beta",
-      "dev": "Dev"
+      "beta": {
+        "title": "Beta",
+        "description": "More stable than dev, updated every 1-2 weeks. Use this if you want to select a theme"
+      },
+      "dev": {
+        "title": "Dev",
+        "description": "Most up-to-date build, updated at every single change"
+      }
     },
     "unsupportedModel": "Unsupported model",
-    "download404": "Network Error: Couldn't find required file (404)"
+    "download404": "Network Error: Couldn't find required file (404)",
+    "theme": "Theme",
+    "selecta": "Select a"
   },
   "github": {
     "name": "Github"
