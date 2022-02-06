@@ -10,7 +10,7 @@
         <button id="btn-recovery">
           {{ t('installer.recovery') }}
         </button>
-        <form id="install-form">
+        <form hidden id="install-form">
           <label for="select-channel"
             >{{ t('installer.releaseChannel') }}:</label
           >
