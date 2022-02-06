@@ -89,7 +89,7 @@
         <Feature :title="t('features.external.name')">
           {{ t('features.external.description') }}
           <a
-            href="https://lauryy06.github.io/Upsilon-External/"
+            href="https://upsilonnumworks.github.io/Upsilon-External/"
             target="_blank"
             rel="noopener noreferrer"
             >{{ t('features.external.installNow') }}</a
