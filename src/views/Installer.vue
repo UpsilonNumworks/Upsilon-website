@@ -76,7 +76,7 @@
             {{ t('installer.external') }}
             <a
               id="external-link"
-              href="https://lauryy06.github.io/Upsilon-External/"
+              href="https://upsilonnumworks.github.io/Upsilon-External/"
               target="_blank"
               rel="noopener noreferrer"
               >{{ t('installer.gothere') }}</a
