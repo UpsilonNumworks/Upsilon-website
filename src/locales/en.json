@@ -111,7 +111,12 @@
     "unsupportedModel": "Unsupported model",
     "download404": "Network Error: Couldn't find required file (404)",
     "theme": "Theme",
-    "selecta": "Select a"
+    "selecta": "Select a",
+    "e16": {
+      "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator.",
+      "link": "this forum thread",
+      "beforeLink": "To unlock you calculator, take a look at"
+    }
   },
   "github": {
     "name": "Github"

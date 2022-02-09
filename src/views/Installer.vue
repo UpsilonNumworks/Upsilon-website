@@ -230,8 +230,13 @@ function onInstallerLoad (t, component) {
     install()
   })
   function onError (err) {
+    shouldRestoreStorage = false
     statusDisplay.innerHTML = t('installer.error') + ': ' + err.message
     statusDisplay.classList = ['error']
+
+    if (typeof err === 'string') {
+      err = { message: err }
+    }
 
     if (
       err.message.includes(
@@ -281,6 +286,15 @@ function onInstallerLoad (t, component) {
         '</a> ' +
         t('installer.hints.noDeviceSelected.moreHelp.2') +
         '</details>'
+    } else if (err.message.endsWith('????')) {
+      statusDisplay.innerHTML +=
+        '<br>' +
+        t('installer.e16.message') +
+        '<br>' +
+        t('installer.e16.beforeLink') +
+        ' <a href="https://tiplanet.org/forum/viewtopic.php?f=113&t=25191&p=263495#p263495">' +
+        t('installer.e16.link') +
+        '</a>'
     }
     throw err
   }
@@ -397,7 +411,6 @@ function onInstallerLoad (t, component) {
     }
   }
   async function install () {
-    // Install Upsilon on the calculator
     try {
       await initInstall()
       const model = calculator.getModel()
@@ -595,9 +608,9 @@ function onInstallerLoad (t, component) {
     try {
       storage = await calculator.backupStorage()
       // Ditch all non-python stuff, for convenience.
-      // for (var i in storage.records) {
-      //  if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
-      // }
+      for (var i in storage.records) {
+        if (storage.records[i].type !== 'py') storage.records.splice(i, 1)
+      }
       console.log('Storage :', storage)
     } catch (e) {
       if (storage == null) {
