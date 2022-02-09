@@ -116,6 +116,9 @@
       "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator.",
       "link": "this forum thread",
       "beforeLink": "To unlock you calculator, take a look at"
+    },
+    "tError": {
+      "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try following things:"
     }
   },
   "github": {
@@ -255,5 +258,12 @@
     "title": "Bruh",
     "underTitle": "That page does not exist mate",
     "goHome": "Go home"
+  },
+  "instaler": {
+    "tError": {
+      "li1": "Reboot your computer",
+      "li2": "Use a different port",
+      "li3": "Use a different cable"
+    }
   }
 }

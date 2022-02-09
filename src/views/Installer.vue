@@ -190,6 +190,7 @@ function onInstallerLoad (t, component) {
   // TODO language selection menu
   const language = 'en'
   var shouldRestoreStorage = false
+  var lastError = 0
   var calculator = new Numworks()
   var calculatorRecovery = new Numworks.Recovery()
   var currentbin = ''
@@ -230,13 +231,11 @@ function onInstallerLoad (t, component) {
     install()
   })
   function onError (err) {
-    shouldRestoreStorage = false
+    if (typeof err === 'string') {
+      err = new Error(err)
+    }
     statusDisplay.innerHTML = t('installer.error') + ': ' + err.message
     statusDisplay.classList = ['error']
-
-    if (typeof err === 'string') {
-      err = { message: err }
-    }
 
     if (
       err.message.includes(
@@ -295,6 +294,17 @@ function onInstallerLoad (t, component) {
         ' <a href="https://tiplanet.org/forum/viewtopic.php?f=113&t=25191&p=263495#p263495">' +
         t('installer.e16.link') +
         '</a>'
+    } else if (err.message.includes('A transfer error has occurred')) {
+      statusDisplay.innerHTML +=
+        '<br>' +
+        t('installer.tError.text') +
+        '<ul><li>' +
+        t('instaler.tError.li1') +
+        '</li><li>' +
+        t('instaler.tError.li2') +
+        '</li><li>' +
+        t('instaler.tError.li3') +
+        '</li></ul>'
     }
     throw err
   }
@@ -315,9 +325,29 @@ function onInstallerLoad (t, component) {
         recoveryBtn.hidden = true
         connectBtn.hidden = true
         doneMsg.hidden = true
+        requestAnimationFrame(() => {
+          setStatus('forceConnected')
+        })
+        break
+      case 'forceConnected':
+        console.log('Calculator connected')
+        if (inRecoveryMode) {
+          statusDisplay.innerHTML = t('installer.recoveryConnected')
+        } else {
+          statusDisplay.innerHTML = t('installer.connected')
+        }
+
+        statusDisplay.classList = ['info']
+        // TODO use v-if
+        installForm.hidden = false
+        recoveryBtn.hidden = true
+        connectBtn.hidden = true
+        doneMsg.hidden = true
 
         break
       case 'disconnected':
+        console.log(new Date().getTime() - lastError)
+        if (new Date().getTime() - lastError < 500) return
         if (statusDisplay.innerHTML === t('installer.waitingForReboot')) return
         console.log('Calculator disconnected')
         statusDisplay.innerHTML = t('installer.disconnected')
@@ -437,12 +467,11 @@ function onInstallerLoad (t, component) {
 
       setStatus('waitingForReboot')
       inRecoveryMode = false
-      inRecoveryMode = false
+      shouldRestoreStorage = true
     } catch (error) {
+      lastError = new Date().getTime()
       onError(error)
     } finally {
-      shouldRestoreStorage = true
-
       // TODO use v-if
       progressbar.parentNode.classList.remove('progressbar-active')
       progressbarText.hidden = true
@@ -547,7 +576,7 @@ function onInstallerLoad (t, component) {
       }
       fwname += '.' + name + '.bin'
     } else {
-      fwname = 'flasher.light.bin'
+      fwname = 'flasher.verbose.bin'
     }
     const jsonUrl = `${mirror}${component.channel}%2F${
       model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
@@ -649,6 +678,9 @@ function onInstallerLoad (t, component) {
 }
 </script>
 <style>
+ul {
+  text-align: left;
+}
 details {
   text-align: justify;
 }
