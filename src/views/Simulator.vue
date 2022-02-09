@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <h1>{{ t('simulator.commingSoon') }}</h1>
+  </div>
 </template>
 
 <script>

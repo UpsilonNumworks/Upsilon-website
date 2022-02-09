@@ -243,7 +243,8 @@
     }
   },
   "simulator": {
-    "name": "Simulator"
+    "name": "Simulator",
+    "commingSoon": "Coming soon..."
   },
   "notFound": {
     "title": "Bruh",
