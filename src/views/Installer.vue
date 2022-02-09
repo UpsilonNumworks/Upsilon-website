@@ -343,7 +343,6 @@ function onInstallerLoad (t, component) {
         recoveryBtn.hidden = true
         connectBtn.hidden = true
         doneMsg.hidden = true
-
         break
       case 'disconnected':
         console.log(new Date().getTime() - lastError)
@@ -357,7 +356,6 @@ function onInstallerLoad (t, component) {
         recoveryBtn.hidden = false
         connectBtn.hidden = false
         doneMsg.hidden = true
-
         break
       case 'backingup':
         statusDisplay.innerHTML = t('installer.backingup')
@@ -368,7 +366,6 @@ function onInstallerLoad (t, component) {
         recoveryBtn.hidden = true
         connectBtn.hidden = true
         doneMsg.hidden = true
-
         break
       case 'downloading':
         statusDisplay.innerHTML =
@@ -483,9 +480,8 @@ function onInstallerLoad (t, component) {
   async function recovery () {
     // Flash Upsilon's recovery on the calculator
     try {
-      calculatorRecovery.stopAutoConnect()
+      debugger
       inRecoveryMode = true
-      connectedHandler()
       await initInstall()
       const model = calculatorRecovery.getModel()
       console.log('Model : ' + model)
@@ -626,6 +622,9 @@ function onInstallerLoad (t, component) {
       // Disable WebDFU logging in production
       if (process.env.NODE_ENV === 'production') {
         calculator.device.logDebug = () => {}
+      }
+      if (process.env.NODE_ENV === 'production') {
+        calculatorRecovery.device.logDebug = () => {}
       }
       calculator.device.logInfo = logInfo
     } catch (e) {
