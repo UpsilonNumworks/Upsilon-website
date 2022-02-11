@@ -33,6 +33,23 @@
             ]"
           >
           </CustomSelect>
+          <label v-if="n100" for="select-lang"
+            >{{ t('installer.lang') }}:</label
+          >
+
+          <CustomSelect
+            v-if="n100"
+            name="select-lang"
+            sid="select-lang"
+            @updated="setLang"
+            :title="t('installer.lang')"
+            :items="
+              languages.map((lang) => {
+                return { text: t('installer.languages.' + lang), id: lang }
+              })
+            "
+          >
+          </CustomSelect>
           <label v-if="channel === 'beta'" for="select-theme"
             >{{ t('installer.theme') }}:</label
           >
@@ -102,8 +119,6 @@
   </div>
 </template>
 
-// TODO: Test on the N0100 (and fix because it doesn't even work.)
-
 <script>
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -132,11 +147,16 @@ export default defineComponent({
     },
     setChannel (item) {
       this.channel = item.id
+    },
+    setLang (item) {
+      this.lang = item.id
     }
   },
   data () {
     return {
+      n100: false,
       theme: 'upsilon_light',
+      lang: 'en',
       channel: 'beta',
       themes: [
         'upsilon_light',
@@ -155,7 +175,8 @@ export default defineComponent({
         'cursed_light',
         'omega_freenumworks',
         'ahegao'
-      ]
+      ],
+      languages: ['en', 'fr', 'nl', 'pt', 'it', 'de', 'es', 'hu']
     }
   }
 })
@@ -187,8 +208,6 @@ function onInstallerLoad (t, component) {
 
   var storage = null
   var inRecoveryMode = false
-  // TODO language selection menu
-  const language = 'en'
   var shouldRestoreStorage = false
   var lastError = 0
   var calculator = new Numworks()
@@ -299,11 +318,11 @@ function onInstallerLoad (t, component) {
         '<br>' +
         t('installer.tError.text') +
         '<ul><li>' +
-        t('instaler.tError.li1') +
+        t('installer.tError.li1') +
         '</li><li>' +
-        t('instaler.tError.li2') +
+        t('installer.tError.li2') +
         '</li><li>' +
-        t('instaler.tError.li3') +
+        t('installer.tError.li3') +
         '</li></ul>'
     }
     throw err
@@ -370,34 +389,32 @@ function onInstallerLoad (t, component) {
       case 'downloading':
         statusDisplay.innerHTML =
           t('installer.downloading') +
-          (currentbin === 'external' ? ' 1' : ' 2') +
-          '/2 ...'
+          (component.n100
+            ? ''
+            : (currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
+          '...'
         statusDisplay.classList = ['info']
         break
       case 'erasing':
         statusDisplay.innerHTML =
           t('installer.erasing') +
-          (currentbin === 'external' ? ' 1' : ' 2') +
-          '/2 ...'
+          (component.n100
+            ? ''
+            : (currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
+          '...'
         statusDisplay.classList = ['info']
         break
       case 'copying':
         statusDisplay.innerHTML =
           t('installer.writing') +
-          (currentbin === 'external' ? ' 1' : ' 2') +
-          '/2 ...'
+          (component.n100
+            ? ''
+            : (currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
+          '...'
         statusDisplay.classList = ['info']
         break
       case 'waitingForReboot':
         statusDisplay.innerHTML = t('installer.waitingForReboot')
-        statusDisplay.classList = ['info']
-        break
-      case 'downloadingN100':
-        statusDisplay.innerHTML = t('installer.downloading') + '...'
-        statusDisplay.classList = ['info']
-        break
-      case 'installingN100':
-        statusDisplay.innerHTML = t('installer.installing')
         statusDisplay.classList = ['info']
         break
       case 'installationDone':
@@ -443,9 +460,8 @@ function onInstallerLoad (t, component) {
       const model = calculator.getModel()
       console.log('Model : ' + model)
       if (model === '0100') {
-        setStatus('downloadingN100')
+        setStatus('downloading')
         const bin = await downloadBin('internal', 'N0100')
-        setStatus('installingN100')
         patchUsername(bin)
         await calculator.flashInternal(bin)
       } else if (model === '0110') {
@@ -480,7 +496,6 @@ function onInstallerLoad (t, component) {
   async function recovery () {
     // Flash Upsilon's recovery on the calculator
     try {
-      debugger
       inRecoveryMode = true
       await initInstall()
       const model = calculatorRecovery.getModel()
@@ -511,6 +526,7 @@ function onInstallerLoad (t, component) {
       setStatus('connected')
     }, 0)
     if (!inRecoveryMode) {
+      component.n100 = calculator.getModel().toLowerCase() === '0100'
       const PlatformInfo = await calculator.getPlatformInfo()
       console.log('PlatformInfo :', PlatformInfo)
       if (PlatformInfo.omega.user) {
@@ -568,7 +584,7 @@ function onInstallerLoad (t, component) {
         fwname += '.' + component.theme
       }
       if (model.toLowerCase() === 'n0100') {
-        fwname += '.' + language
+        fwname += '.' + component.lang
       }
       fwname += '.' + name + '.bin'
     } else {
@@ -622,8 +638,6 @@ function onInstallerLoad (t, component) {
       // Disable WebDFU logging in production
       if (process.env.NODE_ENV === 'production') {
         calculator.device.logDebug = () => {}
-      }
-      if (process.env.NODE_ENV === 'production') {
         calculatorRecovery.device.logDebug = () => {}
       }
       calculator.device.logInfo = logInfo
@@ -631,7 +645,6 @@ function onInstallerLoad (t, component) {
       console.warn('Error while disabling WebDFU logging')
     }
     progressbar.parentNode.classList.add('progressbar-active')
-
     setStatus('backingup')
     try {
       storage = await calculator.backupStorage()
