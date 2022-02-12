@@ -75,7 +75,7 @@
       "dev": "Développement"
     },
     "download404": "Erreur de réseau: Fichier non trouvé (404)",
-    "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil ?",
+    "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil?",
     "gothere": "Cliquez ici",
     "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
     "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
@@ -83,7 +83,47 @@
     "thanks": "Merci d'avoir installé Upsilon ! \nPréparez-vous à profiter de la supériorité de l'open source ;)",
     "unsupportedModel": "Modèle non pris en charge",
     "waitingForReboot": "En attente du redémarrage de la calculatrice...",
-    "whatnext": "Et ensuite ?"
+    "whatnext": "Et ensuite ?",
+    "e16": {
+      "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice."
+    },
+    "lang": "Langue",
+    "languages": {
+      "de": "allemand",
+      "en": "Anglais",
+      "es": "Espagnol",
+      "fr": "français",
+      "hu": "hongrois",
+      "it": "italien",
+      "nl": "néerlandais",
+      "pt": "Portugais"
+    },
+    "selecta": "Sélectionner un",
+    "tError": {
+      "li1": "Redémarrez votre ordinateur",
+      "li2": "Utiliser un autre port",
+      "li3": "Utiliser un autre câble",
+      "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! \nSi vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
+    },
+    "theme": "Thème",
+    "themes": {
+      "upsilon_light": "Upsilon Light",
+      "upsilon_dark": "Upsilon Dark",
+      "epsilon_light": "Epsilon Light",
+      "epsilon_dark": "Epsilon Dark",
+      "omega_light": "Omega Light",
+      "omega_dark": "Omega Dark",
+      "arc_dark": "Arc Dark",
+      "miami_vice": "Miami Vice",
+      "omega_trans": "Omega Trans",
+      "omega_blink": "Omega Blink",
+      "omega_dracula": "Omega Dracula",
+      "omega_kawaii": "Omega Kawaii",
+      "omega_shrek": "Omega Shrek",
+      "cursed_light": "Omega Cursed",
+      "omega_freenumworks": "Omega FreeNumworks",
+      "ahegao": "Ahegao"
+    }
   },
   "github": {
     "name": "Github"
@@ -216,6 +256,7 @@
     "underTitle": "Cette page n'existe pas mec"
   },
   "simulator": {
-    "name": "Simulateur"
+    "name": "Simulateur",
+    "commingSoon": "Bientôt disponible..."
   }
 }
