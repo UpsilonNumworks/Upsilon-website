@@ -1,6 +1,6 @@
 <template>
   <div>
-    <iframe title="Upsilon Simulator" src="/simulator/simulator.html">
+    <iframe title="Upsilon Simulator" src="./simulator/simulator.html">
       Browser not supported
     </iframe>
   </div>
