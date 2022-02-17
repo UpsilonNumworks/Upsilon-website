@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>{{ t('simulator.commingSoon') }}</h1>
+    <iframe title="Upsilon Simulator" src="/simulator/simulator.html">
+      Browser not supported
+    </iframe>
   </div>
 </template>
 
@@ -18,4 +20,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
+</style>
