@@ -327,6 +327,10 @@
             "cheatsheet": {
                 "question": "Is there a cheatsheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?",
                 "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via usb) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
+            },
+            "numLocked": {
+                "question": "What can I do if I installed Epsilon 16+ on my calculator?",
+                "answer": "There is a <a href=\"https://www.youtube.com/watch?v=8I-0J6PHqrQ\">video</a> explaining how to unlock your calculator as well as a <a href=\"https://tiplanet.org/forum/viewtopic.php?f=113&t=25191&p=263495#p263495\">forum thread</a>"
             }
         },
         "sections": {
