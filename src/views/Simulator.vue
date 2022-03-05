@@ -1,6 +1,12 @@
 <template>
   <div>
-    <iframe title="Upsilon Simulator" src="./simulator.html">
+    <iframe
+      title="Upsilon Simulator"
+      :src="
+        ($window.location.href.endsWith('/') ? './' : './simulator/') +
+        'simulator.html'
+      "
+    >
       Browser not supported
     </iframe>
   </div>
