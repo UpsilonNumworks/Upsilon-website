@@ -9,7 +9,9 @@
         "omega": "Comme Upsilon est un fork d'Omega, il prend également en charge toutes les fonctionnalités d'Omega",
         "upsilon": "Fonctionalités principales"
       }
-    }
+    },
+    "findThemeList": "Vous pouvez trouver une liste de tous les thèmes disponibles ici.",
+    "here": "ici"
   },
   "installer": {
     "name": "Installer",
@@ -71,8 +73,14 @@
     "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
     "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
     "channels": {
-      "beta": "Beta",
-      "dev": "Développement"
+      "beta": {
+        "description": "Plus stable que Beta, mis à joure toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
+        "title": "Beta"
+      },
+      "dev": {
+        "description": "Version la plus à jour, mis à jour à chaque changement",
+        "title": "Dev"
+      }
     },
     "download404": "Erreur de réseau: Fichier non trouvé (404)",
     "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil?",
@@ -85,7 +93,9 @@
     "waitingForReboot": "En attente du redémarrage de la calculatrice...",
     "whatnext": "Et ensuite ?",
     "e16": {
-      "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice."
+      "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice.",
+      "link": "ce fil de discussion",
+      "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à"
     },
     "lang": "Langue",
     "languages": {
@@ -218,6 +228,10 @@
         "title": "Note :",
         "content": " Tout au long de l'histoire d'Omega, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grâce à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
       }
+    },
+    "themes": {
+      "description": "Tous ces thèmes peuvent être installés avec l'installeur en ligne",
+      "title": "Liste des thèmes"
     }
   },
   "releases": {
