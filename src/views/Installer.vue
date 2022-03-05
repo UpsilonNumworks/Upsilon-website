@@ -82,7 +82,7 @@
             name="input-uname"
             id="input-uname"
           />
-          <button type="button" id="btn-disconnect">
+          <button @click="forceDisconnect" type="button" id="btn-disconnect">
             {{ t('installer.disconnect') }}
           </button>
           <button
@@ -201,6 +201,7 @@ export default defineComponent({
     },
     forceDisconnect () {
       this.calculator.device.device_.close()
+      this.setStatus('disconnected')
     },
     disconnect (event) {
       event.preventDefault()
@@ -216,8 +217,9 @@ export default defineComponent({
       }, this.onError)
     },
     async recoveryClick () {
+      const _this = this
       this.calculatorRecovery.detect(async function () {
-        await this.recovery()
+        await _this.recovery()
       }, this.onError)
     },
     onload () {
@@ -380,12 +382,13 @@ export default defineComponent({
         }
       }
       try {
+        this.calculator.device.logInfo = this.logInfo
         // Disable WebDFU logging in production
         if (process.env.NODE_ENV === 'production') {
           this.calculator.device.logDebug = () => {}
+          // FIXME the following line produces an error
           this.calculatorRecovery.device.logDebug = () => {}
         }
-        this.calculator.device.logInfo = this.logInfo
       } catch (e) {
         console.warn('Error while disabling WebDFU logging')
       }

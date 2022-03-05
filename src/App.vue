@@ -16,7 +16,7 @@
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://github.com/Lauryy06/Upsilon"
+      href="https://github.com/UpsilonNumworks/Upsilon"
       >{{ t('github.name') }}</a
     >
     <div class="right">
