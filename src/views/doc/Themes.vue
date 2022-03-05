@@ -1,7 +1,7 @@
 <template>
   <div class="doc-wrapper">
     <div id="themes-doc" class="doc">
-      <h2>{{ t('doc.themes.title') }}</h2>
+      <h1>{{ t('doc.themes.title') }}</h1>
       <p>
         {{ t('doc.themes.description') }}
       </p>

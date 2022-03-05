@@ -1,7 +1,7 @@
 <template>
   <div class="doc-wrapper">
     <div id="latex-doc" class="doc">
-      <h2>{{ t('doc.latex.reference') }}</h2>
+      <h1>{{ t('doc.latex.reference') }}</h1>
       <p>
         {{ t('doc.latex.description') }}
       </p>

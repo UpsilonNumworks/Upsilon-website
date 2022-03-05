@@ -7,47 +7,54 @@ import Releases from '../views/Releases.vue'
 import Simulator from '../views/Simulator.vue'
 import NotFound from '../views/NotFound.vue'
 import Themes from '../views/doc/Themes.vue'
+import FAQ from '../views/doc/FAQ.vue'
 
-const routes = [{
-  path: '/',
-  name: 'Home',
-  component: Home
-},
-{
-  path: '/doc/latex',
-  name: 'Latex',
-  component: Latex
-},
-{
-  path: '/doc/themes',
-  name: 'Themes',
-  component: Themes
-},
-{
-  path: '/install',
-  name: 'Installer',
-  component: Installer
-},
-{
-  path: '/doc/rpn',
-  name: 'RPN',
-  component: RPN
-},
-{
-  path: '/releases',
-  name: 'Releases',
-  component: Releases
-},
-{
-  path: '/simulator',
-  name: 'Simulator',
-  component: Simulator
-},
-{
-  path: '/:pathMatch(.*)*',
-  name: '404',
-  component: NotFound
-}
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/doc/latex',
+    name: 'Latex',
+    component: Latex
+  },
+  {
+    path: '/doc/themes',
+    name: 'Themes',
+    component: Themes
+  },
+  {
+    path: '/doc/rpn',
+    name: 'RPN',
+    component: RPN
+  },
+  {
+    path: '/doc/faq',
+    name: 'FAQ',
+    component: FAQ
+  },
+  {
+    path: '/install',
+    name: 'Installer',
+    component: Installer
+  },
+  {
+    path: '/releases',
+    name: 'Releases',
+    component: Releases
+  },
+  {
+    path: '/simulator',
+    name: 'Simulator',
+    component: Simulator
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({

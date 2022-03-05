@@ -12,6 +12,9 @@
     <router-link @click="toggleNavbar" to="/simulator">{{
       t('simulator.name')
     }}</router-link>
+    <router-link @click="toggleNavbar" to="/doc/faq">{{
+      t('faq.name')
+    }}</router-link>
 
     <a
       target="_blank"
@@ -133,8 +136,8 @@ export default defineComponent({
 #nav #nav-btn {
   display: none;
 }
-@media screen and (max-width: 600px) {
-  /* Responsive navbar */
+@media screen and (max-width: 720px) {
+  /* Mobile navbar */
 
   #nav.closed {
     justify-content: space-between;
@@ -186,7 +189,7 @@ export default defineComponent({
     margin-top: 5px;
   }
 }
-@media screen and (max-width: 1000px) and (min-width: 600px) {
+@media screen and (max-width: 1200px) and (min-width: 720px) {
   /* Smaller navbar */
   #nav a,
   .darkmode-switch {
@@ -199,7 +202,7 @@ export default defineComponent({
     border-bottom: solid var(--foreground) 2pt;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   #nav a,
   .darkmode-switch {
     font-size: 1em;
@@ -226,6 +229,7 @@ export default defineComponent({
   border-radius: 30px 30px 0 0;
   padding: 30px;
   padding-top: 0;
+  width: 100%;
 }
 a[target='_blank']::after {
   content: ' \f35d';
