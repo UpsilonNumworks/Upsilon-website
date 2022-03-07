@@ -3,12 +3,7 @@
 Anyone is welcome to contribute or request features/report bugs!
 
 ## To do
-
--   Installer improvements (more info on what the buttons actually do) + links
--   Better Light mode
--   Simulator
--   Proper switch
-
+[https://trello.com/b/VSmg45fM/upsilon-website](https://trello.com/b/VSmg45fM/upsilon-website)
 ## Project setup
 
 ```
