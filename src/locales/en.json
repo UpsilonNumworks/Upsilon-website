@@ -103,7 +103,7 @@
         "waitingForReboot": "Waiting for calculator to restart...",
         "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
         "whatnext": "What next?",
-        "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's homescreen?",
+        "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's home screen?",
         "jointhe": "Wanna can chat with Upsilon/Omega's contributors or ask for help and stuff?",
         "gothere": "Go there",
         "joinDiscord": "Join the Omega community discord server",
@@ -173,7 +173,7 @@
         },
         "protection": {
             "title": "Protection against E16",
-            "content": "Updating to Epsilon 16+ locks your calculator down preventing you from insalling you any unofficial firmware. This protection prevents from unintentionnal updates"
+            "content": "Updating to Epsilon 16+ locks your calculator down preventing you from installing you any unofficial firmware. This protection prevents from unintentional updates"
         },
         "python": {
             "title": "Python improvements",
@@ -289,7 +289,7 @@
                 "answer": "The installer should automatically restore scripts at the end of the installation. You can also go to <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> to back them up manually."
             },
             "how2external": {
-                "question": "How to install extenal apps?",
+                "question": "How to install external apps?",
                 "answer": "Go to <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">the link</a> provided in the homepage or after the installation and select the apps you want to install and then click install."
             },
             "how2reader": {
@@ -297,11 +297,11 @@
                 "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info please go to <a href=\"latex\">the reader tutorial</a>."
             },
             "how2py": {
-                "question": "How to tranfer scripts to the calculator/edit scripts online without going to numworks.com?",
+                "question": "How to transfer scripts to the calculator/edit scripts online without going to numworks.com?",
                 "answer": "You can use the <a href=\"https://getomega.dev/ide\">Omega IDE</a> to do that, although at the simulator runs Omega and not Upsilon and at the moment there are problems with file transfers (which will also occur on numworks.com)."
             },
             "how2themes": {
-                "question": "How to instal themes?",
+                "question": "How to install themes?",
                 "answer": "Go to the installer, select the beta channel and select your theme. You have to reinstall Upsilon to change the theme."
             },
             "how2contribute": {
@@ -321,12 +321,12 @@
                 "answer": "Yes, Just go to numworks.com, disable the protection against epsilon (Settings -> USB) and install epsilon normally. Alternatively, if you don't want to lock your calculator you can go <a href=\"https://getomega.dev/install/E15/\">there</a>"
             },
             "how2recovery": {
-                "question": "What is the recovery option on the instaler page and how do I use it?",
+                "question": "What is the recovery option on the installer page and how do I use it?",
                 "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via usb) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
             },
             "cheatsheet": {
                 "question": "Is there a cheatsheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?",
-                "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via usb) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
+                "answer": "Not for now but maybe some day who knows ^^"
             },
             "numLocked": {
                 "question": "What can I do if I installed Epsilon 16+ on my calculator?",
