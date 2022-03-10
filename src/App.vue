@@ -1,21 +1,39 @@
 <template>
+  <transition name="hamburger-menu" mode="in-out">
+    <div @click="hbmenuOpen = false" v-if="hbmenuOpen" id="hamburger-menu">
+      <div id="nav-btn-wrapper">
+        <button class="nav-btn"></button>
+      </div>
+      <router-link to="/">{{ t('home.name') }}</router-link>
+      <router-link to="/install">{{ t('installer.name') }}</router-link>
+      <router-link to="/releases">{{ t('releases.name') }}</router-link>
+      <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
+      <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/UpsilonNumworks/Upsilon"
+        >{{ t('github.name') }}</a
+      >
+      <div class="darkmode-switch">
+        <Switch
+          :label="t('darkmode')"
+          :checked="true"
+          :border="true"
+          sid="theme-switch"
+          @switched="switchTheme"
+        />
+      </div>
+    </div>
+  </transition>
   <div class="closed" id="nav">
     <router-link id="link-mobile-upsilon" to="/">Upsilon</router-link>
-    <button @click="toggleNavbar" id="nav-btn"></button>
-    <router-link @click="toggleNavbar" to="/">{{ t('home.name') }}</router-link>
-    <router-link @click="toggleNavbar" to="/install">{{
-      t('installer.name')
-    }}</router-link>
-    <router-link @click="toggleNavbar" to="/releases">{{
-      t('releases.name')
-    }}</router-link>
-    <router-link @click="toggleNavbar" to="/simulator">{{
-      t('simulator.name')
-    }}</router-link>
-    <router-link @click="toggleNavbar" to="/doc/faq">{{
-      t('faq.name')
-    }}</router-link>
-
+    <button @click="hbmenuOpen = true" class="nav-btn"></button>
+    <router-link to="/">{{ t('home.name') }}</router-link>
+    <router-link to="/install">{{ t('installer.name') }}</router-link>
+    <router-link to="/releases">{{ t('releases.name') }}</router-link>
+    <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
+    <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -52,6 +70,9 @@ export default defineComponent({
       useScope: 'global'
     })
     return { t }
+  },
+  data () {
+    return { hbmenuOpen: false }
   },
   components: {
     Switch
@@ -129,11 +150,40 @@ export default defineComponent({
   --tag-change: #cc6122;
   --tag-update: #dfa730;
 }
+#hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: var(--upsilon-2);
+}
+#hamburger-menu a,
+#hamburger-menu .darkmode-switch {
+  display: block;
+  font-weight: 400;
+  font-size: 2em;
+  margin: 1em;
+  text-decoration: none;
+  color: var(--foreground);
+  text-align: right;
+}
+#hamburger-menu .darkmode-switch .switch {
+  justify-content: end;
+}
+#nav-btn-wrapper {
+  font-size: 2em;
+  margin: 1em;
+  display: flex;
+  justify-content: end;
+}
 #nav a {
   transition: font-size, margin 0.1s ease-in-out;
 }
-#nav #link-mobile-upsilon,
-#nav #nav-btn {
+#nav #link-mobile-upsilon {
   display: none;
 }
 @media screen and (max-width: 720px) {
@@ -142,34 +192,37 @@ export default defineComponent({
   #nav.closed {
     justify-content: space-between;
   }
-  #nav.closed a,
-  .right {
+  #nav a,
+  #nav .right {
     display: none !important;
   }
-  #nav.closed #link-mobile-upsilon {
+  #nav #link-mobile-upsilon {
     display: block !important;
     margin: 15px;
   }
-  #nav.closed #nav-btn {
-    margin: 15px;
+  .nav-btn-wrapper {
+    display: flex;
+    justify-content: end;
+    margin: 1em;
+    font-size: 2em;
   }
-  #nav #nav-btn {
+  .nav-btn {
     cursor: pointer;
-    display: block;
     background: transparent;
     border: none;
     display: block;
-    margin-top: 15px;
+    text-align: right;
   }
 
-  #nav #nav-btn::after {
+  .nav-btn::after {
     content: '\f0c9';
     font-weight: 900;
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Font Awesome 5 Free';
     color: var(--foreground);
+    display: block;
   }
-  #nav.closed #nav-btn::after {
+  #nav.closed .nav-btn::after {
     font-size: 2em;
   }
   #nav.open {
@@ -284,6 +337,20 @@ body {
 }
 .route-leave-active {
   transition: all 0.1s ease-in;
+}
+.hamburger-menu-enter-from {
+  opacity: 0;
+  transform: translateX(100vw);
+}
+.hamburger-menu-enter-active {
+  transition: all 0.2s ease-out;
+}
+.hamburger-menu-leave-to {
+  opacity: 0;
+  transform: translateX(100vw);
+}
+.hamburger-menu-leave-active {
+  transition: all 0.2s ease-in;
 }
 h1,
 h2,
