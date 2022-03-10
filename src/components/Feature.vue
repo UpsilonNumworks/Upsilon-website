@@ -20,14 +20,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .feature {
   background-size: cover;
   image-rendering: pixelated;
-  padding: 3em;
   border-radius: 10px;
   margin: 1em;
-  font-size: 1.2em;
   animation-name: appear-from-bottom;
   animation-delay: 0.1s;
   animation-duration: 0.3s;
@@ -50,5 +48,19 @@ export default {
 }
 .feature h2 {
   margin-top: 0;
+}
+@media screen and (min-width: 720px) {
+  .feature {
+    padding: 3em;
+    margin: 1em;
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .feature {
+    padding: 1em;
+    margin: 0.5em;
+    font-size: 1.1em;
+  }
 }
 </style>

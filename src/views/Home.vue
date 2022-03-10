@@ -171,14 +171,26 @@ export default defineComponent({
     grid-template-columns: 1fr;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 720px) {
   .features {
     padding: 10px;
   }
+  .features-header {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 720px) {
   .features {
     padding: 30px;
+  }
+  .features-header {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 2em;
   }
 }
 
@@ -201,9 +213,6 @@ h1 {
   font-size: 3em;
   text-align: center;
 }
-h2 {
-  font-size: 2em;
-}
 #content {
   position: absolute;
   top: 100vh;
@@ -216,7 +225,6 @@ h2 {
   padding-bottom: 2em;
   margin: 0;
   text-align: center;
-  font-size: 2em;
   font-family: Lato;
   font-weight: 200;
   display: flex;
