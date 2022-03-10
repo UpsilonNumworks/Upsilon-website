@@ -57,15 +57,24 @@ export default {
 }
 </script>
 <style>
-p {
-  font-size: 1.2em;
-}
 blockquote {
   font-family: 'EB Garamond', serif;
   background: var(--feature-bg-upsilon);
-  padding: 20px;
-  border-left: solid var(--foreground-2) 6pt;
-  border-radius: 15px;
+  border-radius: 0 15px 15px 0;
+}
+@media screen and (min-width: 720px) {
+  blockquote {
+    padding: 2em;
+    border-left: solid var(--foreground-2) 4pt;
+  }
+}
+@media screen and (max-width: 720px) {
+  blockquote {
+    padding: 1em;
+
+    margin: 0;
+    border-left: solid var(--foreground-2) 2pt;
+  }
 }
 blockquote > p {
   margin: 0;

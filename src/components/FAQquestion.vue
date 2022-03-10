@@ -21,8 +21,17 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 720px) {
+  h3 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 720px) {
+  h3 {
+    font-size: 1.5em;
+  }
+}
 h3 {
-  font-size: 1.5em;
   font-weight: bold;
 }
 </style>

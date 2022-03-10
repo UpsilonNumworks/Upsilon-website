@@ -178,6 +178,12 @@ export default defineComponent({
   .features-header {
     font-size: 1.5em;
   }
+  p {
+    font-size: 1.1em;
+  }
+  h1 {
+    font-size: 2em;
+  }
   h2 {
     font-size: 1.5em;
   }
@@ -189,8 +195,15 @@ export default defineComponent({
   .features-header {
     font-size: 2em;
   }
+  p {
+    font-size: 1.2em;
+  }
+
   h2 {
     font-size: 2em;
+  }
+  h1 {
+    font-size: 3em;
   }
 }
 
@@ -210,7 +223,6 @@ h2 {
   font-family: 'Righteous';
 }
 h1 {
-  font-size: 3em;
   text-align: center;
 }
 #content {
