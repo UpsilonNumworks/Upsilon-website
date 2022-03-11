@@ -255,6 +255,11 @@ export default defineComponent({
     border-bottom: solid var(--foreground) 2pt;
   }
 }
+@media screen and (min-width: 720px) {
+  .nav-btn {
+    display: none;
+  }
+}
 @media screen and (min-width: 1200px) {
   #nav a,
   .darkmode-switch {
