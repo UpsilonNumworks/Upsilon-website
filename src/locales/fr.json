@@ -1,276 +1,276 @@
 {
-  "message": "hello i18n !!",
-  "darkmode": "Theme sombre",
-  "home": {
-    "name": "Accueil",
-    "description": "Upsilon est un fork d'Omega",
+    "message": "hello i18n !!",
+    "darkmode": "Theme sombre",
+    "home": {
+        "name": "Accueil",
+        "description": "Upsilon est un fork d'Omega",
+        "features": {
+            "header": {
+                "omega": "Comme Upsilon est un fork d'Omega, il prend également en charge toutes les fonctionnalités d'Omega",
+                "upsilon": "Fonctionalités principales"
+            }
+        },
+        "findThemeList": "Vous pouvez trouver une liste de tous les thèmes disponibles ici.",
+        "here": "ici"
+    },
+    "installer": {
+        "name": "Installer",
+        "title": "Installer Upsilon",
+        "install": "Installer",
+        "connect": "Connecter",
+        "recovery": "Mode de restauration",
+        "installationSuccess": "Merci d'avoir installé Upsilon.",
+        "recoverySuccess": "Mode de restauration installé avec succès.",
+        "pleaseclickon": "Veuillez cliquer sur",
+        "thenselect": "puis séléctionner votre calculatrice dans la liste des périphériques",
+        "installationFail": "Erreur lors de l'installation d'Upsilon.",
+        "backingup": "Sauvegarde...",
+        "connected": "Connecté",
+        "disconnected": "Déconnecté",
+        "done": "Fait",
+        "downloading": "Téléchargement",
+        "error": "Erreur",
+        "hints": {
+            "DisableProtection": "Essayez de désactiver la protection USB",
+            "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice",
+            "noDeviceSelected": {
+                "driverHint": {
+                    "andInstall": "et installez",
+                    "download": "Téléchargez",
+                    "linux": {
+                        "command": "Ce qui peut être fait avec la commande suivante",
+                        "linuxMoveIt": "et déplacez-le dans le dossier /etc/udev/rules.d",
+                        "thisfile": "ce fichier"
+                    },
+                    "rebootAfter": "et redémarrez après",
+                    "theDriver": "le driver"
+                },
+                "li1": "La calculatrice est connectée et affiche qu'elle est connectée",
+                "li2": "Vous avez correctement installé le driver",
+                "moreHelp": {
+                    "1": "Si vous rencontrez toujours des difficultés, vous pouvez rejoindre le",
+                    "2": "et demander de l'aide là-bas.",
+                    "discord": "Serveur discord de la communauté Omega",
+                    "needHelp": "Ça ne fonctionne toujours pas?",
+                    "tryRecovery": "Si vous avez installé le driver et que la calculatrice a un écran noir (ou l'écran de crash upsilon), vous pouvez essayer de la restaurer en appuyant simultanément sur les touches 6 et reset (à l'arrière de la calculatrice) puis en appuyant sur le bouton recovery \n."
+                },
+                "text1": "Assurez-vous de sélectionner votre calculatrice dans le menu.\n Si elle ne s'affiche pas, vérifiez que:"
+            }
+        },
+        "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
+        "installing": "Installation...",
+        "installing1of2": "Installation 1/2...",
+        "installing2of2": "Installation 2/2...",
+        "restore": "Garder les scripts",
+        "restoring": "Restauration des scripts...",
+        "username": "Nom d'utilisateur",
+        "disconnect": "Déconnecter",
+        "erasing": "Effacement",
+        "writing": "Écriture",
+        "of2": "/2",
+        "downloadingRecovery": "Téléchargement du logiciel de récupération...",
+        "installingRecovery": "Installation du logiciel de récupération...",
+        "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
+        "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
+        "channels": {
+            "beta": {
+                "description": "Plus stable que Dev, mis à joure toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
+                "title": "Beta"
+            },
+            "dev": {
+                "description": "Version la plus à jour, mis à jour à chaque changement",
+                "title": "Dev"
+            }
+        },
+        "download404": "Erreur de réseau: Fichier non trouvé (404)",
+        "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil?",
+        "gothere": "Cliquez ici",
+        "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
+        "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
+        "releaseChannel": "Version",
+        "thanks": "Merci d'avoir installé Upsilon ! \nPréparez-vous à profiter de la supériorité de l'open source ;)",
+        "unsupportedModel": "Modèle non pris en charge",
+        "waitingForReboot": "En attente du redémarrage de la calculatrice...",
+        "whatnext": "Et ensuite ?",
+        "e16": {
+            "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice.",
+            "link": "ce fil de discussion",
+            "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à"
+        },
+        "lang": "Langue",
+        "languages": {
+            "de": "allemand",
+            "en": "Anglais",
+            "es": "Espagnol",
+            "fr": "français",
+            "hu": "hongrois",
+            "it": "italien",
+            "nl": "néerlandais",
+            "pt": "Portugais"
+        },
+        "selecta": "Sélectionner un",
+        "tError": {
+            "li1": "Redémarrez votre ordinateur",
+            "li2": "Utiliser un autre port",
+            "li3": "Utiliser un autre câble",
+            "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! \nSi vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
+        },
+        "theme": "Thème",
+        "themes": {
+            "upsilon_light": "Upsilon Light",
+            "upsilon_dark": "Upsilon Dark",
+            "epsilon_light": "Epsilon Light",
+            "epsilon_dark": "Epsilon Dark",
+            "omega_light": "Omega Light",
+            "omega_dark": "Omega Dark",
+            "arc_dark": "Arc Dark",
+            "miami_vice": "Miami Vice",
+            "omega_trans": "Omega Trans",
+            "omega_blink": "Omega Blink",
+            "omega_dracula": "Omega Dracula",
+            "omega_kawaii": "Omega Kawaii",
+            "omega_shrek": "Omega Shrek",
+            "cursed_light": "Omega Cursed",
+            "omega_freenumworks": "Omega FreeNumworks",
+            "ahegao": "Ahegao"
+        }
+    },
+    "github": {
+        "name": "Github"
+    },
     "features": {
-      "header": {
-        "omega": "Comme Upsilon est un fork d'Omega, il prend également en charge toutes les fonctionnalités d'Omega",
-        "upsilon": "Fonctionalités principales"
-      }
-    },
-    "findThemeList": "Vous pouvez trouver une liste de tous les thèmes disponibles ici.",
-    "here": "ici"
-  },
-  "installer": {
-    "name": "Installer",
-    "title": "Installer Upsilon",
-    "install": "Installer",
-    "connect": "Connecter",
-    "recovery": "Mode de restauration",
-    "installationSuccess": "Merci d'avoir installé Upsilon.",
-    "recoverySuccess": "Mode de restauration installé avec succès.",
-    "pleaseclickon": "Veuillez cliquer sur",
-    "thenselect": "puis séléctionner votre calculatrice dans la liste des périphériques",
-    "installationFail": "Erreur lors de l'installation d'Upsilon.",
-    "backingup": "Sauvegarde...",
-    "connected": "Connecté",
-    "disconnected": "Déconnecté",
-    "done": "Fait",
-    "downloading": "Téléchargement",
-    "error": "Erreur",
-    "hints": {
-      "DisableProtection": "Essayez de désactiver la protection USB",
-      "closeOtherTabs": "Essayez de fermer les autres onglets/applications accédant à la calculatrice",
-      "noDeviceSelected": {
-        "driverHint": {
-          "andInstall": "et installez",
-          "download": "Téléchargez",
-          "linux": {
-            "command": "Ce qui peut être fait avec la commande suivante",
-            "linuxMoveIt": "et déplacez-le dans le dossier /etc/udev/rules.d",
-            "thisfile": "ce fichier"
-          },
-          "rebootAfter": "et redémarrez après",
-          "theDriver": "le driver"
+        "reader": {
+            "name": "Liseuse",
+            "description": "Une application liseuse avec un support pour les caractères speciaux du format LaTeX",
+            "docLink": "En savoir plus"
         },
-        "li1": "La calculatrice est connectée et affiche qu'elle est connectée",
-        "li2": "Vous avez correctement installé le driver",
-        "moreHelp": {
-          "1": "Si vous rencontrez toujours des difficultés, vous pouvez rejoindre le",
-          "2": "et demander de l'aide là-bas.",
-          "discord": "Serveur discord de la communauté Omega",
-          "needHelp": "Ça ne fonctionne toujours pas?",
-          "tryRecovery": "Si vous avez installé le driver et que la calculatrice a un écran noir (ou l'écran de crash upsilon), vous pouvez essayer de la restaurer en appuyant simultanément sur les touches 6 et reset (à l'arrière de la calculatrice) puis en appuyant sur le bouton recovery \n."
+        "external": {
+            "name": "Applications Externes",
+            "description": "Installez des applications communautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
+            "installNow": "Installez-en maintenant"
         },
-        "text1": "Assurez-vous de sélectionner votre calculatrice dans le menu.\n Si elle ne s'affiche pas, vérifiez que:"
-      }
-    },
-    "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
-    "installing": "Installation...",
-    "installing1of2": "Installation 1/2...",
-    "installing2of2": "Installation 2/2...",
-    "restore": "Garder les scripts",
-    "restoring": "Restauration des scripts...",
-    "username": "Nom d'utilisateur",
-    "disconnect": "Déconnecter",
-    "erasing": "Effacement",
-    "writing": "Écriture",
-    "of2": "/2",
-    "downloadingRecovery": "Téléchargement du logiciel de récupération...",
-    "installingRecovery": "Installation du logiciel de récupération...",
-    "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
-    "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
-    "channels": {
-      "beta": {
-        "description": "Plus stable que Beta, mis à joure toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
-        "title": "Beta"
-      },
-      "dev": {
-        "description": "Version la plus à jour, mis à jour à chaque changement",
-        "title": "Dev"
-      }
-    },
-    "download404": "Erreur de réseau: Fichier non trouvé (404)",
-    "external": "Vous voulez installer des applications comme KhiCAS, un interpréteur CHIP-8 ou des émulateurs NES/GB ou obtenir un arrière-plan sur l'écran d'accueil de votre appareil?",
-    "gothere": "Cliquez ici",
-    "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
-    "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
-    "releaseChannel": "Version",
-    "thanks": "Merci d'avoir installé Upsilon ! \nPréparez-vous à profiter de la supériorité de l'open source ;)",
-    "unsupportedModel": "Modèle non pris en charge",
-    "waitingForReboot": "En attente du redémarrage de la calculatrice...",
-    "whatnext": "Et ensuite ?",
-    "e16": {
-      "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice.",
-      "link": "ce fil de discussion",
-      "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à"
-    },
-    "lang": "Langue",
-    "languages": {
-      "de": "allemand",
-      "en": "Anglais",
-      "es": "Espagnol",
-      "fr": "français",
-      "hu": "hongrois",
-      "it": "italien",
-      "nl": "néerlandais",
-      "pt": "Portugais"
-    },
-    "selecta": "Sélectionner un",
-    "tError": {
-      "li1": "Redémarrez votre ordinateur",
-      "li2": "Utiliser un autre port",
-      "li3": "Utiliser un autre câble",
-      "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! \nSi vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
-    },
-    "theme": "Thème",
-    "themes": {
-      "upsilon_light": "Upsilon Light",
-      "upsilon_dark": "Upsilon Dark",
-      "epsilon_light": "Epsilon Light",
-      "epsilon_dark": "Epsilon Dark",
-      "omega_light": "Omega Light",
-      "omega_dark": "Omega Dark",
-      "arc_dark": "Arc Dark",
-      "miami_vice": "Miami Vice",
-      "omega_trans": "Omega Trans",
-      "omega_blink": "Omega Blink",
-      "omega_dracula": "Omega Dracula",
-      "omega_kawaii": "Omega Kawaii",
-      "omega_shrek": "Omega Shrek",
-      "cursed_light": "Omega Cursed",
-      "omega_freenumworks": "Omega FreeNumworks",
-      "ahegao": "Ahegao"
-    }
-  },
-  "github": {
-    "name": "Github"
-  },
-  "features": {
-    "reader": {
-      "name": "Liseuse",
-      "description": "Une application liseuse avec un support pour les caractères speciaux du format LaTeX",
-      "docLink": "En savoir plus"
-    },
-    "external": {
-      "name": "Applications Externes",
-      "description": "Installez des applications communautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
-      "installNow": "Installez-en maintenant"
-    },
-    "symbolic": {
-      "name": "Calcul symbolique",
-      "description": "Le calcul symbolique a été retiré d'Epsilon à la version 11.2. Omega réintroduit cette fonctionnalité."
-    },
-    "themes": {
-      "name": "Moteur de thèmes",
-      "description": "Personnalisez l'apparence de votre calculatrice avec l'un des themes suivants",
-      "andmanymore": "Ou l'un des thèmes créés par la communauté"
-    },
-    "periodic": {
-      "name": "Tableau périodique",
-      "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Omega est clair et simple d'utilisation."
-    },
-    "rpn": {
-      "name": "RPN",
-      "description": "Omega supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathématiques.",
-      "docLink": "En savoir plus"
-    },
-    "3ds": {
-      "name": "Simulateur 3DS",
-      "description": "Omega est disponible et entièrement utilisable sur Nintendo 3DS."
-    },
-    "protection": {
-      "content": "La mise à jour vers Epsilon 16 verrouille la calculatrice, empêchant d'installer un firmware non officiel. Cette protection empêche les mises à jour involontaires",
-      "title": "Protection contre E16"
-    },
-    "python": {
-      "battery": "Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
-      "sys": "Ajout du module sys",
-      "title": "Améliorations Python",
-      "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
-    }
-  },
-  "doc": {
-    "latex": {
-      "reference": "Reference LaTeX",
-      "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
-      "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
-      "command": "Commande",
-      "output": "Résultat",
-      "mathsymbols": "Symboles mathématiques",
-      "greekcapitalletter": "Lettres capitales greques",
-      "greeksmallletter": "Lettres minuscules greques",
-      "arrows": "Flèches",
-      "functions": "Fonctions"
-    },
-    "rpn": {
-      "the": "La",
-      "rpn": "Notation Polonaise Inverse",
-      "definition": {
-        "p1": "est une autre façon d'écrire des calculs mathématiques. Elle a été inventée par le mathématicien polonais Jan Łukasiewicz en 1924.",
-        "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile. Les opérateurs et les résulats sont tous placés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
-      },
-      "h2": "Introduction rapide à l'application RPN d'Upsilon",
-      "introduction": {
-        "p1": "Quand vous voulez faire un calcul dans l'application RPN d'Upsilon, vous devez commencer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyer sur l'opérateur approprié également par ordre d'apparition.",
-        "examples": {
-          "1": {
-            "title": "Pour obtenir le résultat de 245*6598 :",
-            "li1": "Tapez 245 et appuyez sur OK",
-            "li2": "Tapez 6598 et appuyez sur OK",
-            "li3": "Appuyez une fois sur le bouton multiplication"
-          },
-          "2": {
-            "title": "Pour obtenir le résultat de (65*98)/78 :",
-            "li1": "Tapez 65 et appuyez sur OK",
-            "li2": "Tapez 98 et appuyez sur OK",
-            "li3": "Tapez 78 et appuyez sur OK",
-            "li4": "Appuyez une fois sur le bouton multiplication",
-            "li5": "Appuyez une fois sur le bouton division"
-          },
-          "examples": "Exemples"
+        "symbolic": {
+            "name": "Calcul symbolique",
+            "description": "Le calcul symbolique a été retiré d'Epsilon à la version 11.2. Omega réintroduit cette fonctionnalité."
         },
-        "p2": "Vous pouvez changer la position d'un terme dans la pile en utilisant les boutons parenthèses, ce qui le déplacera vers le haut ou le bas."
-      },
-      "note": {
-        "title": "Note :",
-        "content": " Tout au long de l'histoire d'Omega, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grâce à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
-      }
+        "themes": {
+            "name": "Moteur de thèmes",
+            "description": "Personnalisez l'apparence de votre calculatrice avec l'un des themes suivants",
+            "andmanymore": "Ou l'un des thèmes créés par la communauté"
+        },
+        "periodic": {
+            "name": "Tableau périodique",
+            "description": "Inspiré par le tableau périodique de la TI83PCE, le tableau périodique d'Omega est clair et simple d'utilisation."
+        },
+        "rpn": {
+            "name": "RPN",
+            "description": "Omega supporte l'utilisation de la Notation Polonaise Inverse. Cela vous permet de saisir tous les nombres, puis de les combiner à l'aide d'operations mathématiques.",
+            "docLink": "En savoir plus"
+        },
+        "3ds": {
+            "name": "Simulateur 3DS",
+            "description": "Omega est disponible et entièrement utilisable sur Nintendo 3DS."
+        },
+        "protection": {
+            "content": "La mise à jour vers Epsilon 16 verrouille la calculatrice, empêchant d'installer un firmware non officiel. Cette protection empêche les mises à jour involontaires",
+            "title": "Protection contre E16"
+        },
+        "python": {
+            "battery": "Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
+            "sys": "Ajout du module sys",
+            "title": "Améliorations Python",
+            "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
+        }
     },
-    "themes": {
-      "description": "Tous ces thèmes peuvent être installés avec l'installeur en ligne",
-      "title": "Liste des thèmes"
+    "doc": {
+        "latex": {
+            "reference": "Reference LaTeX",
+            "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
+            "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
+            "command": "Commande",
+            "output": "Résultat",
+            "mathsymbols": "Symboles mathématiques",
+            "greekcapitalletter": "Lettres capitales greques",
+            "greeksmallletter": "Lettres minuscules greques",
+            "arrows": "Flèches",
+            "functions": "Fonctions"
+        },
+        "rpn": {
+            "the": "La",
+            "rpn": "Notation Polonaise Inverse",
+            "definition": {
+                "p1": "est une autre façon d'écrire des calculs mathématiques. Elle a été inventée par le mathématicien polonais Jan Łukasiewicz en 1924.",
+                "p2": "Cette notation offre plusieurs avantages : les calculatrices RPN sont basées sur l'utilisation d'une pile. Les opérateurs et les résulats sont tous placés en haut de la pile. Bien que cela puisse être déroutant au premier abord, on se rend vite compte que cela permet de rendre les expressions mathématiques plus faciles à comprendre et à manipuler."
+            },
+            "h2": "Introduction rapide à l'application RPN d'Upsilon",
+            "introduction": {
+                "p1": "Quand vous voulez faire un calcul dans l'application RPN d'Upsilon, vous devez commencer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyer sur l'opérateur approprié également par ordre d'apparition.",
+                "examples": {
+                    "1": {
+                        "title": "Pour obtenir le résultat de 245*6598 :",
+                        "li1": "Tapez 245 et appuyez sur OK",
+                        "li2": "Tapez 6598 et appuyez sur OK",
+                        "li3": "Appuyez une fois sur le bouton multiplication"
+                    },
+                    "2": {
+                        "title": "Pour obtenir le résultat de (65*98)/78 :",
+                        "li1": "Tapez 65 et appuyez sur OK",
+                        "li2": "Tapez 98 et appuyez sur OK",
+                        "li3": "Tapez 78 et appuyez sur OK",
+                        "li4": "Appuyez une fois sur le bouton multiplication",
+                        "li5": "Appuyez une fois sur le bouton division"
+                    },
+                    "examples": "Exemples"
+                },
+                "p2": "Vous pouvez changer la position d'un terme dans la pile en utilisant les boutons parenthèses, ce qui le déplacera vers le haut ou le bas."
+            },
+            "note": {
+                "title": "Note :",
+                "content": " Tout au long de l'histoire d'Omega, un bug a rendu l'application RPN difficile à utiliser en toute sécurité sur la calculatrice. Cependant, grâce à RedGlow, dl11 et Overengined, ce bug est maintenant corrigé, et il est désormais possible d'utiliser l'application RPN en toute sécurité."
+            }
+        },
+        "themes": {
+            "description": "Tous ces thèmes peuvent être installés avec l'installeur en ligne",
+            "title": "Liste des thèmes"
+        }
+    },
+    "releases": {
+        "name": "Versions",
+        "version": "Version",
+        "new": "NEW",
+        "update": "UPD",
+        "change": "CHG",
+        "dev": "En développement",
+        "versions": {
+            "1-0": {
+                "KandinskyEnhancements": "Python : Module Kandinsky amélioré (drawcircle, fillcircle, fillpolygon, getpalette)",
+                "Ulab": "Python : Ulab ajouté sur la N110 (SciPy, NumPy)",
+                "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
+                "PythonSysModule": "Python : Module sys ajouté",
+                "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
+                "PythonBaseScripts": "Scripts Python de base supprimés",
+                "Reader": "Ajout d'un application Liseuse sur N110",
+                "EqualSymplification": "Simplification des égaux améliorés",
+                "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
+                "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
+                "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée de 32Ko à 64Ko",
+                "Themes": "Thème Upsilon ajouté",
+                "BatteryPercentage": "Pourcentage de la batterie affiché dans le menu à propos des paramètres",
+                "BatteryLogo": "Logo de la batterie changé",
+                "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
+                "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
+                "Background": "Ajout d'un support pour les fonds d'écran",
+                "latex": "Prise en charge des expressions et symboles mathématiques LaTex"
+            }
+        }
+    },
+    "notFound": {
+        "goHome": "Retour à l'accueil",
+        "title": "Bruh",
+        "underTitle": "Cette page n'existe pas mec"
+    },
+    "simulator": {
+        "name": "Simulateur",
+        "commingSoon": "Bientôt disponible..."
     }
-  },
-  "releases": {
-    "name": "Versions",
-    "version": "Version",
-    "new": "NEW",
-    "update": "UPD",
-    "change": "CHG",
-    "dev": "En développement",
-    "versions": {
-      "1-0": {
-        "KandinskyEnhancements": "Python : Module Kandinsky amélioré (drawcircle, fillcircle, fillpolygon, getpalette)",
-        "Ulab": "Python : Ulab ajouté sur la N110 (SciPy, NumPy)",
-        "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
-        "PythonSysModule": "Python : Module sys ajouté",
-        "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
-        "PythonBaseScripts": "Scripts Python de base supprimés",
-        "Reader": "Ajout d'un application Liseuse sur N110",
-        "EqualSymplification": "Simplification des égaux améliorés",
-        "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
-        "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
-        "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée de 32Ko à 64Ko",
-        "Themes": "Thème Upsilon ajouté",
-        "BatteryPercentage": "Pourcentage de la batterie affiché dans le menu à propos des paramètres",
-        "BatteryLogo": "Logo de la batterie changé",
-        "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
-        "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
-        "Background": "Ajout d'un support pour les fonds d'écran",
-        "latex": "Prise en charge des expressions et symboles mathématiques LaTex"
-      }
-    }
-  },
-  "notFound": {
-    "goHome": "Retour à l'accueil",
-    "title": "Bruh",
-    "underTitle": "Cette page n'existe pas mec"
-  },
-  "simulator": {
-    "name": "Simulateur",
-    "commingSoon": "Bientôt disponible..."
-  }
 }
