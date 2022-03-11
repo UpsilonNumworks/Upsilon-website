@@ -4,7 +4,7 @@
       <div id="logos-bg">
         <svg
           id="upsi-fork"
-          width="85.845mm"
+          width="100mm"
           height="539.56mm"
           version="1.1"
           viewBox="0 0 85.845 539.56"
@@ -15,10 +15,10 @@
               d="m92.498-182.04v192.63c0 12.972-6.9202 24.958-18.154 31.444-11.234 6.4858-25.074 6.4858-36.308-1e-6 -11.234-6.4858-18.154-18.472-18.154-31.444v-192.97"
               stroke-linecap="square"
               stroke-linejoin="round"
-              stroke-width="15"
+              stroke-width="22"
               style="paint-order: stroke fill markers"
             />
-            <path d="m56.154 46.899v303.67" stroke-width="15" />
+            <path d="m56.154 46.899v303.67" stroke-width="22" />
           </g>
         </svg>
       </div>
