@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'CustomSwitch',
   props: {
     label: String,
     sid: String,

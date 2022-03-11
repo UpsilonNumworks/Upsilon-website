@@ -63,7 +63,6 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Switch from '@/components/Switch.vue'
 export default defineComponent({
-  name: '',
   setup () {
     const { t } = useI18n({
       inheritLocale: true,

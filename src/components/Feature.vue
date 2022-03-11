@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Feature',
+  name: 'FeatureCard',
   props: {
     title: String,
     content: String,

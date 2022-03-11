@@ -139,7 +139,7 @@ import Numworks from 'numworks.js'
 import CustomSelect from '@/components/CustomSelect'
 
 export default defineComponent({
-  name: 'installer',
+  name: 'InstallerPage',
   components: { CustomSelect },
   setup () {
     const { t } = useI18n({
@@ -396,7 +396,7 @@ export default defineComponent({
       try {
         this.storage = await this.calculator.backupStorage()
         // Ditch all non-python stuff, for convenience.
-        for (var i in this.storage.records) {
+        for (const i in this.storage.records) {
           if (this.storage.records[i].type !== 'py') {
             this.storage.records.splice(i, 1)
           }

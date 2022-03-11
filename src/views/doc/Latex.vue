@@ -134,7 +134,7 @@
 import { useI18n } from 'vue-i18n'
 import LatexView from '@/components/LatexView.vue'
 export default {
-  name: '',
+  name: 'LatexPage',
   setup () {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     const { t } = useI18n({

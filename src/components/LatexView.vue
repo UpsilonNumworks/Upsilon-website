@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'LatexView',
   props: {
     formula: String,
     display: String,

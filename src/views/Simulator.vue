@@ -15,7 +15,7 @@
 <script>
 import { useI18n } from 'vue-i18n'
 export default {
-  name: '',
+  name: 'SimulatorPage',
   setup () {
     const { t } = useI18n({
       inheritLocale: true,
