@@ -18,7 +18,7 @@
       <div class="darkmode-switch">
         <Switch
           :label="t('darkmode')"
-          :checked="true"
+          :checked="darkmode"
           :border="true"
           sid="theme-switch"
           @switched="switchTheme"
@@ -44,7 +44,7 @@
       <div class="darkmode-switch">
         <Switch
           :label="t('darkmode')"
-          :checked="true"
+          :checked="darkmode"
           sid="theme-switch"
           @switched="switchTheme"
         />
@@ -72,19 +72,23 @@ export default defineComponent({
     return { t }
   },
   data () {
-    return { hbmenuOpen: false }
+    return { hbmenuOpen: false, darkmode: true }
   },
   components: {
     Switch
   },
   methods: {
     switchTheme (checked) {
-      const theme = checked ? 'dark' : 'light'
-      document.body.classList = [theme]
+      this.darkmode = checked
     },
     toggleNavbar () {
       document.getElementById('nav').classList.toggle('open')
       document.getElementById('nav').classList.toggle('closed')
+    }
+  },
+  watch: {
+    darkmode (value) {
+      document.body.classList = [value ? 'dark' : 'light']
     }
   }
 })
