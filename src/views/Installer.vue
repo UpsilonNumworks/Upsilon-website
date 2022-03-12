@@ -77,6 +77,7 @@
           </CustomSelect>
           <label for="input-uname">{{ t('installer.username') }}:</label>
           <input
+            v-model="username"
             maxlength="16"
             type="text"
             name="input-uname"
