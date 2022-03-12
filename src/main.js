@@ -26,5 +26,4 @@ const i18n = createI18n({
 const app = createApp(App)
 app.use(VueMathJax).use(i18n).use(router).mount('#app')
 app.config.globalProperties.$window = window
-console.log(i18n)
 app.config.globalProperties.$i18n = i18n

@@ -4,7 +4,7 @@
       title="Upsilon Simulator"
       :src="
         ($window.location.href.endsWith('/') ? './' : './simulator/') +
-        'simulator.html'
+        'simulator.' + (darkmode ? 'dark' : 'light') + '.html'
       "
     >
       Browser not supported
@@ -16,6 +16,9 @@
 import { useI18n } from 'vue-i18n'
 export default {
   name: 'SimulatorPage',
+  props: {
+    darkmode: Boolean
+  },
   setup () {
     const { t } = useI18n({
       inheritLocale: true,

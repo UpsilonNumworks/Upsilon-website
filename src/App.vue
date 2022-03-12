@@ -55,7 +55,7 @@
   </div>
   <router-view v-slot="{ Component }">
     <transition name="route" mode="out-in">
-      <component :is="Component"></component>
+      <component :darkmode="darkmode" :is="Component"></component>
     </transition>
   </router-view>
 </template>

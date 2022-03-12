@@ -362,8 +362,6 @@ export default defineComponent({
         console.log('Restoring storage', this.shouldRestoreStorage)
         const _this = this
         await this.calculator.installStorage(this.storage, function () {
-          console.log(_this)
-          console.log(this)
           console.log('Storage restored successfully')
           _this.setStatus('installationDone')
         })
