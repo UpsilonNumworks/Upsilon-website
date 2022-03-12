@@ -591,7 +591,7 @@ export default defineComponent({
           ) +
           '<br>' +
           this.t('installer.hints.noDeviceSelected.driverHint.linux.command') +
-          '<pre>wget https://cdn.numworks.com/assets/files/my/drivers/linux/50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules && sudo mv 50-numworks-calculator.rules /etc/udev/rules.d </pre>' +
+          '<pre>wget https://cdn.numworks.com/assets/files/my/drivers/linux/50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules && sudo mv 50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules /etc/udev/rules.d </pre>' +
           '</details><details><summary>Windows</summary>' +
           this.t('installer.hints.noDeviceSelected.driverHint.download') +
           ' ' +

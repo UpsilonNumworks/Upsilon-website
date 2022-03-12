@@ -1,5 +1,7 @@
 <template>
+  <button v-if="debug" @click="forceLocaleFR">Force FR</button>
   <transition name="hamburger-menu" mode="in-out">
+
     <div @click="hbmenuOpen = false" v-if="hbmenuOpen" id="hamburger-menu">
       <div id="nav-btn-wrapper">
         <button class="nav-btn"></button>
@@ -71,7 +73,7 @@ export default defineComponent({
     return { t }
   },
   data () {
-    return { hbmenuOpen: false, darkmode: true }
+    return { hbmenuOpen: false, darkmode: true, debug: false }
   },
   components: {
     Switch
@@ -83,12 +85,18 @@ export default defineComponent({
     toggleNavbar () {
       document.getElementById('nav').classList.toggle('open')
       document.getElementById('nav').classList.toggle('closed')
+    },
+    forceLocaleFR () {
+      this.$i18n.global.locale._setter('fr')
     }
   },
   watch: {
     darkmode (value) {
       document.body.classList = [value ? 'dark' : 'light']
     }
+  },
+  mounted () {
+    this.debug = process.env.NODE_ENV !== 'production'
   }
 })
 </script>

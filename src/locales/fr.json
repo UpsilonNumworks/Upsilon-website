@@ -272,5 +272,70 @@
     "simulator": {
         "name": "Simulateur",
         "commingSoon": "Bientôt disponible..."
+    },
+    "faq": {
+        "name": "FAQ",
+        "questions": {
+            "canRollback": {
+                "answer": "Oui, il suffit d'aller sur numworks.com, de désactiver la protection contre epsilon (Paramètres -> USB) et d'installer epsilon normalement. \nAlternativement, si vous ne voulez pas verrouiller votre calculatrice, vous pouvez aller <a href=\"https://getomega.dev/install/E15/\">ici</a>",
+                "question": "Pouvez-vous revenir d'Upsilon à epsilon?"
+            },
+            "cheatsheet": {
+                "answer": "Pas pour l'instant mais peut-être un jour qui sait ^^",
+                "question": "Existe-t-il une feuille de triche avec les raccourcis clavier/trucs et astuces du simulateur pour Upsilon?"
+            },
+            "how2backup": {
+                "answer": "Le programme d'installation devrait automatiquement restaurer les scripts à la fin de l'installation. \nVous pouvez également accéder à <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> pour les sauvegarder manuellement.",
+                "question": "Comment sauvegarder les données de la calculatrice ?"
+            },
+            "how2contribute": {
+                "answer": "Les contributions (rapports de bugs, demandes de fonctionnalités et commits) sont les bienvenues à la fois sur Upsilon lui-même et sur son site Web. \nVous pouvez demander des fonctionnalités et signaler des bogues sur leurs outils de suivi des problèmes de référentiel respectifs: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> et <a href=\"https://github \n.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>",
+                "question": "Comment contribuer à Upsilon/son site internet ?"
+            },
+            "how2createReaderFile": {
+                "answer": "Vous ne pouvez pas. \nPour ajouter un fichier pour la liseuse à la calculatrice, vous devez vous rendre sur la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et y transférer vos fichiers.",
+                "question": "Comment créer un fichier pour l'application liseuse depuis la calculatrice ?"
+            },
+            "how2external": {
+                "answer": "Allez sur <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">le lien</a> fourni dans la page d'accueil ou après l'installation et sélectionnez les applications que vous souhaitez installer, puis cliquez sur installer.",
+                "question": "Comment installer des applications externes?"
+            },
+            "how2py": {
+                "answer": "Vous pouvez utiliser <a href=\"https://getomega.dev/ide\">Omega IDE</a> pour le faire, bien que le simulateur exécute Omega et non Upsilon et qu'il y ait actuellement des problèmes avec les transferts de fichiers ( \nqui se produira également sur numworks.com).",
+                "question": "Comment transférer des scripts vers la calculatrice/éditer des scripts en ligne sans passer par numworks.com ?"
+            },
+            "how2reader": {
+                "answer": "Accédez aux fichiers externes et ajoutez un fichier .txt ou .urt (texte enrichi Upsilon). \nPour plus d'informations, consulter le <a href=\"latex\">tutoriel de la liseuse</a>.",
+                "question": "Comment utiliser l'application liseuse?"
+            },
+            "how2recovery": {
+                "answer": "Ceci peut être utilisé lorsque le logiciel de la calculatrice est défectueux. \nCela se produit généralement lorsqu'il y a une erreur lors de l'installation ou lorsque la calculatrice est déconnectée lors de l'installation. \nAppuyez simultanément sur la touche 6 et la touche de réinitialisation à l'arrière de la calculatrice (assurez-vous que votre calculatrice est connectée à l'ordinateur via USB), puis appuyez sur récupération. \nSélectionnez STM32 BOOTLOADER et après quelques instants, vous devriez pouvoir installer Upsilon normalement.",
+                "question": "Qu'est-ce que l'option de récupération sur la page du programme d'installation et comment l'utiliser?"
+            },
+            "how2testReaderOnline": {
+                "answer": "C'est impossible pour le moment. \nC'est faisable avec les simulateurs windows/linux en plaçant les fichiers de la liseuse dans le même répertoire que les exécutables ou en transférant les fichiers de la liseuse vers la calculatrice.",
+                "question": "Comment prévisualiser un fichier pour la liseuse en ligne ?"
+            },
+            "how2themes": {
+                "answer": "Accédez au programme d'installation, sélectionnez la chaîne bêta et sélectionnez votre thème. \nVous devez réinstaller Upsilon pour changer de thème.",
+                "question": "Comment installer des thèmes ?"
+            },
+            "numLocked": {
+                "answer": "Il existe une <a href=\"https://www.youtube.com/watch?v=8I-0J6PHqrQ\">vidéo</a> expliquant comment déverrouiller votre calculatrice ainsi qu'un <a href=\"https://tiplanet.org/forum/viewtopic.php?f=113\">article de forum</a>",
+                "question": "Que puis-je faire si j'ai installé Epsilon 16 sur ma calculatrice ?"
+            },
+            "supportedBrowsers": {
+                "answer": "Tout navigateur basé sur chromium qui n'est pas trop ancien devrait fonctionner (Chrome, Brave, Edge etc...) Firefox ne fonctionnera pas.",
+                "question": "Quels navigateurs sont compatibles avec l'installeur?"
+            },
+            "supportedModels": {
+                "answer": "Vous pouvez l'installer sur les N100 et N110 (si vous n'avez pas installé Epsilon 16)",
+                "question": "Sur quels modèles numworks est-il possible d'installer Upsilon ?"
+            }
+        },
+        "sections": {
+            "canInstall": "Puis-je installer Upsilon ?",
+            "how2": "Comment"
+        }
     }
 }
