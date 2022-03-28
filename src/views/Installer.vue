@@ -618,7 +618,7 @@ export default defineComponent({
           this.t('installer.e16.message') +
           '<br>' +
           this.t('installer.e16.beforeLink') +
-          ' <a href="https://tiplanet.org/forum/viewtopic.php?f=113&t=25191&p=263495#p263495">' +
+          ' <a href="https://guide.getomega.dev/">' +
           this.t('installer.e16.link') +
           '</a>'
       } else if (err.message.includes('A transfer error has occurred')) {
