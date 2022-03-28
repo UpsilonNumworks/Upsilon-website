@@ -124,7 +124,7 @@
         "selecta": "Select a",
         "e16": {
             "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator.",
-            "link": "this forum thread",
+            "link": "this guide",
             "beforeLink": "To unlock you calculator, take a look at"
         },
         "tError": {
@@ -330,7 +330,7 @@
             },
             "numLocked": {
                 "question": "What can I do if I installed Epsilon 16+ on my calculator?",
-                "answer": "There is a <a href=\"https://www.youtube.com/watch?v=8I-0J6PHqrQ\">video</a> explaining how to unlock your calculator as well as a <a href=\"https://tiplanet.org/forum/viewtopic.php?f=113&t=25191&p=263495#p263495\">forum thread</a>"
+                "answer": "There is a <a href=\"https://guide.detomega.dev\">guide</a> explaining how to unlock your calculator"
             }
         },
         "sections": {

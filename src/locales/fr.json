@@ -92,11 +92,6 @@
         "unsupportedModel": "Modèle non pris en charge",
         "waitingForReboot": "En attente du redémarrage de la calculatrice...",
         "whatnext": "Et ensuite ?",
-        "e16": {
-            "message": "Cela se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice.",
-            "link": "ce fil de discussion",
-            "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à"
-        },
         "lang": "Langue",
         "languages": {
             "de": "allemand",
@@ -133,6 +128,11 @@
             "cursed_light": "Omega Cursed",
             "omega_freenumworks": "Omega FreeNumworks",
             "ahegao": "Ahegao"
+        },
+        "e16": {
+            "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à",
+            "link": "ce guide",
+            "message": "Cette erreur se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice."
         }
     },
     "github": {
@@ -321,8 +321,8 @@
                 "question": "Comment installer des thèmes ?"
             },
             "numLocked": {
-                "answer": "Il existe une <a href=\"https://www.youtube.com/watch?v=8I-0J6PHqrQ\">vidéo</a> expliquant comment déverrouiller votre calculatrice ainsi qu'un <a href=\"https://tiplanet.org/forum/viewtopic.php?f=113\">article de forum</a>",
-                "question": "Que puis-je faire si j'ai installé Epsilon 16 sur ma calculatrice ?"
+                "question": "Que puis-je faire si j'ai installé Epsilon 16 sur ma calculatrice ?",
+                "answer": "Il existe un <a href=\"https://guide.detomega.dev\">guide</a> expliquant comment déverrouiller votre calculatrice"
             },
             "supportedBrowsers": {
                 "answer": "Tout navigateur basé sur chromium qui n'est pas trop ancien devrait fonctionner (Chrome, Brave, Edge etc...) Firefox ne fonctionnera pas.",
