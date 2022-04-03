@@ -330,7 +330,7 @@
             },
             "numLocked": {
                 "question": "What can I do if I installed Epsilon 16+ on my calculator?",
-                "answer": "There is a <a href=\"https://guide.detomega.dev\">guide</a> explaining how to unlock your calculator"
+                "answer": "There is a <a href=\"https://guide.getomega.dev\">guide</a> explaining how to unlock your calculator"
             }
         },
         "sections": {
