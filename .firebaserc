@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "getupsilon"
+  },
+  "targets": {
+    "upsilon-web": {
+      "hosting": {
+        "getupsilon": [
+          "getupsilon"
+        ]
+      }
+    }
+  }
+}

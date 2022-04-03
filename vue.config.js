@@ -10,6 +10,5 @@ module.exports = {
       fullInstall: true,
       seo: true
     }
-  },
-  publicPath: process.env.NODE_ENV === 'production' ? '/Upsilon-website/' : '/'
+  }
 }
