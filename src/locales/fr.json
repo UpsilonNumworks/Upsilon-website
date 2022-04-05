@@ -74,7 +74,7 @@
         "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
         "channels": {
             "beta": {
-                "description": "Plus stable que Dev, mis à joure toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
+                "description": "Plus stable que Dev, mis à jour toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
                 "title": "Beta"
             },
             "dev": {
