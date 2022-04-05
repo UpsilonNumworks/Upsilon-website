@@ -114,7 +114,7 @@
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://discord.gg/FSnX3tUu"
+              href="https://discord.gg/X2TWhh9"
             >
               {{ t('installer.joinDiscord') }}
             </a>
@@ -607,7 +607,7 @@ export default defineComponent({
           this.t('installer.hints.noDeviceSelected.moreHelp.tryRecovery') +
           '<br>' +
           this.t('installer.hints.noDeviceSelected.moreHelp.1') +
-          ' <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/FSnX3tUu">' +
+          ' <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/X2TWhh9">' +
           this.t('installer.hints.noDeviceSelected.moreHelp.discord') +
           '</a> ' +
           this.t('installer.hints.noDeviceSelected.moreHelp.2') +
