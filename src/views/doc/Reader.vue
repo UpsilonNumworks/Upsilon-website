@@ -1,18 +1,95 @@
 <template>
   <div class="doc-wrapper">
     <div id="latex-doc" class="doc">
-      <h1>{{ t('doc.latex.reference') }}</h1>
+      <h1>{{ t("doc.reader.name") }}</h1>
       <p>
-        {{ t('doc.latex.description') }}
+        {{ t("doc.reader.p1") }}
+        <a
+          href="http://upsilonnumworks.github.io/Upsilon-External"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Upsilon External</a
+        >
       </p>
+      <p>{{ t("doc.reader.p2") }}</p>
+      <h2>{{ t("doc.reader.usingColor") }}</h2>
+      <p>{{ t("doc.reader.colorsDesc") }}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>{{ t("doc.reader.color") }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>%\last_color%</code></td>
+            <td>{{ t("doc.reader.colors.lastColor") }}</td>
+          </tr>
+          <tr>
+            <td><code>%r%</code></td>
+            <td>{{ t("doc.reader.colors.red") }}</td>
+          </tr>
+          <tr>
+            <td><code>%rl%</code></td>
+            <td>{{ t("doc.reader.colors.lightRed") }}</td>
+          </tr>
+          <tr>
+            <td><code>%m%</code></td>
+            <td>{{ t("doc.reader.colors.magenta") }}</td>
+          </tr>
+          <tr>
+            <td><code>%t%</code></td>
+            <td>{{ t("doc.reader.colors.turquoise") }}</td>
+          </tr>
+          <tr>
+            <td><code>%pk%</code></td>
+            <td>{{ t("doc.reader.colors.pink") }}</td>
+          </tr>
+          <tr>
+            <td><code>%pp%</code></td>
+            <td>{{ t("doc.reader.colors.purple") }}</td>
+          </tr>
+          <tr>
+            <td><code>%b%</code></td>
+            <td>{{ t("doc.reader.colors.blue") }}</td>
+          </tr>
+          <tr>
+            <td><code>%bl%</code></td>
+            <td>{{ t("doc.reader.colors.lightBlue") }}</td>
+          </tr>
+          <tr>
+            <td><code>%br%</code></td>
+            <td>{{ t("doc.reader.colors.brown") }}</td>
+          </tr>
+          <tr>
+            <td><code>%o%</code></td>
+            <td>{{ t("doc.reader.colors.orange") }}</td>
+          </tr>
+          <tr>
+            <td><code>%g%</code></td>
+            <td>{{ t("doc.reader.colors.green") }}</td>
+          </tr>
+          <tr>
+            <td><code>%gl%</code></td>
+            <td>{{ t("doc.reader.colors.lightGreen") }}</td>
+          </tr>
+          <tr>
+            <td><code>%c%</code></td>
+            <td>{{ t("doc.reader.colors.Cyan") }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>{{ t("doc.latex.reference") }}</h2>
       <p>
-        {{ t('doc.latex.symbolslisted') }}
+        {{ t("doc.latex.symbolslisted") }}
       </p>
       <div id="latex-tables">
         <div class="latex-table">
-          <h3 class="latex-table-title">{{ t('doc.latex.functions') }}</h3>
-          <h4>{{ t('doc.latex.command') }}</h4>
-          <h4>{{ t('doc.latex.output') }}</h4>
+          <h3 class="latex-table-title">{{ t("doc.latex.functions") }}</h3>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
 
           <LatexView :latex="true" formula="\frac{ab}{cd}" />
           <LatexView :latex="true" formula="\sqrt[n]{x}" />
@@ -26,11 +103,16 @@
             display="\floor{x}"
             formula="\lfloor x \rfloor"
           />
+          <!--<LatexView
+            :latex="true"
+            display="\int{f(x)}^{x}{a}{b}"
+            formula="\int_{a}^{b}f(x)"
+          />-->
         </div>
         <div class="latex-table">
-          <h3 class="latex-table-title">{{ t('doc.latex.mathsymbols') }}</h3>
-          <h4>{{ t('doc.latex.command') }}</h4>
-          <h4>{{ t('doc.latex.output') }}</h4>
+          <h3 class="latex-table-title">{{ t("doc.latex.mathsymbols") }}</h3>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
           <LatexView display="\times" output="×" />
           <LatexView display="\div" output="÷" />
           <LatexView display="\forall" output="∀" />
@@ -45,30 +127,37 @@
           <LatexView display="\leq" output="≤" />
           <LatexView display="\geq" output="≥" />
           <LatexView display="\left(" output="(" />
-
           <LatexView display="\right)" output=")" />
+          <LatexView formula="\in" output="∈" />
+          <LatexView formula="\cdot" output="⋅" />
+          <LatexView formula="\cdots" output="⋯" />
+          <LatexView formula="\ldots" output="…" />
         </div>
         <div class="latex-table force-break">
-          <h3 class="latex-table-title">{{ t('doc.latex.arrows') }}</h3>
-          <h4>{{ t('doc.latex.command') }}</h4>
-          <h4>{{ t('doc.latex.output') }}</h4>
+          <h3 class="latex-table-title">{{ t("doc.latex.arrows") }}</h3>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
           <LatexView display="\Leftarrow" output="⇐" />
           <LatexView display="\Rightarrow" output="⇒" />
           <LatexView display="\Uparrow" output="⇑" />
           <LatexView display="\Downarrow" output="⇓" />
           <LatexView display="\leftarrow" output="←" />
-          <LatexView display="\rightarrow" output="→" />
+          <LatexView display="\nwarrow" output="↖" />
           <LatexView display="\uparrow" output="↑" />
+          <LatexView display="\nearrow" output="↗" />
+          <LatexView display="\rightarrow" output="→" />
+          <LatexView display="\searrow" output="↘" />
           <LatexView display="\downarrow" output="↓" />
+          <LatexView display="\swarrow" output="↙" />
           <LatexView display="\leftrightarrow" output="↔" />
           <LatexView display="\updownarrow" output="↕" />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">
-            {{ t('doc.latex.greekcapitalletter') }}
+            {{ t("doc.latex.greekcapitalletter") }}
           </h3>
-          <h4>{{ t('doc.latex.command') }}</h4>
-          <h4>{{ t('doc.latex.output') }}</h4>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
           <LatexView display="\Alpha" output="A" />
           <LatexView display="\Beta" output="B" />
           <LatexView display="\Gamma" output="Γ" />
@@ -96,10 +185,10 @@
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">
-            {{ t('doc.latex.greeksmallletter') }}
+            {{ t("doc.latex.greeksmallletter") }}
           </h3>
-          <h4>{{ t('doc.latex.command') }}</h4>
-          <h4>{{ t('doc.latex.output') }}</h4>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
           <LatexView display="\alpha" output="α" />
           <LatexView display="\beta" output="β" />
           <LatexView display="\gamma" output="γ" />
@@ -126,6 +215,15 @@
           <LatexView display="\omega" output="ω" />
         </div>
       </div>
+      <h2>{{ t('doc.reader.example.title') }}</h2>
+      <p>{{ t('doc.reader.example.content') }}</p>
+      <code class="urt">
+        %pp%f(x)=%b%$\frac{\sqrt[4]{3x}}{10}$ <br />
+        %pp%$\forall x \in R$,%pp% <br />
+        f'(x)=%bl% $\frac{\frac{15}{2 \cdot \sqrt{3 \cdot x} \cdot \sqrt[4]{3
+        \cdot x}}}{10^2}$
+      </code>
+      <img class="urt" src="~@/assets/Reader_screenshot.webp" alt="result" />
     </div>
   </div>
 </template>
@@ -148,6 +246,26 @@ export default {
 </script>
 
 <style scoped>
+.urt {
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: solid var(--upsilon-1) 1pt;
+  background: var(--upsilon-2);
+  max-width: 800px;
+}
+th {
+  font-weight: normal;
+  text-align: center;
+}
+th,
+td {
+  padding: 0.5em;
+}
+table {
+  background-color: var(--feature-bg-upsilon);
+  margin: auto;
+}
 h3,
 h4 {
   text-align: center;
