@@ -186,7 +186,7 @@
         "latex": {
             "reference": "LaTeX Reference",
             "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
-            "symbolslisted": "All the symbols you can use are listed here :",
+      "symbolslisted": "For a LaTeX expression to be rendered, you need to surround it with dollar signs. All the symbols you can use are listed here :",
             "command": "Command",
             "output": "Output",
             "mathsymbols": "Math Symbols",

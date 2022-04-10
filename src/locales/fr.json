@@ -186,7 +186,7 @@
         "latex": {
             "reference": "Reference LaTeX",
             "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
-            "symbolslisted": "Tous les symboles que vous pouvez utiliser sont listés ici :",
+            "symbolslisted": "Pour qu'une expression LaTeX soit rendue, vous devez l'entourer de signes dollar. \nTous les symboles que vous pouvez utiliser sont listés ici :",
             "command": "Commande",
             "output": "Résultat",
             "mathsymbols": "Symboles mathématiques",
@@ -232,6 +232,34 @@
         "themes": {
             "description": "Tous ces thèmes peuvent être installés avec l'installeur en ligne",
             "title": "Liste des thèmes"
+        },
+        "reader": {
+            "p2": "Mais elle prend également en charge le format personnalisé .urt, qui signifie Upsilon Rich Text. Elle vous permet d'utiliser des couleurs et prend en charge un sous-ensemble de caractères spéciaux et de fonctions LaTeX.",
+            "color": "Couleur",
+            "colors": {
+                "Cyan": "cyan",
+                "blue": "Bleu",
+                "brown": "Brun",
+                "green": "Vert",
+                "lastColor": "Arrêter d'utiliser la dernière couleur",
+                "lightBlue": "Bleu clair",
+                "lightGreen": "Vert clair",
+                "lightRed": "Rouge clair",
+                "magenta": "Magenta",
+                "orange": "Orange",
+                "pink": "Rose",
+                "purple": "Violet",
+                "red": "Rouge",
+                "turquoise": "Turquoise"
+            },
+            "colorsDesc": "Vous pouvez modifier la couleur du texte à l'aide des codes de couleur suivants. Le texte qui suit un code couleur sera dans la couleur correspondante.",
+            "example": {
+                "content": "L'entrée suivante produit la sortie suivante:",
+                "title": "Exemple"
+            },
+            "name": "La liseuse",
+            "p1": "La liseuse peut lire les fichiers .txt que vous pouvez transférer sur votre calculatrice via",
+            "usingColor": "Utilisation des couleurs"
         }
     },
     "releases": {

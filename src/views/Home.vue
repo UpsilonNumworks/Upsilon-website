@@ -64,7 +64,7 @@
       <div class="features" id="features-upsilon">
         <Feature :title="t('features.reader.name')">
           {{ t('features.reader.description') }}
-          <router-link to="/doc/latex">{{
+          <router-link to="/doc/reader">{{
             t('features.reader.docLink')
           }}</router-link>
         </Feature>

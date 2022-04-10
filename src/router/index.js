@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Latex from '../views/doc/Latex.vue'
-import Installer from '../views/Installer.vue'
+import FAQ from '../views/doc/FAQ.vue'
 import RPN from '../views/doc/RPN.vue'
+import Themes from '../views/doc/Themes.vue'
+import Reader from '../views/doc/Reader.vue'
+import Home from '../views/Home.vue'
+import Installer from '../views/Installer.vue'
+import NotFound from '../views/NotFound.vue'
 import Releases from '../views/Releases.vue'
 import Simulator from '../views/Simulator.vue'
-import NotFound from '../views/NotFound.vue'
-import Themes from '../views/doc/Themes.vue'
-import FAQ from '../views/doc/FAQ.vue'
 
 const routes = [
   {
@@ -16,9 +16,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/doc/latex',
-    name: 'Latex',
-    component: Latex
+    path: '/doc/reader',
+    name: 'Reader',
+    component: Reader
   },
   {
     path: '/doc/themes',
