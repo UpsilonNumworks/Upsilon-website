@@ -232,6 +232,34 @@
         "themes": {
             "title": "List of themes",
             "description": "All of these themes can be installed with the online installer"
+    },
+    "reader": {
+      "name": "The reader app",
+      "p1": "The reader app can read .txt files that you can upload to your calculator via",
+      "p2": "But it also supports the custom .urt format, which stands for Upsilon Rich Text. It allows you to use colors and supports a subset of the LaTeX special characters and functions.",
+      "colors": {
+        "lastColor": "Stop using last color",
+        "red": "Red",
+        "lightRed": "Light red",
+        "magenta": "Magenta",
+        "turquoise": "Turquoise",
+        "pink": "Pink",
+        "purple": "Purple",
+        "blue": "Blue",
+        "lightBlue": "Light blue",
+        "brown": "Brown",
+        "orange": "Orange",
+        "green": "Green",
+        "lightGreen": "Light green",
+        "Cyan": "Cyan"
+      },
+      "usingColor": "Using colors",
+      "color": "Color",
+      "colorsDesc": "You can change the color of the text using the following color codes. The text that follows a color code will be in the corresponding color.",
+      "example": {
+        "title": "Example",
+        "content": "The following input produces the following output:"
+      }
         }
     },
     "releases": {
