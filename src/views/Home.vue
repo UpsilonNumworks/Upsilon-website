@@ -141,16 +141,17 @@ export default defineComponent({
   components: { Feature, DownloadsPage },
   mounted () {
     const updateSize = () => {
-      // TODO check if on home page
-      document.getElementById(
-        'upsi-fork'
-      ).style.transform = `translateX(-50%) scale(${window.innerHeight / 500})`
-      document.getElementById(
-        'upsi-logo'
-      ).style.transform = `translateX(-50%) translateY(-50%) scale(${Math.min(
+      if (this.$route.name === 'Home') {
+        document.getElementById(
+          'upsi-fork'
+        ).style.transform = `translateX(-50%) scale(${window.innerHeight / 500})`
+        document.getElementById(
+          'upsi-logo'
+        ).style.transform = `translateX(-50%) translateY(-50%) scale(${Math.min(
         window.innerHeight / 1000,
         window.innerWidth / 800
       )})`
+      }
     }
     window.addEventListener('resize', updateSize)
     updateSize()
