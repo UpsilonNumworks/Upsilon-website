@@ -118,12 +118,14 @@
           {{ t('features.3ds.description') }}
         </Feature>
       </div>
+      <DownloadsPage/>
     </div>
   </div>
 </template>
 
 <script>
 import Feature from '@/components/Feature.vue'
+import DownloadsPage from '@/components/DownloadsPage.vue'
 import { useI18n } from 'vue-i18n'
 import { defineComponent } from 'vue'
 
@@ -136,7 +138,7 @@ export default defineComponent({
     })
     return { t }
   },
-  components: { Feature },
+  components: { Feature, DownloadsPage },
   mounted () {
     const updateSize = () => {
       // TODO check if on home page

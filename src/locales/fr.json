@@ -365,5 +365,10 @@
             "canInstall": "Puis-je installer Upsilon ?",
             "how2": "Comment"
         }
+    },
+    "downloads": {
+        "download": "Télécharger Upsilon",
+        "installNow": "Installez Upsilon maintenant",
+        "onlineInstaller": "Installateur en ligne"
     }
 }
