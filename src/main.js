@@ -1,8 +1,12 @@
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
+import VueMathJax from 'vue-mathjax-next'
 import App from './App.vue'
 import router from './router'
-import VueMathJax from 'vue-mathjax-next'
-import { createI18n } from 'vue-i18n'
+
+AOS.init()
 
 function loadLocaleMessages () {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)

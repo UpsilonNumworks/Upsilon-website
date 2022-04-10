@@ -62,17 +62,17 @@
         </h2>
       </div>
       <div class="features" id="features-upsilon">
-        <Feature :title="t('features.reader.name')">
+        <Feature :column="0" :title="t('features.reader.name')">
           {{ t('features.reader.description') }}
           <router-link to="/doc/reader">{{
             t('features.reader.docLink')
           }}</router-link>
         </Feature>
 
-        <Feature :title="t('features.protection.title')">
+        <Feature :column="1" :title="t('features.protection.title')">
           {{ t('features.protection.content') }}
         </Feature>
-        <Feature :title="t('features.python.title')">
+        <Feature :column="3" :title="t('features.python.title')">
           <ul>
             <li>{{ t('features.python.ulab') }}</li>
             <li>{{ t('features.python.sys') }}</li>
@@ -86,7 +86,7 @@
         </h2>
       </div>
       <div class="features" id="features-omega">
-        <Feature :title="t('features.external.name')">
+        <Feature :column="0" :title="t('features.external.name')">
           {{ t('features.external.description') }}
           <a
             href="https://upsilonnumworks.github.io/Upsilon-External/"
@@ -95,26 +95,26 @@
             >{{ t('features.external.installNow') }}</a
           >
         </Feature>
-        <Feature :title="t('features.symbolic.name')">
+        <Feature  :column="1" :title="t('features.symbolic.name')">
           {{ t('features.symbolic.description') }}
         </Feature>
-        <Feature :title="t('features.themes.name')">
+        <Feature  :column="2" :title="t('features.themes.name')">
           {{ t('features.themes.description') }}
 
           <router-link to="/doc/themes"
             >{{ t('home.findThemeList') }}
           </router-link>
         </Feature>
-        <Feature :title="t('features.periodic.name')">
+        <Feature  :column="0" :title="t('features.periodic.name')">
           {{ t('features.periodic.description') }}
         </Feature>
-        <Feature :title="t('features.rpn.name')">
+        <Feature  :column="1" :title="t('features.rpn.name')">
           {{ t('features.rpn.description') }}
           <router-link to="/doc/rpn">{{
             t('features.rpn.docLink')
           }}</router-link>
         </Feature>
-        <Feature :title="t('features.3ds.name')">
+        <Feature  :column="2" :title="t('features.3ds.name')">
           {{ t('features.3ds.description') }}
         </Feature>
       </div>

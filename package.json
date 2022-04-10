@@ -9,6 +9,7 @@
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.6.5",
     "numworks.js": "^1.2.1",
     "vue": "^3.0.0",
