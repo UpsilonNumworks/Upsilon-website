@@ -283,7 +283,6 @@ export default defineComponent({
           } else {
             this.statusHTML = this.t('installer.connected')
           }
-
           break
 
         case 'disconnected':
@@ -296,6 +295,7 @@ export default defineComponent({
           this.showInstaller = false
           this.showProgressbar = false
           this.showInfo = true
+          this.done = false
           this.infoClass = 'disconnected'
           console.log('Calculator disconnected')
           this.statusHTML = this.t('installer.disconnected')
@@ -345,12 +345,14 @@ export default defineComponent({
           this.statusHTML = this.t('installer.restoring')
           break
         case 'downloadingRecovery':
+          this.showButtons = false
           this.statusHTML = this.t('installer.downloadingRecovery')
           break
         case 'installingRecovery':
           this.statusHTML = this.t('installer.installingRecovery')
           break
         case 'recoveryDone':
+          this.showProgressbar = false
           this.statusHTML = this.t('installer.recoveryDone')
           break
         default:
@@ -572,10 +574,12 @@ export default defineComponent({
       }
     },
     onError (err) {
+      this.forceDisconnect()
       if (typeof err === 'string') {
         err = new Error(err)
       }
       this.statusHTML = this.t('installer.error') + ': ' + err.message
+      this.infoClass = 'error'
 
       if (
         err.message.includes(
@@ -588,6 +592,7 @@ export default defineComponent({
         this.statusHTML +=
           '<br> <b>' + this.t('installer.hints.closeOtherTabs') + '</b>'
       } else if (err.message.includes('No device selected')) {
+        this.infoClass = 'warning'
         this.statusHTML +=
           '<br>' +
           this.t('installer.hints.noDeviceSelected.text1') +
@@ -648,7 +653,6 @@ export default defineComponent({
           this.t('installer.tError.li3') +
           '</li></ul>'
       }
-      this.infoClass = 'error'
       this.showButtons = true
       this.showInfo = true
       throw err
@@ -692,6 +696,8 @@ select{
   color:var(--foreground);
   margin:.5em;
   padding:.5em;
+  font-size:1.1em;
+  text-align:center;
 }
 #thanks {
   font-size: 1.1em;
@@ -711,6 +717,12 @@ h1 {
   border: red 1pt solid;
   color: var(--error-text);
   backdrop-filter: blur(50px);
+  padding: 1em;
+  margin: 1em;
+}
+.warning {
+  border: grey 1pt solid;
+  backdrop-filter: blur(50px) saturate(0.5);
   padding: 1em;
   margin: 1em;
 }
