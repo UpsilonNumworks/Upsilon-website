@@ -83,6 +83,12 @@
             name="input-uname"
             id="input-uname"
           />
+          <label v-if="!n100" for="select-slot">{{t('installer.slot')}}:</label>
+          <select v-if="!n100" v-model="slot" name="select-slot" id="select-slot">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="legacy">{{t('installer.noSlots')}}</option>
+          </select>
           <button @click="forceDisconnect" type="button" id="btn-disconnect">
             {{ t('installer.disconnect') }}
           </button>
@@ -94,6 +100,7 @@
           >
             {{ t('installer.install') }}
           </button>
+
         </form>
         <div v-if="done">
           <span id="thanks"> {{ t('installer.thanks') }}</span>
@@ -175,6 +182,8 @@ export default defineComponent({
       theme: 'upsilon_light',
       lang: 'en',
       channel: 'beta',
+      slot: 'A',
+      slots: ['A', 'B'],
       themes: [
         'upsilon_light',
         'upsilon_dark',
@@ -226,6 +235,9 @@ export default defineComponent({
     onload () {
       if (!('usb' in navigator)) {
         this.statusHTML = this.t('installer.incompatibleBrowser')
+        this.showButtons = false
+        this.showInfo = true
+        this.infoClass = 'error'
         return
       }
 
@@ -464,9 +476,12 @@ export default defineComponent({
           fwname += '.' + this.lang
         }
         fwname += '.' + name + '.bin'
+      } else if (name === 'bootloader') {
+        fwname = 'bootloader.bin'
       } else {
         fwname = 'flasher.verbose.bin'
       }
+
       const jsonUrl = `${mirror}${this.channel}%2F${
         model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
       }%2F${fwname}`
@@ -511,13 +526,13 @@ export default defineComponent({
         } else if (model === '0110') {
           this.currentbin = 'external'
           this.setStatus('downloading')
-          const externalBin = await this.downloadBin('external', 'N0110')
+          const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
           await this.calculator.flashExternal(externalBin)
           console.log('downloading internal')
           this.currentbin = 'internal'
           this.setStatus('downloading')
           this.logProgress(0, 1)
-          const internalBin = await this.downloadBin('internal', 'N0110')
+          const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
           this.patchUsername(internalBin)
           await this.calculator.flashInternal(internalBin)
         } else {
@@ -670,6 +685,14 @@ pre::-webkit-scrollbar-thumb {
 }
 </style>
 <style scoped>
+select{
+  border: solid var(--upsilon-1) 2pt;
+  border-radius:3px;
+  background-color:var(--upsilon-2);
+  color:var(--foreground);
+  margin:.5em;
+  padding:.5em;
+}
 #thanks {
   font-size: 1.1em;
 }
