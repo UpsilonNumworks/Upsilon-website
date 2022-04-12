@@ -386,6 +386,14 @@
         "question": "What can I do if I installed Epsilon 16+ on my calculator?",
         "answer": "There is a <a href=\"https://guide.getomega.dev\">guide</a> explaining how to unlock your calculator"
       },
+      "uninstallExternal": {
+        "question": "How to uninstall external apps?",
+        "answer": "Go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and select nothing and then install. This will erase all the external apps and background."
+      },
+      "customTheme": {
+        "question": "How to create custom themes?",
+        "answer": "There is a <a href=\"https://github.com/ArtichOwO/OmegaThemeMakerApp\">theme maker app</a> which makes it pretty easy to make themes. "
+      },
       "stillCouldntFind": {
         "question": "Couldn't find an answer to your question?",
         "answer": "Go to the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a> and ask there!"

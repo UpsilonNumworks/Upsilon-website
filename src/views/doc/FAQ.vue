@@ -17,6 +17,7 @@
         <FAQquestion question="how2createReaderFile" />
         <FAQquestion question="how2testReaderOnline" />
         <FAQquestion question="how2recovery" />
+        <FAQquestion question="uninstallExternal" />
         <FAQquestion question="canRollback" />
         <FAQquestion question="cheatsheet" />
         <hr>
