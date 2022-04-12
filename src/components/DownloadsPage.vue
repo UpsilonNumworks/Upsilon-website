@@ -74,8 +74,8 @@
               name="N100"
             />
             <DownloadItem
-              :url="'beta/n110/binpack.'+theme+'.tar.gz'"
-              ext=".tar.gz"
+              :url="'beta/n110/binpack.'+theme+'.tgz'"
+              ext=".tgz"
               name="N110"
             />
           </div>
