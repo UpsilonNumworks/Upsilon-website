@@ -11,7 +11,9 @@
       }
     },
     "findThemeList": "You can find a list of all the available themes here.",
-    "here": "here"
+    "here": "here",
+    "anyQuestions": "Any questions?",
+    "visitFaq": "Visit our FAQ"
   },
   "installer": {
     "languages": {

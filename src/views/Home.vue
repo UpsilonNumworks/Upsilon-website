@@ -134,20 +134,27 @@
       </div>
       <DownloadsPage />
       <footer>
-        <h1>Upsilon</h1>
-        <a href="https://discord.gg/X2TWhh9"
-          ><img
-            class="footer-link"
-            src="~@/assets/discord.webp"
-            alt="Discord logo"
-        /></a>
-        <a href="https://github.com/UpsilonNumworks/Upsilon"
-          ><img
-          style="transform: scale(.9);"
-            class="footer-link"
-            src="~@/assets/github.webp"
-            alt="Discord logo"
-        /></a>
+        <div id="footer-links">
+          <h1>Upsilon</h1>
+          <a href="https://discord.gg/X2TWhh9"
+            ><img
+              class="footer-link"
+              src="~@/assets/discord.webp"
+              alt="Discord logo"
+          /></a>
+          <a href="https://github.com/UpsilonNumworks/Upsilon"
+            ><img
+            style="transform: scale(.9);"
+              class="footer-link"
+              src="~@/assets/github.webp"
+              alt="Discord logo"
+          /></a>
+        </div>
+        <div id="faq-link">
+
+        <h2> {{t('home.anyQuestions')}}</h2>
+        <router-link to="/doc/FAQ">{{t('home.visitFaq')}}</router-link>
+        </div>
       </footer>
     </div>
   </div>
@@ -244,10 +251,23 @@ export default defineComponent({
 footer {
   max-width: 1500px;
   margin: auto;
+  padding:1em;
+  border-top: solid var(--upsilon-1) 2pt;
+}
+#footer-links{
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
+#faq-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#faq-link *{
+  margin: 2em;
+}#faq-link a{
+font-size:1.5em;}
 footer h1 {
   text-align: left;
 }
