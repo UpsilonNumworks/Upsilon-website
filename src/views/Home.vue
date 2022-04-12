@@ -58,67 +58,81 @@
     <div id="content">
       <div class="features-header" id="features-upsilon-header">
         <h2>
-          {{ t('home.features.header.upsilon') }}
+          {{ t("home.features.header.upsilon") }}
         </h2>
       </div>
       <div class="features" id="features-upsilon">
         <Feature :column="0" :title="t('features.reader.name')">
-          {{ t('features.reader.description') }}
+          {{ t("features.reader.description") }}
           <router-link to="/doc/reader">{{
-            t('features.reader.docLink')
+            t("features.reader.docLink")
           }}</router-link>
         </Feature>
 
         <Feature :column="1" :title="t('features.protection.title')">
-          {{ t('features.protection.content') }}
+          {{ t("features.protection.content") }}
         </Feature>
-        <Feature :column="3" :title="t('features.python.title')">
+        <Feature :column="2" :title="t('features.python.title')">
           <ul>
-            <li>{{ t('features.python.ulab') }}</li>
-            <li>{{ t('features.python.sys') }}</li>
-            <li>{{ t('features.python.battery') }}</li>
+            <li>{{ t("features.python.ulab") }}</li>
+            <li>{{ t("features.python.sys") }}</li>
+            <li>{{ t("features.python.battery") }}</li>
           </ul>
+        </Feature>
+        <Feature :column="0" :title="t('features.settings.name')">
+          {{ t("features.settings.description") }}
+        </Feature>
+        <Feature :column="1" :title="t('features.plenty.name')">
+          {{ t("features.plenty.description") }}
+          <router-link to="/releases">{{
+            t("features.plenty.releasesLink")
+          }}</router-link>
         </Feature>
       </div>
       <div class="features-header" id="features-omega-header">
         <h2>
-          {{ t('home.features.header.omega') }}
+          {{ t("home.features.header.omega") }}
         </h2>
       </div>
       <div class="features" id="features-omega">
-        <Feature :column="0" :title="t('features.external.name')">
-          {{ t('features.external.description') }}
+        <Feature :column="0" :title="t('features.dualboot.name')">
+          {{ t("features.dualboot.description") }} </Feature
+        ><Feature :column="1" :title="t('features.phi.name')">
+          {{ t("features.phi.description") }}
+        </Feature>
+        <Feature :column="2" :title="t('features.external.name')">
+          {{ t("features.external.description") }}
           <a
             href="https://upsilonnumworks.github.io/Upsilon-External/"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ t('features.external.installNow') }}</a
+            >{{ t("features.external.installNow") }}</a
           >
         </Feature>
-        <Feature  :column="1" :title="t('features.symbolic.name')">
-          {{ t('features.symbolic.description') }}
+        <Feature :column="0" :title="t('features.symbolic.name')">
+          {{ t("features.symbolic.description") }}
         </Feature>
-        <Feature  :column="2" :title="t('features.themes.name')">
-          {{ t('features.themes.description') }}
+        <Feature :column="1" :title="t('features.themes.name')">
+          {{ t("features.themes.description") }}
 
           <router-link to="/doc/themes"
-            >{{ t('home.findThemeList') }}
+            >{{ t("home.findThemeList") }}
           </router-link>
         </Feature>
-        <Feature  :column="0" :title="t('features.periodic.name')">
-          {{ t('features.periodic.description') }}
+        <Feature :column="2" :title="t('features.periodic.name')">
+          {{ t("features.periodic.description") }}
         </Feature>
-        <Feature  :column="1" :title="t('features.rpn.name')">
-          {{ t('features.rpn.description') }}
+        <Feature :column="0" :title="t('features.rpn.name')">
+          {{ t("features.rpn.description") }}
           <router-link to="/doc/rpn">{{
-            t('features.rpn.docLink')
+            t("features.rpn.docLink")
           }}</router-link>
         </Feature>
-        <Feature  :column="2" :title="t('features.3ds.name')">
-          {{ t('features.3ds.description') }}
+        <Feature :column="1" :title="t('features.3ds.name')">
+          {{ t("features.3ds.description") }}
         </Feature>
       </div>
-      <DownloadsPage/>
+      <DownloadsPage />
     </div>
   </div>
 </template>
@@ -144,13 +158,15 @@ export default defineComponent({
       if (this.$route.name === 'Home') {
         document.getElementById(
           'upsi-fork'
-        ).style.transform = `translateX(-50%) scale(${window.innerHeight / 500})`
+        ).style.transform = `translateX(-50%) scale(${
+          window.innerHeight / 500
+        })`
         document.getElementById(
           'upsi-logo'
         ).style.transform = `translateX(-50%) translateY(-50%) scale(${Math.min(
-        window.innerHeight / 1000,
-        window.innerWidth / 800
-      )})`
+          window.innerHeight / 1000,
+          window.innerWidth / 800
+        )})`
       }
     }
     window.addEventListener('resize', updateSize)
@@ -223,7 +239,7 @@ a:visited {
 }
 h1,
 h2 {
-  font-family: 'Righteous';
+  font-family: "Righteous";
 }
 h1 {
   text-align: center;
@@ -268,19 +284,19 @@ h1 {
 }
 .light #features-omega,
 .light #features-omega-header {
-  background-image: url('~@/assets/Calculators_omega_light.webp');
+  background-image: url("~@/assets/Calculators_omega_light.webp");
 }
 .dark #features-omega,
 .dark #features-omega-header {
-  background-image: url('~@/assets/Calculators_omega_dark.webp');
+  background-image: url("~@/assets/Calculators_omega_dark.webp");
 }
 .light #features-upsilon,
 .light #features-upsilon-header {
-  background-image: url('~@/assets/Calculators_upsilon_light.webp');
+  background-image: url("~@/assets/Calculators_upsilon_light.webp");
 }
 .dark #features-upsilon,
 .dark #features-upsilon-header {
-  background-image: url('~@/assets/Calculators_upsilon_dark.webp');
+  background-image: url("~@/assets/Calculators_upsilon_dark.webp");
 }
 .features {
   display: grid;
@@ -330,10 +346,10 @@ h1 {
   transition: background-image 0.5s;
 }
 .light #logos-bg {
-  background-image: url('~@/assets/Two_calculators_light.webp');
+  background-image: url("~@/assets/Two_calculators_light.webp");
 }
 .dark #logos-bg {
-  background-image: url('~@/assets/Two_calculators_dark.webp');
+  background-image: url("~@/assets/Two_calculators_dark.webp");
 }
 #text-bg {
   background: linear-gradient(0, var(--upsilon-2), #00000000);
