@@ -19,6 +19,8 @@
         <FAQquestion question="how2recovery" />
         <FAQquestion question="canRollback" />
         <FAQquestion question="cheatsheet" />
+        <hr>
+        <FAQquestion question="stillCouldntFind" />
       </div>
     </div>
   </div>

@@ -385,6 +385,10 @@
       "numLocked": {
         "question": "What can I do if I installed Epsilon 16+ on my calculator?",
         "answer": "There is a <a href=\"https://guide.getomega.dev\">guide</a> explaining how to unlock your calculator"
+      },
+      "stillCouldntFind": {
+        "question": "Couldn't find an answer to your question?",
+        "answer": "Go to the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a> and ask there!"
       }
     },
     "sections": {
