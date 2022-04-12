@@ -133,6 +133,22 @@
         </Feature>
       </div>
       <DownloadsPage />
+      <footer>
+        <h1>Upsilon</h1>
+        <a href="https://discord.gg/X2TWhh9"
+          ><img
+            class="footer-link"
+            src="~@/assets/discord.webp"
+            alt="Discord logo"
+        /></a>
+        <a href="https://github.com/UpsilonNumworks/Upsilon"
+          ><img
+          style="transform: scale(.9);"
+            class="footer-link"
+            src="~@/assets/github.webp"
+            alt="Discord logo"
+        /></a>
+      </footer>
     </div>
   </div>
 </template>
@@ -225,7 +241,24 @@ export default defineComponent({
     font-size: 3em;
   }
 }
-
+footer {
+  max-width: 1500px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer h1 {
+  text-align: left;
+}
+.dark .footer-link {
+  filter: invert();
+}
+.footer-link {
+  width: 5em;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
 .feature-content > a {
   display: block;
   margin: 5px;
