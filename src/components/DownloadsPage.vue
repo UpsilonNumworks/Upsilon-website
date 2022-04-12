@@ -35,7 +35,7 @@
         </div>
         <div class="download-section">
           <h3>Binpacks</h3>
-          <div class="download-list">
+          <div class="download-list" style="padding-bottom:0;">
             <CustomSelect
               style="flex: 1"
               name="select-lang"
@@ -67,7 +67,7 @@
             >
             </CustomSelect>
           </div>
-          <div class="download-list">
+          <div style="padding-top:0" class="download-list">
             <DownloadItem
               :url="'beta/n100/epsilon.onboarding.'+ theme+'.'+ lang + '.internal.bin'"
               ext=".bin"
