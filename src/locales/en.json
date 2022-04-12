@@ -133,7 +133,9 @@
       "li3": "Use a different cable",
       "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try following things:"
     },
-    "lang": "Language"
+    "lang": "Language",
+    "slot": "Slot",
+    "noSlots": "Don't use slots"
   },
   "github": {
     "name": "Github"
@@ -180,6 +182,23 @@
       "ulab": "Added Ulab which contains SciPy and NumPy (N110 only) ",
       "sys": "Added a sys module",
       "battery": "Added a way to get the battery level (level, voltage and charging status)"
+    },
+    "dualboot": {
+      "description": "Omega integrates a new Bootloader. It allows you to boot multiple OS from different slots.",
+      "name": "Dual boot"
+    },
+    "phi": {
+      "description": "Phi is a tool developed by M4xi1m3 that unlocks your calculator after an Epsilon 16+ update.",
+      "name": "Phi"
+    },
+    "plenty": {
+      "name": "Plenty of other smaller features",
+      "description": "You can find a detailed list there: ",
+      "releasesLink": "Releases"
+    },
+    "settings": {
+      "name": "More settings",
+      "description": "Customize your calculator's behaviour to your heart's content"
     }
   },
   "doc": {
