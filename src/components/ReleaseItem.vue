@@ -42,7 +42,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:4px;
+  margin-right:.5em;
 }
 
 .release-tag-new {
@@ -56,6 +56,6 @@ export default {
 .release-item{
     display:flex;
     align-items: center;
-    margin:4px;
+    margin:.5em;
 }
 </style>

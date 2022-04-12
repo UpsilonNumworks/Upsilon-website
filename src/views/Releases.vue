@@ -4,22 +4,25 @@
       <h1>{{ t('releases.name') }}</h1>
       <div class="generic-page release-table">
         <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
-        <div class="grid">
+        <div>
           <ReleaseItem>{{ t('releases.versions.1-0.latex') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.E16Security') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.RecoveryMode') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.Background') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.Themes') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Ulab') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.PythonBattery') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.backlightSettings') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.batteryPercentage') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.cursor') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsHighlight') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.Ulab') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.Fstrings') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.PythonBattery') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.KandinskyEnhancements') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.Reader') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.PythonBaseScripts') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.StorageSize') }}</ReleaseItem>
-          <ReleaseItem chg>
-            {{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}
-          </ReleaseItem>
+          <ReleaseItem chg>{{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.BatteryLogo') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.BatteryPercentage') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.EqualSymplification') }}</ReleaseItem>
@@ -56,5 +59,8 @@ export default {
 .releases-table-wrapper {
   max-width: 1000px;
   flex: 1;
+}
+.release-table{
+  padding:2em;
 }
 </style>
