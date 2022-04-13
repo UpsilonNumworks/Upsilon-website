@@ -74,7 +74,7 @@
               name="N100"
             />
             <DownloadItem
-              :url="'beta/n110/binpack.'+theme+'.tgz'"
+              :url="'beta/n110/'+theme+'.tgz'"
               ext=".tgz"
               name="N110"
             />
