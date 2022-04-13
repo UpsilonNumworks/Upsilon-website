@@ -525,7 +525,7 @@ export default defineComponent({
           const bin = await this.downloadBin('internal', 'N0100')
           this.patchUsername(bin)
           await this.calculator.flashInternal(bin)
-        } else if (model === '0110') {
+        } else if (model === '0110' || model === '????') {
           this.currentbin = 'external'
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
@@ -574,13 +574,14 @@ export default defineComponent({
       }
     },
     onError (err) {
-      this.forceDisconnect()
+      try {
+        this.forceDisconnect()
+      } catch {}
       if (typeof err === 'string') {
         err = new Error(err)
       }
       this.statusHTML = this.t('installer.error') + ': ' + err.message
       this.infoClass = 'error'
-
       if (
         err.message.includes(
           "Cannot set properties of null (setting 'startAddress')"
