@@ -86,8 +86,8 @@
           <label v-if="!n100" for="select-slot">{{t('installer.slot')}}:</label>
           <select v-if="!n100" v-model="slot" name="select-slot" id="select-slot">
             <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="legacy">{{t('installer.noSlots')}}</option>
+            <option disabled value="B">B</option>
+            <option :disabled="modelUnknown" value="legacy">{{t('installer.noSlots')}}</option>
           </select>
           <button @click="forceDisconnect" type="button" id="btn-disconnect">
             {{ t('installer.disconnect') }}
@@ -179,6 +179,7 @@ export default defineComponent({
       infoClass: '',
       percentage: 0,
       n100: false,
+      modelUnknown: false,
       theme: 'upsilon_light',
       lang: 'en',
       channel: 'beta',
@@ -355,12 +356,28 @@ export default defineComponent({
           this.showProgressbar = false
           this.statusHTML = this.t('installer.recoveryDone')
           break
+        case 'unknownModelDone':
+          this.showProgressbar = false
+          this.done = true
+          this.statusHTML = this.t('installer.unknownModelDone')
+          break
+        case 'unknownConnected':
+          this.modelUnknown = true
+          this.showInfo = true
+          this.infoClass = 'warning'
+          this.statusHTML = this.t('installer.unknownModelConnected')
+          break
         default:
           throw new Error('Invalid status specified')
       }
     },
     async connectedHandler () {
       this.setStatus('connected')
+      this.modelUnknown = false
+      if (this.calculator.getModel() === '????') {
+        this.setStatus('unknownConnected')
+      }
+
       if (!this.inRecoveryMode) {
         this.n100 = this.calculator.getModel().toLowerCase() === '0100'
         const PlatformInfo = await this.calculator.getPlatformInfo()
@@ -525,7 +542,7 @@ export default defineComponent({
           const bin = await this.downloadBin('internal', 'N0100')
           this.patchUsername(bin)
           await this.calculator.flashInternal(bin)
-        } else if (model === '0110' || model === '????') {
+        } else if (model === '0110') {
           this.currentbin = 'external'
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
@@ -537,10 +554,20 @@ export default defineComponent({
           const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
           this.patchUsername(internalBin)
           await this.calculator.flashInternal(internalBin)
+        } else if (model === '????') {
+          this.currentbin = 'external'
+          this.setStatus('downloading')
+          const externalBin = await this.downloadBin(this.slot, 'N0110')
+          await this.calculator.flashExternal(externalBin)
+          this.setStatus('unknownModelDone')
+          this.showButtons = false
+          this.showProgressbar = false
+          this.inRecoveryMode = false
+          this.shouldRestoreStorage = true
+          return
         } else {
           throw new Error(this.t('installer.unsupportedModel') + ':' + model)
         }
-
         this.setStatus('waitingForReboot')
         this.inRecoveryMode = false
         this.shouldRestoreStorage = true

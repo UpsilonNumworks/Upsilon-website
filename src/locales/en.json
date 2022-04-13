@@ -137,7 +137,9 @@
     },
     "lang": "Language",
     "slot": "Slot",
-    "noSlots": "Don't use slots"
+    "noSlots": "Don't use slots",
+    "unknownModelConnected": "Warning: Could not detect the calculator model. This either means that you have Epsilon 16 or later installed, in which case you need to unlock your calculator (see FAQ) or you have an operating system with a bootloader installer on your calculator. In this case the installer will install the OS but will not be able to update/remove the bootloader. If you want to update the bootloader or install Upsilon without it (the Don't use slots option) press reset at the back of your calculator and the 6 key at the same time and click on recovery.",
+    "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect."
   },
   "github": {
     "name": "Github"
