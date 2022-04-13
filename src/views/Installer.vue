@@ -469,7 +469,11 @@ export default defineComponent({
         'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/'
 
       let fwname = ''
-      if (name !== 'flasher') {
+      if (name === 'flasher') {
+        fwname = 'flasher.verbose.bin'
+      } else if (name === 'bootloader') {
+        fwname = 'bootloader.bin'
+      } else {
         fwname += 'epsilon.onboarding'
         if (this.channel === 'beta') {
           fwname += '.' + this.theme
@@ -478,19 +482,15 @@ export default defineComponent({
           fwname += '.' + this.lang
         }
         fwname += '.' + name + '.bin'
-      } else if (name === 'bootloader') {
-        fwname = 'bootloader.bin'
-      } else {
-        fwname = 'flasher.verbose.bin'
       }
 
       const jsonUrl = `${mirror}${this.channel}%2F${
         model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
       }%2F${fwname}`
+      console.log('Downloading ' + fwname)
       const binUrl = await this.getDownloadURL(jsonUrl)
       const shaUrl = await this.getDownloadURL(jsonUrl + '.sha256')
 
-      console.log('Downloading ' + fwname)
       const bin = await this.downloadAsync('GET', binUrl, 'blob')
       const checksum = await this.downloadAsync('GET', shaUrl, 'text')
       if (checksum.substring(0, 64) === (await this.hash(bin))) {
