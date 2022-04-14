@@ -11,7 +11,9 @@
             }
         },
         "findThemeList": "Vous pouvez trouver une liste de tous les thèmes disponibles ici.",
-        "here": "ici"
+        "here": "ici",
+        "anyQuestions": "Des questions?",
+        "visitFaq": "Visitez notre FAQ"
     },
     "installer": {
         "name": "Installer",
@@ -133,7 +135,11 @@
             "beforeLink": "Pour déverrouiller votre calculatrice, jetez un œil à",
             "link": "ce guide",
             "message": "Cette erreur se produit généralement lorsque vous mettez à jour votre calculatrice vers Epsilon 16 ou une version ultérieure, ce qui verrouille la calculatrice."
-        }
+        },
+        "noSlots": "Ne pas utiliser de slots",
+        "slot": "Slot",
+        "unknownModelConnected": "Avertissement: Impossible de détecter le modèle de la calculatrice. \nCela signifie soit que vous avez installé Epsilon 16 ou version ultérieure, auquel cas vous devez déverrouiller votre calculatrice (voir FAQ) ou que vous avez un système opératoire avec un bootloader sur votre calculatrice. \nDans ce cas, l'installeur installera le système opératoire mais ne pourra pas mettre à jour/supprimer le bootloader. \nSi vous souhaitez mettre à jour le bootloader ou installer Upsilon sans lui (l'option Ne pas utiliser de slots) appuyez sur reset à l'arrière de votre calculatrice et la touche 6 en même temps et cliquez sur recovery.",
+        "unknownModelDone": "Fait. \nVous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet."
     },
     "github": {
         "name": "Github"
@@ -180,6 +186,23 @@
             "sys": "Ajout du module sys",
             "title": "Améliorations Python",
             "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
+        },
+        "dualboot": {
+            "description": "Omega intègre un nouveau Bootloader. Il permet de démarrer plusieurs systèmes opératoires à partir de différents slots.",
+            "name": "Double démarrage"
+        },
+        "phi": {
+            "description": "Phi est un outil développé par M4xi1m3 qui déverrouille votre calculatrice après une mise à jour Epsilon 16.",
+            "name": "Phi"
+        },
+        "plenty": {
+            "description": "Vous pouvez y trouver une liste détaillée :",
+            "name": "Plein d'autres plus petites fonctionnalités",
+            "releasesLink": "Versions"
+        },
+        "settings": {
+            "description": "Personnalisez le comportement de votre calculatrice à votre guise",
+            "name": "Plus de paramètres"
         }
     },
     "doc": {
@@ -288,7 +311,12 @@
                 "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
                 "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
                 "Background": "Ajout d'un support pour les fonds d'écran",
-                "latex": "Prise en charge des expressions et symboles mathématiques LaTex"
+                "latex": "Prise en charge des expressions et symboles mathématiques LaTex",
+                "Fstrings": "Python : ajout de la prise en charge des fstrings",
+                "PythonSettingsHighlight": "Ajout d'un paramètre pour désactiver la coloration syntaxique",
+                "backlightSettings": "Ajout de paramètres pour savoir quand le rétroéclairage doit s'éteindre",
+                "batteryPercentage": "Afficher le pourcentage de batterie dans le menu des paramètres",
+                "cursor": "Ajout d'un paramètre pour enregistrer la position du curseur dans les fichiers python"
             }
         }
     },
@@ -313,7 +341,7 @@
                 "question": "Existe-t-il une feuille de triche avec les raccourcis clavier/trucs et astuces du simulateur pour Upsilon?"
             },
             "how2backup": {
-                "answer": "Le programme d'installation devrait automatiquement restaurer les scripts à la fin de l'installation. \nVous pouvez également accéder à <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> pour les sauvegarder manuellement.",
+                "answer": "L'installeur devrait automatiquement restaurer les scripts à la fin de l'installation. \nVous pouvez également accéder à <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> pour les sauvegarder manuellement.",
                 "question": "Comment sauvegarder les données de la calculatrice ?"
             },
             "how2contribute": {
@@ -338,14 +366,14 @@
             },
             "how2recovery": {
                 "answer": "Ceci peut être utilisé lorsque le logiciel de la calculatrice est défectueux. \nCela se produit généralement lorsqu'il y a une erreur lors de l'installation ou lorsque la calculatrice est déconnectée lors de l'installation. \nAppuyez simultanément sur la touche 6 et la touche de réinitialisation à l'arrière de la calculatrice (assurez-vous que votre calculatrice est connectée à l'ordinateur via USB), puis appuyez sur récupération. \nSélectionnez STM32 BOOTLOADER et après quelques instants, vous devriez pouvoir installer Upsilon normalement.",
-                "question": "Qu'est-ce que l'option de récupération sur la page du programme d'installation et comment l'utiliser?"
+                "question": "Qu'est-ce que l'option de récupération sur la page de l'installeur et comment l'utiliser?"
             },
             "how2testReaderOnline": {
                 "answer": "C'est impossible pour le moment. \nC'est faisable avec les simulateurs windows/linux en plaçant les fichiers de la liseuse dans le même répertoire que les exécutables ou en transférant les fichiers de la liseuse vers la calculatrice.",
                 "question": "Comment prévisualiser un fichier pour la liseuse en ligne ?"
             },
             "how2themes": {
-                "answer": "Accédez au programme d'installation, sélectionnez la chaîne bêta et sélectionnez votre thème. \nVous devez réinstaller Upsilon pour changer de thème.",
+                "answer": "Allez à l'installeur, sélectionnez la chaîne bêta et sélectionnez votre thème. \nVous devez réinstaller Upsilon pour changer de thème.",
                 "question": "Comment installer des thèmes ?"
             },
             "numLocked": {
@@ -359,6 +387,18 @@
             "supportedModels": {
                 "answer": "Vous pouvez l'installer sur les N100 et N110 (si vous n'avez pas installé Epsilon 16)",
                 "question": "Sur quels modèles numworks est-il possible d'installer Upsilon ?"
+            },
+            "customTheme": {
+                "answer": "Il existe une <a href=\"https://github.com/ArtichOwO/OmegaThemeMakerApp\">application de création de thèmes</a> qui facilite la création de thèmes.",
+                "question": "Comment créer des thèmes personnalisés ?"
+            },
+            "stillCouldntFind": {
+                "answer": "Allez sur le <a href=\"https://discord.gg/X2TWhh9\">serveur de discorde de la communauté Omega</a> et demandez là !",
+                "question": "Vous n'avez pas trouvé de réponse à votre question ?"
+            },
+            "uninstallExternal": {
+                "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et ne sélectionnez rien, puis installez. \nCela effacera toutes les applications externes et l'arrière-plan.",
+                "question": "Comment désinstaller des applications externes ?"
             }
         },
         "sections": {

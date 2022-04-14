@@ -864,7 +864,7 @@ button {
 #install-form {
   display: grid;
   grid-template-columns: auto auto;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   padding: 1em;
   border-radius: 5px;
