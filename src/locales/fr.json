@@ -192,7 +192,7 @@
             "name": "Double démarrage"
         },
         "phi": {
-            "description": "Phi est un outil développé par M4xi1m3 qui déverrouille votre calculatrice après une mise à jour Epsilon 16.",
+            "description": "Phi est un outil développé par M4x1m3 qui déverrouille votre calculatrice après une mise à jour Epsilon 16.",
             "name": "Phi"
         },
         "plenty": {
@@ -312,9 +312,9 @@
                 "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
                 "Background": "Ajout d'un support pour les fonds d'écran",
                 "latex": "Prise en charge des expressions et symboles mathématiques LaTex",
-                "Fstrings": "Python : ajout de la prise en charge des fstrings",
+                "Fstrings": "Python: ajout de la prise en charge des fstrings",
                 "PythonSettingsHighlight": "Ajout d'un paramètre pour désactiver la coloration syntaxique",
-                "backlightSettings": "Ajout de paramètres pour savoir quand le rétroéclairage doit s'éteindre",
+                "backlightSettings": "Ajout de paramètres pour définir quand le rétroéclairage doit s'éteindre",
                 "batteryPercentage": "Afficher le pourcentage de batterie dans le menu des paramètres",
                 "cursor": "Ajout d'un paramètre pour enregistrer la position du curseur dans les fichiers python"
             }
@@ -393,12 +393,12 @@
                 "question": "Comment créer des thèmes personnalisés ?"
             },
             "stillCouldntFind": {
-                "answer": "Allez sur le <a href=\"https://discord.gg/X2TWhh9\">serveur de discorde de la communauté Omega</a> et demandez là !",
+                "answer": "Allez sur le <a href=\"https://discord.gg/X2TWhh9\">serveur de discord de la communauté Omega</a> et demandez là!",
                 "question": "Vous n'avez pas trouvé de réponse à votre question ?"
             },
             "uninstallExternal": {
                 "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et ne sélectionnez rien, puis installez. \nCela effacera toutes les applications externes et l'arrière-plan.",
-                "question": "Comment désinstaller des applications externes ?"
+                "question": "Comment désinstaller des applications externes?"
             }
         },
         "sections": {
