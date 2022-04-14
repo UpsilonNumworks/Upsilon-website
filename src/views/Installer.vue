@@ -660,7 +660,7 @@ export default defineComponent({
           '</a> ' +
           this.t('installer.hints.noDeviceSelected.moreHelp.2') +
           '</details>'
-      } else if (err.message.endsWith('????')) {
+      } else if (err.message.endsWith('Address 90000000 outside of memory map')) {
         this.statusHTML +=
           '<br>' +
           this.t('installer.e16.message') +
