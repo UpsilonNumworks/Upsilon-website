@@ -86,7 +86,7 @@
           <label v-if="!n100" for="select-slot">{{t('installer.slot')}}:</label>
           <select v-if="!n100" v-model="slot" name="select-slot" id="select-slot">
             <option value="A">A</option>
-            <option disabled value="B">B</option>
+            <option value="B">B</option>
             <option :disabled="modelUnknown" value="legacy">{{t('installer.noSlots')}}</option>
           </select>
           <button @click="forceDisconnect" type="button" id="btn-disconnect">
@@ -558,7 +558,12 @@ export default defineComponent({
           this.currentbin = 'external'
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot, 'N0110')
-          await this.calculator.flashExternal(externalBin)
+          if (this.slot === 'B') {
+            this.calculator.device.startAddress = 0x90400000
+            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
+          } else {
+            await this.calculator.flashExternal(externalBin)
+          }
           this.setStatus('unknownModelDone')
           this.showButtons = false
           this.showProgressbar = false
