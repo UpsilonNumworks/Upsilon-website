@@ -300,7 +300,7 @@
                 "PythonSysModule": "Python : Module sys ajouté",
                 "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
                 "PythonBaseScripts": "Scripts Python de base supprimés",
-                "Reader": "Ajout d'un application Liseuse sur N110",
+                "Reader": "Ajout d'une application Liseuse sur N110",
                 "EqualSymplification": "Simplification des égaux améliorés",
                 "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
                 "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
@@ -315,7 +315,6 @@
                 "Fstrings": "Python: ajout de la prise en charge des fstrings",
                 "PythonSettingsHighlight": "Ajout d'un paramètre pour désactiver la coloration syntaxique",
                 "backlightSettings": "Ajout de paramètres pour définir quand le rétroéclairage doit s'éteindre",
-                "batteryPercentage": "Afficher le pourcentage de batterie dans le menu des paramètres",
                 "cursor": "Ajout d'un paramètre pour enregistrer la position du curseur dans les fichiers python"
             }
         }

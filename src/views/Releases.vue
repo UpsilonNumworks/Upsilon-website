@@ -11,7 +11,7 @@
           <ReleaseItem>{{ t('releases.versions.1-0.Background') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.Themes') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.backlightSettings') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.batteryPercentage') }}</ReleaseItem>
+          <ReleaseItem>{{ t('releases.versions.1-0.BatteryPercentage') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.cursor') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsHighlight') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</ReleaseItem>
@@ -24,7 +24,6 @@
           <ReleaseItem chg>{{ t('releases.versions.1-0.StorageSize') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.BatteryLogo') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.BatteryPercentage') }}</ReleaseItem>
           <ReleaseItem chg>{{ t('releases.versions.1-0.EqualSymplification') }}</ReleaseItem>
           <ReleaseItem>{{ t('releases.versions.1-0.SecondDegreePolynominal') }}</ReleaseItem>
         </div>

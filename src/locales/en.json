@@ -313,7 +313,6 @@
         "Background": "Added background support",
         "latex": "Support of LaTex expressions and symbols in the Reader app.",
         "backlightSettings": "Added Settings for when the backlight should turn off",
-        "batteryPercentage": "Display the battery percentage in the settings menu",
         "cursor": "Added a setting to save the cursor position in python files",
         "PythonSettingsHighlight": "Added a setting to disable Syntax highlighting ",
         "Fstrings": "Python: Added support for fstrings"
