@@ -112,7 +112,6 @@ export default {
         'omega_shrek',
         'cursed_light',
         'omega_freenumworks',
-        'ahegao'
       ],
       languages: ['en', 'fr', 'nl', 'pt', 'it', 'de', 'es', 'hu']
     }
