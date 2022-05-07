@@ -1,7 +1,7 @@
 <template>
   <div class="release-item">
-    <div :class="'release-tag release-tag-' + (chg ? 'chg' : 'new')">
-      {{ chg ? "CHG" : "NEW" }}
+    <div :class="'release-tag release-tag-' + changeType">
+      {{ changeType.toUpperCase() }}
     </div>
     <div><slot></slot></div>
   </div>
@@ -9,13 +9,11 @@
 
 <script>
 import { useI18n } from 'vue-i18n'
+
 export default {
   name: 'ReleaseItem',
   props: {
-    chg: {
-      type: Boolean,
-      default: false
-    }
+    changeType: String
   },
   setup () {
     const { t } = useI18n({
@@ -52,6 +50,10 @@ export default {
 .release-tag-chg {
   background: var(--tag-change);
   outline: solid var(--tag-change-outline) 2pt;
+}
+.release-tag-fix {
+  background: var(--tag-fix);
+  outline: solid var(--tag-fix-outline) 2pt;
 }
 .release-item{
     display:flex;

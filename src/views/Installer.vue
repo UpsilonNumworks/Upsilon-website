@@ -26,6 +26,11 @@
             :title="t('installer.releaseChannel')"
             :items="[
               {
+                text: t('installer.channels.master.title'),
+                id: 'official',
+                description: t('installer.channels.master.description')
+              },
+              {
                 text: t('installer.channels.beta.title'),
                 id: 'beta',
                 description: t('installer.channels.beta.description')
@@ -55,11 +60,11 @@
             "
           >
           </CustomSelect>
-          <label v-if="channel === 'beta'" for="select-theme"
+          <label v-if="channel === 'beta' || channel === 'official'" for="select-theme"
             >{{ t('installer.theme') }}:</label
           >
           <CustomSelect
-            v-if="channel === 'beta'"
+            v-if="channel === 'beta' || channel === 'official'"
             name="select-theme"
             sid="select-theme"
             @updated="setTheme"
@@ -143,7 +148,7 @@
 <script>
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Numworks from 'numworks.js'
+import Numworks from 'upsilon.js'
 import CustomSelect from '@/components/CustomSelect'
 
 export default defineComponent({
@@ -182,7 +187,7 @@ export default defineComponent({
       modelUnknown: false,
       theme: 'upsilon_light',
       lang: 'en',
-      channel: 'beta',
+      channel: 'official',
       slot: 'A',
       slots: ['A', 'B'],
       themes: [
@@ -200,8 +205,7 @@ export default defineComponent({
         'omega_kawaii',
         'omega_shrek',
         'cursed_light',
-        'omega_freenumworks',
-        'ahegao'
+        'omega_freenumworks'
       ],
       languages: ['en', 'fr', 'nl', 'pt', 'it', 'de', 'es', 'hu']
     }
@@ -365,7 +369,14 @@ export default defineComponent({
           this.modelUnknown = true
           this.showInfo = true
           this.infoClass = 'warning'
-          this.statusHTML = this.t('installer.unknownModelConnected')
+          this.statusHTML = this.t('installer.unknownModelConnected.text') +
+                              '<ul>' +
+                                '<li>' +
+                                  this.t('installer.unknownModelConnected.li1') +
+                                '</li>' +
+                                '<li>' +
+                                  this.t('installer.unknownModelConnected.li2') +
+                              '</ul>'
           break
         default:
           throw new Error('Invalid status specified')
@@ -492,7 +503,7 @@ export default defineComponent({
         fwname = 'bootloader.bin'
       } else {
         fwname += 'epsilon.onboarding'
-        if (this.channel === 'beta') {
+        if (this.channel === 'beta' || this.channel === 'official') {
           fwname += '.' + this.theme
         }
         if (model.toLowerCase() === 'n0100') {
@@ -593,12 +604,14 @@ export default defineComponent({
         console.log('Model : ' + model)
         console.log('Downloading recovery')
         this.setStatus('downloadingRecovery')
+        this.channel = 'beta' // FIXME we use beta channel as there is no flasher in official
         const flasher = await this.downloadBin('flasher', 'N' + model)
         console.log('Flashing recovery')
         this.setStatus('installingRecovery')
         await this.calculatorRecovery.flashRecovery(flasher)
         console.log('Recovery flashed successfully')
         this.setStatus('recoveryDone')
+        this.channel = 'official' // FIXME we use beta channel as there is no flasher in official
       } catch (error) {
         this.onError(error)
       } finally {
@@ -684,6 +697,8 @@ export default defineComponent({
           this.t('installer.tError.li2') +
           '</li><li>' +
           this.t('installer.tError.li3') +
+          '</li><li>' +
+          this.t('installer.tError.li4') +
           '</li></ul>'
       }
       this.showButtons = true

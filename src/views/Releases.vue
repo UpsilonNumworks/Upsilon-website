@@ -3,29 +3,35 @@
     <div class="releases-table-wrapper">
       <h1>{{ t('releases.name') }}</h1>
       <div class="generic-page release-table">
-        <p>{{ t('releases.version') }} 1.0 ({{ t('releases.dev') }})</p>
+        <p>{{ t('releases.version') }} 1.0</p>
         <div>
-          <ReleaseItem>{{ t('releases.versions.1-0.latex') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.E16Security') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.RecoveryMode') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Background') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Themes') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.backlightSettings') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.BatteryPercentage') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.cursor') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsHighlight') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.PythonSettingsAutocomplete') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Ulab') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Fstrings') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.PythonBattery') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.KandinskyEnhancements') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.Reader') }}</ReleaseItem>
-          <ReleaseItem chg>{{ t('releases.versions.1-0.PythonBaseScripts') }}</ReleaseItem>
-          <ReleaseItem chg>{{ t('releases.versions.1-0.StorageSize') }}</ReleaseItem>
-          <ReleaseItem chg>{{ t('releases.versions.1-0.VariableLoadedPythonToolbox') }}</ReleaseItem>
-          <ReleaseItem chg>{{ t('releases.versions.1-0.BatteryLogo') }}</ReleaseItem>
-          <ReleaseItem chg>{{ t('releases.versions.1-0.EqualSymplification') }}</ReleaseItem>
-          <ReleaseItem>{{ t('releases.versions.1-0.SecondDegreePolynominal') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Reader') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Bootloader') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Recovery') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.SecondDegree') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Trash') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Wallpapers') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Theme') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Parameters') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.PythonCursor') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.SumAndSequences') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Equal') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.NestedRadicals') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Ulab') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.FStrings') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Operators') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Kandinsky') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.ShiftOk') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.FunctionColor') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Other') }}</ReleaseItem>
+          <ReleaseItem changeType="chg">{{ t('releases.versions.1-0.Scripts') }}</ReleaseItem>
+          <ReleaseItem changeType="chg">{{ t('releases.versions.1-0.Storage') }}</ReleaseItem>
+          <ReleaseItem changeType="chg">{{ t('releases.versions.1-0.Heap') }}</ReleaseItem>
+          <ReleaseItem changeType="chg">{{ t('releases.versions.1-0.Battery') }}</ReleaseItem>
+          <ReleaseItem changeType="chg">{{ t('releases.versions.1-0.Apps') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.RPN') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.Atomic') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.Gutter') }}</ReleaseItem>
         </div>
       </div>
     </div>

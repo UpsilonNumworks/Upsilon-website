@@ -3,6 +3,7 @@
     <h3 class="question">{{ t('faq.questions.' + question + '.question') }}</h3>
     <p v-html="t('faq.questions.' + question + '.answer')" class="answer"></p>
   </div>
+  <br>
 </template>
 
 <script>
@@ -21,6 +22,9 @@ export default {
 </script>
 
 <style scoped>
+.question-n-answer {
+  margin-left: 8px;
+}
 @media screen and (max-width: 720px) {
   h3 {
     font-size: 1.2em;

@@ -132,5 +132,6 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex: 1 1 0px;
 }
 </style>

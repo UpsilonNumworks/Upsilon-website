@@ -139,6 +139,8 @@ export default defineComponent({
   --tag-new-outline: #307774;
   --tag-change: #ffcdb0;
   --tag-change-outline: #cc6122;
+  --tag-fix: #ff4646;
+  --tag-fix-outline: #b21d1d;
   --tag-update: #ffe7b3;
   --tag-update-outline: #dfa730;
 }
@@ -160,6 +162,7 @@ export default defineComponent({
   --tag-new: #307774;
   --tag-change: #cc6122;
   --tag-update: #dfa730;
+  --tag-fix: #9c312f;
 }
 #hamburger-menu {
   position: fixed;

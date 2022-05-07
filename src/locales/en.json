@@ -30,6 +30,7 @@
     "title": "Install Upsilon",
     "install": "Install",
     "connect": "Connect",
+    "updateBootloader": "Update bootloader",
     "recovery": "Recovery",
     "installationSuccess": "Thanks you for installing Upsilon.",
     "recoverySuccess": "Recovery mode is now installed successfully.",
@@ -111,6 +112,10 @@
     "joinDiscord": "Join the Omega community discord server",
     "releaseChannel": "Release channel",
     "channels": {
+      "master": {
+        "description": "Official version of Upsilon, integrating the validated changes",
+                        "title": "Official"
+      },
       "beta": {
         "title": "Beta",
         "description": "More stable than dev, updated every 1-2 weeks. Use this if you want to select a theme"
@@ -130,15 +135,20 @@
       "beforeLink": "To unlock you calculator, take a look at"
     },
     "tError": {
-      "li1": "Reboot your computer",
-      "li2": "Use a different port",
-      "li3": "Use a different cable",
+      "li1": "Verify that no other tab is using the USB",
+      "li2": "Reboot your computer",
+      "li3": "Use a different port",
+      "li4": "Use a different cable",
       "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try following things:"
     },
     "lang": "Language",
     "slot": "Slot",
     "noSlots": "Don't use slots",
-    "unknownModelConnected": "Warning: Could not detect the calculator model. This either means that you have Epsilon 16 or later installed, in which case you need to unlock your calculator (see FAQ) or you have an operating system with a bootloader installer on your calculator. In this case the installer will install the OS but will not be able to update/remove the bootloader. If you want to update the bootloader or install Upsilon without it (the Don't use slots option) press reset at the back of your calculator and the 6 key at the same time and click on recovery.",
+    "unknownModelConnected": {
+      "text": "Warning: Could not detect the calculator model",
+      "li1": "If you have Epsilon 16 or later you need to unlock your calculator (see FAQ)",
+      "li2": "Else you probably have a protected device and you may need to disable the protection to continue"
+    },
     "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect."
   },
   "github": {
@@ -287,35 +297,40 @@
   },
   "releases": {
     "name": "Releases",
-    "version": "Release",
+    "version": "Version",
     "new": "NEW",
     "update": "UPD",
     "change": "CHG",
     "dev": "Developing",
     "versions": {
       "1-0": {
-        "KandinskyEnhancements": "Python: Kandinsky Enhancements (drawcircle, fillcircle, fillpolygon, getpalette)",
-        "Ulab": "Python: Added Ulab in N110 (SciPy, NumPy)",
-        "PythonBattery": "Python: Added a way to get the battery level (level, voltage and charging status)",
-        "PythonSysModule": "Python: Added sys module",
-        "PythonSettingsAutocomplete": "Added a Python settings for autocompletion",
-        "PythonBaseScripts": "Deleted Python base scripts",
-        "Reader": "Added Reader app for N110",
-        "EqualSymplification": "Improved equal simplification",
-        "SecondDegreePolynominal": "Added additional output about second degree polynomials",
-        "VariableLoadedPythonToolbox": "Increased number of loaded variables in Python toolbox",
-        "StorageSize": "Increased size of Python script storage from 32KB to 64KB",
-        "Themes": "Added Upsilon theme",
-        "BatteryPercentage": "Show percentage of battery in about menu of settings",
-        "BatteryLogo": "Updated battery logo",
-        "E16Security": "Added deactivatable security to prevent Epsilon 16 unintentional updates",
-        "RecoveryMode": "Added recovery mode when crashing",
-        "Background": "Added background support",
-        "latex": "Support of LaTex expressions and symbols in the Reader app.",
-        "backlightSettings": "Added Settings for when the backlight should turn off",
-        "cursor": "Added a setting to save the cursor position in python files",
-        "PythonSettingsHighlight": "Added a setting to disable Syntax highlighting ",
-        "Fstrings": "Python: Added support for fstrings"
+        "Reader" : "Added a reader compatible with TeX notation for mathematical formulas",
+        "Bootloader": "Brand new bootloader with security improvements",
+        "Recovery": "Added a recovery screen after a crash",
+        "SecondDegree": "Added extra output on second degree polynomials",
+        "Trash" : "Shift+Back recover the last deleted file",
+        "Wallpapers" : "Wallpaper support for n0110",
+        "Theme" : "New Upsilon theme",
+        "Parameters" : "New parameters for python, external applications and luminosity",
+        "PythonCursor" : "Save cursor position when you quit a python script",
+        "SumAndSequences" : "Better simplification of sums and sequences",
+        "Equal" : "Simplification of the '=' sign in the calculation application",
+        "NestedRadicals" : "Simplification of nested square roots",
+        "Ulab" : "Adding the Ulab module (numpy and scipy) in the python application",
+        "FStrings" : "Support of f-Strings in python",
+        "Operators" : "Support of operators overloading in python",
+        "Kandinsky" : "New functions in the Kandinsky module",
+        "ShiftOk" : "Added Shift+OK to not leave the toolbox",
+        "FunctionColor" : "Added a way to change the color of functions and sequences",
+        "Other" : "And other small changes",
+        "Scripts" : "Removed default python scripts",
+        "Storage" : "Increased storage from 32KB to 64KB",
+        "Heap" : "Decrease the size of the python heap from 100 to 67kb",
+        "Battery" : "Update the battery logo",
+        "Apps" : "Reversal of the position of the graphic and RPN applications",
+        "RPN" : "Fix bugs in RPN",
+        "Atomic": "Bug corrected in the periodic table",
+        "Gutter" : "Gutter corrected in the python application"
       }
     }
   },

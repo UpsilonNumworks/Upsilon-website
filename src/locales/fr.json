@@ -20,6 +20,7 @@
         "title": "Installer Upsilon",
         "install": "Installer",
         "connect": "Connecter",
+        "updateBootloader": "Mettre à jour le bootloader",
         "recovery": "Mode de restauration",
         "installationSuccess": "Merci d'avoir installé Upsilon.",
         "recoverySuccess": "Mode de restauration installé avec succès.",
@@ -75,6 +76,10 @@
         "recoveryConnected": "Connecté en mode de récupération. Vous devriez pouvoir installer Upsilon normalement maintenant.",
         "recoveryDone": "Logiciel de récupération installé avec succès! Vous pouvez maintenant appuyer sur connecter et installer Upsilon normalement.",
         "channels": {
+            "master": {
+                "description": "Version officielle d'Upsilon, intégrant les changements validés",
+                "title": "Officiel"
+            },
             "beta": {
                 "description": "Plus stable que Dev, mis à jour toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
                 "title": "Beta"
@@ -107,9 +112,10 @@
         },
         "selecta": "Sélectionner un",
         "tError": {
-            "li1": "Redémarrez votre ordinateur",
-            "li2": "Utiliser un autre port",
-            "li3": "Utiliser un autre câble",
+            "li1": "Vérifiez qu'aucun autre onglet n'utilise l'USB",
+            "li2": "Redémarrez votre ordinateur",
+            "li3": "Utiliser un autre port",
+            "li4": "Utiliser un autre câble",
             "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! \nSi vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
         },
         "theme": "Thème",
@@ -138,7 +144,11 @@
         },
         "noSlots": "Ne pas utiliser de slots",
         "slot": "Slot",
-        "unknownModelConnected": "Avertissement: Impossible de détecter le modèle de la calculatrice. \nCela signifie soit que vous avez installé Epsilon 16 ou version ultérieure, auquel cas vous devez déverrouiller votre calculatrice (voir FAQ) ou que vous avez un système opératoire avec un bootloader sur votre calculatrice. \nDans ce cas, l'installeur installera le système opératoire mais ne pourra pas mettre à jour/supprimer le bootloader. \nSi vous souhaitez mettre à jour le bootloader ou installer Upsilon sans lui (l'option Ne pas utiliser de slots) appuyez sur reset à l'arrière de votre calculatrice et la touche 6 en même temps et cliquez sur recovery.",
+        "unknownModelConnected" : {
+            "text" : "Warning : Impossible de détecter le modèle de calculatrice",
+            "li1" : "Si vous avez Epsilon 16 ou une version ultérieure, vous devez déverrouiller votre calculatrice (voir FAQ)",
+            "li2" : "Sinon, vous avez probablement un appareil protégé et vous devez peut-être désactiver la protection pour continuer (voir FAQ)"
+        },
         "unknownModelDone": "Fait. \nVous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet."
     },
     "github": {
@@ -294,28 +304,33 @@
         "dev": "En développement",
         "versions": {
             "1-0": {
-                "KandinskyEnhancements": "Python : Module Kandinsky amélioré (drawcircle, fillcircle, fillpolygon, getpalette)",
-                "Ulab": "Python : Ulab ajouté sur la N110 (SciPy, NumPy)",
-                "PythonBattery": "Python : Ajout d'un moyen d'obtenir le niveau de la batterie (niveau, tension et état de charge)",
-                "PythonSysModule": "Python : Module sys ajouté",
-                "PythonSettingsAutocomplete": "Ajout d'un paramètre pour l'autocomplétion",
-                "PythonBaseScripts": "Scripts Python de base supprimés",
-                "Reader": "Ajout d'une application Liseuse sur N110",
-                "EqualSymplification": "Simplification des égaux améliorés",
-                "SecondDegreePolynominal": "Informations supplémentaires sur les polynômes de second degré",
-                "VariableLoadedPythonToolbox": "Nombre de variables affichées dans la boite à outils Python augmenté",
-                "StorageSize": "Taille de la mémoire de stockage des scripts Python augmentée de 32Ko à 64Ko",
-                "Themes": "Thème Upsilon ajouté",
-                "BatteryPercentage": "Pourcentage de la batterie affiché dans le menu à propos des paramètres",
-                "BatteryLogo": "Logo de la batterie changé",
-                "E16Security": "Ajout d'une sécurité désactivable pour protéger contre les mises à jour non intentionnelles vers Epsilon 16",
-                "RecoveryMode": "Ajout d'un mode de restauration lors des plantages",
-                "Background": "Ajout d'un support pour les fonds d'écran",
-                "latex": "Prise en charge des expressions et symboles mathématiques LaTex",
-                "Fstrings": "Python: ajout de la prise en charge des fstrings",
-                "PythonSettingsHighlight": "Ajout d'un paramètre pour désactiver la coloration syntaxique",
-                "backlightSettings": "Ajout de paramètres pour définir quand le rétroéclairage doit s'éteindre",
-                "cursor": "Ajout d'un paramètre pour enregistrer la position du curseur dans les fichiers python"
+                "Reader" : "Ajout d'une liseuse compatible avec la notation TeX pour les formules mathématiques",
+                "Bootloader" : "Tout nouveau bootloader avec des améliorations de sécurité",
+                "Recovery" : "Ajout d'un écran de récupération après un crash",
+                "SecondDegree" : "Ajout d'une sortie supplémentaire sur les polynômes du second degré",
+                "Trash" : "Shift+Back récupérer le dernier fichier supprimé",
+                "Wallpapers" : "Support des fonds d'écran pour le n0110",
+                "Theme" : "Nouveau thème Upsilon",
+                "Parameters" : "Nouveaux paramètres pour python, les applications externes et la luminosité",
+                "PythonCursor" : "Sauvegarde de la position du curseur quand vous quittez un script python",
+                "SumAndSequences" : "Meilleure simplification des sommes et des séquences",
+                "Equal" : "Simplification du signe '=' dans l'application calculs",
+                "NestedRadicals" : "Simplification des racines carrées imbriqués",
+                "Ulab" : "Ajout du module Ulab (numpy et scipy) dans l'application python",
+                "FStrings" : "Support des f-Strings en python",
+                "Operators" : "Support de la surcharge des opérateurs en python",
+                "Kandinsky" : "Nouvelles fonctions dans le module Kandinsky",
+                "ShiftOk" : "Ajouté Shift+OK pour ne pas quitter la boîte à outils",
+                "FunctionColor" : "Ajout d'un moyen de changer la couleur des fonctions et des séquences",
+                "Other" : "Et d'autres petits changements",
+                "Scripts" : "Suppression des scripts python par défaut",
+                "Storage" : "Augmentation du stockage de 32KB à 64KB",
+                "Heap" : "Diminution la taille du tas de python de 100 à 67kb",
+                "Battery" : "Mise à jour du logo de la batterie",
+                "Apps" : "Inversion de la position des applications graphique et RPN",
+                "RPN" : "Correction des bogues dans RPN",
+                "Atomic" : "Bug corrigé dans le tableau périodique",
+                "Gutter" : "Gouttière corrigée dans l'application python"
             }
         }
     },
