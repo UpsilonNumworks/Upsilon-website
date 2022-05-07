@@ -42,6 +42,12 @@
       href="https://github.com/UpsilonNumworks/Upsilon"
       >{{ t('github.name') }}</a
     >
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://upsilonnumworks.github.io/Upsilon-External/"
+      >{{ t('external.name') }}</a
+    >
     <div class="right">
       <div class="darkmode-switch">
         <Switch
