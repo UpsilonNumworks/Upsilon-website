@@ -80,8 +80,9 @@
             "
           >
           </CustomSelect>
-          <label for="input-uname">{{ t('installer.username') }}:</label>
+          <label v-if="slot == 'legacy'" for="input-uname">{{ t('installer.username') }}:</label>
           <input
+            v-if="slot == 'legacy'"
             v-model="username"
             maxlength="16"
             type="text"
@@ -563,7 +564,9 @@ export default defineComponent({
           this.setStatus('downloading')
           this.logProgress(0, 1)
           const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
-          this.patchUsername(internalBin)
+          if (this.slot === 'legacy') {
+            this.patchUsername(internalBin)
+          }
           await this.calculator.flashInternal(internalBin)
         } else if (model === '????') {
           this.currentbin = 'external'
