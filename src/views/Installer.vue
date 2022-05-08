@@ -558,7 +558,12 @@ export default defineComponent({
           this.currentbin = 'external'
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
-          await this.calculator.flashExternal(externalBin)
+          if (this.slot === 'B') {
+            this.calculator.device.startAddress = 0x90400000
+            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
+          } else {
+            await this.calculator.flashExternal(externalBin)
+          }
           console.log('downloading internal')
           this.currentbin = 'internal'
           this.setStatus('downloading')
