@@ -80,11 +80,10 @@
             "
           >
           </CustomSelect>
-          <label v-if="slot == 'legacy'" for="input-uname">{{ t('installer.username') }}:</label>
+          <label for="input-uname">{{ t('installer.username') }}:</label>
           <input
-            v-if="slot == 'legacy'"
             v-model="username"
-            maxlength="16"
+            maxlength="15"
             type="text"
             name="input-uname"
             id="input-uname"
@@ -529,10 +528,10 @@ export default defineComponent({
         throw new Error('Failed to verify file integrity')
       }
     },
-    patchUsername (InternalBin) {
+    patchUsername (bin) {
       console.log('Setting username to ' + this.username)
       if (this.username) {
-        const internalBuf = new Uint8Array(InternalBin)
+        const buf = new Uint8Array(bin)
 
         const enc = new TextEncoder()
         let encoded = enc.encode(this.username + '\0')
@@ -540,7 +539,15 @@ export default defineComponent({
           encoded[15] = 0
           encoded = encoded.slice(0, 16)
         }
-        internalBuf.set(encoded, 0x1f8)
+        if (this.slot === 'legacy') {
+          buf.set(encoded, 0x1f8)
+        } else {
+          buf.set(encoded, 0x1003C)
+          // Assert that the patched slot is A or B
+          if (this.slot !== 'A' && this.slot !== 'B') {
+            throw new Error('Slot is not A or B')
+          }
+        }
       }
     },
     async install (event) {
@@ -558,6 +565,8 @@ export default defineComponent({
           this.currentbin = 'external'
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
+          // Patch the username on slot A and B if we're not in legacy mode
+          this.patchUsername(externalBin)
           if (this.slot === 'B') {
             this.calculator.device.startAddress = 0x90400000
             await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
@@ -569,9 +578,8 @@ export default defineComponent({
           this.setStatus('downloading')
           this.logProgress(0, 1)
           const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
-          if (this.slot === 'legacy') {
-            this.patchUsername(internalBin)
-          }
+          // Patch the username in we're in legacy mode
+          this.patchUsername(internalBin)
           await this.calculator.flashInternal(internalBin)
         } else if (model === '????') {
           this.currentbin = 'external'
