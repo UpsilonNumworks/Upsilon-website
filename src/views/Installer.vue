@@ -566,7 +566,9 @@ export default defineComponent({
           this.setStatus('downloading')
           const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
           // Patch the username on slot A and B if we're not in legacy mode
-          this.patchUsername(externalBin)
+          if (this.slot !== 'legacy') {
+            this.patchUsername(externalBin)
+          }
           if (this.slot === 'B') {
             this.calculator.device.startAddress = 0x90400000
             await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
@@ -579,7 +581,9 @@ export default defineComponent({
           this.logProgress(0, 1)
           const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
           // Patch the username in we're in legacy mode
-          this.patchUsername(internalBin)
+          if (this.slot === 'legacy') {
+            this.patchUsername(internalBin)
+          }
           await this.calculator.flashInternal(internalBin)
         } else if (model === '????') {
           this.currentbin = 'external'
