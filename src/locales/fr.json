@@ -144,12 +144,13 @@
         },
         "noSlots": "Ne pas utiliser de slots",
         "slot": "Slot",
-        "unknownModelConnected" : {
-            "text" : "Warning : Impossible de détecter le modèle de calculatrice",
-            "li1" : "Si vous avez Epsilon 16 ou une version ultérieure, vous devez déverrouiller votre calculatrice (voir FAQ)",
-            "li2" : "Sinon, vous avez probablement un appareil protégé et vous devez peut-être désactiver la protection pour continuer (voir FAQ)"
+        "unknownModelConnected": {
+            "text": "Warning : Impossible de détecter le modèle de calculatrice",
+            "li1": "Si vous avez Epsilon 16 ou une version ultérieure, vous devez déverrouiller votre calculatrice (voir FAQ)",
+            "li2": "Sinon, vous avez probablement un appareil protégé et vous devez peut-être désactiver la protection pour continuer (voir FAQ)"
         },
-        "unknownModelDone": "Fait. \nVous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet."
+        "unknownModelDone": "Fait. \nVous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet.",
+        "internalUnavailable": "Avertissement: Stockage interne indisponible. Cela se produit quand le bootloader est utilisé. Pour supprimer ou mettre à jour ce dernier, veuillez utiliser le mode de restauration."
     },
     "github": {
         "name": "Github"
@@ -304,33 +305,33 @@
         "dev": "En développement",
         "versions": {
             "1-0": {
-                "Reader" : "Ajout d'une liseuse compatible avec la notation TeX pour les formules mathématiques",
-                "Bootloader" : "Tout nouveau bootloader avec des améliorations de sécurité",
-                "Recovery" : "Ajout d'un écran de récupération après un crash",
-                "SecondDegree" : "Ajout d'une sortie supplémentaire sur les polynômes du second degré",
-                "Trash" : "Shift+Back récupérer le dernier fichier supprimé",
-                "Wallpapers" : "Support des fonds d'écran pour le n0110",
-                "Theme" : "Nouveau thème Upsilon",
-                "Parameters" : "Nouveaux paramètres pour python, les applications externes et la luminosité",
-                "PythonCursor" : "Sauvegarde de la position du curseur quand vous quittez un script python",
-                "SumAndSequences" : "Meilleure simplification des sommes et des séquences",
-                "Equal" : "Simplification du signe '=' dans l'application calculs",
-                "NestedRadicals" : "Simplification des racines carrées imbriqués",
-                "Ulab" : "Ajout du module Ulab (numpy et scipy) dans l'application python",
-                "FStrings" : "Support des f-Strings en python",
-                "Operators" : "Support de la surcharge des opérateurs en python",
-                "Kandinsky" : "Nouvelles fonctions dans le module Kandinsky",
-                "ShiftOk" : "Ajouté Shift+OK pour ne pas quitter la boîte à outils",
-                "FunctionColor" : "Ajout d'un moyen de changer la couleur des fonctions et des séquences",
-                "Other" : "Et d'autres petits changements",
-                "Scripts" : "Suppression des scripts python par défaut",
-                "Storage" : "Augmentation du stockage de 32KB à 64KB",
-                "Heap" : "Diminution la taille du tas de python de 100 à 67kb",
-                "Battery" : "Mise à jour du logo de la batterie",
-                "Apps" : "Inversion de la position des applications graphique et RPN",
-                "RPN" : "Correction des bogues dans RPN",
-                "Atomic" : "Bug corrigé dans le tableau périodique",
-                "Gutter" : "Gouttière corrigée dans l'application python"
+                "Reader": "Ajout d'une liseuse compatible avec la notation TeX pour les formules mathématiques",
+                "Bootloader": "Tout nouveau bootloader avec des améliorations de sécurité",
+                "Recovery": "Ajout d'un écran de récupération après un crash",
+                "SecondDegree": "Ajout d'une sortie supplémentaire sur les polynômes du second degré",
+                "Trash": "Shift+Back récupérer le dernier fichier supprimé",
+                "Wallpapers": "Support des fonds d'écran pour le n0110",
+                "Theme": "Nouveau thème Upsilon",
+                "Parameters": "Nouveaux paramètres pour python, les applications externes et la luminosité",
+                "PythonCursor": "Sauvegarde de la position du curseur quand vous quittez un script python",
+                "SumAndSequences": "Meilleure simplification des sommes et des séquences",
+                "Equal": "Simplification du signe '=' dans l'application calculs",
+                "NestedRadicals": "Simplification des racines carrées imbriqués",
+                "Ulab": "Ajout du module Ulab (numpy et scipy) dans l'application python",
+                "FStrings": "Support des f-Strings en python",
+                "Operators": "Support de la surcharge des opérateurs en python",
+                "Kandinsky": "Nouvelles fonctions dans le module Kandinsky",
+                "ShiftOk": "Ajouté Shift+OK pour ne pas quitter la boîte à outils",
+                "FunctionColor": "Ajout d'un moyen de changer la couleur des fonctions et des séquences",
+                "Other": "Et d'autres petits changements",
+                "Scripts": "Suppression des scripts python par défaut",
+                "Storage": "Augmentation du stockage de 32KB à 64KB",
+                "Heap": "Diminution la taille du tas de python de 100 à 67kb",
+                "Battery": "Mise à jour du logo de la batterie",
+                "Apps": "Inversion de la position des applications graphique et RPN",
+                "RPN": "Correction des bogues dans RPN",
+                "Atomic": "Bug corrigé dans le tableau périodique",
+                "Gutter": "Gouttière corrigée dans l'application python"
             }
         }
     },

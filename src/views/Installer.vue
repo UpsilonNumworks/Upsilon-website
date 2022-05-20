@@ -92,7 +92,7 @@
           <select v-if="!n100" v-model="slot" name="select-slot" id="select-slot">
             <option value="A">A</option>
             <option value="B">B</option>
-            <option :disabled="modelUnknown" value="legacy">{{t('installer.noSlots')}}</option>
+            <option :disabled="modelUnknown || !internalAvailable" value="legacy">{{t('installer.noSlots')}}</option>
           </select>
           <button @click="forceDisconnect" type="button" id="btn-disconnect">
             {{ t('installer.disconnect') }}
@@ -179,6 +179,7 @@ export default defineComponent({
       inRecoveryMode: false,
       lastError: 0,
       currentbin: '',
+      internalAvailable: false,
       shouldRestoreStorage: false,
       username: '',
       infoClass: '',
@@ -281,10 +282,14 @@ export default defineComponent({
           this.done = false
           this.showInstaller = true
           this.showButtons = false
+          this.showInfo = true
           this.infoClass = 'info'
           console.log('Calculator connected')
           if (this.inRecoveryMode) {
             this.statusHTML = this.t('installer.recoveryConnected')
+          } else if (!this.internalAvailable) {
+            this.statusHTML = this.t('installer.internalUnavailable')
+            this.infoClass = 'warning'
           } else {
             this.statusHTML = this.t('installer.connected')
           }
@@ -385,10 +390,10 @@ export default defineComponent({
     async connectedHandler () {
       this.setStatus('connected')
       this.modelUnknown = false
+      this.internalAvailable = this.calculator.device.settings.name.includes('0x08000000/04*016Kg')
       if (this.calculator.getModel() === '????') {
         this.setStatus('unknownConnected')
       }
-
       if (!this.inRecoveryMode) {
         this.n100 = this.calculator.getModel().toLowerCase() === '0100'
         const PlatformInfo = await this.calculator.getPlatformInfo()
@@ -450,7 +455,7 @@ export default defineComponent({
             'Error when fetching scripts, creating a new empty storage'
           )
         } else {
-          console.log('Error when fetching scripts, kepping old scripts')
+          console.log('Error when fetching scripts, keeping old scripts')
         }
       }
       this.logProgress(0, 1)
@@ -561,6 +566,22 @@ export default defineComponent({
           const bin = await this.downloadBin('internal', 'N0100')
           this.patchUsername(bin)
           await this.calculator.flashInternal(bin)
+        } else if (model === '????' || !this.internalAvailable) {
+          this.currentbin = 'external'
+          this.setStatus('downloading')
+          const externalBin = await this.downloadBin(this.slot, 'N0110')
+          if (this.slot === 'B') {
+            this.calculator.device.startAddress = 0x90400000
+            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
+          } else {
+            await this.calculator.flashExternal(externalBin)
+          }
+          this.setStatus('unknownModelDone')
+          this.showButtons = false
+          this.showProgressbar = false
+          this.inRecoveryMode = false
+          this.shouldRestoreStorage = true
+          return
         } else if (model === '0110') {
           this.currentbin = 'external'
           this.setStatus('downloading')
@@ -579,28 +600,13 @@ export default defineComponent({
           this.currentbin = 'internal'
           this.setStatus('downloading')
           this.logProgress(0, 1)
+
           const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
           // Patch the username in we're in legacy mode
           if (this.slot === 'legacy') {
             this.patchUsername(internalBin)
           }
           await this.calculator.flashInternal(internalBin)
-        } else if (model === '????') {
-          this.currentbin = 'external'
-          this.setStatus('downloading')
-          const externalBin = await this.downloadBin(this.slot, 'N0110')
-          if (this.slot === 'B') {
-            this.calculator.device.startAddress = 0x90400000
-            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
-          } else {
-            await this.calculator.flashExternal(externalBin)
-          }
-          this.setStatus('unknownModelDone')
-          this.showButtons = false
-          this.showProgressbar = false
-          this.inRecoveryMode = false
-          this.shouldRestoreStorage = true
-          return
         } else {
           throw new Error(this.t('installer.unsupportedModel') + ':' + model)
         }
