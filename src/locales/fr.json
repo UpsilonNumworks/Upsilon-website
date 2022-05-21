@@ -101,13 +101,13 @@
         "whatnext": "Et ensuite ?",
         "lang": "Langue",
         "languages": {
-            "de": "allemand",
+            "de": "Allemand",
             "en": "Anglais",
             "es": "Espagnol",
-            "fr": "français",
-            "hu": "hongrois",
-            "it": "italien",
-            "nl": "néerlandais",
+            "fr": "Français",
+            "hu": "Hongrois",
+            "it": "Italien",
+            "nl": "Néerlandais",
             "pt": "Portugais"
         },
         "selecta": "Sélectionner un",
