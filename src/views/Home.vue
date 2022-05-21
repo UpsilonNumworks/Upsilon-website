@@ -54,6 +54,10 @@
         </g>
       </svg>
       <div id="slogan">When Epsiloff and Omegout</div>
+      <div
+      @click="scroll"
+        id="scroll-indicator"
+      ></div>
     </div>
     <div id="content">
       <div class="features-header" id="features-upsilon-header">
@@ -144,16 +148,15 @@
           /></a>
           <a href="https://github.com/UpsilonNumworks/Upsilon"
             ><img
-            style="transform: scale(.9);"
+              style="transform: scale(0.9)"
               class="footer-link"
               src="~@/assets/github.webp"
               alt="Discord logo"
           /></a>
         </div>
         <div id="faq-link">
-
-        <h2> {{t('home.anyQuestions')}}</h2>
-        <router-link to="/doc/FAQ">{{t('home.visitFaq')}}</router-link>
+          <h2>{{ t("home.anyQuestions") }}</h2>
+          <router-link to="/doc/FAQ">{{ t("home.visitFaq") }}</router-link>
         </div>
       </footer>
     </div>
@@ -194,6 +197,11 @@ export default defineComponent({
     }
     window.addEventListener('resize', updateSize)
     updateSize()
+  },
+  methods: {
+    scroll () {
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+    }
   }
 })
 </script>
@@ -248,26 +256,59 @@ export default defineComponent({
     font-size: 3em;
   }
 }
+#scroll-indicator {
+  animation: bounce 2s ease infinite, appear 5s 2s forwards;
+  top: 90% !important;
+  width:3vh;
+  height: 3vh;
+  border: solid var(--foreground) 5px;
+  border-top: none;
+  border-left: none;
+  opacity:0;
+  cursor:pointer;
+  z-index:999;
+}
+@keyframes appear{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform:  translateY(0)rotate(45deg) skew(-10deg, -10deg) translateX(-50%);
+  }
+  50% {
+    transform:  translateY(-30px)rotate(45deg) skew(-10deg, -10deg) translateX(-50%);
+  }
+  100% {
+    transform:  translateY(0)rotate(45deg) skew(-10deg, -10deg) translateX(-50%);
+  }
+}
 footer {
   max-width: 1500px;
   margin: auto;
-  padding:1em;
+  padding: 1em;
   border-top: solid var(--upsilon-1) 2pt;
 }
-#footer-links{
+#footer-links {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-#faq-link{
+#faq-link {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#faq-link *{
+#faq-link * {
   margin: 2em;
-}#faq-link a{
-font-size:1.5em;}
+}
+#faq-link a {
+  font-size: 1.5em;
+}
 footer h1 {
   text-align: left;
 }
@@ -359,6 +400,7 @@ h1 {
   background-size: fit;
 }
 #logos > #slogan {
+  user-select: none;
   top: 51%;
   transform: translateX(-50%);
   color: var(--foreground);
@@ -406,10 +448,6 @@ h1 {
 }
 #text-bg {
   background: linear-gradient(0, var(--upsilon-2), #00000000);
-}
-#logos {
-  pointer-events: none;
-  user-select: none;
 }
 @keyframes appear-from-top-fork {
   0% {
