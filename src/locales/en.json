@@ -389,7 +389,7 @@
             },
             "canRollback": {
                 "question": "Can you roll back from Upsilon to epsilon?",
-                "answer": "Yes, Just go to numworks.com, disable the protection against epsilon (Settings -> USB) and install epsilon normally. Alternatively, if you don't want to lock your calculator you can go <a href=\"https://getomega.dev/install/E15/\">there</a>"
+                "answer": "Yes, Just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to user the recovery mode with 6+reset."
             },
             "how2recovery": {
                 "question": "What is the recovery option on the installer page and how do I use it?",

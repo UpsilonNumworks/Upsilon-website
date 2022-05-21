@@ -55,12 +55,12 @@
                     "2": "et demander de l'aide là-bas.",
                     "discord": "Serveur discord de la communauté Omega",
                     "needHelp": "Ça ne fonctionne toujours pas?",
-                    "tryRecovery": "Si vous avez installé le driver et que la calculatrice a un écran noir (ou l'écran de crash upsilon), vous pouvez essayer de la restaurer en appuyant simultanément sur les touches 6 et reset (à l'arrière de la calculatrice) puis en appuyant sur le bouton recovery \n."
+                    "tryRecovery": "Si vous avez installé le driver et que la calculatrice a un écran noir (ou l'écran de crash upsilon), vous pouvez essayer de la restaurer en appuyant simultanément sur les touches 6 et reset (à l'arrière de la calculatrice) puis en appuyant sur le bouton recovery ."
                 },
-                "text1": "Assurez-vous de sélectionner votre calculatrice dans le menu.\n Si elle ne s'affiche pas, vérifiez que:"
+                "text1": "Assurez-vous de sélectionner votre calculatrice dans le menu. Si elle ne s'affiche pas, vérifiez que:"
             }
         },
-        "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. \nVeuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
+        "incompatibleBrowser": "Il semble que votre navigateur ne supporte pas webUSB, vous ne pourrez donc pas installer Upsilon à partir de ce navigateur. Veuillez utiliser un navigateur basé sur chromium (chrome, brave etc...)",
         "installing": "Installation...",
         "installing1of2": "Installation 1/2...",
         "installing2of2": "Installation 2/2...",
@@ -95,7 +95,7 @@
         "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
         "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
         "releaseChannel": "Version",
-        "thanks": "Merci d'avoir installé Upsilon ! \nPréparez-vous à profiter de la supériorité de l'open source ;)",
+        "thanks": "Merci d'avoir installé Upsilon ! Préparez-vous à profiter de la supériorité de l'open source ;)",
         "unsupportedModel": "Modèle non pris en charge",
         "waitingForReboot": "En attente du redémarrage de la calculatrice...",
         "whatnext": "Et ensuite ?",
@@ -116,7 +116,7 @@
             "li2": "Redémarrez votre ordinateur",
             "li3": "Utiliser un autre port",
             "li4": "Utiliser un autre câble",
-            "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! \nSi vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
+            "text": "Assurez-vous de ne pas déconnecter votre appareil pendant le transfert! Si vous n'avez pas déconnecté votre appareil, vous pouvez essayer les choses suivantes:"
         },
         "theme": "Thème",
         "themes": {
@@ -149,7 +149,7 @@
             "li1": "Si vous avez Epsilon 16 ou une version ultérieure, vous devez déverrouiller votre calculatrice (voir FAQ)",
             "li2": "Sinon, vous avez probablement un appareil protégé et vous devez peut-être désactiver la protection pour continuer (voir FAQ)"
         },
-        "unknownModelDone": "Fait. \nVous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet.",
+        "unknownModelDone": "Fait. Vous pouvez maintenant réinitialiser votre calculatrice manuellement pour que les modifications prennent effet.",
         "internalUnavailable": "Avertissement: Stockage interne indisponible. Cela se produit quand le bootloader est utilisé. Pour supprimer ou mettre à jour ce dernier, veuillez utiliser le mode de restauration."
     },
     "github": {
@@ -220,7 +220,7 @@
         "latex": {
             "reference": "Reference LaTeX",
             "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
-            "symbolslisted": "Pour qu'une expression LaTeX soit rendue, vous devez l'entourer de signes dollar. \nTous les symboles que vous pouvez utiliser sont listés ici :",
+            "symbolslisted": "Pour qu'une expression LaTeX soit rendue, vous devez l'entourer de signes dollar. Tous les symboles que vous pouvez utiliser sont listés ici :",
             "command": "Commande",
             "output": "Résultat",
             "mathsymbols": "Symboles mathématiques",
@@ -348,23 +348,23 @@
         "name": "FAQ",
         "questions": {
             "canRollback": {
-                "answer": "Oui, il suffit d'aller sur numworks.com, de désactiver la protection contre epsilon (Paramètres -> USB) et d'installer epsilon normalement. \nAlternativement, si vous ne voulez pas verrouiller votre calculatrice, vous pouvez aller <a href=\"https://getomega.dev/install/E15/\">ici</a>",
+                "answer": "Oui, il suffit d'aller sur numworks.com et de mettre à jour la calculatrice, ce qui installe la dernière version d'epsilon sur les slots A et B. Pour enlever le bootloader il faut passer par la procédure de restauration avec reset + 6",
                 "question": "Pouvez-vous revenir d'Upsilon à epsilon?"
             },
             "cheatsheet": {
                 "answer": "Pas pour l'instant mais peut-être un jour qui sait ^^",
-                "question": "Existe-t-il une feuille de triche avec les raccourcis clavier/trucs et astuces du simulateur pour Upsilon?"
+                "question": "Existe-t-il une liste d'astuces avec les raccourcis clavier/trucs et astuces du simulateur pour Upsilon?"
             },
             "how2backup": {
-                "answer": "L'installeur devrait automatiquement restaurer les scripts à la fin de l'installation. \nVous pouvez également accéder à <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> pour les sauvegarder manuellement.",
+                "answer": "L'installeur devrait automatiquement restaurer les scripts à la fin de l'installation. Vous pouvez également accéder à <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> pour les sauvegarder manuellement.",
                 "question": "Comment sauvegarder les données de la calculatrice ?"
             },
             "how2contribute": {
-                "answer": "Les contributions (rapports de bugs, demandes de fonctionnalités et commits) sont les bienvenues à la fois sur Upsilon lui-même et sur son site Web. \nVous pouvez demander des fonctionnalités et signaler des bogues sur leurs outils de suivi des problèmes de référentiel respectifs: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> et <a href=\"https://github \n.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>",
+                "answer": "Les contributions (rapports de bugs, demandes de fonctionnalités et commits) sont les bienvenues à la fois sur Upsilon lui-même et sur son site Web. Vous pouvez demander des fonctionnalités et signaler des bogues sur leurs outils de suivi des problèmes de référentiel respectifs: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> et <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>",
                 "question": "Comment contribuer à Upsilon/son site internet ?"
             },
             "how2createReaderFile": {
-                "answer": "Vous ne pouvez pas. \nPour ajouter un fichier pour la liseuse à la calculatrice, vous devez vous rendre sur la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et y transférer vos fichiers.",
+                "answer": "Vous ne pouvez pas. Pour ajouter un fichier pour la liseuse à la calculatrice, vous devez vous rendre sur la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et y transférer vos fichiers.",
                 "question": "Comment créer un fichier pour l'application liseuse depuis la calculatrice ?"
             },
             "how2external": {
@@ -372,28 +372,28 @@
                 "question": "Comment installer des applications externes?"
             },
             "how2py": {
-                "answer": "Vous pouvez utiliser <a href=\"https://getomega.dev/ide\">Omega IDE</a> pour le faire, bien que le simulateur exécute Omega et non Upsilon et qu'il y ait actuellement des problèmes avec les transferts de fichiers ( \nqui se produira également sur numworks.com).",
+                "answer": "Vous pouvez utiliser <a href=\"https://getomega.dev/ide\">Omega IDE</a> pour le faire, bien que le simulateur exécute Omega et non Upsilon et qu'il y ait actuellement des problèmes avec les transferts de fichiers ( qui se produira également sur numworks.com).",
                 "question": "Comment transférer des scripts vers la calculatrice/éditer des scripts en ligne sans passer par numworks.com ?"
             },
             "how2reader": {
-                "answer": "Accédez aux fichiers externes et ajoutez un fichier .txt ou .urt (texte enrichi Upsilon). \nPour plus d'informations, consulter le <a href=\"latex\">tutoriel de la liseuse</a>.",
+                "answer": "Accédez aux fichiers externes et ajoutez un fichier .txt ou .urt (texte enrichi Upsilon). Pour plus d'informations, consulter le <a href=\"reader\">tutoriel de la liseuse</a>.",
                 "question": "Comment utiliser l'application liseuse?"
             },
             "how2recovery": {
-                "answer": "Ceci peut être utilisé lorsque le logiciel de la calculatrice est défectueux. \nCela se produit généralement lorsqu'il y a une erreur lors de l'installation ou lorsque la calculatrice est déconnectée lors de l'installation. \nAppuyez simultanément sur la touche 6 et la touche de réinitialisation à l'arrière de la calculatrice (assurez-vous que votre calculatrice est connectée à l'ordinateur via USB), puis appuyez sur récupération. \nSélectionnez STM32 BOOTLOADER et après quelques instants, vous devriez pouvoir installer Upsilon normalement.",
+                "answer": "Ceci peut être utilisé lorsque le logiciel de la calculatrice est défectueux. Cela se produit généralement lorsqu'il y a une erreur lors de l'installation ou lorsque la calculatrice est déconnectée lors de l'installation. Appuyez simultanément sur la touche 6 et la touche de réinitialisation à l'arrière de la calculatrice (assurez-vous que votre calculatrice est connectée à l'ordinateur via USB), puis appuyez sur récupération. Sélectionnez STM32 BOOTLOADER et après quelques instants, vous devriez pouvoir installer Upsilon normalement.",
                 "question": "Qu'est-ce que l'option de récupération sur la page de l'installeur et comment l'utiliser?"
             },
             "how2testReaderOnline": {
-                "answer": "C'est impossible pour le moment. \nC'est faisable avec les simulateurs windows/linux en plaçant les fichiers de la liseuse dans le même répertoire que les exécutables ou en transférant les fichiers de la liseuse vers la calculatrice.",
+                "answer": "C'est impossible pour le moment. C'est faisable avec les simulateurs windows/linux en plaçant les fichiers de la liseuse dans le même répertoire que les exécutables ou en transférant les fichiers de la liseuse vers la calculatrice.",
                 "question": "Comment prévisualiser un fichier pour la liseuse en ligne ?"
             },
             "how2themes": {
-                "answer": "Allez à l'installeur, sélectionnez la chaîne bêta et sélectionnez votre thème. \nVous devez réinstaller Upsilon pour changer de thème.",
+                "answer": "Allez à l'installeur, sélectionnez la chaîne bêta et sélectionnez votre thème. Vous devez réinstaller Upsilon pour changer de thème.",
                 "question": "Comment installer des thèmes ?"
             },
             "numLocked": {
                 "question": "Que puis-je faire si j'ai installé Epsilon 16 sur ma calculatrice ?",
-                "answer": "Il existe un <a href=\"https://guide.detomega.dev\">guide</a> expliquant comment déverrouiller votre calculatrice"
+                "answer": "Il existe un <a href=\"https://guide.getomega.dev\">guide</a> expliquant comment déverrouiller votre calculatrice"
             },
             "supportedBrowsers": {
                 "answer": "Tout navigateur basé sur chromium qui n'est pas trop ancien devrait fonctionner (Chrome, Brave, Edge etc...) Firefox ne fonctionnera pas.",
@@ -412,7 +412,7 @@
                 "question": "Vous n'avez pas trouvé de réponse à votre question ?"
             },
             "uninstallExternal": {
-                "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et ne sélectionnez rien, puis installez. \nCela effacera toutes les applications externes et l'arrière-plan.",
+                "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> et ne sélectionnez rien, puis installez. Cela effacera toutes les applications externes et l'arrière-plan.",
                 "question": "Comment désinstaller des applications externes?"
             }
         },
