@@ -365,7 +365,7 @@
             },
             "how2reader": {
                 "question": "How to use the reader app?",
-                "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info please go to <a href=\"latex\">the reader tutorial</a>."
+                "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info please go to <a href=\"reader\">the reader tutorial</a>."
             },
             "how2py": {
                 "question": "How to transfer scripts to the calculator/edit scripts online without going to numworks.com?",
