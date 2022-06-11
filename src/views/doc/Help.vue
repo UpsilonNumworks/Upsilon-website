@@ -3,7 +3,7 @@
     <div class="doc-wrapper">
       <div class="doc">
         <h1>{{ t("help.name") }}</h1>
-        <h2 id="question" v-if="questionText != ''" v-html="questionText"></h2>
+        <h2 id="question" v-if="questionText != ''" v-html="t(questionText)"></h2>
         <!-- Div to store answers -->
         <div v-if="answers" class="questions">
           <!-- Show the key name of the item by the index -->
@@ -19,7 +19,7 @@
         </div>
         <TransitionGroup name="fade">
           <h2 v-if="solutionText != undefined">{{ t("help.solution") }}</h2>
-          <div v-if="solutionText != undefined" v-html="solutionText"></div>
+          <div v-if="solutionText != undefined" v-html="t(solutionText)"></div>
         </TransitionGroup>
       </div>
     </div>
@@ -67,26 +67,40 @@ export default defineComponent({
                 question: 'help.do-you-have-driver',
                 answers: {
                   'help.have-driver': {
-
+                    question: 'help.reinstall-driver',
+                    answers: {
+                      'help.worked': {
+                        solution: 'help.end'
+                      },
+                      'help.not-worked': {
+                      }
+                    }
                   },
                   'help.no-driver': {
-                    solution: 'help.install-driver'
+                    question: 'help.install-driver',
+                    answers: {
+                      'help.worked': {
+                        solution: 'help.end'
+                      },
+                      'help.not-worked': {
+                      }
+                    }
                   }
                 }
               }
-            }
-          },
-          'help.recovery': {
-            hidden: false,
-            question: 'help.reset6',
-            answers: {
-              'help.next': {
-                question: 'help.recovery',
-                answers: {
-                  'help.recovery-success': {
-                    solution: 'help.install-os'
-                  },
-                  'help.recovery-fail': {
+            },
+            'help.recovery': {
+              hidden: false,
+              question: 'help.reset6',
+              answers: {
+                'help.next': {
+                  question: 'help.recovery',
+                  answers: {
+                    'help.recovery-success': {
+                      solution: 'help.install-os'
+                    },
+                    'help.recovery-fail': {
+                    }
                   }
                 }
               }
@@ -129,12 +143,12 @@ export default defineComponent({
       if (question.solution === undefined) {
         this.solutionText = undefined
       } else {
-        this.solutionText = this.t(question.solution)
+        this.solutionText = question.solution
       }
     },
     askQuestion () {
       // Set the question text translated
-      this.questionText = this.t(this.actualQuestion.question)
+      this.questionText = this.actualQuestion.question
       // Show the responses
       this.showResponses(this.actualQuestion)
       // Show the solution
@@ -165,7 +179,7 @@ export default defineComponent({
           // Else, show the non implemented message
         } else {
           this.log('Subtree is empty')
-          this.solutionText = this.t('help.not-implemented')
+          this.solutionText = 'help.not-implemented'
         }
       }
     },
