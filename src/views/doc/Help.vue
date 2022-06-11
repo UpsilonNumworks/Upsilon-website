@@ -45,28 +45,37 @@ export default defineComponent({
       solutionText: '',
       answers: [],
       questions: {
-        'help.what-problem': {
-          question: 'help.what-problem',
-          answers: {
-            'help.wont-boot': {
-              question: 'help.press-reset',
-              answers: {
-                'help.reset-success': {
-                  solution: 'help.end'
-                },
-                'help.reset-fail': {
-                  question: 'help.reset6',
-                  answers: {
-                    'help.next': {
-                      question: 'help.recovery',
-                      answers: {
-                        'help.recovery-success': {
-                          solution: 'help.install-os'
-                        },
-                        'help.recovery-fail': {
-                        }
-                      }
-                    }
+        answers: {
+          'help.what-problem': {
+            question: 'help.what-problem',
+            answers: {
+              'help.wont-boot': {
+                question: 'help.press-reset',
+                answers: {
+                  'help.reset-success': {
+                    solution: 'help.end'
+                  },
+                  'help.reset-fail': {
+                    redirect: 'help.recovery'
+                  }
+                }
+              },
+              'help.n????': {
+                redirect: 'help.recovery'
+              }
+            }
+          },
+          'help.recovery': {
+            hidden: false,
+            question: 'help.reset6',
+            answers: {
+              'help.next': {
+                question: 'help.recovery',
+                answers: {
+                  'help.recovery-success': {
+                    solution: 'help.install-os'
+                  },
+                  'help.recovery-fail': {
                   }
                 }
               }
@@ -80,16 +89,27 @@ export default defineComponent({
     this.onload()
   },
   methods: {
+    log (text) {
+      // In debug mode, log the text
+      if (process.env.NODE_ENV !== 'production') {
+        console.log(text)
+      }
+    },
     onload: function () {
-      console.log('onload')
-      this.actualQuestion = this.questions['help.what-problem']
-      this.askQuestion()
+      this.log('onload')
+      this.selectAnswer(this.questions.answers['help.what-problem'])
     },
     showResponses (question) {
       this.answers = {}
       for (const answer in question.answers) {
+        // Get the answer
+        const answerItem = question.answers[answer]
+        // If the answer is hidden, don't show it
+        if (answerItem.hidden) {
+          continue
+        }
         // Add the answer to the answers object
-        this.answers[answer] = question.answers[answer]
+        this.answers[answer] = answerItem
         // Add the question to ask now (askNow) to the answers object
         this.answers[answer].askNow = answer
       }
@@ -102,10 +122,6 @@ export default defineComponent({
       }
     },
     askQuestion () {
-      // Get the first object in the actualQuestion object
-      // const question = this.actualQuestion[Object.keys(this.actualQuestion)[0]]
-      // Get the key of the question
-      // const questionKey = Object.keys(this.actualQuestion)[0]
       // Set the question text translated
       this.questionText = this.t(this.actualQuestion.question)
       // Show the responses
@@ -114,12 +130,15 @@ export default defineComponent({
       this.showSolution(this.actualQuestion)
     },
     selectAnswer (answer) {
-      console.log(answer)
       // Remove the question text
       this.questionText = ''
+      // Get if a redirect is needed
+      if (answer.redirect !== undefined) {
+        // Redirect to the new question
+        this.redirect(answer.redirect)
       // If the answer has a question, ask it
-      if (answer.question) {
-        console.log('Subtree is a question')
+      } else if (answer.question) {
+        this.log('Subtree is a question')
         // Set the next question to ask
         this.actualQuestion = answer
         // Ask the question
@@ -129,15 +148,32 @@ export default defineComponent({
         this.answers = false
         // If the answer has a solution, show it
         if (answer.solution) {
-          console.log('Subtree is only a solution')
+          this.log('Subtree is only a solution')
           // Show the solution
           this.showSolution(answer)
           // Else, show the non implemented message
         } else {
-          console.log('Subtree is empty')
+          this.log('Subtree is empty')
           this.solutionText = this.t('help.not-implemented')
         }
       }
+    },
+    redirect (path) {
+      // Log the redirect
+      this.log('Redirecting to ' + path)
+      // Split the path by /
+      const pathArray = path.split('/')
+      // Initialise the path to redirect to
+      let pathToRedirect = this.questions
+      // For each path, get the object in the path
+      for (const pathItem of pathArray) {
+        // Log the path
+        pathToRedirect = pathToRedirect.answers[pathItem]
+      }
+      // Unhide the question
+      pathToRedirect.hidden = false
+      // Select the answer
+      this.selectAnswer(pathToRedirect)
     }
   }
 })
