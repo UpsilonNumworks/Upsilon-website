@@ -58,8 +58,21 @@ export default defineComponent({
                       solution: 'help.end'
                     },
                     'help.reset-fail': {
-                      // TODO
-                      question: 'help.reset6'
+                      question: 'help.reset6',
+                      solution: 'help.continue',
+                      answers: {
+                        'help.next': {
+                          question: 'help.recovery',
+                          solution: 'help.continue',
+                          answers: {
+                            'help.recovery-success': {
+                              solution: 'help.install-os'
+                            },
+                            'help.recovery-fail': {
+                            }
+                          }
+                        }
+                      }
                     }
                   },
                   solution: 'help.continue'
