@@ -456,7 +456,7 @@
         "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED.",
         "solution": "Solution",
         "what-problem": "What is the problem ?",
-        "wont-boot": "The calculator does not start.",
+        "wont-boot": "The calculator does not boot.",
         "worked": "It worked.",
         "are-you-using-chromium-snap": "Do you use Chromium in Snap? \n(does which chromium return a path starting with /snap?)",
         "are-you-using-linux": "Do you use Linux?",
