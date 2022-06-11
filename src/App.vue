@@ -11,6 +11,7 @@
       <router-link to="/releases">{{ t('releases.name') }}</router-link>
       <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
       <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
+      <router-link to="/doc/help">{{ t('help.name') }}</router-link>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -36,6 +37,7 @@
     <router-link to="/releases">{{ t('releases.name') }}</router-link>
     <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
     <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
+    <router-link to="/doc/help">{{ t('help.name') }}</router-link>
     <a
       target="_blank"
       rel="noopener noreferrer"

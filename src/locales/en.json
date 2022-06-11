@@ -425,5 +425,8 @@
         "download": "Download Upsilon",
         "installNow": "Install Upsilon now",
         "onlineInstaller": "Online installer"
+    },
+    "help": {
+        "name": "Help"
     }
 }

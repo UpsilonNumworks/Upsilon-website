@@ -3,6 +3,7 @@ import FAQ from '../views/doc/FAQ.vue'
 import RPN from '../views/doc/RPN.vue'
 import Themes from '../views/doc/Themes.vue'
 import Reader from '../views/doc/Reader.vue'
+import Help from '../views/doc/Help.vue'
 import Home from '../views/Home.vue'
 import Installer from '../views/Installer.vue'
 import NotFound from '../views/NotFound.vue'
@@ -49,6 +50,11 @@ const routes = [
     path: '/simulator',
     name: 'Simulator',
     component: Simulator
+  },
+  {
+    path: '/doc/help',
+    name: 'Help',
+    component: Help
   },
   {
     path: '/:pathMatch(.*)*',
