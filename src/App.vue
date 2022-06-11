@@ -82,7 +82,6 @@ export default defineComponent({
   },
   methods: {
     switchTheme (checked) {
-      console.log(checked)
       this.darkmode = checked
     },
     toggleNavbar () {
