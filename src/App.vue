@@ -193,7 +193,7 @@ export default defineComponent({
   font-size: 2em;
   margin: 1em;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   justify-content: space-between;
 }
 #nav a {
@@ -218,7 +218,7 @@ export default defineComponent({
   }
   .nav-btn-wrapper {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 1em;
     font-size: 2em;
   }
