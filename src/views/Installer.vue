@@ -830,20 +830,6 @@ h1 {
   background-color: var(--upsilon-1);
 }
 
-button {
-  border-radius: 5px;
-  background-color: var(--upsilon-1);
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 12px 6px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  user-select: none;
-}
 #btn-disconnect {
   background-color: var(--feature-bg-omega);
   border: solid var(--error-text) 1pt;
