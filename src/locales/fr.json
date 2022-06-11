@@ -441,6 +441,6 @@
     "led-red": "La LED est rouge.",
     "press-reset": "Appuyez sur la touche RESET au dos de la calculatrice.",
     "reset-success": "La calculatrice marche après avoir appuyé sur la touche RESET.",
-    "reset-fail": "La calculatrice ne marche pas après avoir appuyé sur la touche RESET."
+    "reset-fail": "La calculatrice ne marche pas après avoir appuyé sur la touche RESET.",
   }
 }

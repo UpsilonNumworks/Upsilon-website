@@ -44,23 +44,25 @@ export default defineComponent({
       answers: [],
       questions: {
         'help.what-problem': {
-          response: 'help.continue',
+          solution: 'help.continue',
           question: 'help.what-problem',
           answers: {
             'help.wont-boot': {
-              response: 'help.continue',
+              solution: 'help.continue',
               question: 'help.led-status',
               answers: {
                 'help.led-off': {
                   question: 'help.press-reset',
                   answers: {
                     'help.reset-success': {
-                      response: 'help.end'
+                      solution: 'help.end'
                     },
                     'help.reset-fail': {
+                      // TODO
+                      question: 'help.reset6'
                     }
                   },
-                  response: 'help.continue'
+                  solution: 'help.continue'
                 },
                 'help.led-red': {
                 }
@@ -90,7 +92,7 @@ export default defineComponent({
       }
     },
     showSolution (question) {
-      this.solutionText = this.t(question.response)
+      this.solutionText = this.t(question.solution)
     },
     askQuestion () {
       // Get the first object in the actualQuestion object
@@ -118,9 +120,9 @@ export default defineComponent({
       } else {
         // Remove answers by setting it to false because an empty list doesn't trigger the v-if
         this.answers = false
-        // If the answer has a response, show it
-        if (answer.response) {
-          console.log('Subtree is only a response')
+        // If the answer has a solution, show it
+        if (answer.solution) {
+          console.log('Subtree is only a solution')
           // Show the solution
           this.showSolution(answer)
         // Else, show the non implemented message
