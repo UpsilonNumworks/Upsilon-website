@@ -402,4 +402,22 @@ body.dark {
   max-width: 800px;
   border-radius: 10px;
 }
+button {
+  border-radius: 5px;
+  background-color: var(--upsilon-2);
+  border: solid var(--upsilon-1) 2pt;
+  color: var(--foreground);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 12px 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  user-select: none;
+}
+button:hover{
+  background-color: var(--upsilon-1);
+  color:var(--upsilon-2);
+}
 </style>

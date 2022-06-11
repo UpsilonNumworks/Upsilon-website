@@ -2,23 +2,25 @@
   <div>
     <div class="doc-wrapper">
       <div class="doc">
-        <h1>{{ t('help.name') }}</h1>
-        <h2
-          v-if="questionText"
-          v-html="questionText"
-        ></h2>
+        <h1>{{ t("help.name") }}</h1>
+        <h2 id="question" v-if="questionText != ''" v-html="questionText"></h2>
         <!-- Div to store answers -->
-        <div>
-          <div v-for="(item, index) in answers" :key="index">
-            <!-- Show the key name of the item by the index -->
-            <button @click="selectAnswer(item)">{{ t(item.askNow) }}</button>
-          </div>
+        <div v-if="answers" class="questions">
+          <!-- Show the key name of the item by the index -->
+          <TransitionGroup name="fade"
+            ><button
+              v-for="(item, index) in answers"
+              :key="index"
+              @click="selectAnswer(item)"
+            >
+              {{ t(item.askNow) }}
+            </button></TransitionGroup
+          >
         </div>
-        <h2>{{ t('help.solution') }}</h2>
-                <div
-          v-if="solutionText"
-          v-html="solutionText"
-        ></div>
+        <TransitionGroup name="fade">
+          <h2 v-if="solutionText != undefined">{{ t("help.solution") }}</h2>
+          <div v-if="solutionText != undefined" v-html="solutionText"></div>
+        </TransitionGroup>
       </div>
     </div>
   </div>
@@ -29,7 +31,7 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'Help',
-  components: { },
+  components: {},
   setup () {
     const { t } = useI18n({
       inheritLocale: true,
@@ -44,7 +46,6 @@ export default defineComponent({
       answers: [],
       questions: {
         'help.what-problem': {
-          solution: 'help.continue',
           question: 'help.what-problem',
           answers: {
             'help.wont-boot': {
@@ -55,11 +56,9 @@ export default defineComponent({
                 },
                 'help.reset-fail': {
                   question: 'help.reset6',
-                  solution: 'help.continue',
                   answers: {
                     'help.next': {
                       question: 'help.recovery',
-                      solution: 'help.continue',
                       answers: {
                         'help.recovery-success': {
                           solution: 'help.install-os'
@@ -70,8 +69,7 @@ export default defineComponent({
                     }
                   }
                 }
-              },
-              solution: 'help.continue'
+              }
             }
           }
         }
@@ -97,7 +95,11 @@ export default defineComponent({
       }
     },
     showSolution (question) {
-      this.solutionText = this.t(question.solution)
+      if (question.solution === undefined) {
+        this.solutionText = undefined
+      } else {
+        this.solutionText = this.t(question.solution)
+      }
     },
     askQuestion () {
       // Get the first object in the actualQuestion object
@@ -130,7 +132,7 @@ export default defineComponent({
           console.log('Subtree is only a solution')
           // Show the solution
           this.showSolution(answer)
-        // Else, show the non implemented message
+          // Else, show the non implemented message
         } else {
           console.log('Subtree is empty')
           this.solutionText = this.t('help.not-implemented')
@@ -144,5 +146,27 @@ export default defineComponent({
 <style scoped>
 .proposedAnswer {
   font-size: 20em;
+}
+button {
+  flex: 1;
+  display: block;
+}
+.questions {
+  display: flex;
+}
+.fade-enter-active {
+  transition: all 0.5s ease;
+}
+.fade-leave-active {
+  transition: all 0.5s ease;
+  display: none;
+}
+.fade-enter-from {
+  transform: translateY(10px);
+  opacity: 0;
+}
+h2#question{
+  font-family:Lato;
+  font-size: 1.5em;
 }
 </style>
