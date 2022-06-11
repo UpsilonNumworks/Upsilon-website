@@ -62,6 +62,17 @@ export default defineComponent({
               },
               'help.n????': {
                 redirect: 'help.recovery'
+              },
+              'help.cant-detect': {
+                question: 'help.do-you-have-driver',
+                answers: {
+                  'help.have-driver': {
+
+                  },
+                  'help.no-driver': {
+                    solution: 'help.install-driver'
+                  }
+                }
               }
             }
           },

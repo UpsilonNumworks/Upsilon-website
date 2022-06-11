@@ -7,7 +7,7 @@
       "features": {
           "header": {
               "omega": "Comme Upsilon est un fork d'Omega, il prend également en charge toutes les fonctionnalités d'Omega",
-              "upsilon": "Fonctionalités principales"
+              "upsilon": "Fonctionnalités principales"
           }
       },
       "findThemeList": "Vous pouvez trouver une liste de tous les thèmes disponibles ici.",
@@ -158,12 +158,12 @@
   "features": {
       "reader": {
           "name": "Liseuse",
-          "description": "Une application liseuse avec un support pour les caractères speciaux du format LaTeX",
+          "description": "Une application liseuse avec un support pour les caractères spéciaux du format LaTeX",
           "docLink": "En savoir plus"
       },
       "external": {
           "name": "Applications Externes",
-          "description": "Installez des applications communautaires à la volée avec External. Inclus aussi KhiCAS et divers emulateurs.",
+          "description": "Installez des applications communautaires à la volée avec External. Inclus aussi KhiCAS et divers émulateurs.",
           "installNow": "Installez-en maintenant"
       },
       "symbolic": {
@@ -224,8 +224,8 @@
           "command": "Commande",
           "output": "Résultat",
           "mathsymbols": "Symboles mathématiques",
-          "greekcapitalletter": "Lettres capitales greques",
-          "greeksmallletter": "Lettres minuscules greques",
+          "greekcapitalletter": "Lettres capitales grecques",
+          "greeksmallletter": "Lettres minuscules grecques",
           "arrows": "Flèches",
           "functions": "Fonctions"
       },
@@ -449,6 +449,12 @@
     "recovery-success": "La calculatrice s'allume en disant \"Recovery mode\".",
     "recovery-fail": "La calculatrice ne s'allume pas.",
     "install-os": "Maintenant, vous pouvez installer un système d'exploitation sur la calculatrice depuis les site d'Omega/Upsilon.",
-    "n????": "Le PC détecte le modèle comme une N????."
+    "n????": "Le PC détecte le modèle comme une N????.",
+    "cant-detect": "Le PC ne détecte pas la calculatrice.",
+    "do-you-have-driver": "Avez-vous le pilote (driver) pour la calculatrice ?",
+    "have-driver": "Vous avez un pilote pour la calculatrice installé.",
+    "no-driver": "Vous n'avez pas de pilote pour la calculatrice.",
+    "install-driver": "Vous devez installer le pilote pour la calculatrice. Vous pouvez le télécharger sur le site de NumWorks au début de la procédure de mise à jour ou sur l'installateur d'Upsilon en cliquant sur Annuler lors de la sélection du périphérique.",
+    "reinstall-driver": "Vous devez réinstaller le pilote pour la calculatrice. Vous devez le désinstaller puis le télécharger sur le site de NumWorks au début de la procédure de mise à jour ou sur l'installateur d'Upsilon en cliquant sur Annuler lors de la sélection du périphérique."
   }
 }
