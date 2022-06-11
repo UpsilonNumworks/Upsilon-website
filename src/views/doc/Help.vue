@@ -48,38 +48,30 @@ export default defineComponent({
           question: 'help.what-problem',
           answers: {
             'help.wont-boot': {
-              solution: 'help.continue',
-              question: 'help.led-status',
+              question: 'help.press-reset',
               answers: {
-                'help.led-off': {
-                  question: 'help.press-reset',
+                'help.reset-success': {
+                  solution: 'help.end'
+                },
+                'help.reset-fail': {
+                  question: 'help.reset6',
+                  solution: 'help.continue',
                   answers: {
-                    'help.reset-success': {
-                      solution: 'help.end'
-                    },
-                    'help.reset-fail': {
-                      question: 'help.reset6',
+                    'help.next': {
+                      question: 'help.recovery',
                       solution: 'help.continue',
                       answers: {
-                        'help.next': {
-                          question: 'help.recovery',
-                          solution: 'help.continue',
-                          answers: {
-                            'help.recovery-success': {
-                              solution: 'help.install-os'
-                            },
-                            'help.recovery-fail': {
-                            }
-                          }
+                        'help.recovery-success': {
+                          solution: 'help.install-os'
+                        },
+                        'help.recovery-fail': {
                         }
                       }
                     }
-                  },
-                  solution: 'help.continue'
-                },
-                'help.led-red': {
+                  }
                 }
-              }
+              },
+              solution: 'help.continue'
             }
           }
         }
