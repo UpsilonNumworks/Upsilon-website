@@ -1,15 +1,15 @@
 <template>
   <transition name="hamburger-menu" mode="in-out">
-    <div @click="hbmenuOpen = false" v-if="hbmenuOpen" id="hamburger-menu">
+    <div v-if="hbmenuOpen" id="hamburger-menu">
       <div id="nav-btn-wrapper">
       <LocaleChanger />
-        <button class="nav-btn"></button>
+        <button @click="hbmenuOpen = false" class="nav-btn"></button>
       </div>
-      <router-link to="/">{{ t("home.name") }}</router-link>
-      <router-link to="/install">{{ t("installer.name") }}</router-link>
-      <router-link to="/releases">{{ t("releases.name") }}</router-link>
-      <router-link to="/simulator">{{ t("simulator.name") }}</router-link>
-      <router-link to="/doc/faq">{{ t("faq.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false"  to="/">{{ t("home.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false"  to="/install">{{ t("installer.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false"  to="/releases">{{ t("releases.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false"  to="/simulator">{{ t("simulator.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false"  to="/doc/faq">{{ t("faq.name") }}</router-link>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -21,7 +21,7 @@
           :label="t('darkmode')"
           :checked="darkmode"
           :border="true"
-          sid="theme-switch"
+          sid="theme-switch-hamburger"
           @switched="switchTheme"
         />
       </div>
@@ -82,6 +82,7 @@ export default defineComponent({
   },
   methods: {
     switchTheme (checked) {
+      console.log(checked)
       this.darkmode = checked
     },
     toggleNavbar () {

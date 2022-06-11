@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     passEvent () {
+      console.log(document.getElementById(this.sid).checked)
       this.$emit('switched', document.getElementById(this.sid).checked)
     }
   }
