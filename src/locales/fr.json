@@ -444,7 +444,7 @@
     "reset-success": "La calculatrice marche après avoir appuyé sur la touche RESET.",
     "reset-fail": "La calculatrice ne marche pas après avoir appuyé sur la touche RESET.",
     "reset6": "Si vous avez une N0110, appuyez sur RESET tout en maintenant la touche 6 appuyée. Si vous avez une N0100, appuyez sur RESET avec la calculatrice branchée sur l'ordinateur. La calculatrice doit afficher une LED rouge.",
-    "recovery": "Ouvrez un nouvel onglet, allez sur le site d'Upsilon, allez sur la page de l'installateur puis cliquez sur mode de restauration.",
+    "recovery": "Ouvrez un nouvel onglet, allez sur le site d'Upsilon, allez sur la page de l'installateur puis cliquez sur mode de restauration. Sélectionnez \"STM32 BOOTLOADER\" et cliquez sur \"Connexion\".",
     "recovery-success": "La calculatrice s'allume en disant \"Recovery mode\".",
     "recovery-fail": "La calculatrice ne s'allume pas.",
     "install-os": "Maintenant, vous pouvez installer un système d'exploitation sur la calculatrice depuis les site d'Omega/Upsilon."
