@@ -1,21 +1,20 @@
 <template>
-  <button v-if="debug" @click="forceLocaleFR">Force FR</button>
   <transition name="hamburger-menu" mode="in-out">
-
     <div @click="hbmenuOpen = false" v-if="hbmenuOpen" id="hamburger-menu">
       <div id="nav-btn-wrapper">
+      <LocaleChanger />
         <button class="nav-btn"></button>
       </div>
-      <router-link to="/">{{ t('home.name') }}</router-link>
-      <router-link to="/install">{{ t('installer.name') }}</router-link>
-      <router-link to="/releases">{{ t('releases.name') }}</router-link>
-      <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
-      <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
+      <router-link to="/">{{ t("home.name") }}</router-link>
+      <router-link to="/install">{{ t("installer.name") }}</router-link>
+      <router-link to="/releases">{{ t("releases.name") }}</router-link>
+      <router-link to="/simulator">{{ t("simulator.name") }}</router-link>
+      <router-link to="/doc/faq">{{ t("faq.name") }}</router-link>
       <a
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/UpsilonNumworks/Upsilon"
-        >{{ t('github.name') }}</a
+        >{{ t("github.name") }}</a
       >
       <div class="darkmode-switch">
         <Switch
@@ -31,18 +30,19 @@
   <div class="closed" id="nav">
     <router-link id="link-mobile-upsilon" to="/">Upsilon</router-link>
     <button @click="hbmenuOpen = true" class="nav-btn"></button>
-    <router-link to="/">{{ t('home.name') }}</router-link>
-    <router-link to="/install">{{ t('installer.name') }}</router-link>
-    <router-link to="/releases">{{ t('releases.name') }}</router-link>
-    <router-link to="/simulator">{{ t('simulator.name') }}</router-link>
-    <router-link to="/doc/faq">{{ t('faq.name') }}</router-link>
+    <router-link to="/">{{ t("home.name") }}</router-link>
+    <router-link to="/install">{{ t("installer.name") }}</router-link>
+    <router-link to="/releases">{{ t("releases.name") }}</router-link>
+    <router-link to="/simulator">{{ t("simulator.name") }}</router-link>
+    <router-link to="/doc/faq">{{ t("faq.name") }}</router-link>
     <a
       target="_blank"
       rel="noopener noreferrer"
       href="https://github.com/UpsilonNumworks/Upsilon"
-      >{{ t('github.name') }}</a
+      >{{ t("github.name") }}</a
     >
     <div class="right">
+        <LocaleChanger />
       <div class="darkmode-switch">
         <Switch
           :label="t('darkmode')"
@@ -64,6 +64,7 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Switch from '@/components/Switch.vue'
+import LocaleChanger from '@/components/LocaleChanger.vue'
 export default defineComponent({
   setup () {
     const { t } = useI18n({
@@ -76,7 +77,8 @@ export default defineComponent({
     return { hbmenuOpen: false, darkmode: true, debug: false }
   },
   components: {
-    Switch
+    Switch,
+    LocaleChanger
   },
   methods: {
     switchTheme (checked) {
@@ -85,9 +87,6 @@ export default defineComponent({
     toggleNavbar () {
       document.getElementById('nav').classList.toggle('open')
       document.getElementById('nav').classList.toggle('closed')
-    },
-    forceLocaleFR () {
-      this.$i18n.global.locale._setter('fr')
     }
   },
   watch: {
@@ -102,9 +101,9 @@ export default defineComponent({
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap");
 * {
   transition: background, background-color 0.2s;
 }
@@ -193,6 +192,7 @@ export default defineComponent({
   margin: 1em;
   display: flex;
   justify-content: end;
+  justify-content: space-between;
 }
 #nav a {
   transition: font-size, margin 0.1s ease-in-out;
@@ -229,10 +229,10 @@ export default defineComponent({
   }
 
   .nav-btn::after {
-    content: '\f0c9';
+    content: "\f0c9";
     font-weight: 900;
     font-size: 2em;
-    font-family: 'Font Awesome 5 Free';
+    font-family: "Font Awesome 5 Free";
     color: var(--foreground);
     display: block;
   }
@@ -303,14 +303,14 @@ export default defineComponent({
   padding-top: 0;
   width: 100%;
 }
-a[target='_blank']::after {
-  content: ' \f35d';
+a[target="_blank"]::after {
+  content: " \f35d";
   font-size: 0.9em;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
@@ -322,7 +322,7 @@ body {
 #nav {
   background: var(--upsilon-1);
   border-bottom: solid var(--upsilon-2) 3pt;
-  font-family: 'Righteous';
+  font-family: "Righteous";
   font-size: 1.5em;
   display: flex;
   z-index: 10000;
@@ -381,13 +381,13 @@ h6 {
 }
 
 body.light {
-  background-image: url('~@/assets/Calculators_upsilon_light.webp');
+  background-image: url("~@/assets/Calculators_upsilon_light.webp");
 
   background-size: cover;
   background-attachment: fixed;
 }
 body.dark {
-  background-image: url('~@/assets/Calculators_upsilon_dark.webp');
+  background-image: url("~@/assets/Calculators_upsilon_dark.webp");
 
   background-size: cover;
   background-attachment: fixed;
