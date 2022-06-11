@@ -457,6 +457,15 @@
         "solution": "Solution",
         "what-problem": "What is the problem ?",
         "wont-boot": "The calculator does not start.",
-        "worked": "It worked."
+        "worked": "It worked.",
+        "are-you-using-chromium-snap": "Do you use Chromium in Snap? \n(does which chromium return a path starting with /snap?)",
+        "are-you-using-linux": "Do you use Linux?",
+        "chromium-snap-solution": "Follow the instructions <a href=\"https://bugs.launchpad.net/ubuntu/source/chromium-browser/ bug/1780678\">here</a> to install the correct version of Chromium (\"snap refresh chromium - \n-channel=candidate/raw-usb\" and \"snap connect chromium:raw-usb\").",
+        "did-it-work": "It worked ?",
+        "not-using-chromium-snap": "You are not using Chromium in Snap.",
+        "not-using-linux": "You are not using Linux.",
+        "switch-cable-or-computer": "Try changing cable and/or PC.",
+        "using-chromium-snap": "You are using Chromium in Snap.",
+        "using-linux": "You are using Linux."
     }
 }

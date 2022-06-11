@@ -457,6 +457,15 @@
     "install-driver": "Vous devez installer le pilote pour la calculatrice. Vous pouvez le télécharger sur le site de NumWorks au début de la procédure de mise à jour ou sur l'installateur d'Upsilon en cliquant sur Annuler lors de la sélection du périphérique.",
     "reinstall-driver": "Vous devez réinstaller le pilote pour la calculatrice. Vous devez le désinstaller puis le télécharger sur le site de NumWorks au début de la procédure de mise à jour ou sur l'installateur d'Upsilon en cliquant sur Annuler lors de la sélection du périphérique.",
     "worked": "Cela a fonctionné.",
-    "not-worked": "Cela n'a pas fonctionné."
+    "not-worked": "Cela n'a pas fonctionné.",
+    "are-you-using-linux": "Utilisez-vous Linux ?",
+    "using-linux": "Vous utilisez Linux.",
+    "not-using-linux": "Vous n'utilisez pas Linux.",
+    "are-you-using-chromium-snap": "Utilisez-vous Chromium en Snap ? (which chromium renvoie-t-il un chemin commençant par /snap ?)",
+    "using-chromium-snap": "Vous utilisez Chromium en Snap.",
+    "not-using-chromium-snap": "Vous n'utilisez pas Chromium en Snap.",
+    "chromium-snap-solution": "Suivez les instruction <a href=\"https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1780678\">ici</a> pour installer la bonne version de Chromium (commandes \"snap refresh chromium --channel=candidate/raw-usb\" et \"snap connect chromium:raw-usb\").",
+    "switch-cable-or-computer": "Essayez de changer de câble et/ou de PC.",
+    "did-it-work": "Cela a fonctionné ?"
   }
 }

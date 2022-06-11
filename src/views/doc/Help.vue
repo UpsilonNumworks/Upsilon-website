@@ -74,6 +74,7 @@ export default defineComponent({
                         solution: 'help.end'
                       },
                       'help.not-worked': {
+                        redirect: 'help.what-problem/help.cant-detect/help.no-driver/help.not-worked'
                       }
                     }
                   },
@@ -84,6 +85,34 @@ export default defineComponent({
                         solution: 'help.end'
                       },
                       'help.not-worked': {
+                        question: 'help.are-you-using-linux',
+                        answers: {
+                          'help.using-linux': {
+                            question: 'help.are-you-using-chromium-snap',
+                            answers: {
+                              'help.using-chromium-snap': {
+                                solution: 'help.chromium-snap-solution'
+                              },
+                              'help.not-using-chromium-snap': {
+                                redirect: 'help.what-problem/help.cant-detect/help.no-driver/help.not-worked/help.not-using-linux'
+                              }
+                            }
+                          },
+                          'help.not-using-linux': {
+                            question: 'help.switch-cable-or-computer',
+                            answers: {
+                              'help.next': {
+                                question: 'help.did-it-work',
+                                answers: {
+                                  'help.worked': {
+                                    solution: 'help.end'
+                                  },
+                                  'help.not-worked': {}
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -193,11 +222,8 @@ export default defineComponent({
       let pathToRedirect = this.questions
       // For each path, get the object in the path
       for (const pathItem of pathArray) {
-        console.log(pathToRedirect)
-        // Log the path
         pathToRedirect = pathToRedirect.answers[pathItem]
       }
-      console.log(pathToRedirect)
       // Unhide the question
       pathToRedirect.hidden = false
       // Select the answer
