@@ -40,6 +40,7 @@ export default defineComponent({
     return { t }
   },
   data () {
+    // TODO: Chromium webusb snap bug
     return {
       questionText: '',
       solutionText: '',
@@ -88,19 +89,19 @@ export default defineComponent({
                   }
                 }
               }
-            },
-            'help.recovery': {
-              hidden: false,
-              question: 'help.reset6',
-              answers: {
-                'help.next': {
-                  question: 'help.recovery',
-                  answers: {
-                    'help.recovery-success': {
-                      solution: 'help.install-os'
-                    },
-                    'help.recovery-fail': {
-                    }
+            }
+          },
+          'help.recovery': {
+            hidden: false,
+            question: 'help.reset6',
+            answers: {
+              'help.next': {
+                question: 'help.recovery',
+                answers: {
+                  'help.recovery-success': {
+                    solution: 'help.install-os'
+                  },
+                  'help.recovery-fail': {
                   }
                 }
               }
@@ -192,9 +193,11 @@ export default defineComponent({
       let pathToRedirect = this.questions
       // For each path, get the object in the path
       for (const pathItem of pathArray) {
+        console.log(pathToRedirect)
         // Log the path
         pathToRedirect = pathToRedirect.answers[pathItem]
       }
+      console.log(pathToRedirect)
       // Unhide the question
       pathToRedirect.hidden = false
       // Select the answer
