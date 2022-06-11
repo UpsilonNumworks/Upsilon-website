@@ -23,7 +23,11 @@
         </thead>
         <tbody>
           <tr>
-            <td><code>%\last_color%</code></td>
+            <td><code>%xx%</code></td>
+            <td>{{ t("doc.reader.colors.startColor") }}</td>
+          </tr>
+          <tr>
+            <td><code>%\xx%</code></td>
             <td>{{ t("doc.reader.colors.lastColor") }}</td>
           </tr>
           <tr>
@@ -93,6 +97,12 @@
 
           <LatexView :latex="true" formula="\frac{ab}{cd}" />
           <LatexView :latex="true" formula="\sqrt[n]{x}" />
+          <LatexView :latex="true" formula="X^n" />
+          <LatexView :latex="true" formula="X_n" />
+          <LatexView :latex="true" formula="\overrightarrow{AB}" />
+          <LatexView :latex="true" formula="\overline{AB}" />
+          <LatexView :latex="true" formula="\binom{p}{q}" />
+          <LatexView :latex="true" display="\intset{1,n}" formula="\left[ 1,n \right]"/>
           <LatexView
             :latex="true"
             display="\ceil{x}"
@@ -132,6 +142,9 @@
           <LatexView formula="\cdot" output="⋅" />
           <LatexView formula="\cdots" output="⋯" />
           <LatexView formula="\ldots" output="…" />
+          <LatexView :latex="true" display="\i" formula="\textit{i}" />
+          <LatexView :latex="true" display="\f" formula="\textit{f}" />
+          <LatexView formula="\space" output=" " />
         </div>
         <div class="latex-table force-break">
           <h3 class="latex-table-title">{{ t("doc.latex.arrows") }}</h3>

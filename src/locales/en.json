@@ -272,7 +272,8 @@
             "p1": "The reader app can read .txt files that you can upload to your calculator via",
             "p2": "But it also supports the custom .urt format, which stands for Upsilon Rich Text. It allows you to use colors and supports a subset of the LaTeX special characters and functions.",
             "colors": {
-                "lastColor": "Stop using last color",
+                "startColor": "Start using color xx",   
+                "lastColor": "Stop using color xx",   
                 "red": "Red",
                 "lightRed": "Light red",
                 "magenta": "Magenta",
