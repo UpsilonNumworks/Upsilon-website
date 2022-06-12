@@ -436,7 +436,7 @@
         "end": "Your problem is solved, thank you for using Upsilon's interactive help!",
         "have-driver": "You have a calculator driver installed.",
         "install-driver": "You need to install the driver for the calculator. You can download it from the NumWorks site at the beginning of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
-        "install-os": "Now you can install an operating system on the calculator from the Omega/Upsilon sites.",
+        "install-os": "Install an operating system on the calculator from the Omega/Upsilon sites.",
         "led-off": "The LED is off.",
         "led-red": "The LED is red.",
         "led-status": "What color is the calculator's LED?",

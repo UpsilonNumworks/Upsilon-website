@@ -448,7 +448,7 @@
     "recovery": "Ouvrez un nouvel onglet, allez sur le site d'Upsilon, allez sur la page de l'installateur puis cliquez sur mode de restauration. Sélectionnez \"STM32 BOOTLOADER\" et cliquez sur \"Connexion\".",
     "recovery-success": "La calculatrice s'allume en disant \"Recovery mode\".",
     "recovery-fail": "La calculatrice ne s'allume pas.",
-    "install-os": "Maintenant, vous pouvez installer un système d'exploitation sur la calculatrice depuis les site d'Omega/Upsilon.",
+    "install-os": "Installez un système d'exploitation sur la calculatrice depuis les site d'Omega/Upsilon.",
     "n????": "Le PC détecte le modèle comme une N????.",
     "cant-detect": "Le PC ne détecte pas la calculatrice.",
     "do-you-have-driver": "Avez-vous le pilote (driver) pour la calculatrice ?",

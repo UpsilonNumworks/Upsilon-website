@@ -40,7 +40,6 @@ export default defineComponent({
     return { t }
   },
   data () {
-    // TODO: Chromium webusb snap bug
     return {
       questionText: '',
       solutionText: '',
@@ -107,7 +106,9 @@ export default defineComponent({
                                   'help.worked': {
                                     solution: 'help.end'
                                   },
-                                  'help.not-worked': {}
+                                  'help.not-worked': {
+                                    redirect: 'help.recovery'
+                                  }
                                 }
                               }
                             }
@@ -131,6 +132,7 @@ export default defineComponent({
                     solution: 'help.install-os'
                   },
                   'help.recovery-fail': {
+
                   }
                 }
               }
@@ -216,6 +218,8 @@ export default defineComponent({
     redirect (path) {
       // Log the redirect
       this.log('Redirecting to ' + path)
+      // Save the old question
+      this.oldQuestion = this.actualQuestion
       // Split the path by /
       const pathArray = path.split('/')
       // Initialise the path to redirect to
