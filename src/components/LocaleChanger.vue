@@ -50,7 +50,7 @@ button {
   background-position: center center;
   border: none;
   border-radius: 5px;
-  aspect-ratio: 4;
+  width:3em;
 }
 .fr {
   background-image:
