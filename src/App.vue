@@ -5,11 +5,12 @@
       <LocaleChanger />
         <button @click="hbmenuOpen = false" class="nav-btn"></button>
       </div>
-      <router-link @click="hbmenuOpen = false"  to="/">{{ t("home.name") }}</router-link>
-      <router-link @click="hbmenuOpen = false"  to="/install">{{ t("installer.name") }}</router-link>
-      <router-link @click="hbmenuOpen = false"  to="/releases">{{ t("releases.name") }}</router-link>
-      <router-link @click="hbmenuOpen = false"  to="/simulator">{{ t("simulator.name") }}</router-link>
-      <router-link @click="hbmenuOpen = false"  to="/doc/faq">{{ t("faq.name") }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/">{{ t('home.name') }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/install">{{ t('installer.name') }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/releases">{{ t('releases.name') }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/simulator">{{ t('simulator.name') }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/doc/faq">{{ t('faq.name') }}</router-link>
+      <router-link @click="hbmenuOpen = false" to="/doc/help">{{ t('help.name') }}</router-link>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -35,6 +36,7 @@
     <router-link to="/releases">{{ t("releases.name") }}</router-link>
     <router-link to="/simulator">{{ t("simulator.name") }}</router-link>
     <router-link to="/doc/faq">{{ t("faq.name") }}</router-link>
+    <router-link to="/doc/help">{{ t("help.name") }}</router-link>
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -191,7 +193,7 @@ export default defineComponent({
   font-size: 2em;
   margin: 1em;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   justify-content: space-between;
 }
 #nav a {
@@ -216,7 +218,7 @@ export default defineComponent({
   }
   .nav-btn-wrapper {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 1em;
     font-size: 2em;
   }
@@ -399,5 +401,23 @@ body.dark {
   padding: 1em;
   max-width: 800px;
   border-radius: 10px;
+}
+button {
+  border-radius: 5px;
+  background-color: var(--upsilon-2);
+  border: solid var(--upsilon-1) 2pt;
+  color: var(--foreground);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 12px 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  user-select: none;
+}
+button:hover{
+  background-color: var(--upsilon-1);
+  color:var(--upsilon-2);
 }
 </style>

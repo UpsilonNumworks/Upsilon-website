@@ -674,7 +674,7 @@ export default defineComponent({
           this.t('installer.hints.noDeviceSelected.li2') +
           '</summary><details><summary>Linux</summary>' +
           this.t('installer.hints.noDeviceSelected.driverHint.download') +
-          ' <a href="https://cdn.numworks.com/assets/files/my/drivers/linux/50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules">' +
+          ' <a href="https://cdn.numworks.com/f2be8a48/50-numworks-calculator.rules">' +
           this.t('installer.hints.noDeviceSelected.driverHint.linux.thisfile') +
           '</a> ' +
           this.t(
@@ -682,12 +682,12 @@ export default defineComponent({
           ) +
           '<br>' +
           this.t('installer.hints.noDeviceSelected.driverHint.linux.command') +
-          '<pre>wget https://cdn.numworks.com/assets/files/my/drivers/linux/50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules && sudo mv 50-numworks-calculator-f2be8a48f68f1ee4d88c997c35194960.rules /etc/udev/rules.d </pre>' +
+          '<pre>wget https://cdn.numworks.com/f2be8a48/50-numworks-calculator.rules /etc/udev/rules.d </pre>' +
           '</details><details><summary>Windows</summary>' +
           this.t('installer.hints.noDeviceSelected.driverHint.download') +
           ' ' +
           this.t('installer.hints.noDeviceSelected.driverHint.andInstall') +
-          ' <a href="https://cdn.numworks.com/assets/files/my/drivers/windows/numworks-driver-win64-81cc6426fa4548ecc57076d876779da1.msi">' +
+          ' <a href="https://cdn.numworks.com/81cc6426/numworks-driver-win64.msi">' +
           this.t('installer.hints.noDeviceSelected.driverHint.theDriver') +
           '</a> ' +
           this.t('installer.hints.noDeviceSelected.driverHint.rebootAfter') +
@@ -830,20 +830,6 @@ h1 {
   background-color: var(--upsilon-1);
 }
 
-button {
-  border-radius: 5px;
-  background-color: var(--upsilon-1);
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 12px 6px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  user-select: none;
-}
 #btn-disconnect {
   background-color: var(--feature-bg-omega);
   border: solid var(--error-text) 1pt;
