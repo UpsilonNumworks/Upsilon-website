@@ -453,7 +453,7 @@
         "reinstall-driver": "You need to reinstall the driver for the calculator. \nYou must uninstall it and then download it from the NumWorks site at the start of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
         "reset-fail": "The calculator does not work after pressing the RESET key.",
         "reset-success": "The calculator works after pressing the RESET key.",
-        "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED.",
+        "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED. \nIf the screen lights up saying \"numworks.com/rescue\", first install <a href=\"https://guide.getomega.dev\">Phi</a>",
         "solution": "Solution",
         "what-problem": "What is the problem ?",
         "wont-boot": "The calculator does not boot.",
