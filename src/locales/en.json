@@ -314,7 +314,6 @@
                 "Wallpapers": "Wallpaper support for n0110",
                 "Theme": "New Upsilon theme",
                 "Parameters": "New parameters for python, external applications and luminosity",
-                "PythonCursor": "Save cursor position when you quit a python script",
                 "SumAndSequences": "Better simplification of sums and sequences",
                 "Equal": "Simplification of the '=' sign in the calculation application",
                 "NestedRadicals": "Simplification of nested square roots",

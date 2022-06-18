@@ -13,7 +13,6 @@
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Wallpapers') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Theme') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Parameters') }}</ReleaseItem>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0.PythonCursor') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.SumAndSequences') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.Equal') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0.NestedRadicals') }}</ReleaseItem>
