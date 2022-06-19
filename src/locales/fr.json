@@ -396,7 +396,7 @@
                 "answer": "Il existe un <a href=\"https://guide.getomega.dev\">guide</a> expliquant comment déverrouiller votre calculatrice"
             },
             "supportedBrowsers": {
-                "answer": "Tout navigateur basé sur Chromium qui n'est pas trop ancien devrait fonctionner (Chrome, Brave, Edge, etc) Firefox ne fonctionnera pas.",
+                "answer": "Tout navigateur basé sur Chromium qui n'est pas trop ancien devrait fonctionner (Chrome, Brave, Edge, etc.) Firefox ne fonctionnera pas.",
                 "question": "Quels navigateurs sont compatibles avec l'installeur ?"
             },
             "supportedModels": {
