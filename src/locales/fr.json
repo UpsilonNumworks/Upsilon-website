@@ -199,7 +199,7 @@
             "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
         },
         "dualboot": {
-            "description": "Omega intègre un nouveau Bootloader. Il permet de démarrer plusieurs systèmes opératoires à partir de différents slots.",
+            "description": "Omega intègre un nouveau Bootloader. Il permet de démarrer plusieurs systèmes d’exploitations à partir de différents slots.",
             "name": "Double démarrage"
         },
         "phi": {
@@ -218,7 +218,7 @@
     },
     "doc": {
         "latex": {
-            "reference": "Reference LaTeX",
+            "reference": "Référence LaTeX",
             "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
             "symbolslisted": "Pour qu'une expression LaTeX soit rendue, vous devez l'entourer de signes dollar. Tous les symboles que vous pouvez utiliser sont listés ici :",
             "command": "Commande",
@@ -241,13 +241,13 @@
                 "p1": "Quand vous voulez faire un calcul dans l'application RPN d'Upsilon, vous devez commencer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyer sur l'opérateur approprié également par ordre d'apparition.",
                 "examples": {
                     "1": {
-                        "title": "Pour obtenir le résultat de 245*6598 :",
+                        "title": "Pour obtenir le résultat de 245×6598 :",
                         "li1": "Tapez 245 et appuyez sur OK",
                         "li2": "Tapez 6598 et appuyez sur OK",
                         "li3": "Appuyez une fois sur le bouton multiplication"
                     },
                     "2": {
-                        "title": "Pour obtenir le résultat de (65*98)/78 :",
+                        "title": "Pour obtenir le résultat de (65×98)÷78 :",
                         "li1": "Tapez 65 et appuyez sur OK",
                         "li2": "Tapez 98 et appuyez sur OK",
                         "li3": "Tapez 78 et appuyez sur OK",
@@ -289,7 +289,7 @@
             },
             "colorsDesc": "Vous pouvez modifier la couleur du texte à l'aide des codes de couleur suivants. Le texte qui suit un code couleur sera dans la couleur correspondante.",
             "example": {
-                "content": "L'entrée suivante produit la sortie suivante:",
+                "content": "L'entrée suivante produit la sortie suivante :",
                 "title": "Exemple"
             },
             "name": "La liseuse",

@@ -241,13 +241,13 @@
                 "p1": "When you want to do a calculation in the RPN app on Upsilon, you must start by writing all the numbers that will be involved in your expression in order of appearance. Then you press the appropriate operand also in order of apparition.",
                 "examples": {
                     "1": {
-                        "title": "To obtain the result of 245*6598 :",
+                        "title": "To obtain the result of 245×6598 :",
                         "li1": "Write 245 and press OK",
                         "li2": "Write 6598 and press OK",
                         "li3": "Press once the multiplication button"
                     },
                     "2": {
-                        "title": "To obtain the result of (65*98)/78 :",
+                        "title": "To obtain the result of (65×98)÷78 :",
                         "li1": "Write 65 and press OK",
                         "li2": "Write 98 and press OK",
                         "li3": "Write 78 and press OK",
