@@ -388,9 +388,9 @@ export default defineComponent({
       }
     },
     async connectedHandler () {
-      this.setStatus('connected')
       this.modelUnknown = false
       this.internalAvailable = this.calculator.device.settings.name.includes('0x08000000/04*016Kg')
+      this.setStatus('connected')
       if (this.calculator.getModel() === '????') {
         this.setStatus('unknownConnected')
       }
