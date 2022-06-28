@@ -142,7 +142,7 @@
           <LatexView display="\div" output="÷" />
           <LatexView display="\forall" output="∀" />
           <LatexView display="\exists" output="∃" />
-          <!--<LatexView display="\nexists" output="∄" />-->
+          <LatexView display="\nexists" output="∄" />
           <LatexView display="\partial" output="∂" />
           <LatexView display="\pm" output="±" />
           <LatexView display="\infinity" output="∞" />
@@ -155,14 +155,14 @@
           <LatexView display="\left(" output="(" />
           <LatexView display="\right)" output=")" />
           <LatexView formula="\in" output="∊" />
-          <!--<LatexView formula="\In" output="∈" />-->
-          <!--<LatexView formula="\Notin" output="∉" />-->
-          <!--<LatexView formula="\subset" output="⊂" />-->
-          <!--<LatexView formula="\nsubset" output="⊄" />-->
-          <!--<LatexView formula="\cap" output="∩" />-->
-          <!--<LatexView formula="\cup" output="∪" />-->
-          <!--<LatexView formula="\Cap" output="⋂" />-->
-          <!--<LatexView formula="\Cup" output="⋃" />-->
+          <LatexView formula="\In" output="∈" />
+          <LatexView formula="\Notin" output="∉" />
+          <LatexView formula="\subset" output="⊂" />
+          <LatexView formula="\nsubset" output="⊄" />
+          <LatexView formula="\cap" output="∩" />
+          <LatexView formula="\cup" output="∪" />
+          <LatexView formula="\Cap" output="⋂" />
+          <LatexView formula="\Cup" output="⋃" />
           <LatexView formula="\cdot" output="⋅" />
           <LatexView formula="\cdots" output="⋯" />
           <LatexView formula="\ldots" output="…" />
