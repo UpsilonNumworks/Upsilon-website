@@ -94,7 +94,7 @@
         "restore": "Restore scripts",
         "username": "Username",
         "downloading": "Downloading",
-        "incompatibleBrowser": "It looks like your browser doesn't support webUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a chromium-based browser (chrome, brave etc...) ",
+        "incompatibleBrowser": "It looks like your browser doesn't support WebUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a Chromium-based browser (Chrome, Brave, etc.) ",
         "disconnect": "Disconnect",
         "of2": " of 2",
         "erasing": "Erasing",
@@ -150,10 +150,10 @@
             "li2": "Else you probably have a protected device and you may need to disable the protection to continue"
         },
         "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect.",
-        "internalUnavailable": "Warning: Internal storage unavaiable. This happens when you use a bootloader and means you can't update or remove the bootloader right now. Use the recovery mode for that instead."
+        "internalUnavailable": "Warning: Internal storage unavailable. This happens when you use a bootloader and means you can't update or remove the bootloader right now. Use the recovery mode for that instead."
     },
     "github": {
-        "name": "Github"
+        "name": "GitHub"
     },
     "features": {
         "reader": {
@@ -190,7 +190,7 @@
         },
         "protection": {
             "title": "Protection against E16",
-            "content": "Updating to Epsilon 16+ locks your calculator down preventing you from installing you any unofficial firmware. This protection prevents from unintentional updates"
+            "content": "Updating to Epsilon 16+ locks your calculator down, preventing you from installing you any unofficial firmware. This protection prevents from unintentional updates."
         },
         "python": {
             "title": "Python improvements",
@@ -241,13 +241,13 @@
                 "p1": "When you want to do a calculation in the RPN app on Upsilon, you must start by writing all the numbers that will be involved in your expression in order of appearance. Then you press the appropriate operand also in order of apparition.",
                 "examples": {
                     "1": {
-                        "title": "To obtain the result of 245*6598 :",
+                        "title": "To obtain the result of 245×6598 :",
                         "li1": "Write 245 and press OK",
                         "li2": "Write 6598 and press OK",
                         "li3": "Press once the multiplication button"
                     },
                     "2": {
-                        "title": "To obtain the result of (65*98)/78 :",
+                        "title": "To obtain the result of (65×98)÷78 :",
                         "li1": "Write 65 and press OK",
                         "li2": "Write 98 and press OK",
                         "li3": "Write 78 and press OK",
@@ -307,7 +307,7 @@
         "versions": {
             "1-0": {
                 "Reader": "Added a reader compatible with TeX notation for mathematical formulas",
-                "Bootloader": "Brand new bootloader with security improvements",
+                "Bootloader": "Brand-new bootloader with security improvements",
                 "Recovery": "Added a recovery screen after a crash",
                 "SecondDegree": "Added extra output on second degree polynomials",
                 "Trash": "Shift+Back recover the last deleted file",
@@ -317,7 +317,7 @@
                 "SumAndSequences": "Better simplification of sums and sequences",
                 "Equal": "Simplification of the '=' sign in the calculation application",
                 "NestedRadicals": "Simplification of nested square roots",
-                "Ulab": "Adding the Ulab module (numpy and scipy) in the python application",
+                "Ulab": "Adding the Ulab module (NumPy and SciPy) in the python application",
                 "FStrings": "Support of f-Strings in python",
                 "Operators": "Support of operators overloading in python",
                 "Kandinsky": "New functions in the Kandinsky module",
@@ -325,7 +325,7 @@
                 "FunctionColor": "Added a way to change the color of functions and sequences",
                 "Other": "And other small changes",
                 "Scripts": "Removed default python scripts",
-                "Storage": "Increased storage from 32KB to 64KB",
+                "Storage": "Increased storage from 32 KB to 64 KB",
                 "Heap": "Decrease the size of the python heap from 100 to 67kb",
                 "Battery": "Update the battery logo",
                 "Apps": "Reversal of the position of the graphic and RPN applications",
@@ -349,7 +349,7 @@
         "questions": {
             "supportedBrowsers": {
                 "question": "On which browsers does the installation work?",
-                "answer": "Any chromium-based browser that is not too old should work (Chrome, Brave, Edge etc...) Firefox will not work."
+                "answer": "Any Chromium-based browser that is not too old should work (Chrome, Brave, Edge, etc.) Firefox will not work."
             },
             "supportedModels": {
                 "question": "On which numworks models can I install Upsilon?",
@@ -365,11 +365,11 @@
             },
             "how2reader": {
                 "question": "How to use the reader app?",
-                "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info please go to <a href=\"reader\">the reader tutorial</a>."
+                "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info, please go to <a href=\"reader\">the reader tutorial</a>."
             },
             "how2py": {
                 "question": "How to transfer scripts to the calculator/edit scripts online without going to numworks.com?",
-                "answer": "You can use the <a href=\"https://getomega.dev/ide\">Omega IDE</a> to do that, although at the simulator runs Omega and not Upsilon and at the moment there are problems with file transfers (which will also occur on numworks.com)."
+                "answer": "You can use the <a href=\"https://getomega.dev/ide\">Omega IDE</a> to do that, although the simulator runs Omega and not Upsilon and at the moment there are problems with file transfers (which will also occur on numworks.com)."
             },
             "how2themes": {
                 "question": "How to install themes?",
@@ -377,26 +377,26 @@
             },
             "how2contribute": {
                 "question": "How to contribute to Upsilon/it's website?",
-                "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself and it's website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>"
+                "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself, and it's website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>."
             },
             "how2createReaderFile": {
                 "question": "How to create a file for the reader app from the calculator?",
-                "answer": "You can't. To add a reader file to the calculator, you have to go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and transfer you files there."
+                "answer": "You can't. To add a reader file to the calculator, you have to go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and transfer your files there."
             },
             "how2testReaderOnline": {
                 "question": "How to preview a reader file online?",
-                "answer": "You can't. You can do it with the windows/linux simulators by placing the reader files in the same directory as the executables or transfer the reader files to the calculator."
+                "answer": "You can't. You can do it with the Windows/Linux simulators by placing the reader files in the same directory as the executables, or transfer the reader files to the calculator."
             },
             "canRollback": {
                 "question": "Can you roll back from Upsilon to epsilon?",
-                "answer": "Yes, Just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to user the recovery mode with 6+reset."
+                "answer": "Yes, Just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to use the recovery mode with 6+reset."
             },
             "how2recovery": {
-                "question": "What is the recovery option on the installer page and how do I use it?",
-                "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via usb) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
+                "question": "What is the recovery option on the installer page, and how do I use it?",
+                "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via USB) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
             },
             "cheatsheet": {
-                "question": "Is there a cheatsheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?",
+                "question": "Is there a cheat sheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?",
                 "answer": "Not for now but maybe some day who knows ^^"
             },
             "numLocked": {
@@ -442,28 +442,28 @@
         "n????": "The PC detects the model as an N????.",
         "next": "Next",
         "no-driver": "You do not have a driver for the calculator.",
-        "not-implemented": "This case is not yet implemented, please join our discord server to report this error: <a href=\"https://discord.gg/X2TWhh9\">https://discord.gg/X2TWhh9</a>",
+        "not-implemented": "This case is not implemented yet, please join our discord server to report this error: <a href=\"https://discord.gg/X2TWhh9\">https://discord.gg/X2TWhh9</a>",
         "not-worked": "It did not work.",
         "press-reset": "Press the RESET key on the back of the calculator.",
         "question": "Question",
-        "recovery": "Open a new tab, go to the Upsilon site, go to the installer page then click on restore mode. \nSelect \"STM32 BOOTLOADER\" and click \"Connect\".",
+        "recovery": "Open a new tab, go to the Upsilon site, go to the installer page, then click on restore mode. \nSelect “STM32 BOOTLOADER” and click “Connect”.",
         "recovery-fail": "The calculator does not turn on.",
-        "recovery-success": "The calculator turns on saying \"Recovery mode\".",
+        "recovery-success": "The calculator turns on, saying “Recovery mode”.",
         "reinstall-driver": "You need to reinstall the driver for the calculator. \nYou must uninstall it and then download it from the NumWorks site at the start of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
         "reset-fail": "The calculator does not work after pressing the RESET key.",
         "reset-success": "The calculator works after pressing the RESET key.",
-        "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED. \nIf the screen lights up saying \"numworks.com/rescue\", first install <a href=\"https://guide.getomega.dev\">Phi</a>",
+        "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED. \nIf the screen lights up saying “numworks.com/rescue”, first install <a href=\"https://guide.getomega.dev\">Phi</a>.",
         "solution": "Solution",
         "what-problem": "What is the problem ?",
         "wont-boot": "The calculator does not boot.",
         "worked": "It worked.",
         "are-you-using-chromium-snap": "Do you use Chromium in Snap? \n(does which chromium return a path starting with /snap?)",
         "are-you-using-linux": "Do you use Linux?",
-        "chromium-snap-solution": "Follow the instructions <a href=\"https://bugs.launchpad.net/ubuntu/source/chromium-browser/ bug/1780678\">here</a> to install the correct version of Chromium (\"snap refresh chromium - \n-channel=candidate/raw-usb\" and \"snap connect chromium:raw-usb\").",
+        "chromium-snap-solution": "Follow the instructions <a href=\"https://bugs.launchpad.net/ubuntu/source/chromium-browser/ bug/1780678\">here</a> to install the correct version of Chromium (“snap refresh chromium - \n-channel=candidate/raw-usb” and “snap connect chromium:raw-usb”).",
         "did-it-work": "It worked ?",
         "not-using-chromium-snap": "You are not using Chromium in Snap.",
         "not-using-linux": "You are not using Linux.",
-        "switch-cable-or-computer": "Try changing cable and/or PC.",
+        "switch-cable-or-computer": "Try changing cable or PC.",
         "using-chromium-snap": "You are using Chromium in Snap.",
         "using-linux": "You are using Linux."
     }

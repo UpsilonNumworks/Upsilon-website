@@ -17,7 +17,7 @@
         </button>
         <form v-if="showInstaller" id="install-form">
           <label for="select-channel"
-            >{{ t('installer.releaseChannel') }}:</label
+            >{{ t('installer.releaseChannel') }} :</label
           >
           <CustomSelect
             name="select-channel"
@@ -61,7 +61,7 @@
           >
           </CustomSelect>
           <label v-if="channel === 'beta' || channel === 'official'" for="select-theme"
-            >{{ t('installer.theme') }}:</label
+            >{{ t('installer.theme') }} :</label
           >
           <CustomSelect
             v-if="channel === 'beta' || channel === 'official'"
@@ -80,7 +80,7 @@
             "
           >
           </CustomSelect>
-          <label for="input-uname">{{ t('installer.username') }}:</label>
+          <label for="input-uname">{{ t('installer.username') }} :</label>
           <input
             v-model="username"
             maxlength="15"
@@ -388,9 +388,9 @@ export default defineComponent({
       }
     },
     async connectedHandler () {
-      this.setStatus('connected')
       this.modelUnknown = false
       this.internalAvailable = this.calculator.device.settings.name.includes('0x08000000/04*016Kg')
+      this.setStatus('connected')
       if (this.calculator.getModel() === '????') {
         this.setStatus('unknownConnected')
       }
