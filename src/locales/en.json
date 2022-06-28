@@ -107,7 +107,7 @@
         "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
         "whatnext": "What next?",
         "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's home screen?",
-        "jointhe": "Wanna can chat with Upsilon/Omega's contributors or ask for help and stuff?",
+        "jointhe": "Wanna chat with Upsilon/Omega's contributors or ask for help and stuff?",
         "gothere": "Go there",
         "joinDiscord": "Join the Omega community discord server",
         "releaseChannel": "Release channel",
@@ -132,14 +132,14 @@
         "e16": {
             "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator.",
             "link": "this guide",
-            "beforeLink": "To unlock you calculator, take a look at"
+            "beforeLink": "To unlock your calculator, take a look at"
         },
         "tError": {
             "li1": "Verify that no other tab is using the USB",
             "li2": "Reboot your computer",
             "li3": "Use a different port",
             "li4": "Use a different cable",
-            "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try following things:"
+            "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try the following things:"
         },
         "lang": "Language",
         "slot": "Slot",
@@ -190,7 +190,7 @@
         },
         "protection": {
             "title": "Protection against E16",
-            "content": "Updating to Epsilon 16+ locks your calculator down, preventing you from installing you any unofficial firmware. This protection prevents from unintentional updates."
+            "content": "Updating to Epsilon 16+ locks your calculator down, preventing you from installing any unofficial firmware. This protection prevents unintentional updates."
         },
         "python": {
             "title": "Python improvements",
@@ -244,15 +244,15 @@
                         "title": "To obtain the result of 245×6598 :",
                         "li1": "Write 245 and press OK",
                         "li2": "Write 6598 and press OK",
-                        "li3": "Press once the multiplication button"
+                        "li3": "Press the multiplication button once"
                     },
                     "2": {
                         "title": "To obtain the result of (65×98)÷78 :",
                         "li1": "Write 65 and press OK",
                         "li2": "Write 98 and press OK",
                         "li3": "Write 78 and press OK",
-                        "li4": "Press once the multiplication button",
-                        "li5": "Press once the division button"
+                        "li4": "Press the multiplication button once",
+                        "li5": "Press the division button once"
                     },
                     "examples": "Examples"
                 },
@@ -352,7 +352,7 @@
                 "answer": "Any Chromium-based browser that is not too old should work (Chrome, Brave, Edge, etc.) Firefox will not work."
             },
             "supportedModels": {
-                "question": "On which numworks models can I install Upsilon?",
+                "question": "On which NumWorks models can I install Upsilon?",
                 "answer": "You can install it on the N100 and N110 (if you don't have Epsilon 16+ installed)"
             },
             "how2backup": {
@@ -377,7 +377,7 @@
             },
             "how2contribute": {
                 "question": "How to contribute to Upsilon/it's website?",
-                "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself, and it's website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>."
+                "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself, and its website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>."
             },
             "how2createReaderFile": {
                 "question": "How to create a file for the reader app from the calculator?",
@@ -389,7 +389,7 @@
             },
             "canRollback": {
                 "question": "Can you roll back from Upsilon to epsilon?",
-                "answer": "Yes, Just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to use the recovery mode with 6+reset."
+                "answer": "Yes, just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to use the recovery mode with 6+reset."
             },
             "how2recovery": {
                 "question": "What is the recovery option on the installer page, and how do I use it?",
