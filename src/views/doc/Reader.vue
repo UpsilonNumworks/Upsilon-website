@@ -103,36 +103,35 @@
           <LatexView :latex="true" formula="\overline{AB}" />
           <LatexView :latex="true" formula="\binom{p}{q}" />
           <LatexView :latex="true" display="\intset{1,n}" formula="\left[ 1,n \right]"/>
-          <LatexView
-            :latex="true"
-            display="\ceil{x}"
-            formula="\lceil x \rceil"
-          />
-          <LatexView
-            :latex="true"
-            display="\floor{x}"
-            formula="\lfloor x \rfloor"
-          />
-          <LatexView
-            :latex="true"
-            display="\int{f(x)}{x}{a}{b}"
-            formula="\int_{a}^{b}f(x)dx"
-          />
-          <LatexView
-            :latex="true"
-            display="\sum{U_k}{k}{p}{n}"
-            formula="\sum_{k=p}^{n}U_k"
-          />
-          <LatexView
-            :latex="true"
-            display="\prod{U_k}{k}{p}{n}"
-            formula="\prod_{k=p}^{n}U_k"
-          />
+          <LatexView display="\ceil{x}" output="⌈x⌉"/>
+          <LatexView display="\floor{x}" output="⌊x⌋"/>
+          <LatexView :latex="true" display="\int{f(x)}{x}{a}{b}" formula="\int_{a}^{b}f(x)dx"/>
+          <LatexView :latex="true" display="\sum{U_k}{k}{p}{n}" formula="\sum_{k=p}^{n}U_k"/>
+          <LatexView :latex="true" display="\prod{U_k}{k}{p}{n}" formula="\prod_{k=p}^{n}U_k"/>
           <!--<LatexView
             :latex="true"
             display="\int{f(x)}^{x}{a}{b}"
             formula="\int_{a}^{b}f(x)"
           />-->
+        </div>
+        <div class="latex-table">
+          <h3 class="latex-table-title">{{ t("doc.latex.arrows") }}</h3>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
+          <LatexView display="\Leftarrow" output="⇐" />
+          <LatexView display="\Rightarrow" output="⇒" />
+          <LatexView display="\Uparrow" output="⇑" />
+          <LatexView display="\Downarrow" output="⇓" />
+          <LatexView display="\leftarrow" output="←" />
+          <LatexView display="\nwarrow" output="↖" />
+          <LatexView display="\uparrow" output="↑" />
+          <LatexView display="\nearrow" output="↗" />
+          <LatexView display="\rightarrow" output="→" />
+          <LatexView display="\searrow" output="↘" />
+          <LatexView display="\downarrow" output="↓" />
+          <LatexView display="\swarrow" output="↙" />
+          <LatexView display="\leftrightarrow" output="↔" />
+          <LatexView display="\updownarrow" output="↕" />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">{{ t("doc.latex.mathsymbols") }}</h3>
@@ -169,25 +168,6 @@
           <LatexView :latex="true" display="\i" formula="\textit{i}" />
           <LatexView :latex="true" display="\f" formula="\textit{f}" />
           <LatexView formula="\space" output=" " />
-        </div>
-        <div class="latex-table force-break">
-          <h3 class="latex-table-title">{{ t("doc.latex.arrows") }}</h3>
-          <h4>{{ t("doc.latex.command") }}</h4>
-          <h4>{{ t("doc.latex.output") }}</h4>
-          <LatexView display="\Leftarrow" output="⇐" />
-          <LatexView display="\Rightarrow" output="⇒" />
-          <LatexView display="\Uparrow" output="⇑" />
-          <LatexView display="\Downarrow" output="⇓" />
-          <LatexView display="\leftarrow" output="←" />
-          <LatexView display="\nwarrow" output="↖" />
-          <LatexView display="\uparrow" output="↑" />
-          <LatexView display="\nearrow" output="↗" />
-          <LatexView display="\rightarrow" output="→" />
-          <LatexView display="\searrow" output="↘" />
-          <LatexView display="\downarrow" output="↓" />
-          <LatexView display="\swarrow" output="↙" />
-          <LatexView display="\leftrightarrow" output="↔" />
-          <LatexView display="\updownarrow" output="↕" />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">
