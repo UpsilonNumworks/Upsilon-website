@@ -20,9 +20,15 @@ function loadLocaleMessages () {
   })
   return messages
 }
+
+let locale = localStorage.getItem('locale')
+if (!(locale === 'fr' || locale === 'en')) {
+  locale = navigator.language === 'fr' ? 'fr' : 'en'
+}
+localStorage.setItem('locale', locale)
 const i18n = createI18n({
   legacy: false,
-  locale: navigator.language === 'fr' ? 'fr' : 'en',
+  locale: locale,
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
   messages: loadLocaleMessages()
 })

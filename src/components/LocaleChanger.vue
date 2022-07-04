@@ -32,6 +32,7 @@ export default {
   methods: {
     toggleLocale () {
       this.$i18n.global.locale._setter(this.currentLocale)
+      localStorage.setItem('locale', this.currentLocale)
       this.currentLocale =
         this.$i18n.global.locale.value === 'en' ? 'fr' : 'en'
     }

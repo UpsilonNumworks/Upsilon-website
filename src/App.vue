@@ -93,11 +93,15 @@ export default defineComponent({
   },
   watch: {
     darkmode (value) {
-      document.body.classList = [value ? 'dark' : 'light']
+      const theme = value ? 'dark' : 'light'
+      document.body.classList = [theme]
+      localStorage.setItem('theme', theme)
     }
   },
   mounted () {
     this.debug = process.env.NODE_ENV !== 'production'
+    this.darkmode = localStorage.getItem('theme') !== 'light'
+    localStorage.setItem('theme', this.darkmode ? 'dark' : 'light')
   }
 })
 </script>
