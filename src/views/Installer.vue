@@ -118,6 +118,9 @@
 
 <script>
 import CustomSelect from '@/components/CustomSelect'
+import { BlobReader, BlobWriter, ZipReader } from '@zip.js/zip.js'
+import untar from 'js-untar'
+import pako from 'pako'
 import Numworks from 'upsilon.js'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -184,12 +187,23 @@ export default defineComponent({
     }
   },
   methods: {
-    addFile (file) {
+    async addFile (file) {
       if (file.name.endsWith('.sha256')) return
       if (file.name.endsWith('.tgz') || file.name.endsWith('.tar.gz')) {
-        // TODO unzip file and add each binary individually
+        let buf = await file.arrayBuffer()
+        buf = await pako.inflate(buf).buffer
+        const files = await untar(buf)
+        files.forEach((f) => this.addFile(new File([f.blob], f.name)))
       } else if (file.name.endsWith('.zip')) {
-        // TODO unzip file and add each binary individually
+        const zipFileReader = new BlobReader(file)
+        const zipReader = new ZipReader(zipFileReader)
+        for (const entry of await zipReader.getEntries()) {
+          const outWriter = new BlobWriter()
+          await entry.getData(outWriter)
+          const out = new File([await outWriter.getData()], entry.filename)
+          this.addFile(out)
+        }
+        await zipReader.close()
       } else {
         let address = 0x00000000
         if (file.name.includes('internal') || file.name.includes('bootloader')) {
@@ -277,7 +291,7 @@ export default defineComponent({
       }
     },
     setStatus (status) {
-      console.trace('Status set to', status)
+      console.log('Status set to', status)
       switch (status) {
         case 'connected':
           this.done = false
@@ -478,7 +492,7 @@ export default defineComponent({
         return jsonUrl + '?alt=media&token=' + json.downloadTokens
       })
     },
-    async downloadAsync (method, url, responseType = 'blob') {
+    downloadAsync (method, url, responseType = 'blob') {
       return fetch(url, { method: method }).then(async (response) => {
         if (response.status === 404) {
           const err = new Error()
