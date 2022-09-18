@@ -3,12 +3,7 @@
     <div class="generic-page" id="installer-container">
       <h1>{{ t('installer.title') }}</h1>
       <div class="installer">
-        <div
-          v-if="showInfo"
-          :class="infoClass"
-          id="status-display"
-          v-html="statusHTML"
-        ></div>
+        <div v-if="showInfo" :class="infoClass" id="status-display" v-html="statusHTML"></div>
         <button @click="connect" v-if="showButtons" id="btn-connect">
           {{ t('installer.connect') }}
         </button>
@@ -16,15 +11,9 @@
           {{ t('installer.recovery') }}
         </button>
         <form v-if="showInstaller" id="install-form">
-          <label for="select-channel"
-            >{{ t('installer.releaseChannel') }} :</label
-          >
-          <CustomSelect
-            name="select-channel"
-            sid="select-channel"
-            @updated="setChannel"
-            :title="t('installer.releaseChannel')"
-            :items="[
+          <label for="select-channel">{{ t('installer.releaseChannel') }} :</label>
+          <CustomSelect name="select-channel" sid="select-channel" @updated="setChannel"
+            :title="t('installer.releaseChannel')" :items="[
               {
                 text: t('installer.channels.master.title'),
                 id: 'official',
@@ -39,37 +28,27 @@
                 text: t('installer.channels.dev.title'),
                 id: 'dev',
                 description: t('installer.channels.dev.description')
+              },
+              {
+                text: t('installer.channels.custom.title'),
+                id: 'custom',
+                description: t('installer.channels.custom.description')
               }
-            ]"
-          >
+            ]">
           </CustomSelect>
-          <label v-if="n100" for="select-lang"
-            >{{ t('installer.lang') }}:</label
-          >
+          <label v-if="n100" for="select-lang">{{ t('installer.lang') }}:</label>
 
-          <CustomSelect
-            v-if="n100"
-            name="select-lang"
-            sid="select-lang"
-            @updated="setLang"
-            :title="t('installer.lang')"
+          <CustomSelect v-if="n100" name="select-lang" sid="select-lang" @updated="setLang" :title="t('installer.lang')"
             :items="
               languages.map((lang) => {
                 return { text: t('installer.languages.' + lang), id: lang }
               })
-            "
-          >
+            ">
           </CustomSelect>
-          <label v-if="channel === 'beta' || channel === 'official'" for="select-theme"
-            >{{ t('installer.theme') }} :</label
-          >
-          <CustomSelect
-            v-if="channel === 'beta' || channel === 'official'"
-            name="select-theme"
-            sid="select-theme"
-            @updated="setTheme"
-            :title="t('installer.theme')"
-            :items="
+          <label v-if="channel === 'beta' || channel === 'official'" for="select-theme">{{ t('installer.theme') }}
+            :</label>
+          <CustomSelect v-if="channel === 'beta' || channel === 'official'" name="select-theme" sid="select-theme"
+            @updated="setTheme" :title="t('installer.theme')" :items="
               themes.map((theme) => {
                 return {
                   text: t('installer.themes.' + theme),
@@ -77,19 +56,29 @@
                   id: theme
                 }
               })
-            "
-          >
+            ">
           </CustomSelect>
-          <label for="input-uname">{{ t('installer.username') }} :</label>
-          <input
-            v-model="username"
-            maxlength="15"
-            type="text"
-            name="input-uname"
-            id="input-uname"
-          />
-          <label v-if="!n100" for="select-slot">{{t('installer.slot')}}:</label>
-          <select v-if="!n100" v-model="slot" name="select-slot" id="select-slot">
+          <label v-if="channel ==='custom'" for="input-file">{{t('installer.custom.customFile')}}</label>
+          <input v-if="channel ==='custom'" @change="updateFiles" id="input-file" name="input-file" type="file" multiple/>
+          <label v-if="channel !== 'custom'" for="input-uname">{{ t('installer.username') }} :</label>
+          <div v-if="channel === 'custom'" id="file-list">
+            <tr v-for="binary in binaries" :key="'file-display-'+binary.uuid">
+              <td>
+                0x
+                <input :value="binary.address.toString(16)" type="text" :id="'address-input-'+ binary.uuid">
+
+              </td><td class="file-display">
+                {{ binary.file.name }}
+              </td>
+              <td><button class="icon-button ic-up"></button></td>
+              <td><button class="icon-button ic-down"></button></td>
+              <td><button @click="(event )=>{event.preventDefault();removeFile(binary.uuid)}" class="icon-button ic-delete"></button></td>
+            </tr>
+          </div>
+          <input v-if="channel !== 'custom'" v-model="username" maxlength="15" type="text" name="input-uname"
+            id="input-uname" />
+          <label v-if="!n100 && channel !== 'custom'" for="select-slot">{{t('installer.slot')}}:</label>
+          <select v-if="!n100 && channel !== 'custom'" v-model="slot" name="select-slot" id="select-slot">
             <option value="A">A</option>
             <option value="B">B</option>
             <option :disabled="modelUnknown || !internalAvailable" value="legacy">{{t('installer.noSlots')}}</option>
@@ -97,12 +86,7 @@
           <button @click="forceDisconnect" type="button" id="btn-disconnect">
             {{ t('installer.disconnect') }}
           </button>
-          <button
-            @click="install"
-            id="btn-install"
-            class="btn-primary"
-            type="submit"
-          >
+          <button @click="install" id="btn-install" class="btn-primary" type="submit">
             {{ t('installer.install') }}
           </button>
 
@@ -113,31 +97,18 @@
 
           <p>
             {{ t('installer.external') }}
-            <a
-              @click="forceDisconnect"
-              href="https://upsilonnumworks.github.io/Upsilon-External/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >{{ t('installer.gothere') }}</a
-            >
+            <a @click="forceDisconnect" href="https://upsilonnumworks.github.io/Upsilon-External/" target="_blank"
+              rel="noopener noreferrer">{{ t('installer.gothere') }}</a>
           </p>
           <p>
             {{ t('installer.jointhe') }}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://discord.gg/X2TWhh9"
-            >
+            <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/X2TWhh9">
               {{ t('installer.joinDiscord') }}
             </a>
           </p>
         </div>
         <div v-if="showProgressbar" class="progressbar" id="progressbar">
-          <div
-            class="progressbar-bar"
-            id="progressbar-bar"
-            :style="`width:${percentage}%`"
-          ></div>
+          <div class="progressbar-bar" id="progressbar-bar" :style="`width:${percentage}%`"></div>
         </div>
         <div v-if="showProgressbar" id="progressbar-text"></div>
       </div>
@@ -146,10 +117,10 @@
 </template>
 
 <script>
+import CustomSelect from '@/components/CustomSelect'
+import Numworks from 'upsilon.js'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Numworks from 'upsilon.js'
-import CustomSelect from '@/components/CustomSelect'
 
 export default defineComponent({
   name: 'InstallerPage',
@@ -191,6 +162,7 @@ export default defineComponent({
       channel: 'official',
       slot: 'A',
       slots: ['A', 'B'],
+      binaries: [],
       themes: [
         'upsilon_light',
         'upsilon_dark',
@@ -212,6 +184,35 @@ export default defineComponent({
     }
   },
   methods: {
+    addFile (file) {
+      if (file.name.endsWith('.sha256')) return
+      if (file.name.endsWith('.tgz') || file.name.endsWith('.tar.gz')) {
+        // TODO unzip file and add each binary individually
+      } else if (file.name.endsWith('.zip')) {
+        // TODO unzip file and add each binary individually
+      } else {
+        let address = 0x00000000
+        if (file.name.includes('internal') || file.name.includes('bootloader')) {
+          address = 0x08000000
+        } else if (file.name.includes('external') || file.name.includes('A')) {
+          address = 0x90000000
+        } else if (file.name.includes('B')) {
+          address = 0x90400000
+        }
+        this.binaries.push({ address: address, uuid: Math.floor(Math.random() * 1000000), file: file })
+      }
+    },
+    removeFile (uuid) {
+      console.log('Removing file ' + uuid)
+      this.binaries = this.binaries.filter((binary) => { return binary.uuid !== uuid })
+    },
+    updateFiles () {
+      const files = document.getElementById('input-file').files
+
+      for (const file of files) {
+        this.addFile(file)
+      }
+    },
     logProgress (done, total) {
       this.percentage = (done / total) * 100
     },
@@ -276,7 +277,7 @@ export default defineComponent({
       }
     },
     setStatus (status) {
-      console.log('Status set to', status)
+      console.trace('Status set to', status)
       switch (status) {
         case 'connected':
           this.done = false
@@ -375,13 +376,13 @@ export default defineComponent({
           this.showInfo = true
           this.infoClass = 'warning'
           this.statusHTML = this.t('installer.unknownModelConnected.text') +
-                              '<ul>' +
-                                '<li>' +
-                                  this.t('installer.unknownModelConnected.li1') +
-                                '</li>' +
-                                '<li>' +
-                                  this.t('installer.unknownModelConnected.li2') +
-                              '</ul>'
+            '<ul>' +
+            '<li>' +
+            this.t('installer.unknownModelConnected.li1') +
+            '</li>' +
+            '<li>' +
+            this.t('installer.unknownModelConnected.li2') +
+            '</ul>'
           break
         default:
           throw new Error('Invalid status specified')
@@ -431,9 +432,9 @@ export default defineComponent({
         this.calculator.device.logInfo = this.logInfo
         // Disable WebDFU logging in production
         if (process.env.NODE_ENV === 'production') {
-          this.calculator.device.logDebug = () => {}
+          this.calculator.device.logDebug = () => { }
           // FIXME the following line produces an error
-          this.calculatorRecovery.device.logDebug = () => {}
+          this.calculatorRecovery.device.logDebug = () => { }
         }
       } catch (e) {
         console.warn('Error while disabling WebDFU logging')
@@ -463,7 +464,7 @@ export default defineComponent({
         try {
           await this.calculator.device.requestOut(11)
           console.log('Protection disabled')
-        } catch (e) {}
+        } catch (e) { }
       }
     },
     async getDownloadURL (jsonUrl) {
@@ -517,9 +518,8 @@ export default defineComponent({
         fwname += '.' + name + '.bin'
       }
 
-      const jsonUrl = `${mirror}${this.channel}%2F${
-        model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
-      }%2F${fwname}`
+      const jsonUrl = `${mirror}${this.channel}%2F${model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
+        }%2F${fwname}`
       console.log('Downloading ' + fwname)
       const binUrl = await this.getDownloadURL(jsonUrl)
       const shaUrl = await this.getDownloadURL(jsonUrl + '.sha256')
@@ -561,6 +561,15 @@ export default defineComponent({
         await this.initInstall()
         const model = this.calculator.getModel()
         console.log('Model : ' + model)
+        if (this.channel === 'custom') {
+          console.table(this.binaries)
+          for (const [index, binary] of this.binaries.entries()) {
+            console.log('Installing binary ', index + 1, 'of', this.binaries.length)
+            this.calculator.device.startAddress = binary.address
+            await this.calculator.device.do_download(this.calculator.transferSize, await binary.file.arrayBuffer(), false)
+          }
+          return
+        }
         if (model === '0100') {
           this.setStatus('downloading')
           const bin = await this.downloadBin('internal', 'N0100')
@@ -647,7 +656,7 @@ export default defineComponent({
     onError (err) {
       try {
         this.forceDisconnect()
-      } catch {}
+      } catch { }
       if (typeof err === 'string') {
         err = new Error(err)
       }
@@ -738,54 +747,65 @@ export default defineComponent({
 ul {
   text-align: left;
 }
+
 details {
   text-align: justify;
 }
+
 summary {
   user-select: none;
   cursor: pointer;
 }
+
 details details {
   margin-left: 10px;
 }
+
 pre {
   overflow-x: scroll;
 }
+
 pre::-webkit-scrollbar {
   height: 5px;
 }
+
 pre::-webkit-scrollbar-track {
   background: var(--error-bg);
 }
+
 pre::-webkit-scrollbar-thumb {
   background: var(--error-text);
   border-radius: 5pt;
 }
 </style>
 <style scoped>
-select{
+select {
   border: solid var(--upsilon-1) 2pt;
-  border-radius:3px;
-  background-color:var(--upsilon-2);
-  color:var(--foreground);
-  margin:.5em;
-  padding:.5em;
-  font-size:1.1em;
-  text-align:center;
+  border-radius: 3px;
+  background-color: var(--upsilon-2);
+  color: var(--foreground);
+  margin: .5em;
+  padding: .5em;
+  font-size: 1.1em;
+  text-align: center;
 }
+
 #thanks {
   font-size: 1.1em;
 }
+
 p {
   text-align: justify;
   padding-left: 1.5em;
   padding-right: 1.5em;
   font-size: 1.1em;
 }
+
 h1 {
   margin: 0.5em;
   padding: 0.5em;
 }
+
 .error {
   background-color: var(--error-bg);
   border: red 1pt solid;
@@ -794,12 +814,14 @@ h1 {
   padding: 1em;
   margin: 1em;
 }
+
 .warning {
   border: grey 1pt solid;
   backdrop-filter: blur(50px) saturate(0.5);
   padding: 1em;
   margin: 1em;
 }
+
 .info {
   background-color: var(--feature-bg-upsilon);
   border: solid var(--upsilon-1) 1pt;
@@ -807,6 +829,7 @@ h1 {
   padding: 1em;
   margin: 1em;
 }
+
 .disconnected {
   background-color: var(--feature-bg-omega);
   border: solid var(--error-text) 1pt;
@@ -814,10 +837,12 @@ h1 {
   padding: 1em;
   margin: 1em;
 }
+
 #status-display {
   transition: all 0.1s;
   border-radius: 5px;
 }
+
 .progressbar {
   height: 8px;
   border-radius: 10px;
@@ -825,9 +850,14 @@ h1 {
   margin: 15px;
   overflow: hidden;
 }
+
 .progressbar-bar {
   height: 8px;
   background-color: var(--upsilon-1);
+}
+
+#file-list {
+  grid-column: 1 / 3;
 }
 
 #btn-disconnect {
@@ -836,11 +866,13 @@ h1 {
   backdrop-filter: blur(50px);
   color: var(--foreground);
 }
+
 #btn-disconnect:hover {
   background-color: var(--error-text);
   border: solid var(--error-text) 1pt;
   color: var(--upsilon-2);
 }
+
 #btn-connect,
 #btn-install {
   background-color: var(--upsilon-2);
@@ -866,7 +898,8 @@ h1 {
 }
 
 .textinput {
-  border: 2px solid var(--upsilon-1); /* FIXME */
+  border: 2px solid var(--upsilon-1);
+  /* FIXME */
   border-radius: 5px;
   background-color: var(--upsilon-2);
   color: var(--foreground);
@@ -901,24 +934,53 @@ h1 {
   padding: 1em;
   border-radius: 5px;
 }
-#install-form > * {
+
+#install-form>* {
   display: block;
 }
+
 label {
   user-select: none;
 }
-#install-form > label,
-#install-form > input {
+
+#install-form>label,
+#install-form>input {
   text-align: left;
   margin: 0.5em;
   font-size: 1.1em;
   padding: 0.5em;
 }
+
 input {
   background-color: var(--upsilon-2);
   border: solid var(--upsilon-1) 2pt;
   border-radius: 3px;
   color: var(--foreground);
   font-family: inherit;
+}
+
+.icon-button {
+  border: none;
+  background: none;
+  padding: unset;
+}
+
+.ic-delete::after {
+  content: '\f1f8';
+}
+
+.ic-up::after {
+  content: '\f077';
+}
+
+.ic-down::after {
+  content: '\f078';
+}
+
+.icon-button::after {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  color: var(--foreground);
+  display: block;
 }
 </style>
