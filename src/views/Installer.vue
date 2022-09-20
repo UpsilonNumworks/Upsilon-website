@@ -196,6 +196,7 @@ export default defineComponent({
         buf = await pako.inflate(buf).buffer
         const files = await untar(buf)
         files.forEach((f) => this.addFile(new File([f.blob], f.name)))
+        this.setStatus('archive')
       } else if (file.name.endsWith('.zip')) {
         const zipFileReader = new BlobReader(file)
         const zipReader = new ZipReader(zipFileReader)
@@ -203,13 +204,18 @@ export default defineComponent({
           const outWriter = new BlobWriter()
           await entry.getData(outWriter)
           const out = new File([await outWriter.getData()], entry.filename)
+          this.setStatus('archive')
           this.addFile(out)
         }
         await zipReader.close()
       } else if (file.name.endsWith('.dfu')) {
         // Unpack DFU and add both files
         unpack(await file.arrayBuffer()).forEach((f) => this.addFile(f))
+        this.setStatus('dfu')
       } else {
+        if (!file.name.endsWith('.bin')) {
+          this.setStatus('nonBinFile')
+        }
         let address = 0x00000000
         if (file.name.includes('internal') || file.name.includes('bootloader')) {
           address = 0x08000000
@@ -399,6 +405,18 @@ export default defineComponent({
             '<li>' +
             this.t('installer.unknownModelConnected.li2') +
             '</ul>'
+          break
+        case 'nonBinFile':
+          this.infoClass = 'warning'
+          this.statusHTML = this.t('installer.custom.nonBinFile')
+          break
+        case 'dfu':
+          this.infoClass = 'info'
+          this.statusHTML = this.t('installer.custom.dfu')
+          break
+        case 'archive':
+          this.infoClass = 'info'
+          this.statusHTML = this.t('installer.custom.archive')
           break
         default:
           throw new Error('Invalid status specified')
