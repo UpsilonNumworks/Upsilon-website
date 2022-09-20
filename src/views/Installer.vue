@@ -15,7 +15,7 @@
         </button>
         <form v-if="showInstaller" id="install-form">
           <label for="select-channel">{{ t('installer.releaseChannel') }} :</label>
-          <CustomSelect name="select-channel" sid="select-channel" @updated="setChannel"
+          <CustomSelect name="select-channel" sid="select-channel" @updated="setChannel" :current="channel"
             :title="t('installer.releaseChannel')" :items="[
               {
                 text: t('installer.channels.master.title'),
@@ -61,7 +61,7 @@
               })
             ">
           </CustomSelect>
-          <label v-if="channel ==='custom'" for="input-file">{{t('installer.custom.customFile')}}</label>
+          <label v-if="channel ==='custom'" class="btn" id="label-file" for="input-file">{{t('installer.custom.clickToUpload')}}</label>
           <input v-if="channel ==='custom'" @change="updateFiles" id="input-file" name="input-file" type="file" multiple/>
           <label v-if="channel !== 'custom'" for="input-uname">{{ t('installer.username') }} :</label>
           <div v-if="channel === 'custom'" id="file-list">
@@ -1001,5 +1001,11 @@ input {
 #drop-zone.active{
   transform:scale(1);
   opacity:1;
+}
+#input-file{
+  display: none;
+}
+#label-file{
+  grid-column: 1 / 3;
 }
 </style>

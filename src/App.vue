@@ -63,10 +63,10 @@
 </template>
 
 <script>
+import LocaleChanger from '@/components/LocaleChanger.vue'
+import Switch from '@/components/Switch.vue'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Switch from '@/components/Switch.vue'
-import LocaleChanger from '@/components/LocaleChanger.vue'
 export default defineComponent({
   setup () {
     const { t } = useI18n({
@@ -406,13 +406,13 @@ body.dark {
   max-width: 800px;
   border-radius: 10px;
 }
-button {
+button,.btn{
   border-radius: 5px;
   background-color: var(--upsilon-2);
   border: solid var(--upsilon-1) 2pt;
   color: var(--foreground);
   padding: 16px 32px;
-  text-align: center;
+  text-align: center !important;
   text-decoration: none;
   font-size: 16px;
   margin: 12px 6px;

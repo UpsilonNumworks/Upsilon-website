@@ -156,10 +156,10 @@
     "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect.",
     "internalUnavailable": "Warning: Internal storage unavailable. This happens when you use a bootloader and means you can't update or remove the bootloader right now. Use the recovery mode for that instead.",
     "custom": {
-      "customFile": "Custom File :",
       "nonBinFile": "Couldn't recognize file type!",
       "dfu": "Extracted binaries from DFU file",
-      "archive": "Extracted binaries from archive"
+      "archive": "Extracted binaries from archive",
+      "clickToUpload": "Click to add a file"
     },
     "drop": "Drop binpack here to install it"
   },
