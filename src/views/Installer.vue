@@ -511,62 +511,64 @@ export default defineComponent({
         await this.initInstall()
         const model = this.calculator.getModel()
         console.log('Model : ' + model)
-        if (this.channel !== 'custom') {
-          this.binaries = []
-          this.setStatus('downloading')
-        }
         const addresses = {
           internal: 0x08000000,
           external: 0x90000000,
           b: 0x90400000
         }
-        if (model === '0100') {
-          const bin = await downloadBin('internal', 'N0100', this.channel, this.theme, this.lang, this.t)
-          this.patchUsername(bin)
-          this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([bin], 'internal.bin') })
-        } else if (model === '????' || !this.internalAvailable) {
-          const externalBin = await downloadBin(this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
-          if (this.slot === 'B') {
-            this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+        if (this.channel !== 'custom') {
+          this.binaries = []
+          this.setStatus('downloading')
+
+          if (model === '0100') {
+            const bin = await downloadBin('internal', 'N0100', this.channel, this.theme, this.lang, this.t)
+            this.patchUsername(bin)
+            this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([bin], 'internal.bin') })
+          } else if (model === '????' || !this.internalAvailable) {
+            const externalBin = await downloadBin(this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
+            if (this.slot === 'B') {
+              this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+            } else {
+              this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+            }
+          } else if (model === '0110') {
+            const externalBin = await downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
+            // Patch the username on slot A and B if we're not in legacy mode
+            if (this.slot !== 'legacy') {
+              this.patchUsername(externalBin)
+            }
+            if (this.slot === 'B') {
+              this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+            } else {
+              this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+            }
+            const internalBin = await downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110', this.channel, this.theme, this.lang, this.t)
+            // Patch the username in we're in legacy mode
+            if (this.slot === 'legacy') {
+              this.patchUsername(internalBin)
+            }
+            this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([internalBin], 'internal.bin') })
           } else {
-            this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
+            throw new Error(this.t('installer.unsupportedModel') + ':' + model)
           }
-        } else if (model === '0110') {
-          const externalBin = await downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
-          // Patch the username on slot A and B if we're not in legacy mode
-          if (this.slot !== 'legacy') {
-            this.patchUsername(externalBin)
-          }
-          if (this.slot === 'B') {
-            this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
-          } else {
-            this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
-          }
-          const internalBin = await downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110', this.channel, this.theme, this.lang, this.t)
-          // Patch the username in we're in legacy mode
-          if (this.slot === 'legacy') {
-            this.patchUsername(internalBin)
-          }
-          this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([internalBin], 'internal.bin') })
-        } else {
-          throw new Error(this.t('installer.unsupportedModel') + ':' + model)
         }
         console.table(this.binaries)
         for (const [index, binary] of this.binaries.entries()) {
           console.log('Installing binary ', index + 1, 'of', this.binaries.length)
           this.currentbin = index + 1
           this.calculator.device.startAddress = binary.address
-          await this.calculator.device.do_download(this.calculator.transferSize, await binary.file.arrayBuffer(), index + 1 === this.binaries.length)
+          await this.calculator.device.do_download(this.calculator.transferSize, await binary.file.arrayBuffer(), index + 1 === this.binaries.length && binary.address === addresses.internal)
         } if (model === '????' || !this.internalAvailable) {
           this.setStatus('unknownModelDone')
           this.showButtons = false
           this.showProgressbar = false
           this.inRecoveryMode = false
           this.shouldRestoreStorage = true
+        } else {
+          this.setStatus('waitingForReboot')
+          this.inRecoveryMode = false
+          this.shouldRestoreStorage = true
         }
-        this.setStatus('waitingForReboot')
-        this.inRecoveryMode = false
-        this.shouldRestoreStorage = true
       } catch (error) {
         this.lastError = new Date().getTime()
         this.onError(error)
