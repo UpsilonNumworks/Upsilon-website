@@ -119,6 +119,7 @@
 <script>
 import CustomSelect from '@/components/CustomSelect'
 import { unpack } from '@/installer/dfuHelper.js'
+import { downloadBin } from '@/installer/downloader'
 import { BlobReader, BlobWriter, ZipReader } from '@zip.js/zip.js'
 import untar from 'js-untar'
 import pako from 'pako'
@@ -153,7 +154,7 @@ export default defineComponent({
       storage: null,
       inRecoveryMode: false,
       lastError: 0,
-      currentbin: '',
+      currentbin: 0,
       internalAvailable: false,
       shouldRestoreStorage: false,
       username: '',
@@ -339,9 +340,6 @@ export default defineComponent({
         case 'downloading':
           this.statusHTML =
             this.t('installer.downloading') +
-            (this.n100
-              ? ''
-              : (this.currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
             '...'
           break
         case 'erasing':
@@ -349,7 +347,7 @@ export default defineComponent({
             this.t('installer.erasing') +
             (this.n100
               ? ''
-              : (this.currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
+              : ' ' + this.currentbin + ' / ' + this.binaries.length) +
             '...'
           break
         case 'copying':
@@ -357,7 +355,7 @@ export default defineComponent({
             this.t('installer.writing') +
             (this.n100
               ? ''
-              : (this.currentbin === 'external' ? ' 1' : ' 2') + '/2 ') +
+              : ' ' + this.currentbin + ' / ' + this.binaries.length) +
             '...'
           break
         case 'waitingForReboot':
@@ -485,72 +483,6 @@ export default defineComponent({
         } catch (e) { }
       }
     },
-    async getDownloadURL (jsonUrl) {
-      return fetch(jsonUrl).then(async (response) => {
-        if (response.status === 404) {
-          const err = new Error()
-          err.message = this.t('installer.download404')
-          throw err
-        }
-        const json = await response.json()
-        return jsonUrl + '?alt=media&token=' + json.downloadTokens
-      })
-    },
-    downloadAsync (method, url, responseType = 'blob') {
-      return fetch(url, { method: method }).then(async (response) => {
-        if (response.status === 404) {
-          const err = new Error()
-          err.message = this.t('installer.download404')
-          throw err
-        }
-        if (responseType === 'blob') {
-          return response.blob()
-        } else {
-          return response.text()
-        }
-      })
-    },
-    async hash (blob) {
-      const msgUint8 = await blob.arrayBuffer()
-      const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
-      const hashArray = Array.from(new Uint8Array(hashBuffer))
-      return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
-    },
-    async downloadBin (name, model) {
-      const mirror =
-        'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/'
-
-      let fwname = ''
-      if (name === 'flasher') {
-        fwname = 'flasher.verbose.bin'
-      } else if (name === 'bootloader') {
-        fwname = 'bootloader.bin'
-      } else {
-        fwname += 'epsilon.onboarding'
-        if (this.channel === 'beta' || this.channel === 'official') {
-          fwname += '.' + this.theme
-        }
-        if (model.toLowerCase() === 'n0100') {
-          fwname += '.' + this.lang
-        }
-        fwname += '.' + name + '.bin'
-      }
-
-      const jsonUrl = `${mirror}${this.channel}%2F${model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
-        }%2F${fwname}`
-      console.log('Downloading ' + fwname)
-      const binUrl = await this.getDownloadURL(jsonUrl)
-      const shaUrl = await this.getDownloadURL(jsonUrl + '.sha256')
-
-      const bin = await this.downloadAsync('GET', binUrl, 'blob')
-      const checksum = await this.downloadAsync('GET', shaUrl, 'text')
-      if (checksum.substring(0, 64) === (await this.hash(bin))) {
-        console.log('Bin file downloaded successfully')
-        return bin.arrayBuffer()
-      } else {
-        throw new Error('Failed to verify file integrity')
-      }
-    },
     patchUsername (bin) {
       console.log('Setting username to ' + this.username)
       if (this.username) {
@@ -579,63 +511,58 @@ export default defineComponent({
         await this.initInstall()
         const model = this.calculator.getModel()
         console.log('Model : ' + model)
-        if (this.channel === 'custom') {
-          console.table(this.binaries)
-          for (const [index, binary] of this.binaries.entries()) {
-            console.log('Installing binary ', index + 1, 'of', this.binaries.length)
-            this.calculator.device.startAddress = binary.address
-            await this.calculator.device.do_download(this.calculator.transferSize, await binary.file.arrayBuffer(), false)
-          }
-          return
+        if (this.channel !== 'custom') {
+          this.binaries = []
+          this.setStatus('downloading')
+        }
+        const addresses = {
+          internal: 0x08000000,
+          external: 0x90000000,
+          b: 0x90400000
         }
         if (model === '0100') {
-          this.setStatus('downloading')
-          const bin = await this.downloadBin('internal', 'N0100')
+          const bin = await downloadBin('internal', 'N0100', this.channel, this.theme, this.lang, this.t)
           this.patchUsername(bin)
-          await this.calculator.flashInternal(bin)
+          this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([bin], 'internal.bin') })
         } else if (model === '????' || !this.internalAvailable) {
-          this.currentbin = 'external'
-          this.setStatus('downloading')
-          const externalBin = await this.downloadBin(this.slot, 'N0110')
+          const externalBin = await downloadBin(this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
           if (this.slot === 'B') {
-            this.calculator.device.startAddress = 0x90400000
-            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
+            this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
           } else {
-            await this.calculator.flashExternal(externalBin)
+            this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
           }
-          this.setStatus('unknownModelDone')
-          this.showButtons = false
-          this.showProgressbar = false
-          this.inRecoveryMode = false
-          this.shouldRestoreStorage = true
-          return
         } else if (model === '0110') {
-          this.currentbin = 'external'
-          this.setStatus('downloading')
-          const externalBin = await this.downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110')
+          const externalBin = await downloadBin(this.slot === 'legacy' ? 'external' : this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
           // Patch the username on slot A and B if we're not in legacy mode
           if (this.slot !== 'legacy') {
             this.patchUsername(externalBin)
           }
           if (this.slot === 'B') {
-            this.calculator.device.startAddress = 0x90400000
-            await this.calculator.device.do_download(this.calculator.transferSize, externalBin, false)
+            this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
           } else {
-            await this.calculator.flashExternal(externalBin)
+            this.binaries.push({ address: addresses.external, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
           }
-          console.log('downloading internal')
-          this.currentbin = 'internal'
-          this.setStatus('downloading')
-          this.logProgress(0, 1)
-
-          const internalBin = await this.downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110')
+          const internalBin = await downloadBin(this.slot === 'legacy' ? 'internal' : 'bootloader', 'N0110', this.channel, this.theme, this.lang, this.t)
           // Patch the username in we're in legacy mode
           if (this.slot === 'legacy') {
             this.patchUsername(internalBin)
           }
-          await this.calculator.flashInternal(internalBin)
+          this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([internalBin], 'internal.bin') })
         } else {
           throw new Error(this.t('installer.unsupportedModel') + ':' + model)
+        }
+        console.table(this.binaries)
+        for (const [index, binary] of this.binaries.entries()) {
+          console.log('Installing binary ', index + 1, 'of', this.binaries.length)
+          this.currentbin = index + 1
+          this.calculator.device.startAddress = binary.address
+          await this.calculator.device.do_download(this.calculator.transferSize, await binary.file.arrayBuffer(), index + 1 === this.binaries.length)
+        } if (model === '????' || !this.internalAvailable) {
+          this.setStatus('unknownModelDone')
+          this.showButtons = false
+          this.showProgressbar = false
+          this.inRecoveryMode = false
+          this.shouldRestoreStorage = true
         }
         this.setStatus('waitingForReboot')
         this.inRecoveryMode = false
@@ -658,7 +585,7 @@ export default defineComponent({
         console.log('Downloading recovery')
         this.setStatus('downloadingRecovery')
         this.channel = 'beta' // FIXME we use beta channel as there is no flasher in official
-        const flasher = await this.downloadBin('flasher', 'N' + model)
+        const flasher = await downloadBin('flasher', 'N' + model, this.channel, this.theme, this.lang, this.t)
         console.log('Flashing recovery')
         this.setStatus('installingRecovery')
         await this.calculatorRecovery.flashRecovery(flasher)
