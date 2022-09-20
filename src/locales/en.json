@@ -160,7 +160,8 @@
       "nonBinFile": "Couldn't recognize file type!",
       "dfu": "Extracted binaries from DFU file",
       "archive": "Extracted binaries from archive"
-    }
+    },
+    "drop": "Drop binpack here to install it"
   },
   "github": {
     "name": "GitHub"

@@ -1,6 +1,9 @@
 <template>
   <div id="installer">
-    <div class="generic-page" id="installer-container">
+    <div  @dragenter.prevent="setDropActive" @dragleave.prevent="setDropInactive" @dragover.prevent="setDropActive" @drop.prevent="handleDrop" class="generic-page" id="installer-container">
+      <div id="drop-zone" :class="dropActive ? 'active' : ''">
+        <h2>{{t('installer.drop')}}</h2>
+      </div>
       <h1>{{ t('installer.title') }}</h1>
       <div class="installer">
         <div v-if="showInfo" :class="infoClass" id="status-display" v-html="statusHTML"></div>
@@ -142,6 +145,7 @@ export default defineComponent({
   },
   data () {
     return {
+      dropActive: false,
       done: false,
       error: false,
       showInstaller: false,
@@ -189,6 +193,31 @@ export default defineComponent({
     }
   },
   methods: {
+    handleDrop (e) {
+      this.setDropInactive()
+      this.channel = 'custom'
+      if (e.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        [...e.dataTransfer.items].forEach((item, i) => {
+          // If dropped items aren't files, reject them
+          if (item.kind === 'file') {
+            const file = item.getAsFile()
+            this.addFile(file)
+          }
+        })
+      } else {
+        // Use DataTransfer interface to access the file(s)
+        [...e.dataTransfer.files].forEach((file, i) => {
+          this.addFile(file)
+        })
+      }
+    },
+    setDropActive () {
+      this.dropActive = true
+    },
+    setDropInactive () {
+      this.dropActive = false
+    },
     async addFile (file) {
       if (file.name.endsWith('.sha256')) return
       if (file.name.endsWith('.tgz') || file.name.endsWith('.tar.gz')) {
@@ -947,5 +976,30 @@ input {
   font-family: "Font Awesome 5 Free";
   color: var(--foreground);
   display: block;
+}
+#installer-container{
+  position:relative;
+}
+#drop-zone{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  pointer-events: none;
+  transform:scale(1.1);
+  transition: all .2s;
+  background-color: var(--upsilon-2);
+  border-radius:1em;
+  margin-top:-1em;
+  margin-left:-1em;
+  border:dashed var(--upsilon-1)  3pt;
+  z-index:1;
+}
+#drop-zone.active{
+  transform:scale(1);
+  opacity:1;
 }
 </style>
