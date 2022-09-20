@@ -134,6 +134,7 @@ export default defineComponent({
   color: var(--background);
 }
 .list > * {
+  min-width:200px;
   border-radius: 5px;
   margin: 0.5em;
   padding: 0.5em;
