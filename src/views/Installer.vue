@@ -64,11 +64,11 @@
           <label v-if="channel ==='custom'" class="btn" id="label-file" for="input-file">{{t('installer.custom.clickToUpload')}}</label>
           <input v-if="channel ==='custom'" @change="updateFiles" id="input-file" name="input-file" type="file" multiple/>
           <label v-if="channel !== 'custom'" for="input-uname">{{ t('installer.username') }} :</label>
-          <div v-if="channel === 'custom'" id="file-list">
+          <table v-if="channel === 'custom'" id="file-list">
             <tr v-for="binary in binaries" :key="'file-display-'+binary.uuid">
               <td>
                 0x
-                <input :value="binary.address.toString(16)" type="text" :id="'address-input-'+ binary.uuid">
+                <input v-model="binary.hexAddress" @input="parseHex(binary.uuid)" type="text" :id="'address-input-'+ binary.uuid">
 
               </td><td class="file-display">
                 {{ binary.file.name }}
@@ -77,7 +77,7 @@
               <td><button class="icon-button ic-down"></button></td>
               <td><button @click="(event )=>{event.preventDefault();removeFile(binary.uuid)}" class="icon-button ic-delete"></button></td>
             </tr>
-          </div>
+          </table>
           <input v-if="channel !== 'custom'" v-model="username" maxlength="15" type="text" name="input-uname"
             id="input-uname" />
           <label v-if="!n100 && channel !== 'custom'" for="select-slot">{{t('installer.slot')}}:</label>
@@ -193,6 +193,21 @@ export default defineComponent({
     }
   },
   methods: {
+    parseHex (uuid) {
+      const el = document.getElementById('address-input-' + uuid)
+
+      let i = 0
+      for (i in this.binaries) {
+        if (this.binaries[i].uuid === uuid) {
+          console.log(parseInt(el.value, 16))
+          if (el.value.replaceAll(/^([A-Fa-f0-9])+$/g, '') !== '') {
+            this.binaries[i].hexAddress = this.binaries[i].address.toString(16)
+          } else {
+            this.binaries[i].address = parseInt(el.value, 16)
+          }
+        }
+      }
+    },
     handleDrop (e) {
       this.setDropInactive()
       this.channel = 'custom'
@@ -253,7 +268,7 @@ export default defineComponent({
         } else if (file.name.includes('B')) {
           address = 0x90400000
         }
-        this.binaries.push({ address: address, uuid: Math.floor(Math.random() * 1000000), file: file })
+        this.binaries.push({ address: address, hexAddress: address.toString(16), uuid: Math.floor(Math.random() * 1000000), file: file })
       }
     },
     removeFile (uuid) {
@@ -1007,5 +1022,22 @@ input {
 }
 #label-file{
   grid-column: 1 / 3;
+}
+:where(td):not(.file-display){
+  width:0;
+  white-space: nowrap;
+}
+table{
+  display:table !important;
+  border-collapse:collapse;
+}
+tr{
+  box-shadow: 0px 1px 0px var(--upsilon-1-transparent);
+}
+tr:last-child {
+  box-shadow: none;
+}
+td input{
+  border: solid var(--upsilon-1) 1pt;
 }
 </style>

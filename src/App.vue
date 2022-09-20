@@ -127,6 +127,7 @@ export default defineComponent({
 
 .light {
   --upsilon-1: #accef8;
+  --upsilon-1-transparent: #accef850;
   --upsilon-2: white;
   --upsilon-2-transparent: #ffffff50;
   --foreground: black;
@@ -151,6 +152,7 @@ export default defineComponent({
 }
 .dark {
   --upsilon-1: #7ea2ce;
+  --upsilon-1-transparent: #7ea2ce50;
   --upsilon-2: #0c1624;
   --upsilon-2-transparent: #0c162470;
   --foreground: #ffffff;
