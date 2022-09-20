@@ -118,6 +118,7 @@
 
 <script>
 import CustomSelect from '@/components/CustomSelect'
+import { unpack } from '@/installer/dfuHelper.js'
 import { BlobReader, BlobWriter, ZipReader } from '@zip.js/zip.js'
 import untar from 'js-untar'
 import pako from 'pako'
@@ -204,6 +205,9 @@ export default defineComponent({
           this.addFile(out)
         }
         await zipReader.close()
+      } else if (file.name.endsWith('.dfu')) {
+        // Unpack DFU and add both files
+        unpack(await file.arrayBuffer()).forEach((f) => this.addFile(f))
       } else {
         let address = 0x00000000
         if (file.name.includes('internal') || file.name.includes('bootloader')) {
