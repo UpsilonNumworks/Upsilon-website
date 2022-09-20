@@ -220,25 +220,27 @@ export default defineComponent({
     },
     handleDrop (e) {
       this.setDropInactive()
-      this.channel = 'custom'
-      if (e.dataTransfer.items) {
-        // Use DataTransferItemList interface to access the file(s)
-        [...e.dataTransfer.items].forEach((item, i) => {
+      if (this.showInstaller) {
+        this.channel = 'custom'
+        if (e.dataTransfer.items) {
+          // Use DataTransferItemList interface to access the file(s)
+          [...e.dataTransfer.items].forEach((item, i) => {
           // If dropped items aren't files, reject them
-          if (item.kind === 'file') {
-            const file = item.getAsFile()
-            this.addFile(file)
-          }
-        })
-      } else {
+            if (item.kind === 'file') {
+              const file = item.getAsFile()
+              this.addFile(file)
+            }
+          })
+        } else {
         // Use DataTransfer interface to access the file(s)
-        [...e.dataTransfer.files].forEach((file, i) => {
-          this.addFile(file)
-        })
+          [...e.dataTransfer.files].forEach((file, i) => {
+            this.addFile(file)
+          })
+        }
       }
     },
     setDropActive () {
-      this.dropActive = true
+      if (this.showInstaller) { this.dropActive = true }
     },
     setDropInactive () {
       this.dropActive = false
