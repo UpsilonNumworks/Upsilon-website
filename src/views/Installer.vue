@@ -73,9 +73,9 @@
               </td><td class="file-display">
                 {{ binary.file.name }}
               </td>
-              <td><button class="icon-button ic-up"></button></td>
-              <td><button class="icon-button ic-down"></button></td>
-              <td><button @click="(event )=>{event.preventDefault();removeFile(binary.uuid)}" class="icon-button ic-delete"></button></td>
+              <td><button @click.prevent="moveUp(binary)" class="icon-button ic-up"></button></td>
+              <td><button @click.prevent="moveDown(binary)" class="icon-button ic-down"></button></td>
+              <td><button @click.prevent="removeFile(binary.uuid)" class="icon-button ic-delete"></button></td>
             </tr>
           </table>
           <input v-if="channel !== 'custom'" v-model="username" maxlength="15" type="text" name="input-uname"
@@ -193,6 +193,16 @@ export default defineComponent({
     }
   },
   methods: {
+    moveDown (binary) {
+      const i = this.binaries.indexOf(binary)
+      this.binaries.splice(i, 1)
+      this.binaries.splice(i + 1, 0, binary)
+    },
+    moveUp (binary) {
+      const i = this.binaries.indexOf(binary)
+      this.binaries.splice(i, 1)
+      this.binaries.splice(Math.max(i - 1, 0), 0, binary)
+    },
     parseHex (uuid) {
       const el = document.getElementById('address-input-' + uuid)
 
