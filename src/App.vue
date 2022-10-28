@@ -63,10 +63,10 @@
 </template>
 
 <script>
+import LocaleChanger from '@/components/LocaleChanger.vue'
+import Switch from '@/components/Switch.vue'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Switch from '@/components/Switch.vue'
-import LocaleChanger from '@/components/LocaleChanger.vue'
 export default defineComponent({
   setup () {
     const { t } = useI18n({
@@ -93,11 +93,15 @@ export default defineComponent({
   },
   watch: {
     darkmode (value) {
-      document.body.classList = [value ? 'dark' : 'light']
+      const theme = value ? 'dark' : 'light'
+      document.body.classList = [theme]
+      localStorage.setItem('theme', theme)
     }
   },
   mounted () {
     this.debug = process.env.NODE_ENV !== 'production'
+    this.darkmode = localStorage.getItem('theme') !== 'light'
+    localStorage.setItem('theme', this.darkmode ? 'dark' : 'light')
   }
 })
 </script>
@@ -123,6 +127,7 @@ export default defineComponent({
 
 .light {
   --upsilon-1: #accef8;
+  --upsilon-1-transparent: #accef850;
   --upsilon-2: white;
   --upsilon-2-transparent: #ffffff50;
   --foreground: black;
@@ -147,6 +152,7 @@ export default defineComponent({
 }
 .dark {
   --upsilon-1: #7ea2ce;
+  --upsilon-1-transparent: #7ea2ce50;
   --upsilon-2: #0c1624;
   --upsilon-2-transparent: #0c162470;
   --foreground: #ffffff;
@@ -402,13 +408,13 @@ body.dark {
   max-width: 800px;
   border-radius: 10px;
 }
-button {
+button,.btn{
   border-radius: 5px;
   background-color: var(--upsilon-2);
   border: solid var(--upsilon-1) 2pt;
   color: var(--foreground);
   padding: 16px 32px;
-  text-align: center;
+  text-align: center !important;
   text-decoration: none;
   font-size: 16px;
   margin: 12px 6px;

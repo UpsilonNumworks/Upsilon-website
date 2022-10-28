@@ -103,16 +103,11 @@
           <LatexView :latex="true" formula="\overline{AB}" />
           <LatexView :latex="true" formula="\binom{p}{q}" />
           <LatexView :latex="true" display="\intset{1,n}" formula="\left[ 1,n \right]"/>
-          <LatexView
-            :latex="true"
-            display="\ceil{x}"
-            formula="\lceil x \rceil"
-          />
-          <LatexView
-            :latex="true"
-            display="\floor{x}"
-            formula="\lfloor x \rfloor"
-          />
+          <LatexView display="\ceil{x}" output="⌈x⌉"/>
+          <LatexView display="\floor{x}" output="⌊x⌋"/>
+          <LatexView :latex="true" display="\int{f(x)}{x}{a}{b}" formula="\int_{a}^{b}f(x)dx"/>
+          <LatexView :latex="true" display="\sum{U_k}{k}{p}{n}" formula="\sum_{k=p}^{n}U_k"/>
+          <LatexView :latex="true" display="\prod{U_k}{k}{p}{n}" formula="\prod_{k=p}^{n}U_k"/>
           <!--<LatexView
             :latex="true"
             display="\int{f(x)}^{x}{a}{b}"
@@ -120,33 +115,6 @@
           />-->
         </div>
         <div class="latex-table">
-          <h3 class="latex-table-title">{{ t("doc.latex.mathsymbols") }}</h3>
-          <h4>{{ t("doc.latex.command") }}</h4>
-          <h4>{{ t("doc.latex.output") }}</h4>
-          <LatexView display="\times" output="×" />
-          <LatexView display="\div" output="÷" />
-          <LatexView display="\forall" output="∀" />
-          <LatexView display="\exists" output="∃" />
-          <LatexView display="\partial" output="∂" />
-          <LatexView display="\pm" output="±" />
-          <LatexView display="\infinity" output="∞" />
-          <LatexView display="\approx" output="≈" />
-          <LatexView display="\sim" output="∼" />
-          <LatexView display="\neq" output="≠" />
-          <LatexView display="\equiv" output="≡" />
-          <LatexView display="\leq" output="≤" />
-          <LatexView display="\geq" output="≥" />
-          <LatexView display="\left(" output="(" />
-          <LatexView display="\right)" output=")" />
-          <LatexView formula="\in" output="∈" />
-          <LatexView formula="\cdot" output="⋅" />
-          <LatexView formula="\cdots" output="⋯" />
-          <LatexView formula="\ldots" output="…" />
-          <LatexView :latex="true" display="\i" formula="\textit{i}" />
-          <LatexView :latex="true" display="\f" formula="\textit{f}" />
-          <LatexView formula="\space" output=" " />
-        </div>
-        <div class="latex-table force-break">
           <h3 class="latex-table-title">{{ t("doc.latex.arrows") }}</h3>
           <h4>{{ t("doc.latex.command") }}</h4>
           <h4>{{ t("doc.latex.output") }}</h4>
@@ -164,6 +132,42 @@
           <LatexView display="\swarrow" output="↙" />
           <LatexView display="\leftrightarrow" output="↔" />
           <LatexView display="\updownarrow" output="↕" />
+        </div>
+        <div class="latex-table">
+          <h3 class="latex-table-title">{{ t("doc.latex.mathsymbols") }}</h3>
+          <h4>{{ t("doc.latex.command") }}</h4>
+          <h4>{{ t("doc.latex.output") }}</h4>
+          <LatexView display="\times" output="×" />
+          <LatexView display="\div" output="÷" />
+          <LatexView display="\forall" output="∀" />
+          <LatexView display="\exists" output="∃" />
+          <LatexView display="\nexists" output="∄" />
+          <LatexView display="\partial" output="∂" />
+          <LatexView display="\pm" output="±" />
+          <LatexView display="\infinity" output="∞" />
+          <LatexView display="\approx" output="≈" />
+          <LatexView display="\sim" output="∼" />
+          <LatexView display="\neq" output="≠" />
+          <LatexView display="\equiv" output="≡" />
+          <LatexView display="\leq" output="≤" />
+          <LatexView display="\geq" output="≥" />
+          <LatexView display="\left(" output="(" />
+          <LatexView display="\right)" output=")" />
+          <LatexView formula="\in" output="∊" />
+          <LatexView formula="\In" output="∈" />
+          <LatexView formula="\Notin" output="∉" />
+          <LatexView formula="\subset" output="⊂" />
+          <LatexView formula="\nsubset" output="⊄" />
+          <LatexView formula="\cap" output="∩" />
+          <LatexView formula="\cup" output="∪" />
+          <LatexView formula="\Cap" output="⋂" />
+          <LatexView formula="\Cup" output="⋃" />
+          <LatexView formula="\cdot" output="⋅" />
+          <LatexView formula="\cdots" output="⋯" />
+          <LatexView formula="\ldots" output="…" />
+          <LatexView :latex="true" display="\i" formula="\textit{i}" />
+          <LatexView :latex="true" display="\f" formula="\textit{f}" />
+          <LatexView formula="\space" output=" " />
         </div>
         <div class="latex-table">
           <h3 class="latex-table-title">

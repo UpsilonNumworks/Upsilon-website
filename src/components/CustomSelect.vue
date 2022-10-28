@@ -33,19 +33,27 @@
   </div>
 </template>
 <script>
-import { useI18n } from 'vue-i18n'
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'CustomSelect',
   props: {
     sid: String,
     items: Array,
-    title: String
+    title: String,
+    current: String
   },
   setup () {
     const { t } = useI18n({ inheritLocale: true, useScope: 'global' })
     return { t }
+  },
+  watch: {
+    current: function (newVal, oldVal) {
+      if (oldVal !== newVal) {
+        this.currentElement = this.items.filter((item) => item.id === newVal)[0]
+      }
+    }
   },
 
   methods: {
@@ -126,6 +134,7 @@ export default defineComponent({
   color: var(--background);
 }
 .list > * {
+  min-width:200px;
   border-radius: 5px;
   margin: 0.5em;
   padding: 0.5em;
