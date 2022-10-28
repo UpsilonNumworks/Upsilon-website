@@ -32,6 +32,28 @@
           <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.Atomic') }}</ReleaseItem>
           <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.Gutter') }}</ReleaseItem>
         </div>
+        <p>{{ t('releases.version') }} 1.0.1</p>
+        <div>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.XNT') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.NewPol') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.TxtItal') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.TxtTool') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.LastApp') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.CorrPix') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.Dim') }}</ReleaseItem>
+          <ReleaseItem changeType="upd">{{ t('releases.versions.1-0-1.PyMaJ') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.PyCrash') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.PyItal') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.NestedRadicals') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddUlab') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.PyLightControl') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddStat') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddFunctionLiseuse') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddCaracURT') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.CorrBrownColor') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.CorrErrorBack') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.BlockHardware') }}</ReleaseItem>
+        </div>
       </div>
     </div>
   </div>
