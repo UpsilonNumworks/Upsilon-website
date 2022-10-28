@@ -335,23 +335,23 @@
             },
             "1-0-1": {
                 "XNT" : "XNT Cyclique (Plusieurs appuis sur XNT changent le caractère inséré entre X, N, T et θ)",
-                "NewPol" : "Police changée",
+                "NewFont" : "Nouvelle police",
                 "TxtItal" : "Texte en italique dans certains endroits tels que les définitions de fonctions dans l'application fonctions et les textes et commentatires dans l'éditeur Python",
-                "TxtTool" : "Texte plus gros dans les boites à outils avec défilement automatique quand le texte est trop long",
-                "LastApp" : "Raccourci Shift + Ans pour aller à la dernière application utilisée",
+                "ToolboxFontSize" : "Texte plus gros dans les boites à outils avec défilement automatique quand le texte est trop long",
+                "FixShiftedIcon" : "Raccourci Shift + Ans pour aller à la dernière application utilisée",
                 "CorrPix" : "Correction du pixel décalé sur certaines icônes dans certains thèmes",
                 "Dim" : "Dimension dans les résultats additionnels quand une unité est utilisée",
-                "PyMaJ" : "Mise à jour de MicroPython de 1.17 vers 1.19.1",
+                "MicroPythonUpgrade" : "Mise à jour de MicroPython de 1.17 vers 1.19.1",
                 "PyCrash" : "Correction du crash lors de l'ouverture des scripts",
                 "PyItal" : "Texte en italique dans les chaines de caractères",
                 "AddUlab" : "Ajout de `ulab.utils`",
-                "PyLightControl" : "Contôle de la lumisosité via `set_brightness` et `get_brightness`",
+                "PythonBrightnessControl" : "Contôle de la lumisosité via `set_brightness` et `get_brightness`",
                 "AddStat" : "Moyenne géométrique, Moyenne harmonique et Mode dans l'onglet Stats",
-                "AddFunctionLiseuse" : "Fonctions en plus en URT (Sommes, Produits, Intégrales et coefficients binomiaux)",
-                "AddCaracURT" : "Caractères en plus en URT (`\f` et `\i`)",
-                "CorrBrownColor" : "Correction de la couleur marron en URT",
-                "CorrErrorBack" : "Correction de l'erreur de syntaxe lors du retour en arrière",
-                "BlockHardware" : "Blocage des hardwares tests en mode examen"
+                "AddUrtFunctions" : "Fonctions en plus en URT (Sommes, Produits, Intégrales et coefficients binomiaux)",
+                "AddCharactersUrt" : "Caractères en plus en URT (`\f` et `\i`)",
+                "FixBrownColorUrt" : "Correction de la couleur marron en URT",
+                "FixReaderErrorBack" : "Correction de l'erreur de syntaxe lors du retour en arrière",
+                "BlockHardwareTests" : "Blocage des hardwares tests en mode examen"
             }
         }
     },
