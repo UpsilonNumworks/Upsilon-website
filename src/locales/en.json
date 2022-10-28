@@ -355,7 +355,7 @@
         "PyMaJ" : "MicroPython update from 1.17 to 1.19.1",
         "PyCrash" : "Fixed crash when opening scripts",
         "PyItal" : "Italicized text in strings",
-        "AddUlab" : "Added `ulab.utils`.",
+        "AddUlab" : "Added `ulab.utils`",
         "PyLightControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
         "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
         "AddFunctionLiseuse" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
