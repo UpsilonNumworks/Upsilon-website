@@ -358,7 +358,7 @@
         "AddUlab" : "Added `ulab.utils`.",
         "PyLightControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
         "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
-        "AddFunctionLiseuse" : "Additional functions in TRU (sums, products, integrals and binomial coefficients)",
+        "AddFunctionLiseuse" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
         "AddCaracURT" : "Extra characters in URT (``f` and ``i`)",
         "CorrBrownColor" : "Brown color correction in URT",
         "CorrErrorBack" : "Fix syntax error when reverting",
