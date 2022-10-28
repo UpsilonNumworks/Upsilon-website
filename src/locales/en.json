@@ -343,7 +343,7 @@
         "RPN": "Fix bugs in RPN",
         "Atomic": "Bug corrected in the periodic table",
         "Gutter": "Gutter corrected in the python application"
-      }
+      },
       "1-0-1": {
         "XNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
         "NewPol" : "Changed font",
