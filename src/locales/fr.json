@@ -332,7 +332,7 @@
                 "RPN": "Correction des bogues dans RPN",
                 "Atomic": "Bug corrigé dans le tableau périodique",
                 "Gutter": "Gouttière corrigée dans l'application python"
-            }
+            },
             "1-0-1": {
                 "XNT" : "XNT Cyclique (Plusieurs appuis sur XNT changent le caractère inséré entre X, N, T et θ)",
                 "NewPol" : "Police changée",
