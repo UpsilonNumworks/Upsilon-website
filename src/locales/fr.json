@@ -436,7 +436,7 @@
                 "question": "Comment désinstaller des applications externes ?"
             },
             "noUSBmenu": {
-                "answer": "La protection USB a été intégrée au bootloader et n'as donc plus besoin de menu.",
+                "answer": "La protection USB a été intégrée au bootloader et n'a donc plus besoin de menu.",
                 "question": "Le menu de la protection USB n'apparait plus dans les paramètres de la calculatrice est-ce normal ?"
             }
         },
