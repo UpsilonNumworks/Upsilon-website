@@ -199,7 +199,7 @@
             "ulab": "Ajout d'Ulab qui contient SciPy et NumPy (N110 uniquement)"
         },
         "dualboot": {
-            "description": "Omega intègre un nouveau Bootloader. Il permet de démarrer plusieurs systèmes opératoires à partir de différents slots.",
+            "description": "Omega intègre un nouveau Bootloader. Il permet de démarrer plusieurs systèmes d’exploitations à partir de différents slots.",
             "name": "Double démarrage"
         },
         "phi": {
@@ -218,7 +218,7 @@
     },
     "doc": {
         "latex": {
-            "reference": "Reference LaTeX",
+            "reference": "Référence LaTeX",
             "description": "Dans l'application liseuse, vous pouvez lire un fichier txt. Vous pouvez aussi lire un fichier txt contenant des expressions LaTeX.",
             "symbolslisted": "Pour qu'une expression LaTeX soit rendue, vous devez l'entourer de signes dollar. Tous les symboles que vous pouvez utiliser sont listés ici :",
             "command": "Commande",
@@ -241,13 +241,13 @@
                 "p1": "Quand vous voulez faire un calcul dans l'application RPN d'Upsilon, vous devez commencer par écrire tous les nombres qui interviendront dans votre expression par ordre d'apparition. Ensuite, vous pouvez appuyer sur l'opérateur approprié également par ordre d'apparition.",
                 "examples": {
                     "1": {
-                        "title": "Pour obtenir le résultat de 245*6598 :",
+                        "title": "Pour obtenir le résultat de 245×6598 :",
                         "li1": "Tapez 245 et appuyez sur OK",
                         "li2": "Tapez 6598 et appuyez sur OK",
                         "li3": "Appuyez une fois sur le bouton multiplication"
                     },
                     "2": {
-                        "title": "Pour obtenir le résultat de (65*98)/78 :",
+                        "title": "Pour obtenir le résultat de (65×98)÷78 :",
                         "li1": "Tapez 65 et appuyez sur OK",
                         "li2": "Tapez 98 et appuyez sur OK",
                         "li3": "Tapez 78 et appuyez sur OK",
@@ -289,7 +289,7 @@
             },
             "colorsDesc": "Vous pouvez modifier la couleur du texte à l'aide des codes de couleur suivants. Le texte qui suit un code couleur sera dans la couleur correspondante.",
             "example": {
-                "content": "L'entrée suivante produit la sortie suivante:",
+                "content": "L'entrée suivante produit la sortie suivante :",
                 "title": "Exemple"
             },
             "name": "La liseuse",
@@ -332,6 +332,26 @@
                 "RPN": "Correction des bogues dans RPN",
                 "Atomic": "Bug corrigé dans le tableau périodique",
                 "Gutter": "Gouttière corrigée dans l'application python"
+            }
+            "1-0-1": {
+                "XNT" : "XNT Cyclique (Plusieurs appuis sur XNT changent le caractère inséré entre X, N, T et θ)",
+                "NewPol" : "Police changée",
+                "TxtItal" : "Texte en italique dans certains endroits tels que les définitions de fonctions dans l'application fonctions et les textes et commentatires dans l'éditeur Python",
+                "TxtTool" : "Texte plus gros dans les boites à outils avec défilement automatique quand le texte est trop long",
+                "LastApp" : "Raccourci Shift + Ans pour aller à la dernière application utilisée",
+                "CorrPix" : "Correction du pixel décalé sur certaines icônes dans certains thèmes",
+                "Dim" : "Dimension dans les résultats additionnels quand une unité est utilisée",
+                "PyMaJ" : "Mise à jour de MicroPython de 1.17 vers 1.19.1",
+                "PyCrash" : "Correction du crash lors de l'ouverture des scripts",
+                "PyItal" : "Texte en italique dans les chaines de caractères",
+                "AddUlab" : "Ajout de `ulab.utils`",
+                "PyLightControl" : "Contôle de la lumisosité via `set_brightness` et `get_brightness`",
+                "AddStat" : "Moyenne géométrique, Moyenne harmonique et Mode dans l'onglet Stats",
+                "AddFunctionLiseuse" : "Fonctions en plus en URT (Sommes, Produits, Intégrales et coefficients binomiaux)",
+                "AddCaracURT" : "Caractères en plus en URT (`\f` et `\i`)",
+                "CorrBrownColor" : "Correction de la couleur marron en URT",
+                "CorrErrorBack" : "Correction de l'erreur de syntaxe lors du retour en arrière",
+                "BlockHardware" : "Blocage des hardwares tests en mode examen",
             }
         }
     },
@@ -414,6 +434,10 @@
             "uninstallExternal": {
                 "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> en ne sélectionnant rien, ensuite, cliquez sur installer. Cela effacera toutes les applications externes ainsi que l'arrière-plan.",
                 "question": "Comment désinstaller des applications externes ?"
+            },
+            "noUSBmenu": {
+                "answer": "La protection USB a été intégrée au bootloader et n'as donc plus besoin de menu.",
+                "question": "Le menu de la protection USB n'apparait plus dans les paramètres de la calculatrice est-ce normal ?"
             }
         },
         "sections": {
