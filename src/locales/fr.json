@@ -351,7 +351,7 @@
                 "AddCaracURT" : "Caractères en plus en URT (`\f` et `\i`)",
                 "CorrBrownColor" : "Correction de la couleur marron en URT",
                 "CorrErrorBack" : "Correction de l'erreur de syntaxe lors du retour en arrière",
-                "BlockHardware" : "Blocage des hardwares tests en mode examen",
+                "BlockHardware" : "Blocage des hardwares tests en mode examen"
             }
         }
     },
