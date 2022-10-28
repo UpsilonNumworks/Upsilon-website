@@ -345,7 +345,7 @@
         "Gutter": "Gutter corrected in the python application"
       }
       "1-0-1": {
-        "XNT" : "XNT Cyclique (Plusieurs appuis sur XNT changent le caractère inséré entre X, N, T et θ)",
+        "XNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
         "NewPol" : "Changed font",
         "TxtItal" : "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
         "TxtTool" : "Larger text in toolboxes with automatic scrolling when text is too long",
