@@ -448,7 +448,7 @@
       },
       "noUSBmenu": {
         "question": "The USB protection menu does not appear anymore in the calculator settings, is this normal?",
-        "answer": "The USB protection has been integrated into the bootloader and therefore no longer needs a menu.",
+        "answer": "The USB protection has been integrated into the bootloader and therefore no longer needs a menu."
       }
     },
     "sections": {
