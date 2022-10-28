@@ -359,9 +359,9 @@
         "PyLightControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
         "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
         "AddFunctionLiseuse" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
-        "AddCaracURT" : "Extra characters in URT (``f` and ``i`)",
-        "CorrBrownColor" : "Brown color correction in URT",
-        "CorrErrorBack" : "Fix syntax error when reverting",
+        "AddCaracURT" : "In the reader application, add extra characters in the URT (``f` and ``i`)",
+        "CorrBrownColor" : "Brown color correction in URT for the reader application",
+        "CorrErrorBack" : "Fixed a syntax error when reverting in the reader application",
         "BlockHardware" : "Blocking of hardwares tests in exam mode"
     }
     }
