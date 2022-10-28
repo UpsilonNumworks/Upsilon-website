@@ -362,7 +362,7 @@
         "AddCaracURT" : "Extra characters in URT (``f` and ``i`)",
         "CorrBrownColor" : "Brown color correction in URT",
         "CorrErrorBack" : "Fix syntax error when reverting",
-        "BlockHardware" : "Blocking of hardwares tests in exam mode",
+        "BlockHardware" : "Blocking of hardwares tests in exam mode"
     }
     }
   },
