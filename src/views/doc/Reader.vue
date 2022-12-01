@@ -102,7 +102,7 @@
           <LatexView :latex="true" formula="\overrightarrow{AB}" />
           <LatexView :latex="true" formula="\overline{AB}" />
           <LatexView :latex="true" formula="\binom{p}{q}" />
-          <LatexView :latex="true" display="\intset{1,n}" formula="\left[ 1,n \right]"/>
+          <LatexView :latex="true" display="\intset{1,n}" formula="[\![1,n]\!]"/>
           <LatexView display="\ceil{x}" output="⌈x⌉"/>
           <LatexView display="\floor{x}" output="⌊x⌋"/>
           <LatexView :latex="true" display="\int{f(x)}{x}{a}{b}" formula="\int_{a}^{b}f(x)dx"/>
