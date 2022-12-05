@@ -345,23 +345,23 @@
         "Gutter": "Gutter corrected in the python application"
       },
       "1-0-1": {
-        "XNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
+        "CyclicXNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
         "NewFont" : "New font",
-        "TxtItal" : "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
+        "AddItalize" : "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
         "ToolboxFontSize" : "Larger text in toolboxes with automatic lateral scrolling when text is too long",
-        "FixShiftedIcon" : "Shortcut Shift + Ans to go to the last used application",
-        "CorrPix" : "Fixed pixel shift on some icons in some themes",
-        "Dim" : "Dimension in additional results when a unit is used",
+        "ShiftAns" : "Shortcut Shift + Ans to go to the last used application",
+        "FixShiftedIcon" : "Fixed pixel shift on some icons in some themes",
+        "DimInAdditionalsResults" : "Dimension in additional results when a unit is used",
         "MicroPythonUpgrade" : "MicroPython update from 1.17 to 1.19.1",
-        "PyCrash" : "Fixed a crash when opening scripts in the Python editor",
-        "PyItal" : "Italicized text in strings in the Python editor",
+        "PythonCrash" : "Fixed a crash when opening scripts in the Python editor",
+        "PythonStringsItalics" : "Italicized text in strings in the Python editor",
         "AddUlab" : "Added `ulab.utils`",
         "PythonBrightnessControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
         "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
         "AddUrtFunctions" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
         "AddCharactersUrt" : "In the reader application, add extra characters in the URT (``f` and ``i`)",
         "FixBrownColorUrt" : "Brown color correction in URT for the reader application",
-        "CorrErrorBack" : "Fixed a syntax error when reverting in the reader application",
+        "FixReaderErrorBack" : "Fixed a syntax error when reverting in the reader application",
         "BlockHardwareTests" : "Blocking of hardwares tests in exam mode"
     }
     }
