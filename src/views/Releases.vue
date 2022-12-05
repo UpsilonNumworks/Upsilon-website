@@ -33,17 +33,17 @@
           <ReleaseItem changeType="fix">{{ t('releases.versions.1-0.Gutter') }}</ReleaseItem>
         </div>
         <p>{{ t('releases.version') }} 1.0.1</p>
-        <div>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.XNT') }}</ReleaseItem>
+           <div>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.CyclicXNT') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.NewFont') }}</ReleaseItem>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.TxtItal') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddItalize') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.ToolboxFontSize') }}</ReleaseItem>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.FixShiftedIcon') }}</ReleaseItem>
-          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.CorrPix') }}</ReleaseItem>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.Dim') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.ShiftAns') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.FixShiftedIcon') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.DimInAdditionalsResults') }}</ReleaseItem>
           <ReleaseItem changeType="upd">{{ t('releases.versions.1-0-1.MicroPythonUpgrade') }}</ReleaseItem>
-          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.PyCrash') }}</ReleaseItem>
-          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.PyItal') }}</ReleaseItem>
+          <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.PythonCrash') }}</ReleaseItem>
+          <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.PythonStringsItalics') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.NestedRadicals') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.AddUlab') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.PythonBrightnessControl') }}</ReleaseItem>
@@ -53,6 +53,7 @@
           <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.FixBrownColorUrt') }}</ReleaseItem>
           <ReleaseItem changeType="fix">{{ t('releases.versions.1-0-1.FixReaderErrorBack') }}</ReleaseItem>
           <ReleaseItem changeType="new">{{ t('releases.versions.1-0-1.BlockHardwareTests') }}</ReleaseItem>
+
         </div>
       </div>
     </div>
