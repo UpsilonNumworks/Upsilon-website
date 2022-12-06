@@ -20,6 +20,7 @@
         <FAQquestion question="uninstallExternal" />
         <FAQquestion question="canRollback" />
         <FAQquestion question="cheatsheet" />
+        <FAQquestion question="noUSBmenu" />
         <hr>
         <FAQquestion question="stillCouldntFind" />
       </div>

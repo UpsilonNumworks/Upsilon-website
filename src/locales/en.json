@@ -343,7 +343,27 @@
         "RPN": "Fix bugs in RPN",
         "Atomic": "Bug corrected in the periodic table",
         "Gutter": "Gutter corrected in the python application"
-      }
+      },
+      "1-0-1": {
+        "CyclicXNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
+        "NewFont" : "New font",
+        "AddItalize" : "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
+        "ToolboxFontSize" : "Larger text in toolboxes with automatic lateral scrolling when text is too long",
+        "ShiftAns" : "Shortcut Shift + Ans to go to the last used application",
+        "FixShiftedIcon" : "Fixed pixel shift on some icons in some themes",
+        "DimInAdditionalsResults" : "Dimension in additional results when a unit is used",
+        "MicroPythonUpgrade" : "MicroPython update from 1.17 to 1.19.1",
+        "PythonCrash" : "Fixed a crash when opening scripts in the Python editor",
+        "PythonStringsItalics" : "Italicized text in strings in the Python editor",
+        "AddUlab" : "Added `ulab.utils`",
+        "PythonBrightnessControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
+        "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
+        "AddUrtFunctions" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
+        "AddCharactersUrt" : "In the reader application, add extra characters in the URT (``f` and ``i`)",
+        "FixBrownColorUrt" : "Brown color correction in URT for the reader application",
+        "FixReaderErrorBack" : "Fixed a syntax error when reverting in the reader application",
+        "BlockHardwareTests" : "Blocking of hardwares tests in exam mode"
+    }
     }
   },
   "simulator": {
@@ -425,6 +445,10 @@
       "stillCouldntFind": {
         "question": "Couldn't find an answer to your question?",
         "answer": "Go to the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a> and ask there!"
+      },
+      "noUSBmenu": {
+        "question": "The USB protection menu does not appear anymore in the calculator settings, is this normal?",
+        "answer": "The USB protection has been integrated into the bootloader and therefore no longer needs a menu."
       }
     },
     "sections": {

@@ -332,7 +332,29 @@
                 "RPN": "Correction des bogues dans RPN",
                 "Atomic": "Bug corrigé dans le tableau périodique",
                 "Gutter": "Gouttière corrigée dans l'application python"
+            },
+            "1-0-1": {
+                "CyclicXNT" : "XNT Cyclique (Plusieurs appuis sur XNT changent le caractère inséré entre X, N, T et θ)",
+                "NewFont" : "Nouvelle police",
+                "AddItalize" : "Texte en italique dans certains endroits tels que les définitions de fonctions dans l'application fonctions et les textes et commentatires dans l'éditeur Python",
+                "ToolboxFontSize" : "Texte plus gros dans les boites à outils avec défilement automatique quand le texte est trop long",
+                "ShiftAns" : "Raccourci Shift + Ans pour aller à la dernière application utilisée",
+                "FixShiftedIcon" : "Correction du pixel décalé sur certaines icônes dans certains thèmes",
+                "DimInAdditionalsResults" : "Dimension dans les résultats additionnels quand une unité est utilisée",
+                "MicroPythonUpgrade" : "Mise à jour de MicroPython de 1.17 vers 1.19.1",
+                "PythonCrash" : "Correction du crash lors de l'ouverture des scripts",
+                "PythonStringsItalics" : "Texte en italique dans les chaines de caractères",
+                "AddUlab" : "Ajout de `ulab.utils`",
+                "PythonBrightnessControl" : "Contôle de la lumisosité via `set_brightness` et `get_brightness`",
+                "AddStat" : "Moyenne géométrique, Moyenne harmonique et Mode dans l'onglet Stats",
+                "AddUrtFunctions" : "Fonctions en plus en URT (Sommes, Produits, Intégrales et coefficients binomiaux)",
+                "AddCharactersUrt" : "Caractères en plus en URT (`\f` et `\i`)",
+                "FixBrownColorUrt" : "Correction de la couleur marron en URT",
+                "FixReaderErrorBack" : "Correction de l'erreur de syntaxe lors du retour en arrière",
+                "BlockHardwareTests" : "Blocage des hardwares tests en mode examen"
             }
+
+
         }
     },
     "notFound": {
@@ -414,6 +436,10 @@
             "uninstallExternal": {
                 "answer": "Accédez à la <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">page des applications externes</a> en ne sélectionnant rien, ensuite, cliquez sur installer. Cela effacera toutes les applications externes ainsi que l'arrière-plan.",
                 "question": "Comment désinstaller des applications externes ?"
+            },
+            "noUSBmenu": {
+                "answer": "La protection USB a été intégrée au bootloader et n'a donc plus besoin de menu.",
+                "question": "Le menu de la protection USB n'apparait plus dans les paramètres de la calculatrice est-ce normal ?"
             }
         },
         "sections": {
