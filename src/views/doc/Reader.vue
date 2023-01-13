@@ -144,7 +144,7 @@
           <LatexView display="\nexists" output="∄" />
           <LatexView display="\partial" output="∂" />
           <LatexView display="\pm" output="±" />
-          <LatexView display="\infinity" output="∞" />
+          <LatexView display="\infty" output="∞" />
           <LatexView display="\approx" output="≈" />
           <LatexView display="\sim" output="∼" />
           <LatexView display="\neq" output="≠" />
@@ -246,8 +246,8 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n'
 import LatexView from '@/components/LatexView.vue'
+import { useI18n } from 'vue-i18n'
 export default {
   name: 'LatexPage',
   setup () {

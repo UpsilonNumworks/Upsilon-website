@@ -1,505 +1,505 @@
 {
-  "message": "hello i18n !!",
-  "darkmode": "Dark theme",
-  "home": {
-    "name": "Home",
-    "description": "Since Upsilon is a fork of Omega, it also has all the features of Omega",
-    "features": {
-      "header": {
-        "upsilon": "Main features",
-        "omega": "Since Upsilon is a fork of Omega, it also supports all of Omega's features"
-      }
-    },
-    "findThemeList": "You can find a list of all the available themes here.",
-    "here": "here",
-    "anyQuestions": "Any questions?",
-    "visitFaq": "Visit our FAQ"
-  },
-  "installer": {
-    "languages": {
-      "en": "English",
-      "fr": "French",
-      "nl": "Dutch",
-      "pt": "Portuguese",
-      "it": "Italian",
-      "de": "German",
-      "es": "Spanish",
-      "hu": "Hungarian"
-    },
-    "name": "Install",
-    "title": "Install Upsilon",
-    "install": "Install",
-    "connect": "Connect",
-    "updateBootloader": "Update bootloader",
-    "recovery": "Recovery",
-    "installationSuccess": "Thanks you for installing Upsilon.",
-    "recoverySuccess": "Recovery mode is now installed successfully.",
-    "pleaseclickon": "Please click on",
-    "thenselect": "then select your calculator in the peripherals list",
-    "installationFail": "Installation of Upsilon failed.",
-    "error": "Error",
-    "connected": "Connected",
-    "disconnected": "Disconnected",
-    "backingup": "Backing up...",
-    "installing2of2": "Installing 2 of 2...",
-    "installing1of2": "Installing 1 of 2...",
-    "installing": "Installing...",
-    "done": "Done",
-    "restoring": "Restoring scripts...",
-    "hints": {
-      "DisableProtection": "Try disabling the USB protection",
-      "closeOtherTabs": "Try closing other tabs/apps accessing the calculator",
-      "noDeviceSelected": {
-        "text1": "Make sure you select your calculator in the menu.\n If it didn't show up make sure that:",
-        "li1": "The calculator is connected and says it's connected",
-        "li2": "You installed the driver correctly",
-        "driverHint": {
-          "download": "Download",
-          "linux": {
-            "thisfile": "this file",
-            "linuxMoveIt": "and move it inside the /etc/udev/rules.d folder",
-            "command": "Which can be done with the following command"
-          },
-          "andInstall": "and install",
-          "theDriver": "the driver",
-          "rebootAfter": "and reboot after"
+    "darkmode": "Dark theme",
+    "doc": {
+        "latex": {
+            "arrows": "Arrows",
+            "command": "Command",
+            "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
+            "functions": "Functions",
+            "greekcapitalletter": "Greek capital letters",
+            "greeksmallletter": "Greek small letters",
+            "mathsymbols": "Math Symbols",
+            "output": "Output",
+            "reference": "LaTeX Reference",
+            "symbolslisted": "For a LaTeX expression to be rendered, you need to surround it with dollar signs. All the symbols you can use are listed here :"
         },
-        "moreHelp": {
-          "1": "If you're still having trouble you can join the",
-          "2": "and ask for help there.",
-          "needHelp": "Still not working?",
-          "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button.",
-          "discord": "Omega community discord server"
+        "reader": {
+            "color": "Color",
+            "colors": {
+                "Cyan": "Cyan",
+                "blue": "Blue",
+                "brown": "Brown",
+                "green": "Green",
+                "lastColor": "Stop using color xx",
+                "lightBlue": "Light blue",
+                "lightGreen": "Light green",
+                "lightRed": "Light red",
+                "magenta": "Magenta",
+                "orange": "Orange",
+                "pink": "Pink",
+                "purple": "Purple",
+                "red": "Red",
+                "startColor": "Start using color xx",
+                "turquoise": "Turquoise"
+            },
+            "colorsDesc": "You can change the color of the text using the following color codes. The text that follows a color code will be in the corresponding color.",
+            "example": {
+                "content": "The following input produces the following output:",
+                "title": "Example"
+            },
+            "name": "The reader app",
+            "p1": "The reader app can read .txt files that you can upload to your calculator via",
+            "p2": "But it also supports the custom .urt format, which stands for Upsilon Rich Text. It allows you to use colors and supports a subset of the LaTeX special characters and functions.",
+            "usingColor": "Using colors"
+        },
+        "rpn": {
+            "definition": {
+                "p1": "is another way of writing mathematical calculations. It was invented by the polish mathematician Jan Łukasiewicz in 1924.",
+                "p2": "This notation provides several advantages : RPN calculators are based on the use of a stack, the operands are placed on top of the stack, while the results of the calculations are also returned on top of the stack. Although this might be disconcerting at first, one quickly realizes that it helps make mathematical expressions easier to understand and manipulate."
+            },
+            "h2": "Quick introduction to the RPN app on Upsilon",
+            "introduction": {
+                "examples": {
+                    "1": {
+                        "li1": "Write 245 and press OK",
+                        "li2": "Write 6598 and press OK",
+                        "li3": "Press the multiplication button once",
+                        "title": "To obtain the result of 245×6598 :"
+                    },
+                    "2": {
+                        "li1": "Write 65 and press OK",
+                        "li2": "Write 98 and press OK",
+                        "li3": "Write 78 and press OK",
+                        "li4": "Press the multiplication button once",
+                        "li5": "Press the division button once",
+                        "title": "To obtain the result of (65×98)÷78 :"
+                    },
+                    "examples": "Examples"
+                },
+                "p1": "When you want to do a calculation in the RPN app on Upsilon, you must start by writing all the numbers that will be involved in your expression in order of appearance. Then you press the appropriate operand also in order of apparition.",
+                "p2": "You can change the position of a term in the stack by using the parenthesis button, which will move it up or down."
+            },
+            "note": {
+                "content": " throughout the whole Omega history, a bug made the RPN app hard to safely use on the calculator, however, thanks to RedGlow, dl11 and Overengined, the bug was fixed, and it is now totally safe to use the RPN app.",
+                "title": "Note:"
+            },
+            "rpn": "Reverse Polish Notation",
+            "the": "The"
+        },
+        "themes": {
+            "description": "All of these themes can be installed with the online installer. A list containing more themes and their source code is available here:",
+            "title": "List of themes"
         }
-      }
     },
-    "themes": {
-      "upsilon_light": "Upsilon Light",
-      "upsilon_dark": "Upsilon Dark",
-      "epsilon_light": "Epsilon Light",
-      "epsilon_dark": "Epsilon Dark",
-      "omega_light": "Omega Light",
-      "omega_dark": "Omega Dark",
-      "arc_dark": "Arc Dark",
-      "miami_vice": "Miami Vice",
-      "omega_trans": "Omega Trans",
-      "omega_blink": "Omega Blink",
-      "omega_dracula": "Omega Dracula",
-      "omega_kawaii": "Omega Kawaii",
-      "omega_shrek": "Omega Shrek",
-      "cursed_light": "Omega Cursed",
-      "omega_freenumworks": "Omega FreeNumworks",
-      "ahegao": "Ahegao"
+    "downloads": {
+        "download": "Download Upsilon",
+        "installNow": "Install Upsilon now",
+        "onlineInstaller": "Online installer"
     },
-    "restore": "Restore scripts",
-    "username": "Username",
-    "downloading": "Downloading",
-    "incompatibleBrowser": "It looks like your browser doesn't support WebUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a Chromium-based browser (Chrome, Brave, etc.) ",
-    "disconnect": "Disconnect",
-    "of2": " of 2",
-    "erasing": "Erasing",
-    "writing": "Writing",
-    "downloadingRecovery": "Downloading recovery software...",
-    "installingRecovery": "Installing recovery software...",
-    "recoveryDone": "Recovery software installed successfully! You can now press on connect and install Upsilon.",
-    "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now.",
-    "waitingForReboot": "Waiting for calculator to restart...",
-    "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
-    "whatnext": "What next?",
-    "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's home screen?",
-    "jointhe": "Wanna chat with Upsilon/Omega's contributors or ask for help and stuff?",
-    "gothere": "Go there",
-    "joinDiscord": "Join the Omega community discord server",
-    "releaseChannel": "Release channel",
-    "channels": {
-      "master": {
-        "description": "Official version of Upsilon, integrating the validated changes",
-        "title": "Official"
-      },
-      "beta": {
-        "title": "Beta",
-        "description": "More stable than dev, updated every 1-2 weeks. Use this if you want to select a theme"
-      },
-      "dev": {
-        "title": "Dev",
-        "description": "Most up-to-date build, updated at every single change"
-      },
-      "custom": {
-        "title": "Custom binpack",
-        "description": "Use this to install custom binaries easily"
-      }
-    },
-    "unsupportedModel": "Unsupported model",
-    "download404": "Network Error: Couldn't find required file (404)",
-    "theme": "Theme",
-    "selecta": "Select a",
-    "e16": {
-      "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator.",
-      "link": "this guide",
-      "beforeLink": "To unlock your calculator, take a look at"
-    },
-    "tError": {
-      "li1": "Verify that no other tab is using the USB",
-      "li2": "Reboot your computer",
-      "li3": "Use a different port",
-      "li4": "Use a different cable",
-      "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try the following things:"
-    },
-    "lang": "Language",
-    "slot": "Slot",
-    "noSlots": "Don't use slots",
-    "unknownModelConnected": {
-      "text": "Warning: Could not detect the calculator model",
-      "li1": "If you have Epsilon 16 or later you need to unlock your calculator (see FAQ)",
-      "li2": "Else you probably have a protected device and you may need to disable the protection to continue"
-    },
-    "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect.",
-    "internalUnavailable": "Warning: Internal storage unavailable. This happens when you use a bootloader and means you can't update or remove the bootloader right now. Use the recovery mode for that instead.",
-    "custom": {
-      "nonBinFile": "Couldn't recognize file type!",
-      "dfu": "Extracted binaries from DFU file",
-      "archive": "Extracted binaries from archive",
-      "clickToUpload": "Click to add a file"
-    },
-    "drop": "Drop binpack here to install it"
-  },
-  "github": {
-    "name": "GitHub"
-  },
-  "features": {
-    "reader": {
-      "name": "Reader",
-      "description": "A reader app with support for LaTeX special characters",
-      "docLink": "Learn more"
-    },
-    "external": {
-      "name": "External apps",
-      "description": "Install community apps on the fly with External. Also includes KhiCAS and various emulators.",
-      "installNow": "Install some now"
-    },
-    "symbolic": {
-      "name": "Symbolic calculation",
-      "description": "Symbolic computation was removed from Epsilon in version 11.2. Omega reintroduces that feature."
-    },
-    "themes": {
-      "name": "Themes engine",
-      "description": "Customize the look of your calculator with one of the following themes",
-      "andmanymore": "Or one of the community made themes"
-    },
-    "periodic": {
-      "name": "Periodic table",
-      "description": "Inspired by the TI83PCE's periodic table app, Omega's periodic table is clean and simple to use."
-    },
-    "rpn": {
-      "name": "RPN",
-      "description": "Omega supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations.",
-      "docLink": "Learn more"
-    },
-    "3ds": {
-      "name": "3DS simulator",
-      "description": "Omega is available and fully usable on the Nintendo 3DS."
-    },
-    "protection": {
-      "title": "Protection against E16",
-      "content": "Updating to Epsilon 16+ locks your calculator down, preventing you from installing any unofficial firmware. This protection prevents unintentional updates."
-    },
-    "python": {
-      "title": "Python improvements",
-      "ulab": "Added Ulab which contains SciPy and NumPy (N110 only) ",
-      "sys": "Added a sys module",
-      "battery": "Added a way to get the battery level (level, voltage and charging status)"
-    },
-    "dualboot": {
-      "description": "Omega integrates a new Bootloader. It allows you to boot multiple OS from different slots.",
-      "name": "Dual boot"
-    },
-    "phi": {
-      "description": "Phi is a tool developed by M4x1m3 that unlocks your calculator after an Epsilon 16+ update.",
-      "name": "Phi"
-    },
-    "plenty": {
-      "name": "Plenty of other smaller features",
-      "description": "You can find a detailed list there: ",
-      "releasesLink": "Releases"
-    },
-    "settings": {
-      "name": "More settings",
-      "description": "Customize your calculator's behaviour to your heart's content"
-    }
-  },
-  "doc": {
-    "latex": {
-      "reference": "LaTeX Reference",
-      "description": "In the reader app, you can read a txt file. You can also read a txt file with LaTeX expression inside of it.",
-      "symbolslisted": "For a LaTeX expression to be rendered, you need to surround it with dollar signs. All the symbols you can use are listed here :",
-      "command": "Command",
-      "output": "Output",
-      "mathsymbols": "Math Symbols",
-      "greekcapitalletter": "Greek capital letters",
-      "greeksmallletter": "Greek small letters",
-      "functions": "Functions",
-      "arrows": "Arrows"
-    },
-    "rpn": {
-      "the": "The",
-      "rpn": "Reverse Polish Notation",
-      "definition": {
-        "p1": "is another way of writing mathematical calculations. It was invented by the polish mathematician Jan Łukasiewicz in 1924.",
-        "p2": "This notation provides several advantages : RPN calculators are based on the use of a stack, the operands are placed on top of the stack, while the results of the calculations are also returned on top of the stack. Although this might be disconcerting at first, one quickly realizes that it helps make mathematical expressions easier to understand and manipulate."
-      },
-      "h2": "Quick introduction to the RPN app on Upsilon",
-      "introduction": {
-        "p1": "When you want to do a calculation in the RPN app on Upsilon, you must start by writing all the numbers that will be involved in your expression in order of appearance. Then you press the appropriate operand also in order of apparition.",
-        "examples": {
-          "1": {
-            "title": "To obtain the result of 245×6598 :",
-            "li1": "Write 245 and press OK",
-            "li2": "Write 6598 and press OK",
-            "li3": "Press the multiplication button once"
-          },
-          "2": {
-            "title": "To obtain the result of (65×98)÷78 :",
-            "li1": "Write 65 and press OK",
-            "li2": "Write 98 and press OK",
-            "li3": "Write 78 and press OK",
-            "li4": "Press the multiplication button once",
-            "li5": "Press the division button once"
-          },
-          "examples": "Examples"
+    "faq": {
+        "name": "FAQ",
+        "questions": {
+            "canRollback": {
+                "answer": "Yes, just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to use the recovery mode with 6+reset. <u><b>This will lock your calculator!</b></u> If you don't want to lock your calculator you can install Epsilon 18.2.0 using the 18-2-0.dfu file. (Find a link to it in the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a>). Once you installed Epsilon 18.2.0, you should be able to upgrade to later versions of Epsilon while still being able to downgrade Versions up to 19.5 are safe. Do this at your own risk and ask questions on the discord server if you have any doubts.",
+                "question": "Can you roll back from Upsilon to epsilon?"
+            },
+            "cheatsheet": {
+                "answer": "Not for now but maybe some day who knows ^^",
+                "question": "Is there a cheat sheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?"
+            },
+            "customTheme": {
+                "answer": "There is a <a href=\"https://github.com/ArtichOwO/OmegaThemeMakerApp\">theme maker app</a> which makes it pretty easy to make themes. ",
+                "question": "How to create custom themes?"
+            },
+            "how2backup": {
+                "answer": "The installer should automatically restore scripts at the end of the installation. You can also go to <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> to back them up manually.",
+                "question": "How to backup the calculator's data?"
+            },
+            "how2contribute": {
+                "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself, and its website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>.",
+                "question": "How to contribute to Upsilon/it's website?"
+            },
+            "how2createReaderFile": {
+                "answer": "You can't. To add a reader file to the calculator, you have to go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and transfer your files there.",
+                "question": "How to create a file for the reader app from the calculator?"
+            },
+            "how2external": {
+                "answer": "Go to <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">the link</a> provided in the homepage or after the installation and select the apps you want to install and then click install.",
+                "question": "How to install external apps?"
+            },
+            "how2py": {
+                "answer": "You can use the <a href=\"https://getomega.dev/ide\">Omega IDE</a> to do that, although the simulator runs Omega and not Upsilon and at the moment there are problems with file transfers (which will also occur on numworks.com).",
+                "question": "How to transfer scripts to the calculator/edit scripts online without going to numworks.com?"
+            },
+            "how2reader": {
+                "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info, please go to <a href=\"reader\">the reader tutorial</a>.",
+                "question": "How to use the reader app?"
+            },
+            "how2recovery": {
+                "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via USB) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally.",
+                "question": "What is the recovery option on the installer page, and how do I use it?"
+            },
+            "how2testReaderOnline": {
+                "answer": "You can't. You can do it with the Windows/Linux simulators by placing the reader files in the same directory as the executables, or transfer the reader files to the calculator.",
+                "question": "How to preview a reader file online?"
+            },
+            "how2themes": {
+                "answer": "Go to the installer, select the beta channel and select your theme. You have to reinstall Upsilon to change the theme.",
+                "question": "How to install themes?"
+            },
+            "noUSBmenu": {
+                "answer": "The USB protection has been integrated into the bootloader and therefore no longer needs a menu.",
+                "question": "The USB protection menu does not appear anymore in the calculator settings, is this normal?"
+            },
+            "numLocked": {
+                "answer": "There is a <a href=\"https://guide.getomega.dev\">guide</a> explaining how to unlock your calculator",
+                "question": "What can I do if I installed Epsilon 16+ on my calculator?"
+            },
+            "stillCouldntFind": {
+                "answer": "Go to the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a> and ask there!",
+                "question": "Couldn't find an answer to your question?"
+            },
+            "supportedBrowsers": {
+                "answer": "Any Chromium-based browser that is not too old should work (Chrome, Brave, Edge, etc.) Firefox will not work.",
+                "question": "On which browsers does the installation work?"
+            },
+            "supportedModels": {
+                "answer": "You can install it on the N100 and N110 (if you don't have Epsilon 16+ installed)",
+                "question": "On which NumWorks models can I install Upsilon?"
+            },
+            "uninstallExternal": {
+                "answer": "Go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and select nothing and then install. This will erase all the external apps and background.",
+                "question": "How to uninstall external apps?"
+            }
         },
-        "p2": "You can change the position of a term in the stack by using the parenthesis button, which will move it up or down."
-      },
-      "note": {
-        "content": " throughout the whole Omega history, a bug made the RPN app hard to safely use on the calculator, however, thanks to RedGlow, dl11 and Overengined, the bug was fixed, and it is now totally safe to use the RPN app.",
-        "title": "Note:"
-      }
+        "sections": {
+            "canInstall": "Can I install Upsilon?",
+            "how2": "How to"
+        }
     },
-    "themes": {
-      "title": "List of themes",
-      "description": "All of these themes can be installed with the online installer"
+    "features": {
+        "3ds": {
+            "description": "Omega is available and fully usable on the Nintendo 3DS.",
+            "name": "3DS simulator"
+        },
+        "dualboot": {
+            "description": "Omega integrates a new Bootloader. It allows you to boot multiple OS from different slots.",
+            "name": "Dual boot"
+        },
+        "external": {
+            "description": "Install community apps on the fly with External. Also includes KhiCAS and various emulators.",
+            "installNow": "Install some now",
+            "name": "External apps"
+        },
+        "periodic": {
+            "description": "Inspired by the TI83PCE's periodic table app, Omega's periodic table is clean and simple to use.",
+            "name": "Periodic table"
+        },
+        "phi": {
+            "description": "Phi is a tool developed by M4x1m3 that unlocks your calculator after an Epsilon 16+ update.",
+            "name": "Phi"
+        },
+        "plenty": {
+            "description": "You can find a detailed list there: ",
+            "name": "Plenty of other smaller features",
+            "releasesLink": "Releases"
+        },
+        "protection": {
+            "content": "Updating to Epsilon 16+ locks your calculator down, preventing you from installing any unofficial firmware. This protection prevents unintentional updates.",
+            "title": "Protection against E16"
+        },
+        "python": {
+            "battery": "Added a way to get the battery level (level, voltage and charging status)",
+            "sys": "Added a sys module",
+            "title": "Python improvements",
+            "ulab": "Added Ulab which contains SciPy and NumPy (N110 only) "
+        },
+        "reader": {
+            "description": "A reader app with support for LaTeX special characters",
+            "docLink": "Learn more",
+            "name": "Reader"
+        },
+        "rpn": {
+            "description": "Omega supports using Reverse Polish Notation to do calculations. This lets you first input all the numbers and then combine them using mathematical operations.",
+            "docLink": "Learn more",
+            "name": "RPN"
+        },
+        "settings": {
+            "description": "Customize your calculator's behaviour to your heart's content",
+            "name": "More settings"
+        },
+        "symbolic": {
+            "description": "Symbolic computation was removed from Epsilon in version 11.2. Omega reintroduces that feature.",
+            "name": "Symbolic calculation"
+        },
+        "themes": {
+            "andmanymore": "Or one of the community made themes",
+            "description": "Customize the look of your calculator with one of the following themes",
+            "name": "Themes engine"
+        }
     },
-    "reader": {
-      "name": "The reader app",
-      "p1": "The reader app can read .txt files that you can upload to your calculator via",
-      "p2": "But it also supports the custom .urt format, which stands for Upsilon Rich Text. It allows you to use colors and supports a subset of the LaTeX special characters and functions.",
-      "colors": {
-        "startColor": "Start using color xx",
-        "lastColor": "Stop using color xx",
-        "red": "Red",
-        "lightRed": "Light red",
-        "magenta": "Magenta",
-        "turquoise": "Turquoise",
-        "pink": "Pink",
-        "purple": "Purple",
-        "blue": "Blue",
-        "lightBlue": "Light blue",
-        "brown": "Brown",
-        "orange": "Orange",
-        "green": "Green",
-        "lightGreen": "Light green",
-        "Cyan": "Cyan"
-      },
-      "usingColor": "Using colors",
-      "color": "Color",
-      "colorsDesc": "You can change the color of the text using the following color codes. The text that follows a color code will be in the corresponding color.",
-      "example": {
-        "title": "Example",
-        "content": "The following input produces the following output:"
-      }
-    }
-  },
-  "releases": {
-    "name": "Releases",
-    "version": "Version",
-    "new": "NEW",
-    "update": "UPD",
-    "change": "CHG",
-    "dev": "Developing",
-    "versions": {
-      "1-0": {
-        "Reader": "Added a reader compatible with TeX notation for mathematical formulas",
-        "Bootloader": "Brand-new bootloader with security improvements",
-        "Recovery": "Added a recovery screen after a crash",
-        "SecondDegree": "Added extra output on second degree polynomials",
-        "Trash": "Shift+Back recover the last deleted file",
-        "Wallpapers": "Wallpaper support for n0110",
-        "Theme": "New Upsilon theme",
-        "Parameters": "New parameters for python, external applications and luminosity",
-        "SumAndSequences": "Better simplification of sums and sequences",
-        "Equal": "Simplification of the '=' sign in the calculation application",
-        "NestedRadicals": "Simplification of nested square roots",
-        "Ulab": "Adding the Ulab module (NumPy and SciPy) in the python application",
-        "FStrings": "Support of f-Strings in python",
-        "Operators": "Support of operators overloading in python",
-        "Kandinsky": "New functions in the Kandinsky module",
-        "ShiftOk": "Added Shift+OK to not leave the toolbox",
-        "FunctionColor": "Added a way to change the color of functions and sequences",
-        "Other": "And other small changes",
-        "Scripts": "Removed default python scripts",
-        "Storage": "Increased storage from 32 KB to 64 KB",
-        "Heap": "Decrease the size of the python heap from 100 to 67kb",
-        "Battery": "Update the battery logo",
-        "Apps": "Reversal of the position of the graphic and RPN applications",
-        "RPN": "Fix bugs in RPN",
-        "Atomic": "Bug corrected in the periodic table",
-        "Gutter": "Gutter corrected in the python application"
-      },
-      "1-0-1": {
-        "CyclicXNT" : "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
-        "NewFont" : "New font",
-        "AddItalize" : "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
-        "ToolboxFontSize" : "Larger text in toolboxes with automatic lateral scrolling when text is too long",
-        "ShiftAns" : "Shortcut Shift + Ans to go to the last used application",
-        "FixShiftedIcon" : "Fixed pixel shift on some icons in some themes",
-        "DimInAdditionalsResults" : "Dimension in additional results when a unit is used",
-        "MicroPythonUpgrade" : "MicroPython update from 1.17 to 1.19.1",
-        "PythonCrash" : "Fixed a crash when opening scripts in the Python editor",
-        "PythonStringsItalics" : "Italicized text in strings in the Python editor",
-        "AddUlab" : "Added `ulab.utils`",
-        "PythonBrightnessControl" : "Control of brightness via `set_brightness` and `get_brightness`.",
-        "AddStat" : "Geometric mean, Harmonic mean and Mode in the Stats tab",
-        "AddUrtFunctions" : "Additional functions in URT (sums, products, integrals and binomial coefficients)",
-        "AddCharactersUrt" : "In the reader application, add extra characters in the URT (``f` and ``i`)",
-        "FixBrownColorUrt" : "Brown color correction in URT for the reader application",
-        "FixReaderErrorBack" : "Fixed a syntax error when reverting in the reader application",
-        "BlockHardwareTests" : "Blocking of hardwares tests in exam mode"
-    }
-    }
-  },
-  "simulator": {
-    "name": "Simulator",
-    "commingSoon": "Coming soon..."
-  },
-  "notFound": {
-    "title": "Bruh",
-    "underTitle": "That page does not exist mate",
-    "goHome": "Go home"
-  },
-  "faq": {
-    "name": "FAQ",
-    "questions": {
-      "supportedBrowsers": {
-        "question": "On which browsers does the installation work?",
-        "answer": "Any Chromium-based browser that is not too old should work (Chrome, Brave, Edge, etc.) Firefox will not work."
-      },
-      "supportedModels": {
-        "question": "On which NumWorks models can I install Upsilon?",
-        "answer": "You can install it on the N100 and N110 (if you don't have Epsilon 16+ installed)"
-      },
-      "how2backup": {
-        "question": "How to backup the calculator's data?",
-        "answer": "The installer should automatically restore scripts at the end of the installation. You can also go to <a href=\"https://bit.ly/upsiBackup\">bit.ly/upsiBackup</a> to back them up manually."
-      },
-      "how2external": {
-        "question": "How to install external apps?",
-        "answer": "Go to <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">the link</a> provided in the homepage or after the installation and select the apps you want to install and then click install."
-      },
-      "how2reader": {
-        "question": "How to use the reader app?",
-        "answer": "Go to the external files and add either .txt or .urt (Upsilon rich text) file. For more info, please go to <a href=\"reader\">the reader tutorial</a>."
-      },
-      "how2py": {
-        "question": "How to transfer scripts to the calculator/edit scripts online without going to numworks.com?",
-        "answer": "You can use the <a href=\"https://getomega.dev/ide\">Omega IDE</a> to do that, although the simulator runs Omega and not Upsilon and at the moment there are problems with file transfers (which will also occur on numworks.com)."
-      },
-      "how2themes": {
-        "question": "How to install themes?",
-        "answer": "Go to the installer, select the beta channel and select your theme. You have to reinstall Upsilon to change the theme."
-      },
-      "how2contribute": {
-        "question": "How to contribute to Upsilon/it's website?",
-        "answer": "Contributions (bug reports, feature requests and commits) are very welcome on both Upsilon itself, and its website. You can request features and report bugs on their respective repository issue trackers: <a href=\"https://github.com/UpsilonNumworks/Upsilon/issues\">Upsilon</a> and <a href=\"https://github.com/lolocomotive/Upsilon-website/issues\">Upsilon-website</a>."
-      },
-      "how2createReaderFile": {
-        "question": "How to create a file for the reader app from the calculator?",
-        "answer": "You can't. To add a reader file to the calculator, you have to go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and transfer your files there."
-      },
-      "how2testReaderOnline": {
-        "question": "How to preview a reader file online?",
-        "answer": "You can't. You can do it with the Windows/Linux simulators by placing the reader files in the same directory as the executables, or transfer the reader files to the calculator."
-      },
-      "canRollback": {
-        "question": "Can you roll back from Upsilon to epsilon?",
-        "answer": "Yes, just go to numworks.com and update your calculator. This will install the latest version of epsilon on both slots. If you want to remove the bootloader, you need to use the recovery mode with 6+reset."
-      },
-      "how2recovery": {
-        "question": "What is the recovery option on the installer page, and how do I use it?",
-        "answer": "This can be used when the software on the calculator is broken. This usually happens when there is an error during the installation or when the calculator is disconnected during the installation. Press the 6 key and the reset key at the back of the calculator at the same time (make sure your calculator is connected to the computer via USB) and then press recovery. Select STM32 BOOTLOADER and after a few moments you should be able to install Upsilon normally."
-      },
-      "cheatsheet": {
-        "question": "Is there a cheat sheet with the simulator's keyboard shortcuts/tips and tricks for Upsilon?",
-        "answer": "Not for now but maybe some day who knows ^^"
-      },
-      "numLocked": {
-        "question": "What can I do if I installed Epsilon 16+ on my calculator?",
-        "answer": "There is a <a href=\"https://guide.getomega.dev\">guide</a> explaining how to unlock your calculator"
-      },
-      "uninstallExternal": {
-        "question": "How to uninstall external apps?",
-        "answer": "Go to the <a href=\"https://upsilonnumworks.github.io/Upsilon-External\">external apps page</a> and select nothing and then install. This will erase all the external apps and background."
-      },
-      "customTheme": {
-        "question": "How to create custom themes?",
-        "answer": "There is a <a href=\"https://github.com/ArtichOwO/OmegaThemeMakerApp\">theme maker app</a> which makes it pretty easy to make themes. "
-      },
-      "stillCouldntFind": {
-        "question": "Couldn't find an answer to your question?",
-        "answer": "Go to the <a href=\"https://discord.gg/X2TWhh9\">Omega community discord server</a> and ask there!"
-      },
-      "noUSBmenu": {
-        "question": "The USB protection menu does not appear anymore in the calculator settings, is this normal?",
-        "answer": "The USB protection has been integrated into the bootloader and therefore no longer needs a menu."
-      }
+    "github": {
+        "name": "GitHub"
     },
-    "sections": {
-      "canInstall": "Can I install Upsilon?",
-      "how2": "How to"
+    "help": {
+        "answers": "Answers",
+        "are-you-using-chromium-snap": "Do you use Chromium in Snap? \n(does which chromium return a path starting with /snap?)",
+        "are-you-using-linux": "Do you use Linux?",
+        "cant-detect": "The PC does not detect the calculator.",
+        "chromium-snap-solution": "Follow the instructions <a href=\"https://bugs.launchpad.net/ubuntu/source/chromium-browser/ bug/1780678\">here</a> to install the correct version of Chromium (“snap refresh chromium - \n-channel=candidate/raw-usb” and “snap connect chromium:raw-usb”).",
+        "continue": "No answer for the moment, continue to answer the questions above.",
+        "did-it-work": "It worked ?",
+        "do-you-have-driver": "Do you have the driver for the calculator?",
+        "end": "Your problem is solved, thank you for using Upsilon's interactive help!",
+        "have-driver": "You have a calculator driver installed.",
+        "install-driver": "You need to install the driver for the calculator. You can download it from the NumWorks site at the beginning of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
+        "install-os": "Install an operating system on the calculator from the Omega/Upsilon sites.",
+        "led-off": "The LED is off.",
+        "led-red": "The LED is red.",
+        "led-status": "What color is the calculator's LED?",
+        "n????": "The PC detects the model as an N????.",
+        "name": "Help",
+        "next": "Next",
+        "no-driver": "You do not have a driver for the calculator.",
+        "not-implemented": "This case is not implemented yet, please join our discord server to report this error: <a href=\"https://discord.gg/X2TWhh9\">https://discord.gg/X2TWhh9</a>",
+        "not-using-chromium-snap": "You are not using Chromium in Snap.",
+        "not-using-linux": "You are not using Linux.",
+        "not-worked": "It did not work.",
+        "press-reset": "Press the RESET key on the back of the calculator.",
+        "question": "Question",
+        "recovery": "Open a new tab, go to the Upsilon site, go to the installer page, then click on restore mode. \nSelect “STM32 BOOTLOADER” and click “Connect”.",
+        "recovery-fail": "The calculator does not turn on.",
+        "recovery-success": "The calculator turns on, saying “Recovery mode”.",
+        "reinstall-driver": "You need to reinstall the driver for the calculator. \nYou must uninstall it and then download it from the NumWorks site at the start of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
+        "reset-fail": "The calculator does not work after pressing the RESET key.",
+        "reset-success": "The calculator works after pressing the RESET key.",
+        "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED. \nIf the screen lights up saying “numworks.com/rescue”, first install <a href=\"https://guide.getomega.dev\">Phi</a>.",
+        "solution": "Solution",
+        "switch-cable-or-computer": "Try changing cable or PC.",
+        "using-chromium-snap": "You are using Chromium in Snap.",
+        "using-linux": "You are using Linux.",
+        "what-problem": "What is the problem ?",
+        "wont-boot": "The calculator does not boot.",
+        "worked": "It worked."
+    },
+    "home": {
+        "anyQuestions": "Any questions?",
+        "description": "Since Upsilon is a fork of Omega, it also has all the features of Omega",
+        "features": {
+            "header": {
+                "omega": "Since Upsilon is a fork of Omega, it also supports all of Omega's features",
+                "upsilon": "Main features"
+            }
+        },
+        "findThemeList": "You can find a list of all the available themes here.",
+        "here": "here",
+        "name": "Home",
+        "visitFaq": "Visit our FAQ"
+    },
+    "installer": {
+        "backingup": "Backing up...",
+        "channels": {
+            "beta": {
+                "description": "More stable than dev, updated every 1-2 weeks. Use this if you want to select a theme",
+                "title": "Beta"
+            },
+            "custom": {
+                "description": "Use this to install custom binaries easily",
+                "title": "Custom binpack"
+            },
+            "dev": {
+                "description": "Most up-to-date build, updated at every single change",
+                "title": "Dev"
+            },
+            "master": {
+                "description": "Official version of Upsilon, integrating the validated changes",
+                "title": "Official"
+            }
+        },
+        "connect": "Connect",
+        "connected": "Connected",
+        "custom": {
+            "archive": "Extracted binaries from archive",
+            "clickToUpload": "Click to add a file",
+            "dfu": "Extracted binaries from DFU file",
+            "nonBinFile": "Couldn't recognize file type!"
+        },
+        "disconnect": "Disconnect",
+        "disconnected": "Disconnected",
+        "done": "Done",
+        "download404": "Network Error: Couldn't find required file (404)",
+        "downloading": "Downloading",
+        "downloadingRecovery": "Downloading recovery software...",
+        "drop": "Drop binpack here to install it",
+        "e16": {
+            "beforeLink": "To unlock your calculator, take a look at",
+            "link": "this guide",
+            "message": "This usually happens when you updated your calculator to Epsilon 16 or later, which locks up the calculator."
+        },
+        "erasing": "Erasing",
+        "error": "Error",
+        "external": "Wanna install apps like KhiCAS, a CHIP-8 interpreter or NES/GB emulators or get a background on your device's home screen?",
+        "gothere": "Go there",
+        "hints": {
+            "DisableProtection": "Try disabling the USB protection",
+            "closeOtherTabs": "Try closing other tabs/apps accessing the calculator",
+            "noDeviceSelected": {
+                "driverHint": {
+                    "andInstall": "and install",
+                    "download": "Download",
+                    "linux": {
+                        "command": "Which can be done with the following command",
+                        "linuxMoveIt": "and move it inside the /etc/udev/rules.d folder",
+                        "thisfile": "this file"
+                    },
+                    "rebootAfter": "and reboot after",
+                    "theDriver": "the driver"
+                },
+                "li1": "The calculator is connected and says it's connected",
+                "li2": "You installed the driver correctly",
+                "moreHelp": {
+                    "1": "If you're still having trouble you can join the",
+                    "2": "and ask for help there.",
+                    "discord": "Omega community discord server",
+                    "needHelp": "Still not working?",
+                    "tryRecovery": "If you installed the driver and the calculator has a black screen (or the upsilon crash screen), you can try recovering it by pressing the 6 and reset (at the back of the calculator) keys at the same time and then pressing the recovery button."
+                },
+                "text1": "Make sure you select your calculator in the menu.\n If it didn't show up make sure that:"
+            }
+        },
+        "incompatibleBrowser": "It looks like your browser doesn't support WebUSB therefore, you will not be able to install Upsilon from this browser. \n Please use a Chromium-based browser (Chrome, Brave, etc.) ",
+        "install": "Install",
+        "installationFail": "Installation of Upsilon failed.",
+        "installationSuccess": "Thanks you for installing Upsilon.",
+        "installing": "Installing...",
+        "installing1of2": "Installing 1 of 2...",
+        "installing2of2": "Installing 2 of 2...",
+        "installingRecovery": "Installing recovery software...",
+        "internalUnavailable": "Warning: Internal storage unavailable. This happens when you use a bootloader and means you can't update or remove the bootloader right now. Use the recovery mode for that instead.",
+        "joinDiscord": "Join the Omega community discord server",
+        "jointhe": "Wanna chat with Upsilon/Omega's contributors or ask for help and stuff?",
+        "lang": "Language",
+        "languages": {
+            "de": "German",
+            "en": "English",
+            "es": "Spanish",
+            "fr": "French",
+            "hu": "Hungarian",
+            "it": "Italian",
+            "nl": "Dutch",
+            "pt": "Portuguese"
+        },
+        "name": "Install",
+        "noSlots": "Don't use slots",
+        "of2": " of 2",
+        "pleaseclickon": "Please click on",
+        "recovery": "Recovery",
+        "recoveryConnected": "Connected in recovery mode. You should be able to install Upsilon normally now.",
+        "recoveryDone": "Recovery software installed successfully! You can now press on connect and install Upsilon.",
+        "recoverySuccess": "Recovery mode is now installed successfully.",
+        "releaseChannel": "Release channel",
+        "restore": "Restore scripts",
+        "restoring": "Restoring scripts...",
+        "selecta": "Select a",
+        "slot": "Slot",
+        "tError": {
+            "li1": "Verify that no other tab is using the USB",
+            "li2": "Reboot your computer",
+            "li3": "Use a different port",
+            "li4": "Use a different cable",
+            "text": "Make sure you don't disconnect your device during the transfer! If you didn't disconnect your device you can try the following things:"
+        },
+        "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
+        "theme": "Theme",
+        "themes": {
+            "ahegao": "Ahegao",
+            "arc_dark": "Arc Dark",
+            "cursed_light": "Omega Cursed",
+            "epsilon_dark": "Epsilon Dark",
+            "epsilon_light": "Epsilon Light",
+            "miami_vice": "Miami Vice",
+            "omega_blink": "Omega Blink",
+            "omega_dark": "Omega Dark",
+            "omega_dracula": "Omega Dracula",
+            "omega_freenumworks": "Omega FreeNumworks",
+            "omega_kawaii": "Omega Kawaii",
+            "omega_light": "Omega Light",
+            "omega_shrek": "Omega Shrek",
+            "omega_trans": "Omega Trans",
+            "upsilon_dark": "Upsilon Dark",
+            "upsilon_light": "Upsilon Light"
+        },
+        "thenselect": "then select your calculator in the peripherals list",
+        "title": "Install Upsilon",
+        "unknownModelConnected": {
+            "li1": "If you have Epsilon 16 or later you need to unlock your calculator (see FAQ)",
+            "li2": "Else you probably have a protected device and you may need to disable the protection to continue",
+            "text": "Warning: Could not detect the calculator model"
+        },
+        "unknownModelDone": "Done. You can now reset your calculator manually for the changes to take effect.",
+        "unsupportedModel": "Unsupported model",
+        "updateBootloader": "Update bootloader",
+        "username": "Username",
+        "waitingForReboot": "Waiting for calculator to restart...",
+        "whatnext": "What next?",
+        "writing": "Writing"
+    },
+    "message": "hello i18n !!",
+    "notFound": {
+        "goHome": "Go home",
+        "title": "Bruh",
+        "underTitle": "That page does not exist mate"
+    },
+    "releases": {
+        "change": "CHG",
+        "dev": "Developing",
+        "name": "Releases",
+        "new": "NEW",
+        "update": "UPD",
+        "version": "Version",
+        "versions": {
+            "1-0": {
+                "Apps": "Reversal of the position of the graphic and RPN applications",
+                "Atomic": "Bug corrected in the periodic table",
+                "Battery": "Update the battery logo",
+                "Bootloader": "Brand-new bootloader with security improvements",
+                "Equal": "Simplification of the '=' sign in the calculation application",
+                "FStrings": "Support of f-Strings in python",
+                "FunctionColor": "Added a way to change the color of functions and sequences",
+                "Gutter": "Gutter corrected in the python application",
+                "Heap": "Decrease the size of the python heap from 100 to 67kb",
+                "Kandinsky": "New functions in the Kandinsky module",
+                "NestedRadicals": "Simplification of nested square roots",
+                "Operators": "Support of operators overloading in python",
+                "Other": "And other small changes",
+                "Parameters": "New parameters for python, external applications and luminosity",
+                "RPN": "Fix bugs in RPN",
+                "Reader": "Added a reader compatible with TeX notation for mathematical formulas",
+                "Recovery": "Added a recovery screen after a crash",
+                "Scripts": "Removed default python scripts",
+                "SecondDegree": "Added extra output on second degree polynomials",
+                "ShiftOk": "Added Shift+OK to not leave the toolbox",
+                "Storage": "Increased storage from 32 KB to 64 KB",
+                "SumAndSequences": "Better simplification of sums and sequences",
+                "Theme": "New Upsilon theme",
+                "Trash": "Shift+Back recover the last deleted file",
+                "Ulab": "Adding the Ulab module (NumPy and SciPy) in the python application",
+                "Wallpapers": "Wallpaper support for n0110"
+            },
+            "1-0-1": {
+                "AddCharactersUrt": "In the reader application, add extra characters in the URT (``f` and ``i`)",
+                "AddItalize": "Italicized text in some places such as function definitions in the functions application and texts and comments in the Python editor",
+                "AddStat": "Geometric mean, Harmonic mean and Mode in the Stats tab",
+                "AddUlab": "Added `ulab.utils`",
+                "AddUrtFunctions": "Additional functions in URT (sums, products, integrals and binomial coefficients)",
+                "BlockHardwareTests": "Blocking of hardwares tests in exam mode",
+                "CyclicXNT": "XNT Cyclic (Multiple presses of XNT change the character inserted between X, N, T and θ)",
+                "DimInAdditionalsResults": "Dimension in additional results when a unit is used",
+                "FixBrownColorUrt": "Brown color correction in URT for the reader application",
+                "FixReaderErrorBack": "Fixed a syntax error when reverting in the reader application",
+                "FixShiftedIcon": "Fixed pixel shift on some icons in some themes",
+                "MicroPythonUpgrade": "MicroPython update from 1.17 to 1.19.1",
+                "NewFont": "New font",
+                "PythonBrightnessControl": "Control of brightness via `set_brightness` and `get_brightness`.",
+                "PythonCrash": "Fixed a crash when opening scripts in the Python editor",
+                "PythonStringsItalics": "Italicized text in strings in the Python editor",
+                "ShiftAns": "Shortcut Shift + Ans to go to the last used application",
+                "ToolboxFontSize": "Larger text in toolboxes with automatic lateral scrolling when text is too long"
+            }
+        }
+    },
+    "simulator": {
+        "commingSoon": "Coming soon...",
+        "name": "Simulator"
     }
-  },
-  "downloads": {
-    "download": "Download Upsilon",
-    "installNow": "Install Upsilon now",
-    "onlineInstaller": "Online installer"
-  },
-  "help": {
-    "name": "Help",
-    "answers": "Answers",
-    "cant-detect": "The PC does not detect the calculator.",
-    "continue": "No answer for the moment, continue to answer the questions above.",
-    "do-you-have-driver": "Do you have the driver for the calculator?",
-    "end": "Your problem is solved, thank you for using Upsilon's interactive help!",
-    "have-driver": "You have a calculator driver installed.",
-    "install-driver": "You need to install the driver for the calculator. You can download it from the NumWorks site at the beginning of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
-    "install-os": "Install an operating system on the calculator from the Omega/Upsilon sites.",
-    "led-off": "The LED is off.",
-    "led-red": "The LED is red.",
-    "led-status": "What color is the calculator's LED?",
-    "n????": "The PC detects the model as an N????.",
-    "next": "Next",
-    "no-driver": "You do not have a driver for the calculator.",
-    "not-implemented": "This case is not implemented yet, please join our discord server to report this error: <a href=\"https://discord.gg/X2TWhh9\">https://discord.gg/X2TWhh9</a>",
-    "not-worked": "It did not work.",
-    "press-reset": "Press the RESET key on the back of the calculator.",
-    "question": "Question",
-    "recovery": "Open a new tab, go to the Upsilon site, go to the installer page, then click on restore mode. \nSelect “STM32 BOOTLOADER” and click “Connect”.",
-    "recovery-fail": "The calculator does not turn on.",
-    "recovery-success": "The calculator turns on, saying “Recovery mode”.",
-    "reinstall-driver": "You need to reinstall the driver for the calculator. \nYou must uninstall it and then download it from the NumWorks site at the start of the update procedure or from the Upsilon installer by clicking Cancel when selecting the device.",
-    "reset-fail": "The calculator does not work after pressing the RESET key.",
-    "reset-success": "The calculator works after pressing the RESET key.",
-    "reset6": "If you have an N0110, press RESET while keeping key 6 pressed. \nIf you have an N0100, press RESET with the calculator plugged into the computer. \nThe calculator should display a red LED. \nIf the screen lights up saying “numworks.com/rescue”, first install <a href=\"https://guide.getomega.dev\">Phi</a>.",
-    "solution": "Solution",
-    "what-problem": "What is the problem ?",
-    "wont-boot": "The calculator does not boot.",
-    "worked": "It worked.",
-    "are-you-using-chromium-snap": "Do you use Chromium in Snap? \n(does which chromium return a path starting with /snap?)",
-    "are-you-using-linux": "Do you use Linux?",
-    "chromium-snap-solution": "Follow the instructions <a href=\"https://bugs.launchpad.net/ubuntu/source/chromium-browser/ bug/1780678\">here</a> to install the correct version of Chromium (“snap refresh chromium - \n-channel=candidate/raw-usb” and “snap connect chromium:raw-usb”).",
-    "did-it-work": "It worked ?",
-    "not-using-chromium-snap": "You are not using Chromium in Snap.",
-    "not-using-linux": "You are not using Linux.",
-    "switch-cable-or-computer": "Try changing cable or PC.",
-    "using-chromium-snap": "You are using Chromium in Snap.",
-    "using-linux": "You are using Linux."
-  }
 }

@@ -4,6 +4,7 @@
       <h1>{{ t('doc.themes.title') }}</h1>
       <p>
         {{ t('doc.themes.description') }}
+        <a href="https://github.com/Psi-Prod/Omega-custom-theme-Listing">https://github.com/Psi-Prod/Omega-custom-theme-Listing</a>
       </p>
       <div id="themes-grid">
         <div class="theme" v-for="theme in themes" :key="theme">
