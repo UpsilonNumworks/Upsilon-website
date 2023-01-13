@@ -442,6 +442,7 @@ export default defineComponent({
           break
         case 'recoveryDone':
           this.showProgressbar = false
+          this.showButtons = true
           this.statusHTML = this.t('installer.recoveryDone')
           break
         case 'unknownModelDone':

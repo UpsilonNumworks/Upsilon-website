@@ -45,10 +45,10 @@ export function unpack (buffer) {
     }
   }
   const r = []
+  r.push(new File([external], 'dfu-external.bin'))
   if (internal.filter((value) => value !== 255).length !== 0) {
     r.push(new File([internal], 'dfu-internal.bin'))
   }
-  r.push(new File([external], 'dfu-external.bin'))
   return r
 }
 
