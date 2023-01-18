@@ -357,7 +357,7 @@
         "internalUnavailable": "Avertissement : Stockage interne indisponible. Cela se produit quand le bootloader est utilisé. Pour supprimer ou mettre à jour ce dernier, veuillez utiliser le mode de restauration.",
         "joinDiscord": "Rejoignez le serveur discord de la communauté Omega",
         "jointhe": "Vous voulez discuter avec les contributeurs d'Upsilon/Omega ou demander de l'aide ?",
-        "lang": "Language",
+        "lang": "langage",
         "languages": {
             "de": "Allemand",
             "en": "Anglais",
