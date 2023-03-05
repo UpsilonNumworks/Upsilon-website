@@ -601,6 +601,7 @@ export default defineComponent({
             this.binaries.push({ address: addresses.internal, uuid: Math.floor(Math.random() * 1000000), file: new File([bin], 'internal.bin') })
           } else if (model === '????' || !this.internalAvailable) {
             const externalBin = await downloadBin(this.slot, 'N0110', this.channel, this.theme, this.lang, this.t)
+            this.patchUsername(externalBin)
             if (this.slot === 'B') {
               this.binaries.push({ address: addresses.b, uuid: Math.floor(Math.random() * 1000000), file: new File([externalBin], 'external.bin') })
             } else {
