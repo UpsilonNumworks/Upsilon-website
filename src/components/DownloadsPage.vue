@@ -21,7 +21,7 @@
               name="Linux"
             />
             <DownloadItem
-              url="beta/simulator/epsilon.apk"
+              url="dev/simulator/epsilon.apk"
               ext=".apk"
               name="Android"
             />
