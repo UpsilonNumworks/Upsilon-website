@@ -52,7 +52,8 @@ export default {
         'cursed_light',
         'omega_freenumworks',
         'kappa_light',
-        'omegachad'
+        'omegachad',
+        'minimalist'
       ]
     }
   }
