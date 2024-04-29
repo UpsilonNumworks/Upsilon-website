@@ -407,7 +407,9 @@
             "cursed_light": "Omega Cursed",
             "epsilon_dark": "Epsilon Dark",
             "epsilon_light": "Epsilon Light",
+            "kappa_light": "Kappa",
             "miami_vice": "Miami Vice",
+            "minimalist": "Minimalist",
             "omega_blink": "Omega Blink",
             "omega_dark": "Omega Dark",
             "omega_dracula": "Omega Dracula",
@@ -416,11 +418,9 @@
             "omega_light": "Omega Light",
             "omega_shrek": "Omega Shrek",
             "omega_trans": "Omega Trans",
-            "upsilon_dark": "Upsilon Dark",
-            "upsilon_light": "Upsilon Light",
-            "kappa_light": "Kappa",
             "omegachad": "Omegachad",
-            "minimalist": "Minimalist"
+            "upsilon_dark": "Upsilon Dark",
+            "upsilon_light": "Upsilon Light"
         },
         "thenselect": "then select your calculator in the peripherals list",
         "title": "Install Upsilon",
