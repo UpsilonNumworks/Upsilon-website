@@ -51,7 +51,8 @@ export default {
         'omega_shrek',
         'cursed_light',
         'omega_freenumworks',
-        'kappa_light'
+        'kappa_light',
+        'omegachad'
       ]
     }
   }
