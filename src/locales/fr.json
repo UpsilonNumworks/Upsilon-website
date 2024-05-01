@@ -405,11 +405,11 @@
           },
           "epsilon_dark": {
             "name": "Epsilon Dark",
-            "url": ""
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/epsilon_dark"
           },
           "epsilon_light": {
             "name": "Epsilon Light",
-            "url": ""
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/epsilon_light"
           },
           "kappa_light": {
             "name": "Kappa",
@@ -429,7 +429,7 @@
           },
           "omega_dark": {
             "name": "Omega Dark",
-            "url": ""
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/omega_dark"
           },
           "omega_dracula": {
             "name": "Omega Dracula",
@@ -445,7 +445,7 @@
           },
           "omega_light": {
             "name": "Omega Light",
-            "url": ""
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/omega_light"
           },
           "omega_shrek": {
             "name": "Omega Shrek",
@@ -465,7 +465,7 @@
           },
           "upsilon_light": {
             "name": "Upsilon Light",
-            "url": ""
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/upsilon_light"
           }
         },
         "thenselect": "puis sélectionner votre calculatrice dans la liste des périphériques",
