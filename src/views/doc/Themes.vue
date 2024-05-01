@@ -109,4 +109,8 @@ h4 {
 .force-break {
   break-after: column;
 }
+
+a::after {
+  display: none;
+}
 </style>
