@@ -49,10 +49,13 @@ export default defineComponent({
     return { t }
   },
   watch: {
-    current: function (newVal, oldVal) {
-      if (oldVal !== newVal) {
-        this.currentElement = this.items.filter((item) => item.id === newVal)[0]
-      }
+    current: {
+      handler: function (newVal, oldVal) {
+        if (oldVal !== newVal) {
+          this.currentElement = this.items.filter((item) => item.id === newVal)[0]
+        }
+      },
+      immediate: true
     }
   },
 
