@@ -290,15 +290,15 @@
         "backingup": "Sauvegarde...",
         "channels": {
             "beta": {
-                "description": "Plus stable que Dev, mis à jour toutes les 1-2 semaines. Utiliser cette version pour pouvoir choisir un thème.",
+                "description": "Recommandée. Plus stable que Dev, souvent mise à jour. Utiliser cette version pour pouvoir choisir un thème.",
                 "title": "Beta"
             },
             "dev": {
-                "description": "Version la plus à jour, mis à jour à chaque changement",
+                "description": "Version la plus à jour, mise à jour à chaque changement",
                 "title": "Dev"
             },
             "master": {
-                "description": "Version officielle d'Upsilon, intégrant les changements validés",
+                "description": "Version officielle d'Upsilon, intégrant les changements validés. Vous ne devriez pas l'utiliser car elle n'est pas à jour et contient des bugs déjà corrigés en beta et en dev",
                 "title": "Officiel"
             }
         },

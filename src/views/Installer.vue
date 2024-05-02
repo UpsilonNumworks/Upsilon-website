@@ -168,7 +168,7 @@ export default defineComponent({
       modelUnknown: false,
       theme: 'upsilon_light',
       lang: 'en',
-      channel: 'official',
+      channel: 'beta',
       slot: 'A',
       slots: ['A', 'B'],
       binaries: [],
@@ -669,7 +669,6 @@ export default defineComponent({
         await this.calculatorRecovery.flashRecovery(flasher)
         console.log('Recovery flashed successfully')
         this.setStatus('recoveryDone')
-        this.channel = 'official' // FIXME we use beta channel as there is no flasher in official
       } catch (error) {
         this.onError(error)
       } finally {

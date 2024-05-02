@@ -290,7 +290,7 @@
         "backingup": "Backing up...",
         "channels": {
             "beta": {
-                "description": "More stable than dev, updated every 1-2 weeks. Use this if you want to select a theme",
+                "description": "Recommended. More stable than dev, often updated. Use this if you want to select a theme",
                 "title": "Beta"
             },
             "custom": {
@@ -302,7 +302,7 @@
                 "title": "Dev"
             },
             "master": {
-                "description": "Official version of Upsilon, integrating the validated changes",
+                "description": "Official version of Upsilon, integrating the validated changes. You should avoid using it because it's outdated and contain bugs already fixed in beta and dev",
                 "title": "Official"
             }
         },
