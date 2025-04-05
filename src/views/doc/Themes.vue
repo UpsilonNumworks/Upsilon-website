@@ -50,7 +50,10 @@ export default {
         'omega_kawaii',
         'omega_shrek',
         'cursed_light',
-        'omega_freenumworks'
+        'omega_freenumworks',
+        'kappa_light',
+        'omegachad',
+        'minimalist'
       ]
     }
   }
