@@ -12,7 +12,7 @@ export async function downloadBin (name, model, channel, theme, lang, t) {
     if (channel === 'beta' || channel === 'official') {
       fwname += '.' + theme
     }
-    if (model.toLowerCase() === 'n0100') {
+    if (model.toLowerCase() === 'n0100' && lang !== 'en') {
       fwname += '.' + lang
     }
     fwname += '.' + name + '.bin'
