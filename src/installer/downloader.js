@@ -9,16 +9,21 @@ export async function downloadBin (name, model, channel, theme, lang, t) {
     fwname = 'bootloader.bin'
   } else {
     fwname += 'epsilon.onboarding'
-    if (name !== 'A' && name !== 'B') {
-      fwname += '.' + name
-    }
     if (channel === 'beta' || channel === 'official') {
       fwname += '.' + theme
+    } else {
+      // On dev N0100, the filename is   dev/n100/epsilon.onboarding.internal.en.bin
+      // On beta N0100, the filename is beta/n100/epsilon.onboarding.ahegao.de.internal.bin
+      // The "internal" is not placed correctly on beta and official
+      fwname += '.' + name
     }
     if (model.toLowerCase() === 'n0100') {
       fwname += '.' + lang
     }
-    fwname += '.' + name + '.bin'
+    if (channel === 'beta' || channel === 'official') {
+      fwname += '.' + name
+    }
+    fwname += '.bin'
   }
 
   const jsonUrl = `${mirror}${channel}%2F${model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
