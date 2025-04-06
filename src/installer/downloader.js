@@ -9,7 +9,7 @@ export async function downloadBin (name, model, channel, theme, lang, t) {
     fwname = 'bootloader.bin'
   } else {
     fwname += 'epsilon.onboarding'
-    if (name !== 'bootloader' || name !== 'A' || name !== 'B') {
+    if (name !== 'A' && name !== 'B') {
       fwname += '.' + name
     }
     if (channel === 'beta' || channel === 'official') {
