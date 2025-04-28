@@ -402,22 +402,82 @@
         "thanks": "Thank you for installing Upsilon! Get ready to Enjoy the superiority of open source ;)",
         "theme": "Theme",
         "themes": {
-            "ahegao": "Ahegao",
-            "arc_dark": "Arc Dark",
-            "cursed_light": "Omega Cursed",
-            "epsilon_dark": "Epsilon Dark",
-            "epsilon_light": "Epsilon Light",
-            "miami_vice": "Miami Vice",
-            "omega_blink": "Omega Blink",
-            "omega_dark": "Omega Dark",
-            "omega_dracula": "Omega Dracula",
-            "omega_freenumworks": "Omega FreeNumworks",
-            "omega_kawaii": "Omega Kawaii",
-            "omega_light": "Omega Light",
-            "omega_shrek": "Omega Shrek",
-            "omega_trans": "Omega Trans",
-            "upsilon_dark": "Upsilon Dark",
-            "upsilon_light": "Upsilon Light"
+          "ahegao": {
+            "name": "Ahegao",
+            "url": "https://github.com/ArtichOwO/WeebThemeOmega"
+          },
+          "arc_dark": {
+            "name": "Arc Dark",
+            "url": "https://github.com/lolocomotive/Omega-Arc-Dark"
+          },
+          "cursed_light": {
+            "name": "Omega Cursed",
+            "url": "https://github.com/Syycorax/Omega-cursed"
+          },
+          "epsilon_dark": {
+            "name": "Epsilon Dark",
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/epsilon_dark"
+          },
+          "epsilon_light": {
+            "name": "Epsilon Light",
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/epsilon_light"
+          },
+          "kappa_light": {
+            "name": "Kappa",
+            "url": "https://github.com/KappaCFW/Kappa-Light-Theme"
+          },
+          "miami_vice": {
+            "name": "Miami Vice",
+            "url": "https://github.com/akhilvanka/Miami-Vice"
+          },
+          "minimalist": {
+            "name": "Minimalist",
+            "url": "https://github.com/Oiha-dev/Minimalist-Theme"
+          },
+          "omega_blink": {
+            "name": "Omega Blink",
+            "url": "https://github.com/virgilecheminot/Omega-Theme-Blink"
+          },
+          "omega_dark": {
+            "name": "Omega Dark",
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/omega_dark"
+          },
+          "omega_dracula": {
+            "name": "Omega Dracula",
+            "url": "https://github.com/Ratakor/Omega-Dracula-Theme"
+          },
+          "omega_freenumworks": {
+            "name": "Omega FreeNumworks",
+            "url": "https://github.com/PierreDiab/Omega-FreeNumworks"
+          },
+          "omega_kawaii": {
+            "name": "Omega Kawaii",
+            "url": "https://github.com/apoleon33/Omega-Kawaii-Theme"
+          },
+          "omega_light": {
+            "name": "Omega Light",
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/omega_light"
+          },
+          "omega_shrek": {
+            "name": "Omega Shrek",
+            "url": "https://github.com/PierreDiab/Omega_Shrek"
+          },
+          "omega_trans": {
+            "name": "Omega Trans",
+            "url": "https://github.com/coco33920/Omega-LGBT"
+          },
+          "omegachad": {
+            "name": "Omegachad",
+            "url": "https://github.com/Ninjdai1/Omega_Gigachad"
+          },
+          "upsilon_dark": {
+            "name": "Upsilon Dark",
+            "url": ""
+          },
+          "upsilon_light": {
+            "name": "Upsilon Light",
+            "url": "https://github.com/UpsilonNumworks/Upsilon/tree/upsilon-dev/themes/themes/local/upsilon_light"
+          }
         },
         "thenselect": "then select your calculator in the peripherals list",
         "title": "Install Upsilon",
