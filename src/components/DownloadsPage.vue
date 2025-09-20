@@ -26,7 +26,7 @@
               name="Android"
             />
             <DownloadItem
-              url="beta/simulator/epsilon.js"
+              url="beta/simulator/epsilon.zip"
               ext=".zip"
               name="Web"
             />
