@@ -1,6 +1,6 @@
 export async function downloadBin (name, model, channel, theme, lang, t) {
   const mirror =
-        'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/'
+        'https://raw.githubusercontent.com/Yaya-Cout/Upsilon-binfiles/refs/heads/main/binaries/'
 
   let fwname = ''
   if (name === 'flasher') {
@@ -11,26 +11,19 @@ export async function downloadBin (name, model, channel, theme, lang, t) {
     fwname += 'epsilon.onboarding'
     if (channel === 'beta' || channel === 'official') {
       fwname += '.' + theme
-    } else {
-      // On dev N0100, the filename is   dev/n100/epsilon.onboarding.internal.en.bin
-      // On beta N0100, the filename is beta/n100/epsilon.onboarding.ahegao.de.internal.bin
-      // The "internal" is not placed correctly on beta and official
-      fwname += '.' + name
     }
     if (model.toLowerCase() === 'n0100') {
       fwname += '.' + lang
     }
-    if (channel === 'beta' || channel === 'official') {
-      fwname += '.' + name
-    }
+    fwname += '.' + name
     fwname += '.bin'
   }
 
-  const jsonUrl = `${mirror}${channel}%2F${model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
+  const jsonUrl = `${mirror}${channel}/${model.toLowerCase() === 'n0100' ? 'n100' : 'n110'
         }%2F${fwname}`
   console.log('Downloading ' + fwname)
-  const binUrl = await getDownloadURL(jsonUrl, t)
-  const shaUrl = await getDownloadURL(jsonUrl + '.sha256', t)
+  const binUrl = jsonUrl
+  const shaUrl = jsonUrl + '.sha256'
 
   const bin = await downloadAsync('GET', binUrl, t, 'blob')
   const checksum = await downloadAsync('GET', shaUrl, t, 'text')
@@ -41,17 +34,7 @@ export async function downloadBin (name, model, channel, theme, lang, t) {
     throw new Error('Failed to verify file integrity')
   }
 }
-export async function getDownloadURL (jsonUrl, t) {
-  return fetch(jsonUrl).then(async (response) => {
-    if (response.status === 404) {
-      const err = new Error()
-      err.message = t('installer.download404')
-      throw err
-    }
-    const json = await response.json()
-    return jsonUrl + '?alt=media&token=' + json.downloadTokens
-  })
-}
+
 export async function downloadAsync (method, url, t, responseType = 'blob') {
   return fetch(url, { method: method }).then(async (response) => {
     if (response.status === 404) {
@@ -66,6 +49,7 @@ export async function downloadAsync (method, url, t, responseType = 'blob') {
     }
   })
 }
+
 export async function hash (blob) {
   const msgUint8 = await blob.arrayBuffer()
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8)
