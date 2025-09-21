@@ -31,22 +31,7 @@ export default {
   },
   methods: {
     update () {
-      fetch(
-        'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/' +
-        this.url.replaceAll('/', '%2F')
-      ).then(async (response) => {
-        if (response.status === 404) {
-          const err = new Error()
-          err.message = this.t('installer.download404')
-          throw err
-        }
-        const json = await response.json()
-        this.fullUrl =
-        'https://firebasestorage.googleapis.com/v0/b/upsilon-binfiles.appspot.com/o/' +
-        this.url.replaceAll('/', '%2F') +
-        '?alt=media&token=' +
-        json.downloadTokens
-      })
+      this.fullUrl = 'https://yaya-cout.github.io/Upsilon-binfiles/binaries/' + this.url
     }
   }
 }

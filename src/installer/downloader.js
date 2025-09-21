@@ -1,6 +1,6 @@
 export async function downloadBin (name, model, channel, theme, lang, t) {
   const mirror =
-        'https://raw.githubusercontent.com/Yaya-Cout/Upsilon-binfiles/refs/heads/main/binaries/'
+        'https://yaya-cout.github.io/Upsilon-binfiles/binaries/'
 
   let fwname = ''
   if (name === 'flasher') {
