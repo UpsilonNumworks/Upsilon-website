@@ -8,13 +8,15 @@
       </p>
       <div id="themes-grid">
         <div class="theme" v-for="theme in themes" :key="theme">
-          <div class="theme-title">
-            {{ t('installer.themes.' + theme) }}
-          </div>
-          <img
-            :src="'../themes/' + theme + '.webp'"
-            :alt="t('installer.themes.' + theme)"
-          />
+          <a :href="t('installer.themes.' + theme + '.url')" target="_blank">
+            <div class="theme-title">
+              {{ t('installer.themes.' + theme + ".name") }}
+            </div>
+            <img
+              :src="'../themes/' + theme + '.webp'"
+              :alt="t('installer.themes.' + theme + '.name')"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -50,7 +52,10 @@ export default {
         'omega_kawaii',
         'omega_shrek',
         'cursed_light',
-        'omega_freenumworks'
+        'omega_freenumworks',
+        'kappa_light',
+        'omegachad',
+        'minimalist'
       ]
     }
   }
@@ -103,5 +108,9 @@ h4 {
 }
 .force-break {
   break-after: column;
+}
+
+a::after {
+  display: none;
 }
 </style>
