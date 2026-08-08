@@ -187,7 +187,8 @@ export default defineComponent({
         'omega_kawaii',
         'omega_shrek',
         'cursed_light',
-        'omega_freenumworks'
+        'omega_freenumworks',
+        'catppuccin_mocha'
       ],
       languages: ['en', 'fr', 'nl', 'pt', 'it', 'de', 'es', 'hu']
     }
